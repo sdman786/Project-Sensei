@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class IssueService {
 
   uri = 'http://localhost:4000';
@@ -43,3 +44,5 @@ export class IssueService {
     return this.http.get(`${this.uri}/issues/delete/${id}`);
   }
 }
+
+
