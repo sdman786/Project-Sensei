@@ -20,7 +20,7 @@ import { EditComponent } from './components/edit/edit.component';
 import { IssueService } from './issue.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MainComponent } from './components/main/main.component';
 
 
 
@@ -29,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     ListComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
