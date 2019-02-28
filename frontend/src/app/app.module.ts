@@ -21,6 +21,7 @@ import { IssueService } from './issue.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './components/main/main.component';
+import { BsDropdownModule, CollapseModule } from 'ngx-bootstrap';
 
 
 
@@ -48,7 +49,9 @@ import { MainComponent } from './components/main/main.component';
     MatDividerModule,
     MatSnackBarModule ,
     ReactiveFormsModule,
-    HttpClientModule ],
+    HttpClientModule,
+    BsDropdownModule.forRoot(),
+    CollapseModule.forRoot() ],
   providers: [IssueService],
   bootstrap: [AppComponent]
 })

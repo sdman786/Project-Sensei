@@ -1,0 +1,21 @@
+
+.logo {
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-family: 'Righteous', cursive;    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    margin: 0px 20px 5px 0px;
+    -webkit-text-stroke: 1px black;
+
+    .project {
+        float: left;
+    }
+    .sensei {
+        float: right;
+    }
+  }
