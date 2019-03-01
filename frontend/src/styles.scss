@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
-@import 'app/app.component.scss';
+
+// App Component
+@import '../src/app/app.component.scss';
+// Main Component
+@import '../src/app/components/main/main.component.scss';
+
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

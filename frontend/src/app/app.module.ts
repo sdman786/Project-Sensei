@@ -22,6 +22,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './components/main/main.component';
 import { BsDropdownModule, CollapseModule } from 'ngx-bootstrap';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -31,7 +34,10 @@ import { BsDropdownModule, CollapseModule } from 'ngx-bootstrap';
     ListComponent,
     CreateComponent,
     EditComponent,
-    MainComponent
+    MainComponent,
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

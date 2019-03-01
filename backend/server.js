@@ -6,7 +6,20 @@ import Issue from './models/Issue';
 
 const app = express();
 const router = express.Router();
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var passport = require('passport');
+var models = require('./models/*');
 
+require('./api/models/db');
+require('./api/config/passport');
+
+app.use(passport.initialize());
+app.use('/api', routesApi);
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -79,3 +92,13 @@ router.route('/issues/delete/:id').get((req, res) => {
 app.use('/', router);
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));
+
+// error handlers
+// Catch unauthorised errors
+app.use(function (err, req, res, next) {
+    if (err.name === 'UnauthorizedError') {
+      res.status(401);
+      res.json({"message" : err.name + ": " + err.message});
+    }
+  });
+  
