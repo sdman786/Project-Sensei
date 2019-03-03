@@ -55,6 +55,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatDividerModule,
     MatSnackBarModule ,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot() ],

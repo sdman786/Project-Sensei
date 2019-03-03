@@ -9,7 +9,7 @@ import { AuthenticationService, TokenPayload } from 'src/app/authentication.serv
 })
 export class RegisterComponent {
   credentials: TokenPayload = {
-    email: '',
+    username: '',
     name: '',
     password: ''
   };

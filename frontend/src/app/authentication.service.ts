@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 export interface UserDetails {
   _id: string;
-  email: string;
+  username: string;
   name: string;
   exp: number;
   iat: number;
@@ -17,7 +17,7 @@ interface TokenResponse {
 }
 
 export interface TokenPayload {
-  email: string;
+  username: string;
   password: string;
   name?: string;
 }
@@ -79,9 +79,9 @@ export class AuthenticationService {
     let base;
 
     if (method === 'post') {
-      base = this.http.post(`/api/${type}`, user);
+      base = this.http.post(`http://localhost:3000/api/${type}`, user);
     } else {
-      base = this.http.get(`/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base = this.http.get(`http://localhost:3000/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
 
     const request = base.pipe(
