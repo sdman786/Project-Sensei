@@ -5,18 +5,18 @@
         </div>
         <div class="navbar-seperator"></div>
         <div class="navbar-item">
-            <a class="navbar-item-text">Item 2</a>
+            <a class="navbar-item-text" routerLink="/register">Register</a>
         </div>
         <div class="navbar-seperator"></div>
         <div class="navbar-item">
-            <a class="navbar-item-text">Item 3</a>
+            <a class="navbar-item-text" *ngIf="!auth.isLoggedIn()" routerLink="/login">Login</a>
         </div>
         
     </div>
-    // TODO Create Logout, Login Links
-    <a *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></a>
+    <!-- // TODO Create Logout, Login Links
+    <a class="navbar-item-text" *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></a>
     <a *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></a>
-    <a *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></a>
+    <a *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></a> -->
     <div class="logo">
             <a class="project">Project</a><a class="sensei">Sensei</a>
     </div>

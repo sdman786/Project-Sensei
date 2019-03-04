@@ -4,15 +4,15 @@
 <form (submit)="register()">
   <div class="form-group">
     <label for="name">Full name</label>
-    <input type="text" class="form-control" name="name" placeholder="Enter your name" [(ngModel)]="credentials.name">
+    <input type="text" class="form-control" name="name" placeholder="Enter your name" [(ngModel)]="user.name">
   </div>
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" name="username" placeholder="Enter Username" [(ngModel)]="credentials.username">
+    <input type="text" class="form-control" name="username" placeholder="Enter Username" [(ngModel)]="user.username">
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password">
+    <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password">
   </div>
   <button type="submit" class="btn btn-default">Register!</button>
 </form>

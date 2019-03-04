@@ -1,0 +1,145 @@
+// IMPORT VARIABLES
+@import "../../../styles/variables";
+
+
+/* Account Login */
+.login-title-label {
+    position: relative;
+    top: 30px;
+    margin: 30px auto;
+    width: 100%;
+    font-family: "Righteous", cursive;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 40px;
+    text-align: center;
+    color: $defaultLightGrey;
+    -webkit-text-stroke: $defaultBorder;
+}
+
+/* Modal */
+
+.login-modal {
+  width: 485px;
+  height: 418px;
+  margin: 50px auto;
+  background: #E5E5E5;
+  border: 2px solid rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+  .login-input-container {
+    position: relative;
+    top: 40px;
+
+    .mat-input-element {
+        height: 50px;
+      
+        .mat-focused .login-label {
+          font-family: $defaultFont;
+          font-style: normal;
+          font-weight: normal;
+          line-height: normal;
+          font-size: 30px;
+          margin: $defaultMargin;
+          color: $defaultLightGrey;
+          letter-spacing: 0.1em;
+          -webkit-text-stroke: $defaultBorder;
+
+          .login-input-icon-username {
+            height: auto;
+            width: auto; 
+        }
+
+        .login-input-icon-username {
+            height: auto;
+            width: auto; 
+        }
+        }
+      }
+
+    /* Username & Password */
+    .login-input-block {
+      width: 90%;
+      margin: 5% 5%;
+
+        .login-label {
+            font-family: $defaultFont;
+            font-style: normal;
+            font-weight: normal;
+            line-height: normal;
+            font-size: 30px;
+            margin: $defaultMargin;
+            color: $defaultLightGrey;
+            letter-spacing: 0.1em;
+            -webkit-text-stroke: $defaultBorder;
+        }
+
+
+        .login-input-field {
+            width: 100%;
+        }
+        .mat-input-element{
+            font-family: $defaultFont;
+            font-style: normal;
+            font-weight: normal;
+            line-height: normal;
+            font-size: 20px;
+            margin: 10px 0 -10px 15px;
+        }
+        .mat-form-field-suffix {
+            font-size: 20px;
+            color: $defaultDarkGrey;
+        }
+        .mat-form-field-underline{
+            background-color: $defaultDarkGrey;
+        }
+    }
+  }
+
+  /* Register Button */
+  .register-button {
+    position: relative;
+    left: 30px;
+    top: 70px;
+    width: 180px;
+    height: 50px;
+    background: rgba(45, 63, 81, 0.75);
+    border: 2px solid rgba(49, 49, 49, 0.6);
+    box-sizing: border-box;
+    border-radius: 20px;
+    font-family: $defaultFont;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 30px;
+    text-align: center;
+    color: #f44336;
+    letter-spacing: 0.1em;
+    -webkit-text-stroke: $defaultBorder;
+  }
+
+  /* Login Button */
+  .login-button {
+    position: relative;
+    left: 80px;
+    top: 70px;
+    width: 180px;
+    height: 50px;
+    background: rgba(45, 63, 81, 0.75);
+    border: 2px solid rgba(49, 49, 49, 0.6);
+    box-sizing: border-box;
+    border-radius: 20px;
+    font-family: $defaultFont;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 30px;
+    text-align: center;
+    color: #28a745;
+    letter-spacing: 0.1em;
+    -webkit-text-stroke: $defaultBorder;
+  }
+}

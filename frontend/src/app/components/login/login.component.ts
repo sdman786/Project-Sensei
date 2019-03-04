@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  credentials: TokenPayload = {
+  user: TokenPayload = {
     username: '',
     password: ''
   };
@@ -16,10 +16,12 @@ export class LoginComponent {
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   login() {
-    this.auth.login(this.credentials).subscribe(() => {
-      this.router.navigateByUrl('/profile');
+    this.auth.login(this.user).subscribe(() => {
+      alert('Login Successful! Welcome ' + this.user.name.toString);
+      this.router.navigateByUrl('/home');
     }, (err) => {
       console.error(err);
+      alert('Login Unsuccessful! Incorrect Username/Password');
     });
   }
 }

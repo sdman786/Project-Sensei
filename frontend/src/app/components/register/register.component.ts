@@ -8,7 +8,7 @@ import { AuthenticationService, TokenPayload } from 'src/app/authentication.serv
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  credentials: TokenPayload = {
+  user: TokenPayload = {
     username: '',
     name: '',
     password: ''
@@ -17,8 +17,8 @@ export class RegisterComponent {
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   register() {
-    this.auth.register(this.credentials).subscribe(() => {
-      this.router.navigateByUrl('/profile');
+    this.auth.register(this.user).subscribe(() => {
+      this.router.navigateByUrl('/home');
     }, (err) => {
       console.error(err);
     });
