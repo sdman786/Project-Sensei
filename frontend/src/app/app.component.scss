@@ -32,24 +32,25 @@
             flex-grow: 1;
 
             .navbar-item-text {
-                font-size: calc(width / 10em);
+                font-size: 2em;
                 color: $defaultWhite;
+                text-decoration: none;
             }
         }
 
         .navbar-item:hover {
             cursor: pointer;
             .navbar-item-text {
-                color: $defaultRed;
+                color: $defaultLightBlue;
             }
         }
         
         .navbar-item:active ::after {
             cursor: pointer;
-            border-bottom: 5px solid $defaultRed;
+            border-bottom: 5px solid $defaultLightBlue;
             transform: translateX(20%);
             .navbar-item-text {
-                color: $defaultRed;
+                color: $defaultLightBlue;
             }
         }
         
@@ -60,7 +61,7 @@
             margin: 2px;
         }
     }
-
+    /* LOGO */
     .logo {
         position: fixed;
         top: 0;
@@ -73,14 +74,13 @@
         text-align: center;
         letter-spacing: 0.1em;
         margin: 10px 20px 5px 0px;
-        -webkit-text-stroke: 1px $defaultBlack;
     
         .project {
             color: $defaultWhite;
             float: left;
         }
         .sensei {
-            color: $defaultRed;
+            color: $defaultLightBlue;
             float: right;
         }
     }

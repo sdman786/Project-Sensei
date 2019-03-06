@@ -14,8 +14,8 @@
     line-height: normal;
     font-size: 40px;
     text-align: center;
-    color: $defaultLightGrey;
-    -webkit-text-stroke: $defaultBorder;
+    color: rgb(255,255,255);
+    text-shadow: 2px 2px 5px black;
 }
 
 /* Modal */
@@ -25,14 +25,13 @@
   height: 418px;
   margin: 50px auto;
   background: #E5E5E5;
-  border: 2px solid rgba(0, 0, 0, 0.75);
   box-sizing: border-box;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
 
   .login-input-container {
     position: relative;
-    top: 40px;
+    top: 20px;
 
     .mat-input-element {
         height: 50px;
@@ -46,35 +45,24 @@
           margin: $defaultMargin;
           color: $defaultLightGrey;
           letter-spacing: 0.1em;
-          -webkit-text-stroke: $defaultBorder;
-
-          .login-input-icon-username {
-            height: auto;
-            width: auto; 
-        }
-
-        .login-input-icon-username {
-            height: auto;
-            width: auto; 
-        }
+          background: $defaultDarkGrey;
         }
       }
 
     /* Username & Password */
     .login-input-block {
-      width: 90%;
-      margin: 5% 5%;
+      width: 70%;
+      margin: 5% 15%;
 
         .login-label {
-            font-family: $defaultFont;
-            font-style: normal;
-            font-weight: normal;
-            line-height: normal;
-            font-size: 30px;
-            margin: $defaultMargin;
-            color: $defaultLightGrey;
-            letter-spacing: 0.1em;
-            -webkit-text-stroke: $defaultBorder;
+          font-family: "Righteous", cursive;
+          font-style: normal;
+          font-weight: normal;
+          line-height: normal;
+          font-size: 25px;
+          margin: $defaultMargin;
+          color: $defaultDarkGrey;
+          letter-spacing: 0.1em;
         }
 
 
@@ -95,51 +83,54 @@
         }
         .mat-form-field-underline{
             background-color: $defaultDarkGrey;
+            &::after{
+              background-color: $defaultDarkGrey;
+            }
         }
     }
   }
-
-  /* Register Button */
-  .register-button {
-    position: relative;
-    left: 30px;
-    top: 70px;
-    width: 180px;
-    height: 50px;
-    background: rgba(45, 63, 81, 0.75);
-    border: 2px solid rgba(49, 49, 49, 0.6);
-    box-sizing: border-box;
-    border-radius: 20px;
-    font-family: $defaultFont;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: 30px;
-    text-align: center;
-    color: #f44336;
-    letter-spacing: 0.1em;
-    -webkit-text-stroke: $defaultBorder;
-  }
-
+  
   /* Login Button */
   .login-button {
     position: relative;
-    left: 80px;
-    top: 70px;
-    width: 180px;
-    height: 50px;
-    background: rgba(45, 63, 81, 0.75);
-    border: 2px solid rgba(49, 49, 49, 0.6);
-    box-sizing: border-box;
-    border-radius: 20px;
-    font-family: $defaultFont;
+    left: 145px;    
+    top: 35px;    
+    width: 170px;    
+    height: 50px;    
+    background: #516374;    
+    box-sizing: border-box;    
+    border-radius: 20px;    
+    font-family: "righteous", cursive;    
+    font-style: normal;    
+    line-height: normal;    
+    font-size: 25px;    
+    text-align: center;    
+    color: #fff;    
+    letter-spacing: 0.1em;    
+    box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.25);
+  }
+  /* Register Text & Button */
+  .login-register-text{
+    position: relative;
+    top: 94px;
+    left: -35px;
+    font-size: 13px;
+  }
+
+  .register-button {
+    position: relative;
+    left: -26px;
+    top: 95px;
+    width: 115px;
+    height: 35px;
+    font-family: "Righteous", cursive;
     font-style: normal;
     font-weight: normal;
-    line-height: normal;
-    font-size: 30px;
+    line-height: unset;
+    font-size: 15px;
     text-align: center;
-    color: #28a745;
+    color: #3d9eb3;
     letter-spacing: 0.1em;
-    -webkit-text-stroke: $defaultBorder;
   }
+
 }
