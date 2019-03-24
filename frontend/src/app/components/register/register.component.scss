@@ -1,0 +1,138 @@
+// IMPORT VARIABLES
+@import "../../../styles/variables";
+
+
+/* Account Login */
+.register-title-label {
+    position: relative;
+    top: 30px;
+    margin: 30px auto;
+    width: 100%;
+    font-family: "Righteous", cursive;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 40px;
+    text-align: center;
+    color: rgb(255,255,255);
+    text-shadow: 2px 2px 5px black;
+}
+
+/* Modal */
+
+.register-modal {
+  width: 90%;
+  height: 420px;
+  margin: 50px auto;
+  background: #E5E5E5;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+  .register-input-container {
+    position: relative;
+    top: 20px;
+
+    .mat-input-element {
+        height: 50px;
+      
+        .mat-focused .register-label {
+          font-family: $defaultFont;
+          font-style: normal;
+          font-weight: normal;
+          line-height: normal;
+          font-size: 30px;
+          margin: $defaultMargin;
+          color: $defaultLightGrey;
+          letter-spacing: 0.1em;
+          background: $defaultDarkGrey;
+        }
+      }
+
+    /* Username & Password */
+    .register-input-block {
+        width: 40%;
+        margin: 4.5% 3% 3% 5.5%;
+
+        .register-label {
+          font-family: "Righteous", cursive;
+          font-style: normal;
+          font-weight: normal;
+          line-height: normal;
+          font-size: 25px;
+          margin: $defaultMargin;
+          color: $defaultDarkGrey;
+          letter-spacing: 0.1em;
+        }
+
+
+        .register-input-field {
+            width: 100%;
+        }
+        .mat-input-element{
+            font-family: $defaultFont;
+            font-style: normal;
+            font-weight: normal;
+            line-height: normal;
+            font-size: 20px;
+            margin: 10px 0 -10px 15px;
+        }
+        .mat-form-field-suffix {
+            font-size: 20px;
+            color: $defaultDarkGrey;
+        }
+        .mat-form-field-underline{
+            background-color: $defaultDarkGrey;
+            &::after{
+              background-color: $defaultDarkGrey;
+            }
+        }
+    }
+  }
+  
+  .register-input-submit {
+
+    /* Submit Button */
+    .submit-button {
+      position: relative;
+      left: 225px;    
+      top: 35px;    
+      width: 170px;    
+      height: 50px;    
+      background: #516374;    
+      box-sizing: border-box;    
+      border-radius: 20px;    
+      font-family: "righteous", cursive;    
+      font-style: normal;    
+      line-height: normal;    
+      font-size: 25px;    
+      text-align: center;    
+      color: #fff;    
+      letter-spacing: 0.1em;    
+      box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.25);
+    }
+    /* Register Text & Button */
+    .register-login-text{
+      position: relative;
+      top: 94px;
+      left: 50px;
+      font-size: 13px;
+    }
+
+    .login-button {
+      position: relative;
+      left: 60px;
+      top: 95px;
+      width: 115px;
+      height: 35px;
+      font-family: "Righteous", cursive;
+      font-style: normal;
+      font-weight: normal;
+      line-height: unset;
+      font-size: 15px;
+      text-align: center;
+      color: #3d9eb3;
+      letter-spacing: 0.1em;
+    }
+  }
+}

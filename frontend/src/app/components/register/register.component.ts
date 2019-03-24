@@ -7,6 +7,7 @@ import { AuthenticationService, TokenPayload } from 'src/app/authentication.serv
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent {
   user: TokenPayload = {
     username: '',
