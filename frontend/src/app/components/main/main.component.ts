@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatCardModule } from '@angular/material';
 
 @Component({
   selector: 'app-main',
@@ -9,12 +9,14 @@ import { MatDialog } from '@angular/material';
 
 export class MainComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+   stage$: number;
+
+  constructor(public dialog: MatDialog, card: MatCardModule) { }
 
   ngOnInit() {
   }
   openDialog() {
-    const dialogRef = this.dialog.open(CourseContentOverview);
+    const dialogRef = this.dialog.open(SessionOne);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -23,7 +25,8 @@ export class MainComponent implements OnInit {
 }
 
 @Component({
-  selector: 'course-content-overview',
-  templateUrl: './course-content-overview.html',
+  selector: 'session-one',
+  templateUrl: './session-one.html',
 })
-export class CourseContentOverview {}
+
+export class SessionOne {}

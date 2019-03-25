@@ -5,7 +5,8 @@ import { MatToolbarModule,
   MatInputModule,
   MatIconModule,
   MatDividerModule,
-  MatDialogModule
+  MatDialogModule,
+  MatCardModule
   } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IssueService } from './issue.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MainComponent, CourseContentOverview } from './components/main/main.component';
+import { MainComponent, SessionOne } from './components/main/main.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -23,11 +24,11 @@ import { ProfileComponent } from './components/profile/profile.component';
 @NgModule({
     entryComponents: [
       MainComponent,
-      CourseContentOverview],
+      SessionOne],
   declarations: [
     AppComponent,
     MainComponent,
-    CourseContentOverview,
+    SessionOne,
     RegisterComponent,
     LoginComponent,
     ProfileComponent
@@ -42,6 +43,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatIconModule,
     MatDialogModule,
     MatDividerModule,
+    MatCardModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule ],
