@@ -4,13 +4,15 @@ import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { SessionOneComponent } from './components/main/session-one/session-one.component';
 
 const routes: Routes = [
   { path: 'home', component: MainComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'session-one', component: SessionOneComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
 ];
 

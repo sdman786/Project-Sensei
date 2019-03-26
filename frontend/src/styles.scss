@@ -16,4 +16,5 @@
 
 
 html, body { height: 100%; }
-body { margin: 0; font-family: $defaultFont; background: $defaultBackground }
+body { margin: 0; font-family: $defaultFont; background: $defaultBackground; background-repeat: no-repeat;
+    background-attachment: fixed;}

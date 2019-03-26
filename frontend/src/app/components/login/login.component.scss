@@ -21,7 +21,7 @@
 /* Modal */
 
 .login-modal {
-  width: 60%;
+  width: 500px;
   height: 418px;
   margin: 50px auto;
   background: #E5E5E5;
@@ -90,13 +90,13 @@
     }
   }
   .login-input-submit {
-      
+    text-align: center;
+    position: relative;
+    top: 20px;
+    left: 90px;
 
     /* Submit Button */
     .submit-button {
-      position: relative;
-      left: 145px;    
-      top: 35px;    
       width: 170px;    
       height: 50px;    
       background: #516374;    

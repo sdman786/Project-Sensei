@@ -11,27 +11,28 @@ import { MatToolbarModule,
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IssueService } from './issue.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent, SessionOne } from './components/main/main.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SessionOneComponent } from './components/main/session-one/session-one.component';
 
 
 
 @NgModule({
     entryComponents: [
       MainComponent,
-      SessionOne],
+    SessionOne],
   declarations: [
     AppComponent,
     MainComponent,
     SessionOne,
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    SessionOneComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,6 @@ import { ProfileComponent } from './components/profile/profile.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule ],
-  providers: [IssueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
