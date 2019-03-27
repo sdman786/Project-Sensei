@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class QuizService {
-  baseUrl:string = "http://localhost:4200";
+  baseUrl:string = "http://localhost:3000";
   constructor(private http: HttpClient) { }
 
   get(url: string) {
@@ -20,6 +20,6 @@ export class QuizService {
   }
 
   get_AgileQuiz() {
-    return this.http.get(this.baseUrl + '/data/agile.json');
+    return this.http.get(this.baseUrl + '/agile');
   }
 }

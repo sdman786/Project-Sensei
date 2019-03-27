@@ -1,4 +1,4 @@
-<div class="navbar-body">
+<nav class="navbar-expand-sm navbar-body fixed-top">
     <div class="navbar-frame">
         <div class="navbar-item">
             <a class="navbar-item-text" routerLink="/">Home</a>
@@ -17,8 +17,9 @@
     <a class="navbar-item-text" *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></a>
     <a *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></a>
     <a *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></a> -->
-    <div class="logo">
+    <div class="logo" routerLink="/">
             <a class="project">Project</a><a class="sensei">Sensei</a>
     </div>
-</div>
+</nav>
+<br><br><br><br><br>
 <router-outlet></router-outlet>
