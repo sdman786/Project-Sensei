@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Quiz, QuizConfig, Question, Option } from 'src/app/models/quiz';
 import { QuizService } from 'src/app/services/quiz.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -9,8 +10,6 @@ import { QuizService } from 'src/app/services/quiz.service';
 })
 export class QuizComponent implements OnInit {
 
-  stage$: number;
-  //  quizes: any[];
    quiz$: Quiz;
    mode = 'quiz';
    quizName: string;
@@ -20,7 +19,7 @@ export class QuizComponent implements OnInit {
      autoMove: false,  // if true, it will move to next question automatically when answered.
      duration: 10,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
      pageSize: 1,
-     requiredAll: false,  // indicates if you must answer all the questions before submitting.
+     requiredAll: true,  // indicates if you must answer all the questions before submitting.
      richText: false,
      shuffleQuestions: false,
      shuffleOptions: false,
@@ -29,22 +28,27 @@ export class QuizComponent implements OnInit {
      theme: 'none'
    };
 
+   public mcqName = '';
+
    pager = {
      index: 0,
      size: 1,
      count: 1
    };
+
    timer: any = null;
    startTime: Date;
    endTime: Date;
    ellapsedTime = '00:00';
    duration = '';
 
-
-  constructor( private quizService: QuizService ) { }
+  constructor(private quizService: QuizService) { }
 
   ngOnInit() {
-    this.quizService.get_AgileQuiz().subscribe(res => {
+
+    this.mcqName = window.history.state.mcqName;
+
+    this.quizService.get_MCQ(this.mcqName).subscribe(res => {
       this.quiz$ = new Quiz(res[0]);
       this.pager.count = this.quiz$.questions.length;
       this.startTime = new Date();

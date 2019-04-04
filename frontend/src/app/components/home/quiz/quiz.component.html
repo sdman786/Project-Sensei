@@ -7,7 +7,7 @@
     </mat-card-header>
     <mat-card-content>
       <div id="quiz">
-        <h2 class="text-center font-weight-normal">{{quiz$.name}}</h2>
+        <h2 class="text-center font-weight-normal">QUIZ: {{ mcqName }}</h2>
         <hr />
         <div *ngIf="mode=='quiz' && quiz$">
           <div *ngFor="let question of filteredQuestions;">
