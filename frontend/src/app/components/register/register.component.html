@@ -1,6 +1,7 @@
 <form (submit)="register()">
-  <label class="register-title-label">Account Registration</label>
-  <div class="register-modal">
+  <label class="title-label">Account Registration</label>
+  <div class="container-fluid">
+  <div class="col-11 col-lg-10 col-md-10 col-sm-10 center custom-modal">
     <div class="register-input-container">
         <mat-form-field class="register-input-block">
             <input matInput class="register-input-field" type="text" name="name" [(ngModel)]="user.name">
@@ -30,4 +31,5 @@
       <a class="login-button" routerLink="/login">Sign In</a>
     </div>
   </div>
+</div>
 </form>

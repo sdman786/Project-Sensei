@@ -17,4 +17,39 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: $defaultFont; background: $defaultBackground; background-repeat: no-repeat;
-    background-attachment: fixed;}
+    background-attachment: fixed; padding-top: 100px; padding-bottom: 50px; }
+
+
+// GLOBAL STYLES
+
+.title-label {
+    position: relative;
+    margin: 30px auto;
+    width: 100%;
+    font-family: "Righteous", cursive;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 40px;
+    text-align: center;
+    color: rgb(255,255,255);
+    text-shadow: 2px 2px 5px black;
+}
+
+/* Modal */
+
+.custom-modal {
+    width: auto;
+    height: 420px;
+    margin: 0 auto;
+    background: #E5E5E5;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}  
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}

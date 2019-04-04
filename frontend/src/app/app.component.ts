@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +9,28 @@ import { AuthenticationService } from './services/authentication.service';
   styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent {
+  showSidebar: boolean;
+  hideSidebar = ['/register', '/login'];
 
-  constructor(public auth: AuthenticationService) {}
-  @Input()
-routerLinkActiveOptions: {
-    exact: boolean;
-}
+  constructor(public auth: AuthenticationService, public router: Router) {}
 
-@Input()
-routerLinkActive: string | string[];
-isActive : boolean = !this.isActive;
+  @Input() routerLinkActiveOptions: { exact: boolean; };
+  
+  activateSidebar(){
+    this.router.events
+    .pipe(
+      filter(e => e instanceof NavigationEnd)
+    )
+    .subscribe( (navEnd: NavigationEnd) => {
+      console.log(navEnd.urlAfterRedirects);
+      this.hideSidebar.forEach(element => {
+        if (navEnd.urlAfterRedirects === element) {
+          this.showSidebar = false;
+        } else {
+          this.showSidebar = true;
+        }
+      });
+    });
+  }
+
 }
