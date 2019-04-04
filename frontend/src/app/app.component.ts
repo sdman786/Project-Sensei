@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
 
 @Component({
@@ -9,6 +9,12 @@ import { AuthenticationService } from './services/authentication.service';
 export class AppComponent {
 
   constructor(public auth: AuthenticationService) {}
-  
-  title = 'frontend';
+  @Input()
+routerLinkActiveOptions: {
+    exact: boolean;
+}
+
+@Input()
+routerLinkActive: string | string[];
+isActive : boolean = !this.isActive;
 }
