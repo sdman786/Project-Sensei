@@ -11,6 +11,7 @@ import { MatToolbarModule,
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CollapseModule,BsDropdownModule } from 'ngx-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent  } from './components/home/home.component';
@@ -21,6 +22,7 @@ import { QuizComponent } from './components/home/quiz/quiz.component';
 import { SessionOneComponent } from './components/home/session-one/session-one.component';
 import { SessionTwoComponent } from './components/home/session-two/session-two.component';
 import { SessionThreeComponent } from './components/home/session-three/session-three.component';
+import { CaseStudyComponent } from './components/case-study/case-study.component';
 
 
 
@@ -36,12 +38,15 @@ import { SessionThreeComponent } from './components/home/session-three/session-t
     QuizComponent,
     SessionOneComponent,
     SessionTwoComponent,
-    SessionThreeComponent
+    SessionThreeComponent,
+    CaseStudyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    CollapseModule.forRoot(),
+    BsDropdownModule.forRoot(),
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,

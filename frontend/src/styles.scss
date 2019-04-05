@@ -17,20 +17,20 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: $defaultFont; background: $defaultBackground; background-repeat: no-repeat;
-    background-attachment: fixed; padding-top: 100px; padding-bottom: 50px; }
+    background-attachment: fixed; padding-top: 50px; padding-bottom: 50px; }
 
 
 // GLOBAL STYLES
 
 .title-label {
     position: relative;
-    margin: 30px auto;
     width: 100%;
+    margin: 10px;
     font-family: "Righteous", cursive;
     font-style: normal;
     font-weight: normal;
     line-height: normal;
-    font-size: 40px;
+    font-size: 3em;
     text-align: center;
     color: rgb(255,255,255);
     text-shadow: 2px 2px 5px black;
@@ -46,6 +46,7 @@ body { margin: 0; font-family: $defaultFont; background: $defaultBackground; bac
     box-sizing: border-box;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
+    max-width: 500px;
 }  
 
 .center {

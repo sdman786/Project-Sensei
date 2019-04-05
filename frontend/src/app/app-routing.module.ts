@@ -9,6 +9,7 @@ import { QuizComponent } from './components/home/quiz/quiz.component';
 import { SessionOneComponent } from './components/home/session-one/session-one.component';
 import { SessionTwoComponent } from './components/home/session-two/session-two.component';
 import { SessionThreeComponent } from './components/home/session-three/session-three.component';
+import { CaseStudyComponent } from './components/case-study/case-study.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'session-one', component: SessionOneComponent },
   { path: 'session-two', component: SessionTwoComponent },
   { path: 'session-three', component: SessionThreeComponent },
+  { path: 'case-study', component: CaseStudyComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
 ];
 

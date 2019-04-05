@@ -1,52 +1,135 @@
-<nav class="fixed-top navbar navbar-dark navbar-expand-sm">
- <div class="container-fluid">
+<!-- <nav class="fixed-top navbar navbar-dark navbar-expand-sm"> -->
+  <!-- <div class="container-fluid"> -->
 
-    <!-- COLLAPSE MENU BAR -->
+    <!-- COLLAPSE MENU BAR
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbar-list-2">
-
-    <ul class="h2 navbar-nav">
-        <li class="nav-item active m-4">
-        <a class="nav-link" routerLink="/home" routerLinkActive="text-primary" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <div class="collapse navbar-collapse" id="navbar-list-2"> -->
+    <!-- <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse" [collapse]="isCollapsed">
+      <ul class="h2 navbar-nav">
+        <li class="nav-item routerLinkActive routerLinkActive">
+          <a class="nav-link" routerLink="/home" routerLinkActive="text-primary"
+            [routerLinkActiveOptions]="{exact: true}">Home</a>
         </li>
-        <li class="nav-item active m-4">
-          <a class="nav-link" routerLink="/session-one" routerLinkActive="text-primary">Session One</a>
+        <li class="nav-item routerLinkActive routerLinkActive">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Sessions
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <a class="dropdown-item" routerLink="/session-one" routerLinkActive="text-primary">Session One</a>
+              <a class="dropdown-item" routerLink="/session-two" routerLinkActive="text-primary">Session Two</a>
+              <a class="dropdown-item" routerLink="/session-three" routerLinkActive="text-primary">Session Three</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/case-study" routerLinkActive="text-primary">Case Study</a>
+            </div>
+          </div>
         </li>
-        <li class="nav-item active m-4">
-          <a class="nav-link" routerLink="/session-two" routerLinkActive="text-primary">Session Two</a>
+        <li class="nav-item routerLinkActive routerLinkActive">
+          <a class="nav-link" routerLink="/register" routerLinkActive="text-primary">Register</a>
         </li>
-        <li class="nav-item active m-4">
-          <a class="nav-link" routerLink="/session-three" routerLinkActive="text-primary">Session Three</a>
+        <li class="nav-item routerLinkActive outerLinkActive">
+          <a class="nav-link" *ngIf="!auth.isLoggedIn()" routerLink="/login" routerLinkActive="text-primary">Login</a>
         </li>
-        <li class="nav-item active m-4">
-        <a class="nav-link" routerLink="/register" routerLinkActive="text-primary">Register</a>
-        </li>
-        <li class="nav-item m-4">
-        <a class="nav-link" *ngIf="!auth.isLoggedIn()" routerLink="/login" routerLinkActive="text-primary">Login</a>
-        </li>
-    </ul>
-    </div>
+      </ul>
+    </div> -->
 
     <!-- // TODO Create Logout, Login Links
     <a class="navbar-item-text" *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></a>
     <a *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></a>
     <a *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></a> -->
 
-    <div class="navbar-brand" routerLink="/">
-            <span class="project h1">Project</span><span class="sensei h1 text-primary">Sensei</span>
+    <!-- <div class="navbar-brand" routerLink="/">
+      <span class="project h1">Project</span><span class="sensei h1 text-primary">Sensei</span>
     </div>
+  </div> -->
+
+    <!--  Navigation  -->
+    <!-- <nav class="fixed-top navbar navbar-dark navbar-expand-sm navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" style="float:left; margin-left: 20px" type="button" data-toggle="collapse" data-target=".navbar-ex2-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex2-collapse">
+          <ul class="nav navbar-nav">
+            <li><a class="nav-link" routerLink="/home" routerLinkActive="text-primary"
+              [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+            <li><a class="nav-link" routerLink="/register" routerLinkActive="text-primary">Register</a></li>
+            <li><a class="nav-link" *ngIf="!auth.isLoggedIn()" routerLink="/login" routerLinkActive="text-primary">Login</a></li>
+          </ul>
+          
+        </div>
+        <div class="navbar-brand" style="float:right" routerLink="/">
+            <span class="project h3">Project</span><span class="sensei h3 text-primary">Sensei</span>
+          </div>
+      </div>
+    </nav> -->
+<!-- </nav> -->
+
+
+<!-- GABORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR -->
+<nav class="fixed-top navbar navbar-dark navbar-expand-sm">
+  <div class="container-fluid">
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" aria-expanded="false">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- <a class="navbar-brand d-flex mx-auto navbar-title" href="#">
+    <span class="project h3">Project</span><span class="sensei h3 text-primary">Sensei</span>
+  </a> -->
+
+  <div class="collapse navbar-collapse" [collapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item routerLinkActive  active" >
+        <a class="nav-link" routerLink="/home" routerLinkActive="text-primary" [routerLinkActiveOptions]="{exact: true}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item routerLinkActive active " *ngIf="!auth.isLoggedIn()"
+        >
+        <a class="nav-link" routerLink="/login" routerLinkActive="text-primary">Login</a>
+      </li>
+      <li class="nav-item routerLinkActive active" *ngIf="!auth.isLoggedIn()" >
+        <a class="nav-link" routerLink="/register" routerLinkActive="text-primary">Register</a>
+      </li>
+      <li class="nav-item routerLinkActive active dropdown" dropdown>
+        <a class="nav-link dropdown-toggle" dropdownToggle href="javascript:void(0);" role="button">Session</a>
+        <div class="dropdown-menu bg-light active" *dropdownMenu aria-labelledby="navbarDropdown">
+          <a class="dropdown-item  h4" routerLink="/session-one" routerLinkActive="text-primary">Session One</a>
+          <a class="dropdown-item  h4" routerLink="/session-two" routerLinkActive="text-primary">Session Two</a>
+          <a class="dropdown-item  h4" routerLink="/session-three" routerLinkActive="text-primary">Session Three</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item  h4" routerLink="/case-study" routerLinkActive="text-primary">Case Study</a>
+        </div>
+      </li>
+      <li class="nav-item routerLinkActive d-flex align-items-center routerLinkActive" *ngIf="auth.isLoggedIn()" routerLinkActive="text-primary">
+        <button class="btn btn-primary btn-sm" (click)="auth.logout()">Log Out</button>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-brand" routerLink="/">
+    <span class="project">Project</span><span class="sensei">Sensei</span>
+  </div>
 </div>
 </nav>
-
+<!-- GABORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR -->
 <div class="container-fluid">
-        <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
 <div class="col-sm-4 col-md-4" #sidebar>
-    <h1>SIDEBARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR</h1>
+  <h1>SIDEBARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR</h1>
 </div>
 
 <footer>
-    <h1>FOOOOOOOOOOOOOOOOOOOTTTTTTTTTEEEEEEEEEEERRRRRRRRRRRRR</h1>
+  <h1>FOOOOOOOOOOOOOOOOOOOTTTTTTTTTEEEEEEEEEEERRRRRRRRRRRRR</h1>
 </footer>

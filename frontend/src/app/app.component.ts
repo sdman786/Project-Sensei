@@ -15,6 +15,8 @@ export class AppComponent {
   constructor(public auth: AuthenticationService, public router: Router) {}
 
   @Input() routerLinkActiveOptions: { exact: boolean; };
+
+  isCollapsed = true;
   
   activateSidebar(){
     this.router.events
