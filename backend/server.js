@@ -1,81 +1,104 @@
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import Issue from './models/Issue';
+// import express from 'express';
+// import cors from 'cors';
+// import bodyParser from 'body-parser';
+// import mongoose from 'mongoose';
+// //import Issue from './models/Issue';
 
-const app = express();
-const router = express.Router();
+// const app = express();
+// const router = express.Router();
+// var express = require('express');
+// //var path = require('path');
+// //var favicon = require('serve-favicon');
+// //var logger = require('morgan');
+// //var cookieParser = require('cookie-parser');
+// var bodyParser = require('body-parser');
+// var passport = require('passport');
+// //var models = require('./models/*');
 
-app.use(cors());
-app.use(bodyParser.json());
+// require('./api/models/db');
+// require('./api/config/passport');
 
-mongoose.connect('mongodb://localhost:27017/issues', { useNewUrlParser: true });
+// app.use(passport.initialize());
+// app.use('/api', routesApi);
+// app.use(cors());
+// app.use(bodyParser.json());
 
-const connection = mongoose.connection;
+// mongoose.connect('mongodb://localhost:27017/issues', { useNewUrlParser: true });
 
-connection.once('open', () => {
-    console.log('MongoDB database connection established successfully!');
-});
+// const connection = mongoose.connection;
 
-router.route('/issues').get((req, res) => {
-    Issue.find((err, issues) => {
-        if (err)
-            console.log(err);
-        else
-            res.json(issues);
-    });
-});
+// connection.once('open', () => {
+//     console.log('MongoDB database connection established successfully!');
+// });
 
-router.route('/issues/:id').get((req, res) => {
-    Issue.findById(req.params.id, (err, issue) => {
-        if (err)
-            console.log(err);
-        else
-            res.json(issue);
-    })
-});
+// // router.route('/issues').get((req, res) => {
+// //     Issue.find((err, issues) => {
+// //         if (err)
+// //             console.log(err);
+// //         else
+// //             res.json(issues);
+// //     });
+// // });
 
-router.route('/issues/add').post((req, res) => {
-    let issue = new Issue(req.body);
-    issue.save()
-        .then(issue => {
-            res.status(200).json({'issue': 'Added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('Failed to create new record');
-        });
-});
+// // router.route('/issues/:id').get((req, res) => {
+// //     Issue.findById(req.params.id, (err, issue) => {
+// //         if (err)
+// //             console.log(err);
+// //         else
+// //             res.json(issue);
+// //     })
+// // });
 
-router.route('/issues/update/:id').post((req, res) => {
-    Issue.findById(req.params.id, (err, issue) => {
-        if (!issue)
-            return next(new Error('Could not load Document'));
-        else {
-            issue.title = req.body.title;
-            issue.responsible = req.body.responsible;
-            issue.description = req.body.description;
-            issue.severity = req.body.severity;
-            issue.status = req.body.status;
+// // router.route('/issues/add').post((req, res) => {
+// //     let issue = new Issue(req.body);
+// //     issue.save()
+// //         .then(issue => {
+// //             res.status(200).json({'issue': 'Added successfully'});
+// //         })
+// //         .catch(err => {
+// //             res.status(400).send('Failed to create new record');
+// //         });
+// // });
 
-            issue.save().then(issue => {
-                res.json('Update done');
-            }).catch(err => {
-                res.status(400).send('Update failed');
-            });
-        }
-    });
-});
+// // router.route('/issues/update/:id').post((req, res) => {
+// //     Issue.findById(req.params.id, (err, issue) => {
+// //         if (!issue)
+// //             return next(new Error('Could not load Document'));
+// //         else {
+// //             issue.title = req.body.title;
+// //             issue.responsible = req.body.responsible;
+// //             issue.description = req.body.description;
+// //             issue.severity = req.body.severity;
+// //             issue.status = req.body.status;
 
-router.route('/issues/delete/:id').get((req, res) => {
-    Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
-        if (err)
-            res.json(err);
-        else
-            res.json('Removed successfully');
-    });
-});
+// //             issue.save().then(issue => {
+// //                 res.json('Update done');
+// //             }).catch(err => {
+// //                 res.status(400).send('Update failed');
+// //             });
+// //         }
+// //     });
+// // });
 
-app.use('/', router);
+// // router.route('/issues/delete/:id').get((req, res) => {
+// //     Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
+// //         if (err)
+// //             res.json(err);
+// //         else
+// //             res.json('Removed successfully');
+// //     });
+// // });
 
-app.listen(4000, () => console.log(`Express server running on port 4000`));
+// app.use('/', router);
+
+// app.listen(4000, () => console.log(`Express server running on port 4000`));
+
+// // error handlers
+// // Catch unauthorised errors
+// app.use(function (err, req, res, next) {
+//     if (err.name === 'UnauthorizedError') {
+//       res.status(401);
+//       res.json({"message" : err.name + ": " + err.message});
+//     }
+//   });
+  
