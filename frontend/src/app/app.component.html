@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" [collapse]="isCollapsed">
       <ul class="h2 navbar-nav">
         <li class="nav-item routerLinkActive routerLinkActive">
-          <a class="nav-link" routerLink="/home" routerLinkActive="text-primary"
+          <a class="nav-link mr-3" routerLink="/home" routerLinkActive="text-primary"
             [routerLinkActiveOptions]="{exact: true}">Home</a>
         </li>
         <li class="nav-item routerLinkActive routerLinkActive">
@@ -34,10 +34,10 @@
           </div>
         </li>
         <li class="nav-item routerLinkActive routerLinkActive">
-          <a class="nav-link" routerLink="/register" routerLinkActive="text-primary">Register</a>
+          <a class="nav-link mr-3" routerLink="/register" routerLinkActive="text-primary">Register</a>
         </li>
         <li class="nav-item routerLinkActive outerLinkActive">
-          <a class="nav-link" *ngIf="!auth.isLoggedIn()" routerLink="/login" routerLinkActive="text-primary">Login</a>
+          <a class="nav-link mr-3" *ngIf="!auth.isLoggedIn()" routerLink="/login" routerLinkActive="text-primary">Login</a>
         </li>
       </ul>
     </div> -->
@@ -65,10 +65,10 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex2-collapse">
           <ul class="nav navbar-nav">
-            <li><a class="nav-link" routerLink="/home" routerLinkActive="text-primary"
+            <li><a class="nav-link mr-3" routerLink="/home" routerLinkActive="text-primary"
               [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-            <li><a class="nav-link" routerLink="/register" routerLinkActive="text-primary">Register</a></li>
-            <li><a class="nav-link" *ngIf="!auth.isLoggedIn()" routerLink="/login" routerLinkActive="text-primary">Login</a></li>
+            <li><a class="nav-link mr-3" routerLink="/register" routerLinkActive="text-primary">Register</a></li>
+            <li><a class="nav-link mr-3" *ngIf="!auth.isLoggedIn()" routerLink="/login" routerLinkActive="text-primary">Login</a></li>
           </ul>
           
         </div>
@@ -93,21 +93,21 @@
   <div class="collapse navbar-collapse" [collapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item routerLinkActive  active" >
-        <a class="nav-link" routerLink="/home" routerLinkActive="text-primary" [routerLinkActiveOptions]="{exact: true}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link mr-3" routerLink="/home" routerLinkActive="text-primary" [routerLinkActiveOptions]="{exact: true}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item routerLinkActive active " *ngIf="!auth.isLoggedIn()"
         >
-        <a class="nav-link" routerLink="/login" routerLinkActive="text-primary">Login</a>
+        <a class="nav-link mr-3" routerLink="/login" routerLinkActive="text-primary">Login</a>
       </li>
       <li class="nav-item routerLinkActive active" *ngIf="!auth.isLoggedIn()" >
-        <a class="nav-link" routerLink="/register" routerLinkActive="text-primary">Register</a>
+        <a class="nav-link mr-3" routerLink="/register" routerLinkActive="text-primary">Register</a>
       </li>
       <li class="nav-item routerLinkActive active dropdown" dropdown>
-        <a class="nav-link dropdown-toggle" dropdownToggle href="javascript:void(0);" role="button">Session</a>
+        <a class="nav-link mr-3 dropdown-toggle" dropdownToggle href="javascript:void(0);" role="button">Session</a>
         <div class="dropdown-menu bg-light active" *dropdownMenu aria-labelledby="navbarDropdown">
-          <a class="dropdown-item  h4" routerLink="/session-one" routerLinkActive="text-primary">Session One</a>
-          <a class="dropdown-item  h4" routerLink="/session-two" routerLinkActive="text-primary">Session Two</a>
-          <a class="dropdown-item  h4" routerLink="/session-three" routerLinkActive="text-primary">Session Three</a>
+          <a class="dropdown-item  h4" routerLink="/session/one" routerLinkActive="text-primary">Session One</a>
+          <a class="dropdown-item  h4" routerLink="/session/two" routerLinkActive="text-primary">Session Two</a>
+          <a class="dropdown-item  h4" routerLink="/session/three" routerLinkActive="text-primary">Session Three</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item  h4" routerLink="/case-study" routerLinkActive="text-primary">Case Study</a>
         </div>
@@ -123,13 +123,4 @@
 </div>
 </nav>
 <!-- GABORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR -->
-<div class="container-fluid">
   <router-outlet></router-outlet>
-</div>
-<div class="col-sm-4 col-md-4" #sidebar>
-  <h1>SIDEBARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR</h1>
-</div>
-
-<footer>
-  <h1>FOOOOOOOOOOOOOOOOOOOTTTTTTTTTEEEEEEEEEEERRRRRRRRRRRRR</h1>
-</footer>

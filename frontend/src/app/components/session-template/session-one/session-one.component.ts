@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-session-one',
+  selector: 'session-one',
   templateUrl: './session-one.component.html',
   styleUrls: ['./session-one.component.scss']
 })

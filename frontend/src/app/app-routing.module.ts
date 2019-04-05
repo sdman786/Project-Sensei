@@ -5,11 +5,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
-import { QuizComponent } from './components/home/quiz/quiz.component';
-import { SessionOneComponent } from './components/home/session-one/session-one.component';
-import { SessionTwoComponent } from './components/home/session-two/session-two.component';
-import { SessionThreeComponent } from './components/home/session-three/session-three.component';
+import { QuizComponent } from './components/session-template/quiz/quiz.component';
+import { SessionOneComponent } from './components/session-template/session-one/session-one.component';
+import { SessionTwoComponent } from './components/session-template/session-two/session-two.component';
+import { SessionThreeComponent } from './components/session-template/session-three/session-three.component';
 import { CaseStudyComponent } from './components/case-study/case-study.component';
+import { SessionTemplateComponent } from './components/session-template/session-template.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,9 +18,16 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'session-one', component: SessionOneComponent },
-  { path: 'session-two', component: SessionTwoComponent },
-  { path: 'session-three', component: SessionThreeComponent },
+  { path: 'session', component: SessionTemplateComponent,
+  children: [
+    {path: '', redirectTo: 'one', pathMatch: 'full'},
+    {path: 'one', component: SessionOneComponent},
+    {path: 'two', component: SessionTwoComponent},
+    {path: 'three', component: SessionThreeComponent}
+  ] },
+  // { path: 'session-one', redirectTo: 'session/one', component: SessionOneComponent },
+  // { path: 'session-two', redirectTo: 'session/two', component: SessionTwoComponent },
+  // { path: 'session-three', redirectTo: 'session/three', component: SessionThreeComponent },
   { path: 'case-study', component: CaseStudyComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
 ];
