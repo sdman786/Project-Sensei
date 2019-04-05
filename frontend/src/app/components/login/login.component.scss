@@ -1,34 +1,6 @@
 // IMPORT VARIABLES
 @import "../../../styles/variables";
 
-
-/* Account Login */
-.login-title-label {
-    position: relative;
-    top: 30px;
-    margin: 30px auto;
-    width: 100%;
-    font-family: "Righteous", cursive;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: 40px;
-    text-align: center;
-    color: rgb(255,255,255);
-    text-shadow: 2px 2px 5px black;
-}
-
-/* Modal */
-
-.login-modal {
-  width: 60%;
-  height: 418px;
-  margin: 50px auto;
-  background: #E5E5E5;
-  box-sizing: border-box;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-
   .login-input-container {
     position: relative;
     top: 20px;
@@ -90,13 +62,13 @@
     }
   }
   .login-input-submit {
-      
+    text-align: center;
+    position: relative;
+    top: 20px;
+    left: 90px;
 
     /* Submit Button */
     .submit-button {
-      position: relative;
-      left: 145px;    
-      top: 35px;    
       width: 170px;    
       height: 50px;    
       background: #516374;    
@@ -136,4 +108,3 @@
     }
 
   }
-}

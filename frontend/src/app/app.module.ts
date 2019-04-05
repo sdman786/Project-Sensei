@@ -11,32 +11,42 @@ import { MatToolbarModule,
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IssueService } from './issue.service';
+import { CollapseModule,BsDropdownModule } from 'ngx-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MainComponent, SessionOne } from './components/main/main.component';
+import { HomeComponent  } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { QuizComponent } from './components/home/quiz/quiz.component';
+import { SessionOneComponent } from './components/home/session-one/session-one.component';
+import { SessionTwoComponent } from './components/home/session-two/session-two.component';
+import { SessionThreeComponent } from './components/home/session-three/session-three.component';
+import { CaseStudyComponent } from './components/case-study/case-study.component';
 
 
 
 @NgModule({
     entryComponents: [
-      MainComponent,
-      SessionOne],
+      HomeComponent],
   declarations: [
     AppComponent,
-    MainComponent,
-    SessionOne,
+    HomeComponent,
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    QuizComponent,
+    SessionOneComponent,
+    SessionTwoComponent,
+    SessionThreeComponent,
+    CaseStudyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    CollapseModule.forRoot(),
+    BsDropdownModule.forRoot(),
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
@@ -47,7 +57,6 @@ import { ProfileComponent } from './components/profile/profile.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule ],
-  providers: [IssueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

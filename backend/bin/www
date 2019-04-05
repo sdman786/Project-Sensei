@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var authApp = require('../auth_app');
+
 var debug = require('debug')('project-sensei:server');
 var http = require('http');
 
@@ -12,22 +13,25 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+var auth_port = normalizePort(process.env.PORT || '3000');
+
+authApp.set('port', auth_port);
 
 /**
- * Create HTTP server.
+ * Create Auth HTTP server.
  */
 
-var server = http.createServer(app);
+var authServer = http.createServer(authApp);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+authServer.listen(auth_port);
+
+authServer.on('error', onError);
+
+authServer.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -58,9 +62,9 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port
+  var bind = typeof auth_port === 'string'
+    ? 'Pipe ' + auth_port
+    : 'Port ' + auth_port
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -82,7 +86,7 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
+  var addr = authServer.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
