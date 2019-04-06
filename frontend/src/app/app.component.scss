@@ -19,8 +19,8 @@
     margin-bottom: 10px !important;
 }
 
-a.text-primary:hover, a.text-primary:focus {
-    color: #007bff !important;
+a.defaultLightBlue:hover, a.defaultLightBlue:focus,a.defaultLightBlue:active {
+    color: $defaultLightBlue;
 }
 
 .project {

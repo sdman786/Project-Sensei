@@ -3,6 +3,7 @@ $defaultDarkGrey:  #565656;
 $defaultBlack: #000000;
 $defaultLightGrey: #E5E5E5;
 
+
 //Images
 // $katana: url(./icons/katana.svg);
 // $lock: url(./icons/icons8-lock-50.png);
@@ -22,6 +23,10 @@ $defaultFont: 'Righteous', cursive;
 $defaultBorder: 2px $defaultBlack;
 .defaultborder {
     border: $defaultBorder;
+}
+
+.defaultLightBlue {
+    color: $defaultLightBlue;
 }
 
 //Margin

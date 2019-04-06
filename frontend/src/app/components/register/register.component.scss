@@ -66,10 +66,7 @@
   .register-input-submit {
 
     /* Submit Button */
-    .submit-button {
-      position: relative;
-      left: 225px;    
-      top: 35px;    
+    .submit-button { 
       width: 170px;    
       height: 50px;    
       background: #516374;    
@@ -86,16 +83,10 @@
     }
     /* Register Text & Button */
     .register-login-text{
-      position: relative;
-      top: 94px;
-      left: 50px;
       font-size: 13px;
     }
 
     .login-button {
-      position: relative;
-      left: 60px;
-      top: 95px;
       width: 115px;
       height: 35px;
       font-family: "Righteous", cursive;

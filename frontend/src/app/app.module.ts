@@ -11,7 +11,7 @@ import { MatToolbarModule,
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CollapseModule,BsDropdownModule } from 'ngx-bootstrap';
+import { CollapseModule,BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent  } from './components/home/home.component';
@@ -56,6 +56,7 @@ import { SessionTemplateComponent } from './components/session-template/session-
     MatDialogModule,
     MatDividerModule,
     MatCardModule,
+    TabsModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule ],

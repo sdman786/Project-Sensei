@@ -22,6 +22,16 @@ body { margin: 0; font-family: $defaultFont; background: $defaultBackground; bac
 
 // GLOBAL STYLES
 
+a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: $defaultLightBlue;
+}
+
 .title-label {
     position: relative;
     width: 100%;
@@ -40,7 +50,7 @@ body { margin: 0; font-family: $defaultFont; background: $defaultBackground; bac
 
 .custom-modal {
     width: auto;
-    min-height: 420px;
+    min-height: 400px;
     margin: 0 auto;
     background: #E5E5E5;
     box-sizing: border-box;

@@ -1,26 +1,50 @@
-<form (submit)="login()">
-  <label class="title-label">Account Login</label>
-  <div class="col-11 col-lg-10 col-md-10 col-sm-10 center custom-modal">
-    <div class="login-input-container">
-      <mat-form-field class="login-input-block">
-        <input matInput class="login-input-field" type="text" name="username" [(ngModel)]="user.username">
-        <mat-placeholder for="username" class="login-label">Username</mat-placeholder>
-        <span class="login-input-icon-clear" *ngIf="user.username" matSuffix mat-icon-button (click)="user.username=''">
-          <mat-icon>close</mat-icon>
-        </span>
-      </mat-form-field>
-      <mat-form-field class="login-input-block">
-        <input matInput class="login-input-field" type="password"name="password" [(ngModel)]="user.password">
-        <mat-placeholder for="password" class="login-label">Password</mat-placeholder>
-        <span class="login-input-icon-clear" *ngIf="user.password" matSuffix mat-icon-button (click)="user.password=''">
-            <mat-icon>close</mat-icon>
-        </span>
-      </mat-form-field>
+<div class="container mt-5">
+  <form (submit)="login()">
+    <label class="title-label">Account Login</label>
+    <div class="row mt-5">
+      <div class="center col-12 col-lg-7 col-md-9 col-sm-12 col-xl-6">
+        <div class="custom-modal">
+          <div class="row">
+            <div class="center col-10 col-lg-10 col-md-10 col-sm-10 col-xl-10" style="text-align:start !important">
+              <div class="login-input-container">
+                <mat-form-field class="login-input-block">
+                  <input matInput class="login-input-field" type="text" name="username" [(ngModel)]="user.username">
+                  <mat-placeholder for="username" class="login-label">Username</mat-placeholder>
+                  <span class="login-input-icon-clear" *ngIf="user.username" matSuffix mat-icon-button
+                    (click)="user.username=''">
+                    <mat-icon>close</mat-icon>
+                  </span>
+                </mat-form-field>
+                <mat-form-field class="login-input-block">
+                  <input matInput class="login-input-field" type="password" name="password" [(ngModel)]="user.password">
+                  <mat-placeholder for="password" class="login-label">Password</mat-placeholder>
+                  <span class="login-input-icon-clear" *ngIf="user.password" matSuffix mat-icon-button
+                    (click)="user.password=''">
+                    <mat-icon>close</mat-icon>
+                  </span>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-1 ml-5 mr-5 mt-5 row">
+            <div class="center col-10 m-5">
+              <div class="login-input-submit">
+                <div class="row">
+                  <div class="center">
+                    <button type="submit" class="btn btn-default submit-button">Sign Up</button>
+                  </div>
+                </div>
+                <div class="mt-4 row">
+                  <div class="center">
+                    <span class="login-login-text mr-3">Have an Account?</span>
+                    <a class="register-button" routerLink="/register">Sign Up</a> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="login-input-submit">
-      <button type="submit" class="btn btn-default submit-button">Sign In</button>
-      <span class="login-register-text">Create an Account?</span>
-      <a class="register-button" routerLink="/register">Sign Up</a>
-    </div>
-  </div>
-</form>
+  </form>
+</div>

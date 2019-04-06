@@ -63,9 +63,6 @@
   }
   .login-input-submit {
     text-align: center;
-    position: relative;
-    top: 20px;
-    left: 90px;
 
     /* Submit Button */
     .submit-button {
@@ -85,16 +82,10 @@
     }
     /* Register Text & Button */
     .login-register-text{
-      position: relative;
-      top: 94px;
-      left: -35px;
       font-size: 13px;
     }
 
     .register-button {
-      position: relative;
-      left: -26px;
-      top: 95px;
       width: 115px;
       height: 35px;
       font-family: "Righteous", cursive;
