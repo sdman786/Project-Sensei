@@ -4,20 +4,21 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" [collapse]="isCollapsed">
-    <ul class="navbar-nav mr-auto pt-2">
+    <ul class="navbar-nav mr-auto pt-2" >
       <li class="nav-item routerLinkActive  active" >
-        <a class="nav-link mr-3" routerLink="/home"  *ngIf="auth.isLoggedIn()" routerLinkActive="defaultLightBlue" [routerLinkActiveOptions]="{exact: true}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link mr-3" routerLink="/home" routerLinkActive="defaultLightBlue" 
+            [routerLinkActiveOptions]="{exact: true}">Home <span class="sr-only">(current)</span></a>
       </li>
-      <!-- <li class="nav-item routerLinkActive active " *ngIf="!auth.isLoggedIn()">
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item routerLinkActive active" >
         <a class="nav-link mr-3" routerLink="/login" routerLinkActive="defaultLightBlue">Login</a>
       </li>
-      <li class="nav-item routerLinkActive active" *ngIf="!auth.isLoggedIn()" >
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item routerLinkActive active" >
         <a class="nav-link mr-3" routerLink="/register" routerLinkActive="defaultLightBlue">Register</a>
-      </li> -->
-      <li class="nav-item routerLinkActive active" *ngIf="auth.isLoggedIn()" >
+      </li>
+      <li *ngIf="auth.isLoggedIn()" class="nav-item routerLinkActive active" >
         <a class="nav-link mr-3" routerLink="/profile" routerLinkActive="defaultLightBlue">Profile</a>
       </li>
-      <li class="nav-item routerLinkActive active dropdown" *ngIf="auth.isLoggedIn()" dropdown>
+      <li *ngIf="auth.isLoggedIn()" class="nav-item routerLinkActive active dropdown" dropdown>
         <a class="nav-link mr-3 dropdown-toggle" [ngClass]="{'defaultLightBlue' : dropActive}" dropdownToggle href="javascript:void(0);" role="button">Session{{ activeSession  }}</a>
         <div class="dropdown-menu bg-light active" *dropdownMenu aria-labelledby="navbarDropdown">
           <a class="dropdown-item  h4" routerLink="/session-one" routerLinkActive="defaultLightBlue">Session One</a>
@@ -27,13 +28,21 @@
           <a class="dropdown-item  h4" routerLink="/case-study" routerLinkActive="defaultLightBlue">Case Study</a>
         </div>
       </li>
-      <li class="nav-item routerLinkActive d-flex align-items-center routerLinkActive" *ngIf="auth.isLoggedIn()" routerLinkActive="defaultLightBlue">
+      <li *ngIf="auth.isLoggedIn()" class="nav-item routerLinkActive d-flex align-items-center routerLinkActive" 
+           routerLinkActive="defaultLightBlue" >
         <button mat-button color="accent" (click)="auth.logout()">Log Out</button>
+      </li>
+      <!-- TODO SHOW ONLY ON HOME PAGE -->
+      <li *ngIf="auth.isLoggedIn()" class="nav-item d-flex align-items-center ml-5 pl-5 pt-3" >
+        <p style="
+        font-size: 14px;
+        color: white;
+    ">Welcome <span class="defaultLightBlue">{{ user.name }}!</span></p>
       </li>
     </ul>
   </div>
   <div class="navbar-brand" routerLink="/">
-    <span class="project">Project</span><span class="sensei">Sensei</span>
+    <span class="logoWhite">Project</span><span class="logoBlue">Sensei</span>
   </div>
 </div>
 </nav>

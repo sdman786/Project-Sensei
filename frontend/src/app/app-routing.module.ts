@@ -13,7 +13,7 @@ import { SessionTwoComponent } from './components/session-template/session-two/s
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
+  { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
