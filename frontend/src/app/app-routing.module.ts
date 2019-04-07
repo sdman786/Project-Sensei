@@ -18,13 +18,15 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'session', component: SessionTemplateComponent,
-  children: [
-    {path: '', redirectTo: 'one', pathMatch: 'full'},
-    {path: 'one', component: SessionOneComponent},
-    {path: 'two', component: SessionTwoComponent},
-    {path: 'three', component: SessionThreeComponent}
-  ] },
+  { path: 'session-one', component: SessionTemplateComponent, children: [{path: '', component: SessionOneComponent}] },
+  { path: 'session-two', component: SessionTemplateComponent, children: [{path: '', component: SessionTwoComponent}] },
+  { path: 'session-three', component: SessionTemplateComponent, children: [{path: '', component: SessionThreeComponent}] },
+  // children: [
+  //   {path: '', redirectTo: 'one', pathMatch: 'full'},
+  //   {path: 'one', component: SessionOneComponent},
+  //   {path: 'two', component: SessionTwoComponent},
+  //   {path: 'three', component: SessionThreeComponent}
+  // ] },
   // { path: 'session-one', redirectTo: 'session/one', component: SessionOneComponent },
   // { path: 'session-two', redirectTo: 'session/two', component: SessionTwoComponent },
   // { path: 'session-three', redirectTo: 'session/three', component: SessionThreeComponent },

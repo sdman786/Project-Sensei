@@ -1,21 +1,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8">
-      <!-- SESSION COMPONENT -->
+      <!-- SESSION COMPONENT  -->
       <div class="m-t-1">
-        <app-session-one></app-session-one>
-        <app-session-two></app-session-two>
-        <app-session-three></app-session-three>
+        <router-outlet></router-outlet>
       </div>
-      <!-- <div class="m-t-1" *ngIf="getSession()">
-        <app-session-two></app-session-two>
-      </div>
-      <div class="m-t-1" *ngIf="getSession()">
-        <app-session-three></app-session-three>
-      </div> -->
     </div>
-    <div class="col-md-4">
-      <!-- SIDE BAR COMPONENT -->
-    </div>
+  </div>
+  <div class="col-md-4">
+    <!-- SIDE BAR COMPONENT -->
   </div>
 </div>

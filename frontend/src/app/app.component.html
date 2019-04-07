@@ -16,11 +16,11 @@
         <a class="nav-link mr-3" routerLink="/register" routerLinkActive="defaultLightBlue">Register</a>
       </li>
       <li class="nav-item routerLinkActive active dropdown" dropdown>
-        <a class="nav-link mr-3 dropdown-toggle" dropdownToggle href="javascript:void(0);" role="button">Session</a>
+        <a class="nav-link mr-3 dropdown-toggle" [ngClass]="{'defaultLightBlue' : dropActive}" dropdownToggle href="javascript:void(0);" role="button">Session{{ activeSession  }}</a>
         <div class="dropdown-menu bg-light active" *dropdownMenu aria-labelledby="navbarDropdown">
-          <a class="dropdown-item  h4" routerLink="/session/one" routerLinkActive="defaultLightBlue">Session One</a>
-          <a class="dropdown-item  h4" routerLink="/session/two" routerLinkActive="defaultLightBlue">Session Two</a>
-          <a class="dropdown-item  h4" routerLink="/session/three" routerLinkActive="defaultLightBlue">Session Three</a>
+          <a class="dropdown-item  h4" routerLink="/session-one" routerLinkActive="defaultLightBlue">Session One</a>
+          <a class="dropdown-item  h4" routerLink="/session-two" routerLinkActive="defaultLightBlue">Session Two</a>
+          <a class="dropdown-item  h4" routerLink="/session-three" routerLinkActive="defaultLightBlue">Session Three</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item  h4" routerLink="/case-study" routerLinkActive="defaultLightBlue">Case Study</a>
         </div>

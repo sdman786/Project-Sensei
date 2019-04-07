@@ -9,7 +9,7 @@ import { filter } from 'rxjs/operators';
 })
 export class SessionOneComponent implements OnInit, OnChanges {
 
-  show : boolean = false;
+  show : boolean = true;
 
   constructor(private router: Router) { }
 
@@ -22,19 +22,19 @@ export class SessionOneComponent implements OnInit, OnChanges {
   }
 
   loadSession() {
-    this.router.events
-    .pipe(
-      filter(e => e instanceof NavigationEnd)
-      )
-    .subscribe((navEnd: NavigationEnd) => {
-      console.log(navEnd.urlAfterRedirects);
-      if (navEnd.urlAfterRedirects === '/session/one') {
-        this.show = true;
-      }
-      else {
-        this.show = false;
-      }
-    });
+    // this.router.events
+    // .pipe(
+    //   filter(e => e instanceof NavigationEnd)
+    //   )
+    // .subscribe((navEnd: NavigationEnd) => {
+    //   console.log(navEnd.urlAfterRedirects);
+    //   if (navEnd.urlAfterRedirects === '/session/one') {
+    //     this.show = true;
+    //   }
+    //   else {
+    //     this.show = false;
+    //   }
+    // });
   }
 
   openQuiz( quizType: string) {
