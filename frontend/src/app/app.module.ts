@@ -6,7 +6,8 @@ import { MatToolbarModule,
   MatIconModule,
   MatDividerModule,
   MatDialogModule,
-  MatCardModule
+  MatCardModule,
+  MatButtonModule
   } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -56,6 +57,7 @@ import { SessionTemplateComponent } from './components/session-template/session-
     MatDialogModule,
     MatDividerModule,
     MatCardModule,
+    MatButtonModule,
     TabsModule,
     ReactiveFormsModule,
     FormsModule,

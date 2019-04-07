@@ -1,3 +1,29 @@
+@import './session-one/session-one.component.scss';
+@import './session-two/session-two.component.scss';
+@import './session-three/session-three.component.scss';
+
 .mat-card-header-text {
     margin: 0 auto !important;
+}
+.content-card {
+    margin: 5% 2.5% 5% 2.5%;
+    max-width: 350px;
+    width: auto;
+    flex-basis: 45%;
+  }
+
+  .center-items {
+      margin: 0 auto;
+      text-align: center;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0px 0px 5px #007f9a;
+    text-shadow: 0px 0px 3px black;
+    background-color: #13a4bb;
+    border-color: #00000026;
+}
+
+.mat-card-actions {
+margin-bottom: 0px !important;
 }

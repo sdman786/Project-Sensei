@@ -5,7 +5,7 @@ import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-session-one',
   templateUrl: './session-one.component.html',
-  styleUrls: ['./session-one.component.scss']
+  styleUrls: ['../session-template.component.scss']
 })
 export class SessionOneComponent implements OnInit, OnChanges {
 
