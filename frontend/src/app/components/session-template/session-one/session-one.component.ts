@@ -1,45 +1,53 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { QuizComponent } from '../quiz/quiz.component';
+import { QuizData } from '../quiz/quiz-data';
 
 @Component({
   selector: 'app-session-one',
   templateUrl: './session-one.component.html',
   styleUrls: ['../session-template.component.scss']
 })
-export class SessionOneComponent implements OnInit, OnChanges {
+export class SessionOneComponent implements OnInit {
 
-  show : boolean = true;
+  mcqName = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.loadSession();
   }
 
-  ngOnChanges(): void {
-    this.loadSession();
+  lazyLoad() {
+    this.router.navigate(['quiz']);
   }
 
-  loadSession() {
-    // this.router.events
-    // .pipe(
-    //   filter(e => e instanceof NavigationEnd)
-    //   )
-    // .subscribe((navEnd: NavigationEnd) => {
-    //   console.log(navEnd.urlAfterRedirects);
-    //   if (navEnd.urlAfterRedirects === '/session/one') {
-    //     this.show = true;
-    //   }
-    //   else {
-    //     this.show = false;
-    //   }
-    // });
+  openQuiz(quizType: string): void {
+    const dialogRef = this.dialog.open(QuizComponent, {
+      data: {
+            mcqName: quizType
+          }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      
+      // this.mcqName = result;
+    });
   }
 
-  openQuiz( quizType: string) {
-    this.router.navigateByUrl('/quiz', { state: { mcqName: quizType } });
-  }
 
+  // openQuiz( quizType: string) {
+  //   this.router.navigateByUrl('/quiz', { state: { mcqName: quizType } });
+  // }
+
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(SessionOne);
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
 
 }

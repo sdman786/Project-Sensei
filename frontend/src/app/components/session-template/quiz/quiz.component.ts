@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Quiz, QuizConfig, Question, Option } from 'src/app/models/quiz';
 import { QuizService } from 'src/app/services/quiz.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { QuizData } from './quiz-data';
 
 @Component({
   selector: 'app-quiz',
@@ -42,11 +44,13 @@ export class QuizComponent implements OnInit {
    ellapsedTime = '00:00';
    duration = '';
 
-  constructor(private quizService: QuizService) { }
+  constructor(private quizService: QuizService,
+              public dialogRef: MatDialogRef<QuizComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: QuizData) { }
 
   ngOnInit() {
 
-    this.mcqName = window.history.state.mcqName;
+    this.mcqName = this.data.mcqName;
 
     this.quizService.get_MCQ(this.mcqName).subscribe(res => {
       this.quiz$ = new Quiz(res[0]);
@@ -56,6 +60,10 @@ export class QuizComponent implements OnInit {
       this.duration = this.parseTime(this.config.duration);
     });
     this.mode = 'quiz';
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
   tick() {

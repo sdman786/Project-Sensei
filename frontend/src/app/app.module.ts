@@ -1,14 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatIconModule,
-  MatDividerModule,
-  MatDialogModule,
-  MatCardModule,
-  MatButtonModule
-  } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,12 +17,14 @@ import { SessionThreeComponent } from './components/session-template/session-thr
 import { CaseStudyComponent } from './components/case-study/case-study.component';
 import { SessionTemplateComponent } from './components/session-template/session-template.component';
 import { SidebarComponent } from './components/session-template/sidebar/sidebar.component';
+import { MaterialModule } from './material.module';
 
 
 
 @NgModule({
     entryComponents: [
-      HomeComponent],
+      HomeComponent
+    ],
   declarations: [
     AppComponent,
     HomeComponent,
@@ -52,14 +45,7 @@ import { SidebarComponent } from './components/session-template/sidebar/sidebar.
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatDialogModule,
-    MatDividerModule,
-    MatCardModule,
-    MatButtonModule,
+    MaterialModule,
     TabsModule,
     ReactiveFormsModule,
     FormsModule,
