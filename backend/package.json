@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node bin/www"
+    "backend": "node bin/www",
+    "all": "concurrently \"json-server --port 8080 --watch ./data/mcq.json\" \"npm run dev\" \"cd .. && cd frontend && ng serve\"" ,
+    "jServer": "concurrently \"json-server --port 8080 --watch ./data/mcq.json\"",
+    "jServer-app": "concurrently \"json-server --port 8080 --watch ./data/mcq.json\" \"cd .. && cd frontend && ng serve\"",
+    "nojServer": "concurrently \"npm run dev\" \"cd .. && cd frontend && ng serve\""
   },
   "keywords": [],
   "author": "",
