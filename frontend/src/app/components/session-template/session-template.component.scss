@@ -2,6 +2,7 @@
 @import './session-two/session-two.component.scss';
 @import './session-three/session-three.component.scss';
 @import './sidebar/sidebar.component.scss';
+@import './quiz/quiz.component.scss';
 
 
 .mat-card-header-text {
@@ -34,3 +35,9 @@
 .mat-card-actions {
 margin-bottom: 0px !important;
 }
+
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0,0,0,0.70);
+}
+

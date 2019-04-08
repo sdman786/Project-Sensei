@@ -7,7 +7,9 @@ import { MatToolbarModule,
   MatDividerModule,
   MatDialogModule,
   MatCardModule,
-  MatButtonModule
+  MatButtonModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA
   } from '@angular/material';
 
 @NgModule({
@@ -24,6 +26,10 @@ import { MatToolbarModule,
     MatDialogModule,
     MatCardModule,
     MatButtonModule
+  ],providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] },
+    // ...
   ]
 })
 export class MaterialModule { }

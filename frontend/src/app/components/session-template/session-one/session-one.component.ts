@@ -19,10 +19,6 @@ export class SessionOneComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  lazyLoad() {
-    this.router.navigate(['quiz']);
-  }
-
   openQuiz(quizType: string): void {
     const dialogRef = this.dialog.open(QuizComponent, {
       data: {
