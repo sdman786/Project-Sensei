@@ -33,16 +33,18 @@
         <button mat-button color="accent" (click)="auth.logout()">Log Out</button>
       </li>
       <!-- TODO SHOW ONLY ON HOME PAGE -->
-      <li *ngIf="auth.isLoggedIn()" class="nav-item d-flex align-items-center ml-5 pl-5 pt-3" >
-        <p style="
-        font-size: 14px;
-        color: white;
-    ">Welcome <span class="defaultLightBlue">{{ user.name }}!</span></p>
+      <li *ngIf="auth.isLoggedIn() && route == '/home'" class="nav-item d-flex align-items-center ml-5 pl-5 pt-3" >
+        <p *ngIf="user.name" style="font-size: 14px; color: white;">Welcome 
+          <span class="defaultLightBlue">{{ user.name }}!</span>
+        </p>
       </li>
     </ul>
   </div>
-  <div class="navbar-brand" routerLink="/">
-    <span class="logoWhite">Project</span><span class="logoBlue">Sensei</span>
+  <div class="navbar-brand" routerLink="/" (mouseover)="hover=true" (mouseleave)="hover=false">
+    <span class="logoBlue">< </span>
+    <span class="logoWhite">Project</span>
+    <span class="logoBlue">Sensei</span>
+    <span class="logoWhite"> ></span>
   </div>
 </div>
 </nav>

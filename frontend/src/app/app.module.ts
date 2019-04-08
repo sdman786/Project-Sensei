@@ -25,6 +25,7 @@ import { SessionTwoComponent } from './components/session-template/session-two/s
 import { SessionThreeComponent } from './components/session-template/session-three/session-three.component';
 import { CaseStudyComponent } from './components/case-study/case-study.component';
 import { SessionTemplateComponent } from './components/session-template/session-template.component';
+import { SidebarComponent } from './components/session-template/sidebar/sidebar.component';
 
 
 
@@ -42,7 +43,8 @@ import { SessionTemplateComponent } from './components/session-template/session-
     SessionTwoComponent,
     SessionThreeComponent,
     CaseStudyComponent,
-    SessionTemplateComponent
+    SessionTemplateComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

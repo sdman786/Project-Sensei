@@ -15,8 +15,9 @@ export class AppComponent implements OnInit {
 
   // Dropdown Menu Variables
   isCollapsed = true;
-  dropActive: boolean = false;
-  activeSession: String = '';
+  dropActive = false;
+  activeSession = '';
+  route = '';
 
   constructor(public auth: AuthenticationService, public router: Router) { }
 
@@ -28,11 +29,13 @@ export class AppComponent implements OnInit {
     }, (err) => {
       console.error(err);
     });
+    
     this.router.events
       .pipe(
         filter(e => e instanceof NavigationEnd)
       )
       .subscribe((navEnd: NavigationEnd) => {
+        this.route = navEnd.urlAfterRedirects;
         switch (navEnd.urlAfterRedirects) {
           case '/session-one':
             this.dropActive = true;

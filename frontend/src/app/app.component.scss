@@ -20,8 +20,24 @@
     margin-bottom: 10px !important;
 }
 
-a.defaultLightBlue:hover, a.defaultLightBlue:focus,a.defaultLightBlue:active {
-    color: $defaultLightBlue;
+.dropdown {
+    a:focus {
+        color: $defaultLightBlue;
+    }
+}
+
+.dropdown-menu {
+    text-shadow: none !important;
+    .dropdown-item:hover {
+        color: $defaultLightBlue;
+    }
+    .dropdown-item:active {
+        background-color: #f8f9fa;
+    }
+}
+
+a.defaultLightBlue:hover, a.defaultLightBlue:focus {
+    color: $defaultLightBlue !important;
 }
 
 .logoWhite {
