@@ -3,7 +3,21 @@
     <div class="col-11 custom-modal mt-sm-3">
       <div class="row">
         <div class="center col-11 mb-5 mt-5 text-justify">
-          <p class="lead">THIS IS SPARTAAAAAA!!!!!!!!</p>
+          <h2 class="center">Next Session</h2>
+          <hr class="shadow-sm">
+          <mat-card class="center content-card shadow mt-5">
+              <mat-card-header>
+                <mat-card-title>Quiz Time! - Agile</mat-card-title>
+              </mat-card-header>
+              <img mat-card-image class="col-auto m-auto"
+                src="https://cdn-images-1.medium.com/max/1000/1*qpD1rt8_od8y-x-Uq_pwag.png" alt="Agile Picture">
+              <div class="center-items">
+                <mat-card-actions>
+                  <button mat-button type="button" class="btn align-middle btn-primary btn-lg disabled" routerLink="/quiz"
+                    (click)="openQuiz('agile')">Start Quiz</button>
+                </mat-card-actions>
+              </div>
+            </mat-card>
         </div>
       </div>
     </div>

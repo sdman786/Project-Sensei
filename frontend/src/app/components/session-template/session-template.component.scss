@@ -8,11 +8,16 @@
     margin: 0 auto !important;
 }
 .content-card {
-    margin: 5% 2.5% 5% 2.5%;
-    max-width: 350px;
+    margin: 2.5%2.5%;
+    max-width: 250px;
     width: auto;
     flex-basis: 45%;
+    border-radius: 10px;
   }
+
+.mat-card-image {
+    padding: 10px 10px;
+}
 
   .center-items {
       margin: 0 auto;

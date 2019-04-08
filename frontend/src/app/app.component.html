@@ -34,7 +34,7 @@
       </li>
       <!-- TODO SHOW ONLY ON HOME PAGE -->
       <li *ngIf="auth.isLoggedIn() && route == '/home'" class="nav-item d-flex align-items-center ml-5 pl-5 pt-3" >
-        <p *ngIf="user.name" style="font-size: 14px; color: white;">Welcome 
+        <p *ngIf="user" style="font-size: 14px; color: white;">Welcome 
           <span class="defaultLightBlue">{{ user.name }}!</span>
         </p>
       </li>
