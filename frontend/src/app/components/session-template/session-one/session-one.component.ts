@@ -2,8 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { QuizComponent } from '../quiz/quiz.component';
-import { QuizData } from '../quiz/quiz-data';
+import { QuizComponent } from '../../quiz/quiz.component';
 
 @Component({
   selector: 'app-session-one',
@@ -14,12 +13,14 @@ export class SessionOneComponent implements OnInit {
 
   mcqName = '';
   lessonName = '';
+  quizType: string;
   // quizResult;
   // lessonResult;
 
   constructor(private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    // this.sessionTemplate.quizType = this.quizType;
   }
 
   openQuiz(quizType: string): void {

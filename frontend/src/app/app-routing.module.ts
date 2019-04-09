@@ -5,7 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
-import { QuizComponent } from './components/session-template/quiz/quiz.component';
+import { QuizComponent } from './components/quiz/quiz.component';
 import { SessionOneComponent } from './components/session-template/session-one/session-one.component';
 import { SessionTemplateComponent } from './components/session-template/session-template.component';
 import { SessionThreeComponent } from './components/session-template/session-three/session-three.component';

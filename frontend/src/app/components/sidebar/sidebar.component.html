@@ -11,6 +11,7 @@
               <mat-card-title>Task Description</mat-card-title>
             </mat-card-header>
             <hr class="shadow-sm">
+            <!-- TODO Fill Task from User Model Next Lesson ID -->
             <mat-card-content class="ml-3 mt-4 text-left">
                 <p style="font-weight: 500; font-size: 15px;">This Quiz will test your knowledge on the Agile Methodology.</p>
                 <p style="font-weight: 500;font-size: 15px;">Complete this Quiz with 80% Score or more in order to continue to the next stage of the course.</p>
@@ -19,6 +20,7 @@
           </mat-card>
         <!-- TASK ACTION -->
           <mat-card class="content-card shadow mt-5">
+            <!-- TODO Fill Task from User Model Next Lesson ID -->
             <mat-card-header>
               <mat-card-title>Quiz Time! - Agile</mat-card-title>
             </mat-card-header>
@@ -28,8 +30,9 @@
               <hr class="shadow-sm">
             <div class="center-items">
               <mat-card-actions>
+                <!-- TODO OPEN NEXT TASK BASED ON USERS NEXT TASK (DB>CURRENT_TASK+1->'next task') -->
                 <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
-                  (click)="openQuiz('agile')">Start Quiz</button>
+                 (click)="openTask('agile')" >Start Quiz</button>
               </mat-card-actions>
             </div>
           </mat-card>

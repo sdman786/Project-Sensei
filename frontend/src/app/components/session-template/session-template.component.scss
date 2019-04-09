@@ -1,8 +1,8 @@
 @import './session-one/session-one.component.scss';
 @import './session-two/session-two.component.scss';
 @import './session-three/session-three.component.scss';
-@import './sidebar/sidebar.component.scss';
-@import './quiz/quiz.component.scss';
+@import '../sidebar/sidebar.component.scss';
+@import '../quiz/quiz.component.scss';
 
 
 .mat-card-header-text {
