@@ -13,6 +13,9 @@ import { QuizData } from '../quiz/quiz-data';
 export class SessionOneComponent implements OnInit {
 
   mcqName = '';
+  lessonName = '';
+  // quizResult;
+  // lessonResult;
 
   constructor(private router: Router, public dialog: MatDialog) { }
 
@@ -25,14 +28,23 @@ export class SessionOneComponent implements OnInit {
             mcqName: quizType
           }
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      
-      // this.mcqName = result;
+      // this.quizResult = result;
     });
   }
 
+  openLesson(lessonType: string): void {
+  //   const dialogRef = this.dialog.open(LessonComponent, {
+  //     data: {
+  //           lessonName: lessonType
+  //         }
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(result);
+  //     // this.lessonComplete = result;
+  //   });
+  }
 
   // openQuiz( quizType: string) {
   //   this.router.navigateByUrl('/quiz', { state: { mcqName: quizType } });

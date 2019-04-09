@@ -71,11 +71,12 @@
     </mat-card-content>
   </mat-card>
 </div> -->
-<div mat-dialog-content class=" col-12 h-100" >
+<div mat-dialog-content class="h-100" >
+    <h1 class="center text-capitalize">Quiz Time! - {{ mcqName }}</h1>
     <mat-card class="">
-        <mat-card-header>
+        <!-- <mat-card-header>
           <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>
-        </mat-card-header>
+        </mat-card-header> -->
         <mat-card-content>
           <div id="quiz">
             <div *ngIf="mode=='quiz' && quiz$">
@@ -83,12 +84,12 @@
                 <div class="badge badge-info">Question {{pager.index + 1}} of {{pager.count}}.</div>
                 <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}
                 </div>
-                <h3 class="font-weight-normal">{{pager.index + 1}}.
+                <h3 class="font-weight-normal mt-5 mb-5">{{pager.index + 1}}.
                   <span [innerHTML]="question.name"></span>
                 </h3>
                 <div class="row text-left options">
                   <div class="col-6" *ngFor="let option of question.options">
-                    <div class="option">
+                    <div class="option m-2">
                       <label class="font-weight-normal" [attr.for]="option.id">
                         <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected"
                           (change)="onSelect(question, option);" /> {{option.name}}
@@ -99,10 +100,10 @@
               </div>
               <hr />
               <div class="text-center">
-                <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
-                <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Prev</button>
-                <button class="btn btn-primary" (click)="goTo(pager.index + 1);">Next</button>
-                <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
+                <!-- <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(0);">First</button> -->
+                <button class="btn btn-lg btn-warning mr-4 ml-4 mt-3 mb-3" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Prev</button>
+                <button class="btn btn-lg btn-primary mr-4 ml-4 mt-3 mb-3" (click)="goTo(pager.index + 1);">Next</button>
+                <!-- <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button> -->
               </div>
             </div>
     
@@ -113,7 +114,8 @@
                   {{ isAnswered(question) }}</div>
               </div>
             </div>
-            <div class="result" *ngIf="mode=='result'">
+
+            <div class="result" [ngClass]="" *ngIf="mode=='result'">
               <h2>Quiz Result</h2>
               <div *ngFor="let question of quiz$.questions; let index = index">
                 <div class="result-question">
@@ -131,15 +133,15 @@
               <h4 class="alert alert-info text-center">You may close this window now.</h4>
             </div>
             <hr />
-            <div *ngIf="mode!='result'">
-              <button class="btn btn-default" (click)="mode = 'quiz'">Quiz</button>
-              <button class="btn btn-info" (click)="mode = 'review'">Review</button>
-              <button class="btn btn-primary" (click)="onSubmit();">Submit Quiz</button>
+            <div class="d-flex justify-content-center row" *ngIf="mode!='result'">
+              <!-- <button class="btn btn-lg btn-default ml-4 mr-4" (click)="mode = 'quiz'">Quiz</button>
+              <button class="btn btn-lg btn-info ml-4 mr-4" (click)="mode = 'review'">Review</button> -->
+              <button class="btn btn-lg btn-primary ml-4 mt-4 mr-4" (click)="onSubmit();">Submit Quiz</button>
             </div>
           </div>
         </mat-card-content>
       </mat-card>
 </div>
-<div mat-dialog-actions class="h-100">
-  <button *ngIf="mode == 'result'" mat-button [mat-dialog-close]="data.mcqName" cdkFocusInitial>Finish</button>
+  <div mat-dialog-actions [ngClass]="{'hidden' : mode != 'result'}" class="h-100">
+  <button *ngIf="mode == 'result'" class="col" mat-button [mat-dialog-close]="data.mcqName" cdkFocusInitial>Close</button>
 </div>
