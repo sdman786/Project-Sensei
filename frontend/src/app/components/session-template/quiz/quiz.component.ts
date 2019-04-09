@@ -111,13 +111,13 @@ export class QuizComponent implements OnInit {
   }
 
   isCorrect(question: Question) {
-    return question.options.every(x => x.selected === x.isAnswer) ? 'correct' : 'wrong';
+    return question.options.every(x => x.selected === x.isAnswer) ? true : false;
   }
 
   onSubmit() {
     const answers = [];
     this.quiz$.questions.forEach(x => {
-      if (this.isCorrect(x)  === 'correct') {
+      if (this.isCorrect(x)) {
         answers.push({ quizId: this.quiz$.id,
                         questionId: x.id,
                         answered: x.answered,
@@ -127,8 +127,8 @@ export class QuizComponent implements OnInit {
     });
 
     // Post your data to the server here. answers contains the questionId and the users' answer.
-    console.log(this.quiz$.questions);
-    console.log(answers);
+    // console.log(this.quiz$.questions);
+    console.log('Correct Answers: ', answers);
     this.mode = 'result';
   }
 }

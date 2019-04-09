@@ -24,6 +24,7 @@ export class SessionOneComponent implements OnInit {
 
   openQuiz(quizType: string): void {
     const dialogRef = this.dialog.open(QuizComponent, {
+      disableClose: true,
       data: {
             mcqName: quizType
           }
