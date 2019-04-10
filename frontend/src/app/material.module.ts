@@ -8,6 +8,7 @@ import { MatToolbarModule,
   MatDialogModule,
   MatCardModule,
   MatButtonModule,
+  MatRadioModule,
   MatDialogRef,
   MAT_DIALOG_DATA
   } from '@angular/material';
@@ -25,6 +26,7 @@ import { MatToolbarModule,
     MatDividerModule,
     MatDialogModule,
     MatCardModule,
+    MatRadioModule,
     MatButtonModule
   ],providers: [
     { provide: MatDialogRef, useValue: {} },

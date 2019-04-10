@@ -1,19 +1,212 @@
 <p class="title-label">Session <span class="defaultLightBlue">Three</span></p>
 <!-- SIDE BAR COMPONENT -->
 <div class="m-t-1">
-    <app-sidebar></app-sidebar>
-  </div>
+  <app-sidebar></app-sidebar>
+</div>
 <div class="row mt-2">
-    <div class="col-11 custom-modal mt-sm-3">
-      <div class="row">
-        <div class="center col-11 mb-5 mt-5 text-justify">
-          <div class="d-flex justify-content-center row">
-            <!--  -->
+  <div class="col-11 custom-modal mt-sm-3">
+    <div class="row">
+      <div class="center col-11 mb-5 mt-5 text-justify">
+        <h2 class="center">Session 2 Tasks</h2>
+        <hr class="shadow-sm">
+
+        <h2 class="center">Sprint # 1</h2>
+        <hr class="shadow-sm">
+        <!-- Task Group 1 -->
+        <div class="d-flex justify-content-center row">
+          <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->
+          <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Introduction</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1471666875520-c75081f42081?ixlib=rb-1.2.1&auto=format&fit=crop&w=1138&q=80"
+              alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>An Introduction into Session 3 and what you will complete by the end of the Session.
+                How the Scrum roles will be utilised throughout the Session</p>
+            </mat-card-content>
+            <div class="center-items">
+              <mat-card-actions>
+                <button mat-button type="button" class="btn align-middle btn-primary btn-lg disabled"
+                  (click)="openLesson('session-three-intro')">Begin Lesson</button>
+              </mat-card-actions>
+            </div>
+          </mat-card>
+
+          <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->
+          <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Scrum Meeting!</mat-card-title>
+              <mat-card-subtitle>Sprint Planning</mat-card-subtitle>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1512805668868-1608a189cc2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
+              alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                Based on the Product Backlog You created in Session 1, you will be asked to analyse, prioritise and
+                define a list of requirements to be implemented during the first Sprint.
+                You will be following Scrum methods in order to gather these requirements.
+                You will then submit these requirements in order to continue.
+              </p>
+            </mat-card-content>
+            <div class="center-items">
+              <mat-card-actions>
+                <button mat-button type="button" class="btn align-middle btn-primary btn-lg disabled"
+                  (click)="openLesson('session-three-SP')">Begin Lesson</button>
+              </mat-card-actions>
+            </div>
+          </mat-card>
+
+          <!-- SCRUM EVENT - DAILY SCRUM MEETING -->
+          <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Scrum Meeting!</mat-card-title>
+              <mat-card-subtitle>Daily Scrum</mat-card-subtitle>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                You will be conducting a daily scrum meeting.
+                You will base the content of this meeting on the tasks you have been assigned to complete on this
+                sprint.
+                You will then submit what you discussed during the meeting.
+              </p>
+            </mat-card-content>
+            <div class="center-items">
+              <mat-card-actions>
+                <button mat-button type="button" class="btn align-middle btn-primary btn-lg disabled"
+                  (click)="openLesson('session-three-DS')">Begin Lesson</button>
+              </mat-card-actions>
+            </div>
+          </mat-card>
+        </div>
+
+        <hr class="shadow-sm">
+
+        <!-- Task Group 2 -->
+        <div class="d-flex justify-content-center row">
+          <!-- PRODUCT DESIGN -->
+          <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Product Design</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1653&q=80"
+              alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                This stage is the official task of your First Sprint.
+                You will be designing some Diagram based on the context of the case study.
+                You will then be required to submit the diagram(‘s) in order to continue to the next stage
+              </p>
+            </mat-card-content>
+            <div class="center-items">
+              <mat-card-actions>
+                <button mat-button type="button" class="btn align-middle btn-primary btn-lg disabled"
+                  (click)="openLesson('session-three-PDesign')">Begin Lesson</button>
+              </mat-card-actions>
+            </div>
+          </mat-card>
+
+          <!-- PRODUCT DEVELOPMENT -->
+          <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Product Development</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+              alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                You will begin the first stage of development for the project based on the requirements you gathered.
+                A submission will be required in order to continue to the next stage.
+              </p>
+            </mat-card-content>
+            <div class="center-items">
+              <mat-card-actions>
+                <button mat-button type="button" class="btn align-middle btn-primary btn-lg disabled"
+                  (click)="openLesson('session-three-PDevelopment')">Begin Lesson</button>
+              </mat-card-actions>
+            </div>
+          </mat-card>
+        </div>
+
+        <hr class="shadow-sm">
+
+        <!-- Task Group 3 -->
+        <div class="d-flex justify-content-center row">
+          <!-- SCRUM EVENT - SPRINT REIVEW & RETROSPECTIVE MEETING -->
+          <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Scrum Meeting!</mat-card-title>
+              <mat-card-subtitle>Sprint Review & Retrospective</mat-card-subtitle>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1535209039648-9524289505fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80"
+              alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                In this task you will complete an informal review of the progress made during the sprint.
+                You will then document an assessment of the quality of the sprint based on the requirements, assessing
+                whether the assigned tasks were detailed enough, if there are any new requirements that need to be made
+                and any other issues faces during the sprint.
+                You will then submit a document in order to conclude the first Sprint.
+              </p>
+            </mat-card-content>
+            <div class="center-items">
+              <mat-card-actions>
+                <button mat-button type="button" class="btn align-middle btn-primary btn-lg disabled"
+                  (click)="openLesson('session-three-SPRR')">Begin Lesson</button>
+              </mat-card-actions>
+            </div>
+          </mat-card>
+
+          <!-- SCRUM EVENT - DAILY SCRUM MEETING -->
+          
+          <mat-card class="center content-card shadow">
+            <div>
+            <mat-card-header>
+              <mat-card-title>Session 3 Quiz!</mat-card-title>
+              <mat-card-subtitle>Test What You Have Learned</mat-card-subtitle>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80"
+              alt="Case Study Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                This quiz will test everything you learned this session
+                Completing this quiz will allow you to proceed to the next stage
+              </p>
+            </mat-card-content>
+            <div class="center-items">
+              <mat-card-actions>
+                <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
+                  (click)="openQuiz('session-three')">Start Quiz</button>
+              </mat-card-actions>
+            </div>
           </div>
-          <div class="d-flex justify-content-center row">
-            <!--  -->
-          </div>
+          </mat-card>
+        
         </div>
       </div>
     </div>
   </div>
+</div>

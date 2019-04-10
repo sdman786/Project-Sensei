@@ -3,6 +3,8 @@ import { Quiz, QuizConfig, Question, Option } from 'src/app/models/quiz';
 import { QuizService } from 'src/app/services/quiz.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatRadioButton } from '@angular/material/radio';
+
 import { QuizData } from './quiz-data';
 
 @Component({

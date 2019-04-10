@@ -1,6 +1,8 @@
-<div mat-dialog-content class="h-100" >
+<div mat-dialog-header class="m-3">
     <h1 class="center text-capitalize">Quiz Time! - {{ mcqName }}</h1>
-    <mat-card class="">
+  </div>
+<div mat-dialog-content class="h-100" >
+    <mat-card>
         <!-- <mat-card-header>
           <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>
         </mat-card-header> -->
@@ -18,6 +20,8 @@
                   <div class="col-6" *ngFor="let option of question.options">
                     <div class="option m-2">
                       <label class="font-weight-normal" [attr.for]="option.id">
+                          <!-- <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected"
+                          (change)="onSelect(question, option);" /> -->
                         <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected"
                           (change)="onSelect(question, option);" /> {{option.name}}
                       </label>

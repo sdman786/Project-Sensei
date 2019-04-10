@@ -1,39 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { QuizComponent } from '../../quiz/quiz.component';
 
 @Component({
   selector: 'app-session-three',
   templateUrl: './session-three.component.html',
   styleUrls: ['../session-template.component.scss']
 })
-export class SessionThreeComponent implements OnInit {
+export class SessionThreeComponent {
 
-  show : boolean = true;
+  mcqName = '';
+  lessonName = '';
+  quizType: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public dialog: MatDialog) { }
 
-  ngOnInit(): void {
-    this.loadSession();
+  openQuiz(quizType: string): void {
+    const dialogRef = this.dialog.open(QuizComponent, {
+      disableClose: true,
+      data: {
+            mcqName: quizType
+          }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      // this.quizResult = result;
+    });
   }
 
-  loadSession() {
-    // this.router.events
-    // .pipe(
-    //   filter(e => e instanceof NavigationEnd)
-    //   )
-    // .subscribe((navEnd: NavigationEnd) => {
-    //   console.log(navEnd.urlAfterRedirects);
-    //   if (navEnd.urlAfterRedirects === '/session/three') {
-    //     this.show = true;
-    //   }
-    //   else {
-    //     this.show = false;
-    //   }
-    // });
-  }
-
-  openQuiz( quizType: string) {
-    this.router.navigateByUrl('/quiz', { state: { mcqName: quizType } });
+  openLesson(lessonType: string): void {
+  //   const dialogRef = this.dialog.open(LessonComponent, {
+  //     data: {
+  //           lessonName: lessonType
+  //         }
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(result);
+  //     // this.lessonComplete = result;
+  //   });
   }
 }
