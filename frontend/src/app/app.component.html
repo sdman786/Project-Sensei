@@ -30,12 +30,12 @@
       </li>
       <li *ngIf="auth.isLoggedIn()" class="nav-item routerLinkActive d-flex align-items-center routerLinkActive" 
            routerLinkActive="defaultLightBlue" >
-        <button mat-button color="accent" (click)="auth.logout()">Log Out</button>
+        <button mat-button color="accent" (click)="auth.logout()" routerLink="/login">Log Out</button>
       </li>
       <!-- TODO SHOW ONLY ON HOME PAGE -->
       <li *ngIf="auth.isLoggedIn() && route == '/home'" class="nav-item d-flex align-items-center ml-5 pl-5 pt-3" >
         <p *ngIf="user" style="font-size: 14px; color: white;">Welcome 
-          <span class="defaultLightBlue">{{ user.name }}!</span>
+          <span class="defaultLightBlue">{{ getUsername() }}!</span>
         </p>
       </li>
     </ul>

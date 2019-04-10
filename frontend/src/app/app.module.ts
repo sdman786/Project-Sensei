@@ -11,7 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { QuizComponent } from './components/quiz/quiz.component';
-import { SessionOneComponent } from './components/session-template/session-one/session-one.component';
+import { SessionOneComponent, LessonComponent } from './components/session-template/session-one/session-one.component';
 import { SessionTwoComponent } from './components/session-template/session-two/session-two.component';
 import { SessionThreeComponent } from './components/session-template/session-three/session-three.component';
 import { CaseStudyComponent } from './components/case-study/case-study.component';
@@ -19,11 +19,10 @@ import { SessionTemplateComponent } from './components/session-template/session-
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MaterialModule } from './material.module';
 
-
-
 @NgModule({
     entryComponents: [
-      HomeComponent
+      HomeComponent,
+      LessonComponent
     ],
   declarations: [
     AppComponent,
@@ -37,7 +36,8 @@ import { MaterialModule } from './material.module';
     SessionThreeComponent,
     CaseStudyComponent,
     SessionTemplateComponent,
-    SidebarComponent
+    SidebarComponent,
+    LessonComponent
   ],
   imports: [
     BrowserModule,

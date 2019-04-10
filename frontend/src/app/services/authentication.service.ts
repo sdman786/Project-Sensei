@@ -20,6 +20,7 @@ export interface TokenPayload {
   username: string;
   password: string;
   name?: string;
+  email?: string;
 }
 
 @Injectable({
@@ -71,7 +72,7 @@ export class AuthenticationService {
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('mean-token');
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/login');
   }
 
   // Structuring the API Calls
