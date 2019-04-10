@@ -7,31 +7,19 @@
           "questions": [
               {
                   "id": 1010,
-                  "name": "ASP.NET webform separates the HTML output from program logic using a feature named as",
+                  "name": "An Agile approach is best suited for projects that have high levels of uncertainty",
                   "questionTypeId": 1,
                   "options": [
                       {
                           "id": 1055,
                           "questionId": 1010,
-                          "name": "Exception",
-                          "isAnswer": false
+                          "name": "True",
+                          "isAnswer": true
                       },
                       {
                           "id": 1056,
                           "questionId": 1010,
-                          "name": "Code-behind",
-                          "isAnswer": true
-                      },
-                      {
-                          "id": 1057,
-                          "questionId": 1010,
-                          "name": "Code-front",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1058,
-                          "questionId": 1010,
-                          "name": "None of the above",
+                          "name": "False",
                           "isAnswer": false
                       }
                   ],
@@ -43,32 +31,20 @@
               },
               {
                   "id": 1011,
-                  "name": "The feature in ASP.NET 2.0 that is used to fire a normal postback to a different page in the application is called",
+                  "name": "Documentation is never appropriate in an Agile project",
                   "questionTypeId": 1,
                   "options": [
                       {
                           "id": 1055,
                           "questionId": 1010,
-                          "name": "Theme",
+                          "name": "True",
                           "isAnswer": false
                       },
                       {
                           "id": 1057,
                           "questionId": 1010,
-                          "name": "Code-front",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1056,
-                          "questionId": 1010,
-                          "name": "Cross Page Posting",
+                          "name": "False",
                           "isAnswer": true
-                      },
-                      {
-                          "id": 1058,
-                          "questionId": 1010,
-                          "name": "None of the above",
-                          "isAnswer": false
                       }
                   ],
                   "questionType": {
@@ -79,32 +55,20 @@
               },
               {
                   "id": 1012,
-                  "name": "What class does the ASP.NET Web Form class inherit from by default?",
+                  "name": "It is impossible to estimate the costs and schedules of an Agile project",
                   "questionTypeId": 1,
                   "options": [
                       {
                           "id": 1055,
                           "questionId": 1010,
-                          "name": "System.Web.UI.Page",
-                          "isAnswer": true
+                          "name": "False",
+                          "isAnswer": false
                       },
                       {
                           "id": 1057,
                           "questionId": 1010,
-                          "name": "System.Web.UI.Form",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1056,
-                          "questionId": 1010,
-                          "name": "System.Web.GUI.Page",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1058,
-                          "questionId": 1010,
-                          "name": "System.Web.Form",
-                          "isAnswer": false
+                          "name": "True",
+                          "isAnswer": true
                       }
                   ],
                   "questionType": {
@@ -115,31 +79,19 @@
               },
               {
                   "id": 1013,
-                  "name": "What does MVC stand for?",
+                  "name": "An Agile project is more likely to result in maximizing the business value the customer receives from the project",
                   "questionTypeId": 1,
                   "options": [
                       {
                           "id": 1055,
                           "questionId": 1010,
-                          "name": "Model View Controller",
+                          "name": "True",
                           "isAnswer": true
                       },
                       {
                           "id": 1057,
                           "questionId": 1010,
-                          "name": "Maximum Virtual Control",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1056,
-                          "questionId": 1010,
-                          "name": "Microsoft Visual Core",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1058,
-                          "questionId": 1010,
-                          "name": "None of the above",
+                          "name": "False",
                           "isAnswer": false
                       }
                   ],
@@ -151,32 +103,20 @@
               },
               {
                   "id": 1014,
-                  "name": "Which of the following does NOT require type casting?",
+                  "name": "Reduced overhead and faster time to market are generally characteristics of an Agile approach",
                   "questionTypeId": 1,
                   "options": [
                       {
                           "id": 1055,
                           "questionId": 1010,
-                          "name": "Session",
-                          "isAnswer": false
+                          "name": "True",
+                          "isAnswer": true
                       },
                       {
                           "id": 1057,
                           "questionId": 1010,
-                          "name": "TempData",
+                          "name": "False",
                           "isAnswer": false
-                      },
-                      {
-                          "id": 1056,
-                          "questionId": 1010,
-                          "name": "ViewData",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1058,
-                          "questionId": 1010,
-                          "name": "ViewBag",
-                          "isAnswer": true
                       }
                   ],
                   "questionType": {
@@ -187,31 +127,19 @@
               },
               {
                   "id": 1015,
-                  "name": "Which is the correct order of Page life-cycle in asp.net webform?",
+                  "name": "An Agile approach should generally result in producing higher levels of quality in the finished product because quality is a more integral part of the development effort",
                   "questionTypeId": 1,
                   "options": [
                       {
                           "id": 1055,
                           "questionId": 1010,
-                          "name": "Init, PreRender, Load",
-                          "isAnswer": false
+                          "name": "True",
+                          "isAnswer": true
                       },
                       {
                           "id": 1057,
                           "questionId": 1010,
-                          "name": "Load, PreRender, Init",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1056,
-                          "questionId": 1010,
-                          "name": "Init, Load, PreRender",
-                          "isAnswer": true
-                      },
-                      {
-                          "id": 1058,
-                          "questionId": 1010,
-                          "name": "None of the above",
+                          "name": "False",
                           "isAnswer": false
                       }
                   ],
@@ -223,31 +151,19 @@
               },
               {
                   "id": 1016,
-                  "name": "Which of these data source controls do not implement caching?",
+                  "name": "Scope creep in an Agile project is normal and is to be expected",
                   "questionTypeId": 1,
                   "options": [
                       {
                           "id": 1055,
                           "questionId": 1010,
-                          "name": "ObjectDataSource",
-                          "isAnswer": false
+                          "name": "True",
+                          "isAnswer": true
                       },
                       {
                           "id": 1056,
                           "questionId": 1010,
-                          "name": "LinqDataSource",
-                          "isAnswer": true
-                      },
-                      {
-                          "id": 1057,
-                          "questionId": 1010,
-                          "name": "SqlDataSource",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1058,
-                          "questionId": 1010,
-                          "name": "XmlDataSource",
+                          "name": "False",
                           "isAnswer": false
                       }
                   ],
@@ -259,32 +175,20 @@
               },
               {
                   "id": 1017,
-                  "name": "Which tag asp:Label control by default renders to?",
+                  "name": "An Agile approach will ALWAYS result in fastest time to market",
                   "questionTypeId": 1,
                   "options": [
                       {
                           "id": 1055,
                           "questionId": 1010,
-                          "name": "div",
+                          "name": "True",
                           "isAnswer": false
                       },
                       {
                           "id": 1056,
                           "questionId": 1010,
-                          "name": "span",
+                          "name": "False",
                           "isAnswer": true
-                      },
-                      {
-                          "id": 1057,
-                          "questionId": 1010,
-                          "name": "body",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1058,
-                          "questionId": 1010,
-                          "name": "label",
-                          "isAnswer": false
                       }
                   ],
                   "questionType": {
@@ -295,31 +199,19 @@
               },
               {
                   "id": 1018,
-                  "name": "Which method do you use to explicitly kill a user's session?",
+                  "name": "An Agile approach would normally NOT be the most appropriate choice for a project that requires a high level of predictability such as a construction project",
                   "questionTypeId": 1,
                   "options": [
                       {
                           "id": 1055,
                           "questionId": 1010,
-                          "name": "Session.Terminate()",
-                          "isAnswer": false
+                          "name": "True",
+                          "isAnswer": true
                       },
                       {
                           "id": 1057,
                           "questionId": 1010,
-                          "name": "Session.TimeOut()",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1056,
-                          "questionId": 1010,
-                          "name": "Session.Abondon()",
-                          "isAnswer": true
-                      },
-                      {
-                          "id": 1058,
-                          "questionId": 1010,
-                          "name": "Session.Kill()",
+                          "name": "False",
                           "isAnswer": false
                       }
                   ],
@@ -331,32 +223,20 @@
               },
               {
                   "id": 1019,
-                  "name": "Which of the following object is ideal for keeping data alive for a single request?",
+                  "name": "A traditional plan-driven approach (or Waterfall) would be a good approach to use if you were to take on a highly uncertain project such as finding a cure for cancer",
                   "questionTypeId": 1,
                   "options": [
                       {
                           "id": 1055,
                           "questionId": 1010,
-                          "name": "HttpContext",
-                          "isAnswer": true
+                          "name": "True",
+                          "isAnswer": false
                       },
                       {
                           "id": 1056,
                           "questionId": 1010,
-                          "name": "Session",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1057,
-                          "questionId": 1010,
-                          "name": "Cookies",
-                          "isAnswer": false
-                      },
-                      {
-                          "id": 1058,
-                          "questionId": 1010,
-                          "name": "SqlServer",
-                          "isAnswer": false
+                          "name": "False",
+                          "isAnswer": true
                       }
                   ],
                   "questionType": {
@@ -376,31 +256,19 @@
         "questions": [
             {
                 "id": 1010,
-                "name": "ASPOO.NET webform separates the HTML output from program logic using a feature named as",
+                "name": "Scrum is the most widely used Agile methodology to the extent that when people talk about 'Agile', they are many times talking about the Scrum methodology and not a more general Agile approach",
                 "questionTypeId": 1,
                 "options": [
                     {
                         "id": 1055,
                         "questionId": 1010,
-                        "name": "Exception",
-                        "isAnswer": false
+                        "name": "True",
+                        "isAnswer": true
                     },
                     {
                         "id": 1056,
                         "questionId": 1010,
-                        "name": "Code-behind",
-                        "isAnswer": true
-                    },
-                    {
-                        "id": 1057,
-                        "questionId": 1010,
-                        "name": "Code-front",
-                        "isAnswer": false
-                    },
-                    {
-                        "id": 1058,
-                        "questionId": 1010,
-                        "name": "None of the above",
+                        "name": "False",
                         "isAnswer": false
                     }
                 ],
@@ -412,32 +280,20 @@
             },
             {
                 "id": 1011,
-                "name": "The feature in ASP.NET 2.0 that is used to fire a normal postback to a different page in the application is called",
+                "name": "The purpose of ALL Sprints is to release a piece of working software",
                 "questionTypeId": 1,
                 "options": [
                     {
                         "id": 1055,
                         "questionId": 1010,
-                        "name": "Theme",
+                        "name": "True",
                         "isAnswer": false
                     },
                     {
                         "id": 1057,
                         "questionId": 1010,
-                        "name": "Code-front",
-                        "isAnswer": false
-                    },
-                    {
-                        "id": 1056,
-                        "questionId": 1010,
-                        "name": "Cross Page Posting",
+                        "name": "False",
                         "isAnswer": true
-                    },
-                    {
-                        "id": 1058,
-                        "questionId": 1010,
-                        "name": "None of the above",
-                        "isAnswer": false
                     }
                 ],
                 "questionType": {
@@ -448,32 +304,20 @@
             },
             {
                 "id": 1012,
-                "name": "What class does the ASP.NET Web Form class inherit from by default?",
+                "name": "Items at the bottom of the Product Backlog are usually larger than those on the top",
                 "questionTypeId": 1,
                 "options": [
                     {
                         "id": 1055,
                         "questionId": 1010,
-                        "name": "System.Web.UI.Page",
-                        "isAnswer": true
+                        "name": "True",
+                        "isAnswer": false
                     },
                     {
                         "id": 1057,
                         "questionId": 1010,
-                        "name": "System.Web.UI.Form",
-                        "isAnswer": false
-                    },
-                    {
-                        "id": 1056,
-                        "questionId": 1010,
-                        "name": "System.Web.GUI.Page",
-                        "isAnswer": false
-                    },
-                    {
-                        "id": 1058,
-                        "questionId": 1010,
-                        "name": "System.Web.Form",
-                        "isAnswer": false
+                        "name": "True",
+                        "isAnswer": true
                     }
                 ],
                 "questionType": {
@@ -484,31 +328,19 @@
             },
             {
                 "id": 1013,
-                "name": "What does MVC stand for?",
+                "name": "An advantage of a defined process is that it is repeatable and predictable",
                 "questionTypeId": 1,
                 "options": [
                     {
                         "id": 1055,
                         "questionId": 1010,
-                        "name": "Model View Controller",
+                        "name": "True",
                         "isAnswer": true
                     },
                     {
                         "id": 1057,
                         "questionId": 1010,
-                        "name": "Maximum Virtual Control",
-                        "isAnswer": false
-                    },
-                    {
-                        "id": 1056,
-                        "questionId": 1010,
-                        "name": "Microsoft Visual Core",
-                        "isAnswer": false
-                    },
-                    {
-                        "id": 1058,
-                        "questionId": 1010,
-                        "name": "None of the above",
+                        "name": "False",
                         "isAnswer": false
                     }
                 ],
@@ -520,31 +352,31 @@
             },
             {
                 "id": 1014,
-                "name": "Which of the following does NOT require type casting?",
+                "name": "Which of the following is the subject of Sprint Retrospective?",
                 "questionTypeId": 1,
                 "options": [
                     {
                         "id": 1055,
                         "questionId": 1010,
-                        "name": "Session",
+                        "name": "Product Backlog order",
                         "isAnswer": false
                     },
                     {
                         "id": 1057,
                         "questionId": 1010,
-                        "name": "TempData",
+                        "name": "Scrum process",
                         "isAnswer": false
                     },
                     {
                         "id": 1056,
                         "questionId": 1010,
-                        "name": "ViewData",
+                        "name": "Technical approach",
                         "isAnswer": false
                     },
                     {
                         "id": 1058,
                         "questionId": 1010,
-                        "name": "ViewBag",
+                        "name": "Increment",
                         "isAnswer": true
                     }
                 ],
@@ -556,32 +388,32 @@
             },
             {
                 "id": 1015,
-                "name": "Which is the correct order of Page life-cycle in asp.net webform?",
+                "name": "Who participates in the Sprint Review?",
                 "questionTypeId": 1,
                 "options": [
                     {
                         "id": 1055,
                         "questionId": 1010,
-                        "name": "Init, PreRender, Load",
+                        "name": "The Key Stakeholders",
                         "isAnswer": false
                     },
                     {
                         "id": 1057,
                         "questionId": 1010,
-                        "name": "Load, PreRender, Init",
+                        "name": "The Development Team",
                         "isAnswer": false
                     },
                     {
                         "id": 1056,
                         "questionId": 1010,
-                        "name": "Init, Load, PreRender",
-                        "isAnswer": true
+                        "name": "The Product Owner",
+                        "isAnswer": false
                     },
                     {
                         "id": 1058,
                         "questionId": 1010,
-                        "name": "None of the above",
-                        "isAnswer": false
+                        "name": "All of the above",
+                        "isAnswer": true
                     }
                 ],
                 "questionType": {
@@ -592,31 +424,31 @@
             },
             {
                 "id": 1016,
-                "name": "Which of these data source controls do not implement caching?",
+                "name": "Who is allowed to change the Sprint Backlog during the Sprint?",
                 "questionTypeId": 1,
                 "options": [
                     {
                         "id": 1055,
                         "questionId": 1010,
-                        "name": "ObjectDataSource",
+                        "name": "The Product Owner",
                         "isAnswer": false
                     },
                     {
                         "id": 1056,
                         "questionId": 1010,
-                        "name": "LinqDataSource",
+                        "name": "The Development Team",
                         "isAnswer": true
                     },
                     {
                         "id": 1057,
                         "questionId": 1010,
-                        "name": "SqlDataSource",
+                        "name": "The Scrum Team",
                         "isAnswer": false
                     },
                     {
                         "id": 1058,
                         "questionId": 1010,
-                        "name": "XmlDataSource",
+                        "name": "The Scrum Master",
                         "isAnswer": false
                     }
                 ],
@@ -628,32 +460,20 @@
             },
             {
                 "id": 1017,
-                "name": "Which tag asp:Label control by default renders to?",
+                "name": "The Product Owner and the Scrum Master Cannot be a part of the Development Team",
                 "questionTypeId": 1,
                 "options": [
                     {
                         "id": 1055,
                         "questionId": 1010,
-                        "name": "div",
+                        "name": "True",
                         "isAnswer": false
                     },
                     {
                         "id": 1056,
                         "questionId": 1010,
-                        "name": "span",
+                        "name": "False",
                         "isAnswer": true
-                    },
-                    {
-                        "id": 1057,
-                        "questionId": 1010,
-                        "name": "body",
-                        "isAnswer": false
-                    },
-                    {
-                        "id": 1058,
-                        "questionId": 1010,
-                        "name": "label",
-                        "isAnswer": false
                     }
                 ],
                 "questionType": {
@@ -664,32 +484,32 @@
             },
             {
                 "id": 1018,
-                "name": "Which method do you use to explicitly kill a user's session?",
+                "name": "When should the Sprint Retrospective be held?",
                 "questionTypeId": 1,
                 "options": [
                     {
                         "id": 1055,
                         "questionId": 1010,
-                        "name": "Session.Terminate()",
+                        "name": "When needed",
                         "isAnswer": false
                     },
                     {
                         "id": 1057,
                         "questionId": 1010,
-                        "name": "Session.TimeOut()",
+                        "name": "When asked by the Product Owner",
                         "isAnswer": false
                     },
                     {
                         "id": 1056,
                         "questionId": 1010,
-                        "name": "Session.Abondon()",
-                        "isAnswer": true
+                        "name": "When asked by the Scrum Master",
+                        "isAnswer": false
                     },
                     {
                         "id": 1058,
                         "questionId": 1010,
-                        "name": "Session.Kill()",
-                        "isAnswer": false
+                        "name": "Each Sprint",
+                        "isAnswer": true
                     }
                 ],
                 "questionType": {
@@ -700,31 +520,19 @@
             },
             {
                 "id": 1019,
-                "name": "Which of the following object is ideal for keeping data alive for a single request?",
+                "name": "The Sprint Backlog would not change after the Sprint Planning",
                 "questionTypeId": 1,
                 "options": [
                     {
                         "id": 1055,
                         "questionId": 1010,
-                        "name": "HttpContext",
+                        "name": "True",
                         "isAnswer": true
                     },
                     {
                         "id": 1056,
                         "questionId": 1010,
-                        "name": "Session",
-                        "isAnswer": false
-                    },
-                    {
-                        "id": 1057,
-                        "questionId": 1010,
-                        "name": "Cookies",
-                        "isAnswer": false
-                    },
-                    {
-                        "id": 1058,
-                        "questionId": 1010,
-                        "name": "SqlServer",
+                        "name": "False",
                         "isAnswer": false
                     }
                 ],

@@ -1,0 +1,43 @@
+<div class="container-fluid pr-5">
+  <div class="row mt-2">
+    <div class="col-11 custom-modal mt-sm-3" style="max-width: 650px;">
+      <div class="center col-11 mb-5 mt-5 text-justify">
+        <h2 class="center">Next Lesson</h2>
+        <hr class="shadow-sm">
+        <div class="d-flex justify-content-center row">
+        <!-- TASK DESCRIPTION -->
+          <mat-card class="content-card shadow mt-5">
+            <mat-card-header>
+              <mat-card-title>Task Description</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <!-- TODO Fill Task from User Model Next Lesson ID -->
+            <mat-card-content class="ml-3 mt-4 text-left">
+                <p style="font-weight: 500; font-size: 15px;">This Quiz will test your knowledge on the Agile Methodology.</p>
+                <p style="font-weight: 500;font-size: 15px;">Complete this Quiz with 80% Score or more in order to continue to the next stage of the course.</p>
+                <p class="center mt-5" style="font-weight: bold;font-size: 15px;">Good Luck!</p>
+              </mat-card-content>
+          </mat-card>
+        <!-- TASK ACTION -->
+          <mat-card class="content-card shadow mt-5">
+            <!-- TODO Fill Task from User Model Next Lesson ID -->
+            <mat-card-header>
+              <mat-card-title>Quiz Time! - Agile</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80" alt="Agile Picture">
+              <hr class="shadow-sm">
+            <div class="center-items pt-3">
+              <mat-card-actions>
+                <!-- TODO OPEN NEXT TASK BASED ON USERS NEXT TASK (DB>CURRENT_TASK+1->'next task') -->
+                <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
+                 (click)="openTask('agile')" >Start Quiz</button>
+              </mat-card-actions>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

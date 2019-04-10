@@ -5,11 +5,30 @@
 
 // App Component
 @import '../src/app/app.component.scss';
+
 // Home Component
 @import '../src/app/components/home/home.component.scss';
+
 // Login Component
 @import '../src/app/components/login/login.component.scss';
 
+// Register Component
+@import '../src/app/components/register/register.component.scss';
+
+// Quiz Component
+@import '../src/app/components/quiz/quiz.component.scss';
+
+// SessionTemplate Component
+@import '../src/app/components/session-template/session-template.component.scss';
+
+// SessionOne Component
+@import '../src/app/components/session-template/session-one/session-one.component.scss';
+
+// SessionTwo Component
+@import '../src/app/components/session-template/session-two/session-two.component.scss';
+
+// SessionThree Component
+@import '../src/app/components/session-template/session-three/session-three.component.scss';
 
 
 
@@ -20,7 +39,18 @@ body { margin: 0; font-family: $defaultFont; background: $defaultBackground; bac
     background-attachment: fixed; padding-top: 50px; padding-bottom: 50px; }
 
 
-// GLOBAL STYLES
+
+    // GLOBAL STYLES
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: $defaultLightBlue;
+}
 
 .title-label {
     position: relative;
@@ -40,13 +70,13 @@ body { margin: 0; font-family: $defaultFont; background: $defaultBackground; bac
 
 .custom-modal {
     width: auto;
-    height: 420px;
+    min-height: 370px;
     margin: 0 auto;
     background: #E5E5E5;
     box-sizing: border-box;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    max-width: 500px;
+    margin-bottom: 20px;
 }  
 
 .center {

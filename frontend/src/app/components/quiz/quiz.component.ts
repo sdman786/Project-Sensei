@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Quiz, QuizConfig, Question, Option } from 'src/app/models/quiz';
 import { QuizService } from 'src/app/services/quiz.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatRadioButton } from '@angular/material/radio';
+
+import { QuizData } from './quiz-data';
 
 @Component({
   selector: 'app-quiz',
@@ -17,7 +21,7 @@ export class QuizComponent implements OnInit {
      allowBack: true,
      allowReview: true,
      autoMove: false,  // if true, it will move to next question automatically when answered.
-     duration: 10,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
+     duration: 100,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
      pageSize: 1,
      requiredAll: true,  // indicates if you must answer all the questions before submitting.
      richText: false,
@@ -27,6 +31,7 @@ export class QuizComponent implements OnInit {
      showPager: true,
      theme: 'none'
    };
+   correctAnswers = 0;
 
    public mcqName = '';
 
@@ -42,11 +47,13 @@ export class QuizComponent implements OnInit {
    ellapsedTime = '00:00';
    duration = '';
 
-  constructor(private quizService: QuizService) { }
+  constructor(private quizService: QuizService,
+              public dialogRef: MatDialogRef<QuizComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: QuizData) { }
 
   ngOnInit() {
 
-    this.mcqName = window.history.state.mcqName;
+    this.mcqName = this.data.mcqName;
 
     this.quizService.get_MCQ(this.mcqName).subscribe(res => {
       this.quiz$ = new Quiz(res[0]);
@@ -56,6 +63,10 @@ export class QuizComponent implements OnInit {
       this.duration = this.parseTime(this.config.duration);
     });
     this.mode = 'quiz';
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
   tick() {
@@ -102,15 +113,24 @@ export class QuizComponent implements OnInit {
   }
 
   isCorrect(question: Question) {
-    return question.options.every(x => x.selected === x.isAnswer) ? 'correct' : 'wrong';
+    return question.options.every(x => x.selected === x.isAnswer) ? true : false;
   }
 
   onSubmit() {
     const answers = [];
-    this.quiz$.questions.forEach(x => answers.push({ quizId: this.quiz$.id, questionId: x.id, answered: x.answered }));
+    this.quiz$.questions.forEach(x => {
+      if (this.isCorrect(x)) {
+        answers.push({ quizId: this.quiz$.id,
+                        questionId: x.id,
+                        answered: x.answered,
+                        correctAnswers: this.correctAnswers += 1
+                      });
+      }
+    });
 
     // Post your data to the server here. answers contains the questionId and the users' answer.
-    console.log(this.quiz$.questions);
+    // console.log(this.quiz$.questions);
+    console.log('Correct Answers: ', answers);
     this.mode = 'result';
   }
 }

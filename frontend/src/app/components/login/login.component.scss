@@ -63,38 +63,29 @@
   }
   .login-input-submit {
     text-align: center;
-    position: relative;
-    top: 20px;
-    left: 90px;
 
     /* Submit Button */
     .submit-button {
-      width: 170px;    
-      height: 50px;    
-      background: #516374;    
-      box-sizing: border-box;    
-      border-radius: 20px;    
-      font-family: "righteous", cursive;    
-      font-style: normal;    
-      line-height: normal;    
-      font-size: 25px;    
-      text-align: center;    
-      color: #fff;    
-      letter-spacing: 0.1em;    
+      width: 130px;
+      height: 40px;
+      background: #516374;
+      box-sizing: border-box;
+      border-radius: 15px;
+      font-family: "righteous", cursive;
+      font-style: normal;
+      line-height: normal;
+      font-size: 20px;
+      text-align: center;
+      color: #fff;
+      letter-spacing: 0.1em;
       box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.25);
     }
     /* Register Text & Button */
-    .login-register-text{
-      position: relative;
-      top: 94px;
-      left: -35px;
+    .login-login-text{
       font-size: 13px;
     }
 
     .register-button {
-      position: relative;
-      left: -26px;
-      top: 95px;
       width: 115px;
       height: 35px;
       font-family: "Righteous", cursive;
