@@ -24,11 +24,7 @@ export class AppComponent implements OnInit {
   @Input() routerLinkActiveOptions: { exact: boolean; };
 
   ngOnInit(): void {
-    this.auth.profile().subscribe(user => {
-      this.user = user;
-    }, (err) => {
-      console.error(err);
-    });
+    this.getUser();
     
     this.router.events
       .pipe(
@@ -59,5 +55,18 @@ export class AppComponent implements OnInit {
             break;
         }
       });
+  }
+
+  public getUser() {
+    this.auth.profile().subscribe(user => {
+      this.user = user;
+    }, (err) => {
+      console.error(err);
+    });
+    this.getUsername();
+  }
+
+  getUsername(){
+    // return this.user.name;
   }
 }

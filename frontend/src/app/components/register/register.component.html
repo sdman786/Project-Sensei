@@ -11,7 +11,15 @@
                   <input matInput class="register-input-field" type="text" name="name" [(ngModel)]="user.name">
                   <mat-placeholder for="name" class="register-label">Full name</mat-placeholder>
                   <span class="register-input-icon-clear" *ngIf="user.username" matSuffix mat-icon-button
-                    (click)="user.username=''">
+                    (click)="user.name=''">
+                    <mat-icon>close</mat-icon>
+                  </span>
+                </mat-form-field>
+                <mat-form-field class="register-input-block">
+                  <input matInput class="register-input-field" type="text" name="email" [(ngModel)]="user.email">
+                  <mat-placeholder for="email" class="register-label">Email</mat-placeholder>
+                  <span class="register-input-icon-clear" *ngIf="user.email" matSuffix mat-icon-button
+                    (click)="user.email=''">
                     <mat-icon>close</mat-icon>
                   </span>
                 </mat-form-field>

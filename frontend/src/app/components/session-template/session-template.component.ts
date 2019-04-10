@@ -4,6 +4,7 @@ import { filter } from 'rxjs/operators';
 import { getUrlScheme } from '@angular/compiler';
 import { SessionOneComponent } from './session-one/session-one.component';
 import { MatDialogModule, MatDialog } from '@angular/material';
+import * as typeformEmbed from '@typeform/embed'
 
 @Component({
   selector: 'app-session-template',

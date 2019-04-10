@@ -70,6 +70,7 @@ a:hover {
 
 .custom-modal {
     width: auto;
+    min-width: 230px;
     min-height: 370px;
     margin: 0 auto;
     background: #E5E5E5;
@@ -77,7 +78,10 @@ a:hover {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     margin-bottom: 20px;
-}  
+    .content-card {
+        min-width: 200px;
+    }
+}
 
 .center {
     margin: 0 auto;

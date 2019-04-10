@@ -12,6 +12,7 @@ export class RegisterComponent {
   user: TokenPayload = {
     username: '',
     name: '',
+    email: '',
     password: ''
   };
 
