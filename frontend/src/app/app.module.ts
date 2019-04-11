@@ -45,6 +45,7 @@ import { MaterialModule } from './material.module';
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
     MaterialModule,
     TabsModule,
     ReactiveFormsModule,
