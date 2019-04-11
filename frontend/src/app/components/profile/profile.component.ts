@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { AuthenticationService, UserDetails } from 'src/app/services/authentication.service';
 
 @Component({
-  templateUrl: './profile.component.html'
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
   details: UserDetails;
