@@ -4,6 +4,8 @@ import { filter } from 'rxjs/operators';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { QuizComponent } from '../../quiz/quiz.component';
 import * as typeformEmbed from '@typeform/embed'
+import { QuizService } from 'src/app/services/quiz.service';
+import { LessonComponent } from '../../lesson/lesson.component';
 
 @Component({
   selector: 'app-session-one',
@@ -15,84 +17,80 @@ export class SessionOneComponent implements OnInit {
   mcqName = '';
   lessonName = '';
   quizType: string;
-  // quizResult;
-  // lessonResult;
 
-  constructor(private router: Router, public dialog: MatDialog) { }
+  constructor( private router: Router, public dialog: MatDialog, private quizService: QuizService ) { }
 
   ngOnInit(): void {
     // this.sessionTemplate.quizType = this.quizType;
   }
 
-  openQuiz(quizType: string): void {
-    const dialogRef = this.dialog.open(QuizComponent, {
-      disableClose: true,
-      data: {
-        mcqName: quizType
-      }
+  openQuiz(quizName: string): void {
+    this.quizService.get_MCQ(quizName).subscribe(res => {
+      const dialogRef = this.dialog.open( QuizComponent, {
+        disableClose: true,
+        data: { res }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(result);
+        // this.quizResult = result;
+      });
+    }
+    );
+  }
+
+
+
+
+
+  openLesson(lessonName: string): void {
+  //   const dialogRef = this.dialog.open(LessonComponent);
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
+  // this.lessonService.get_MCQ(lessonName).subscribe(res => {
+    const dialogRef = this.dialog.open( LessonComponent, {
+      disableClose: true
+      ,
+      data: { lessonName }
     });
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       // this.quizResult = result;
     });
   }
-
-
-
-  openLesson(lessonType: string): void {
-    const dialogRef = this.dialog.open(LessonComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
+  // );
 }
 
-@Component({
-  selector: 'lesson-component',
-  template: ''
-})
+// @Component({
+//   selector: 'lesson-component',
+//   template: ''
+// })
 
-export class LessonComponent {
-  constructor() { }
+// export class LessonComponent {
+//   constructor() { }
 
-  ngAfterViewInit(): void {
+//   ngAfterViewInit(): void {
 
-    // typeformEmbed.makePopup('https://salman829964.typeform.com/to/FOxG0c', { mode: 'popup', autoOpen: true });
+//     // typeformEmbed.makePopup('https://salman829964.typeform.com/to/FOxG0c', { mode: 'popup', autoOpen: true });
 
-      const reference = typeformEmbed.makePopup(
-        'https://salman829964.typeform.com/to/FOxG0c',
-        {
-          mode: 'popup',
-          autoClose: 3000,
-          hideHeaders: true,
-          hideFooters: true,
-          onSubmit: function () {
-            console.log('Typeform successfully submitted')
-          }
-        }
-      )
-      reference.open()
-
-    // const embedElement = document.querySelector('#mat-dialog-0') 
-    // // NOTE: `.target-dom-node` is the target DOM element from your website or web app
-
-    // typeformEmbed.makeWidget(
-    //   embedElement,
-    //   'https://salman829964.typeform.com/to/FOxG0c', // NOTE: Replace with your typeform URL
-    //   {
-    //     hideHeaders: true,
-    //     hideFooter: true,
-    //     opacity: 75,
-    //     buttonText: "Take the survey!",
-    //     onSubmit: function () {
-    //       console.log('Typeform successfully submitted')
-    //     }
-    //   }
-    // )
+//     // const reference = typeformEmbed.makePopup(
+//     //   'https://salman829964.typeform.com/to/FOxG0c',
+//     //   {
+//     //     mode: 'popup',
+//     //     autoClose: 3000,
+//     //     hideHeaders: true,
+//     //     hideFooters: true,
+//     //     onSubmit: function () {
+//     //       console.log('Typeform successfully submitted')
+//     //     }
+//     //   }
+//     // )
+//     // reference.open();
 
 
-
-  }
-}
+//   }
+// }

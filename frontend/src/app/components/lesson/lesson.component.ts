@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
-import { LessonData } from './lesson-data';
+// import { LessonData } from './lesson-data';
 
 @Component({
   selector: 'app-lesson',
@@ -14,11 +14,11 @@ export class LessonComponent implements OnInit {
   lessonName = '';
   lessonComplete = false;
 
-  constructor(public dialogRef: MatDialogRef<LessonComponent>, @Inject(MAT_DIALOG_DATA) public data: LessonData) { }
+  constructor(public dialogRef: MatDialogRef<LessonComponent>) { }
 
   ngOnInit() {
-    this.lessonName = this.data.lessonName;
-    this.lessonComplete = this.data.lessonComplete;
+    // this.lessonName = this.data.lessonName;
+    // this.lessonComplete = this.data.lessonComplete;
   }
 
   onNoClick(): void {

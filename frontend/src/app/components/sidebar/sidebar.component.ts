@@ -11,13 +11,12 @@ import { SessionTemplateComponent } from '../session-template/session-template.c
 })
 export class SidebarComponent {
 
-  quizType: string;
+  taskName: string;
 
   constructor( private sessionTemplate: SessionTemplateComponent ) { }
 
-
-  openTask(quizType) {
-    this.sessionTemplate.quizType(quizType);
+  openTask(taskType,taskName) {
+    this.sessionTemplate.openTask(taskType,taskName);
    }
 
 }

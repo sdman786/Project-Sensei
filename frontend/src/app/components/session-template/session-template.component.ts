@@ -5,6 +5,7 @@ import { getUrlScheme } from '@angular/compiler';
 import { SessionOneComponent } from './session-one/session-one.component';
 import { MatDialogModule, MatDialog } from '@angular/material';
 import * as typeformEmbed from '@typeform/embed'
+import { QuizService } from 'src/app/services/quiz.service';
 
 @Component({
   selector: 'app-session-template',
@@ -14,14 +15,17 @@ import * as typeformEmbed from '@typeform/embed'
 
 export class SessionTemplateComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
-  SessionOne = new SessionOneComponent(null, this.dialog);
+  constructor(public dialog: MatDialog, private quizService: QuizService) { }
+  SessionOne = new SessionOneComponent(null, this.dialog, this.quizService);
 
-  quizType = function openQuiz(quizType: string) {
-    this.SessionOne.openQuiz(quizType);
+  openTask = function openTask(taskType: string, taskName: string) {
+    if (taskType === 'quiz') {
+      this.SessionOne.openQuiz(taskName);
+    } else
+    if (taskType === 'lesson') {
+      this.SessionOne.openLesson(taskName);
+    }
   };
-
-  
 
   ngOnInit(): void { }
 

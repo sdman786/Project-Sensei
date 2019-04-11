@@ -1,10 +1,10 @@
 <div mat-dialog-header class="m-3">
-    <h1 class="center text-capitalize">Quiz Time! - {{ mcqName }}</h1>
+    <h1 class="center text-capitalize">Quiz Time! - {{ quizName }}</h1>
   </div>
 <div mat-dialog-content class="h-100" >
     <mat-card>
         <!-- <mat-card-header>
-          <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>
+          <mat-card-title>Quiz Time! - {{ quizName }}</mat-card-title>
         </mat-card-header> -->
         <mat-card-content>
           <div id="quiz">
@@ -76,5 +76,5 @@
       </mat-card>
 </div>
   <div mat-dialog-actions [ngClass]="{'hidden' : mode != 'result'}" class="h-100">
-  <button *ngIf="mode == 'result'" class="col" mat-button [mat-dialog-close]="data.mcqName" cdkFocusInitial>Save and Close</button>
+  <button *ngIf="mode == 'result'" class="col" mat-button [mat-dialog-close]="data.completed" cdkFocusInitial>Save and Close</button>
 </div>

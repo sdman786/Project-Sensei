@@ -7,8 +7,11 @@ export class Quiz {
     description: string;
     config: QuizConfig;
     questions: Question[];
+    completed: boolean;
+    correctAnswers: number;
 
     constructor(data: any) {
+        data = data.res[0];
         if (data) {
             this.id = data.id;
             this.name = data.name;
@@ -18,6 +21,8 @@ export class Quiz {
             data.questions.forEach(q => {
                 this.questions.push(new Question(q));
             });
+            this.completed = false;
+            this.correctAnswers = 0;
         }
     }
 }
