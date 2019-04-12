@@ -19,11 +19,13 @@ import { SessionTemplateComponent } from './components/session-template/session-
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MaterialModule } from './material.module';
 import { LessonComponent } from './components/lesson/lesson.component';
+import { ActivityComponent } from './components/activity/activity.component';
 
 @NgModule({
     entryComponents: [
       HomeComponent,
-      LessonComponent
+      LessonComponent,
+      ActivityComponent
     ],
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { LessonComponent } from './components/lesson/lesson.component';
     CaseStudyComponent,
     SessionTemplateComponent,
     SidebarComponent,
-    LessonComponent
+    LessonComponent,
+    ActivityComponent
   ],
   imports: [
     BrowserModule,

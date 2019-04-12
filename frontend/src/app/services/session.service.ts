@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class SessionService {
   baseQuizUrl: string = "http://localhost:8080/";
   baseLessonUrl: string = "http://localhost:8081/";
+  baseActivityUrl: string = "http://localhost:8082/";
+  baseSessionUrl: string = "http://localhost:8083/session";
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +19,14 @@ export class SessionService {
 
   get_Lesson(name: string) {
     return this.http.get(this.baseLessonUrl + name);
+  }
+
+  get_Activity(name: string) {
+    return this.http.get(this.baseActivityUrl + name);
+  }
+
+  get_Session() {
+    return this.http.get(this.baseSessionUrl);
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Quiz, QuizConfig, Question, Option } from 'src/app/models/task/quiz';
+import { Quiz, QuizConfig, Question, Option } from 'src/app/models/session/quiz';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatRadioButton } from '@angular/material/radio';

@@ -6,6 +6,10 @@ import { QuizComponent } from '../../quiz/quiz.component';
 import * as typeformEmbed from '@typeform/embed';
 import { LessonComponent } from '../../lesson/lesson.component';
 import { SessionService } from 'src/app/services/session.service';
+import { Activity } from 'src/app/models/session/activity/activity';
+import { Lesson } from 'src/app/models/session/lesson/lesson';
+import { Quiz } from 'src/app/models/session/quiz';
+import { ActivityComponent } from '../../activity/activity.component';
 
 @Component({
   selector: 'app-session-one',
@@ -22,36 +26,97 @@ export class SessionOneComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  openQuiz(quizName: string): void {
-    this.sessionService.get_Quiz(quizName).subscribe(res => {
-      const dialogRef = this.dialog.open(QuizComponent, {
-        disableClose: true,
-        data: { res }
-      });
+  openQuiz(quiz: Quiz, quizName: string): void {
+    if(quiz) {
+    const dialogRef = this.dialog.open(QuizComponent, {
+      disableClose: true,
+      data: { quiz }
+    });
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(result);
-        // this.quizResult = result;
-      });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      // this.quizResult = result;
+    });
+  } else
+  if (quizName) {
+    this.sessionService.get_Session().subscribe(res => {
+      if (res[0]) {
+        const quiz = res[0].quiz.taskName;
+        const dialogRef = this.dialog.open(QuizComponent, {
+          disableClose: true,
+          data: { quiz }
+        });
+    
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+          // this.quizResult = result;
+        });
+      }
     }
     );
   }
+  }
 
-  openLesson(lessonName: string): void {
-    this.sessionService.get_Lesson(lessonName).subscribe(res => {
-      const dialogRef = this.dialog.open(LessonComponent, {
-        disableClose: true,
-        data: { res }
-      });
+  openLesson(lesson: Lesson, lessonName: string): void {
+    if(lesson) {
+    const dialogRef = this.dialog.open(LessonComponent, {
+      disableClose: true,
+      data: { lesson }
+    });
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(result);
-        // this.quizResult = result;
-      });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      // this.quizResult = result;
+    });
+  } else
+    if (lessonName) {
+      this.sessionService.get_Session().subscribe(res => {
+        if (res[0]) {
+          const lesson = res[0].lesson.taskName;
+          const dialogRef = this.dialog.open(LessonComponent, {
+            disableClose: true,
+            data: { lesson }
+          });
+
+          dialogRef.afterClosed().subscribe(result => {
+            console.log(result);
+            // this.quizResult = result;
+          });
+        }
+      }
+      );
+    }
+  }
+
+  openActivity(activity: Activity, activityName: string): void {
+    if(activity) {
+    const dialogRef = this.dialog.open( ActivityComponent, {
+      disableClose: true,
+      data: { activity }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      // this.quizResult = result;
+    });
+  } else
+  if (activityName) {
+    this.sessionService.get_Session().subscribe(res => {
+      if (res[0]) {
+        const activity = res[0].activity.activityName;
+        const dialogRef = this.dialog.open(ActivityComponent, {
+          disableClose: true,
+          data: { activity }
+        });
+    
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+          // this.quizResult = result;
+        });
+      }
     }
     );
   }
-
 }
 
 // @Component({

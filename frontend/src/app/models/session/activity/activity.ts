@@ -1,26 +1,23 @@
-import { Quiz } from './quiz/quiz';
-import { Lesson } from './lesson/lesson';
-import { Activity } from './activity/activity';
-import { Question } from './quiz/question';
+import { Question } from '../question/question';
 
-
-export class Task {
+export class Activity {
     id: number;
     name: string;
-    type: Quiz | Lesson | Activity;
+    description: string;
+    content: string;
     questions: Question[];
-    completed: boolean;
 
     constructor(data: any) {
+        data = data.res[0];
         if (data) {
             this.id = data.id;
             this.name = data.name;
-            this.type = data.type;
+            this.description = data.description;
+            this.content = data.content;
             this.questions = [];
             data.questions.forEach(q => {
                 this.questions.push(new Question(q));
             });
-            this.completed = data.completed;
         }
     }
 }

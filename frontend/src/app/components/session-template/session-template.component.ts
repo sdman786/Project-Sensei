@@ -18,13 +18,38 @@ export class SessionTemplateComponent implements OnInit {
   constructor(public dialog: MatDialog, private sessionService: SessionService) { }
   SessionOne = new SessionOneComponent(null, this.dialog, this.sessionService);
 
-  openTask = function openTask(taskType: 'quiz' | 'lesson', taskName: string) {
+  openTask = function openTask(taskType: 'quiz' | 'lesson' | 'activity', taskName: string) {
+
     if (taskType === 'quiz' && taskName) {
-      this.SessionOne.openQuiz(taskName);
-    } else
-    if (taskType === 'lesson' && taskName) {
-      this.SessionOne.openLesson(taskName);
+      this.sessionService.get_Session().subscribe(res => {
+        if (res[0]) {
+          const quiz = res[0].quiz.taskName;
+          this.SessionOne.openQuiz(quiz, null);
+        }
+      }
+      );
     }
+
+    if (taskType === 'lesson' && taskName) {
+      this.sessionService.get_Session().subscribe(res => {
+        if (res[0]) {
+          const lesson = res[0].quiz.taskName;
+          this.SessionOne.openLesson(lesson, null);
+        }
+      }
+      );
+    }
+
+    if (taskType === 'activity' && taskName) {
+      this.sessionService.get_Session().subscribe(res => {
+        if (res[0]) {
+          const activity = res[0].quiz.taskName;
+          this.SessionOne.openActivity(activity, null);
+        }
+      }
+      );
+    }
+
   };
 
   ngOnInit(): void { }
