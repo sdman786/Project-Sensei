@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Quiz, QuizConfig, Question, Option } from 'src/app/models/quiz';
-import { QuizService } from 'src/app/services/quiz.service';
+import { Quiz, QuizConfig, Question, Option } from 'src/app/models/task/quiz';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatRadioButton } from '@angular/material/radio';
@@ -20,7 +19,7 @@ export class QuizComponent implements OnInit {
    quizName: string;
 
    config: QuizConfig = {
-     autoMove: true,  // if true, it will move to next question automatically when answered.
+     autoMove: false,  // if true, it will move to next question automatically when answered.
      duration: 100,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
      requiredAll: true,  // indicates if you must answer all the questions before submitting.
      shuffleQuestions: true

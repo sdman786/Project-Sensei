@@ -16,7 +16,7 @@ export class SidebarComponent {
   constructor( private sessionTemplate: SessionTemplateComponent ) { }
 
   openTask(taskType,taskName) {
-    this.sessionTemplate.openTask(taskType,taskName);
+    this.sessionTemplate.openTask(taskType, taskName);
    }
 
 }

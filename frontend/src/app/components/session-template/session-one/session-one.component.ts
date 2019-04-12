@@ -3,9 +3,9 @@ import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { QuizComponent } from '../../quiz/quiz.component';
-import * as typeformEmbed from '@typeform/embed'
-import { QuizService } from 'src/app/services/quiz.service';
+import * as typeformEmbed from '@typeform/embed';
 import { LessonComponent } from '../../lesson/lesson.component';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-session-one',
@@ -18,13 +18,13 @@ export class SessionOneComponent implements OnInit {
   lessonName = '';
   quizType: string;
 
-  constructor( private router: Router, public dialog: MatDialog, private quizService: QuizService ) { }
+  constructor(private router: Router, public dialog: MatDialog, private sessionService: SessionService) { }
 
   ngOnInit(): void { }
 
   openQuiz(quizName: string): void {
-    this.quizService.get_MCQ(quizName).subscribe(res => {
-      const dialogRef = this.dialog.open( QuizComponent, {
+    this.sessionService.get_Quiz(quizName).subscribe(res => {
+      const dialogRef = this.dialog.open(QuizComponent, {
         disableClose: true,
         data: { res }
       });
@@ -38,18 +38,20 @@ export class SessionOneComponent implements OnInit {
   }
 
   openLesson(lessonName: string): void {
-    const dialogRef = this.dialog.open( LessonComponent, {
-      disableClose: true,
-      data: {
-          name: lessonName
-        }
-    });
+    this.sessionService.get_Lesson(lessonName).subscribe(res => {
+      const dialogRef = this.dialog.open(LessonComponent, {
+        disableClose: true,
+        data: { res }
+      });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      // this.quizResult = result;
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(result);
+        // this.quizResult = result;
+      });
+    }
+    );
   }
+
 }
 
 // @Component({

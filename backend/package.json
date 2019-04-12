@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "node bin/www",
-    "all": "concurrently \"json-server --port 8080 --watch ./data/mcq.json\" \"npm run backend\" \"cd .. && cd frontend && ng serve\"" ,
-    "jServer": "concurrently \"json-server --port 8080 --watch ./data/mcq.json\"",
-    "jServer-app": "concurrently \"json-server --port 8080 --watch ./data/mcq.json\" \"cd .. && cd frontend && ng serve\"",
-    "nojServer": "concurrently \"npm run backend\" \"cd .. && cd frontend && ng serve\""
+    "all": "concurrently \"json-server --port 8080 --watch ./data/quiz/mcq.json\" \"json-server --port 8081 --watch ./data/lesson/agile.json\" \"npm run backend\" \"cd .. && cd frontend && ng serve\"" ,
+    "jServer": "concurrently \"json-server --port 8080 --watch ./data/quiz/mcq.json\" \"json-server --port 8081 --watch ./data/lesson/agile.json\" ",
+    "jServer-app": "concurrently \"json-server --port 8080 --watch ./data/quiz/mcq.json\" \"json-server --port 8081 --watch ./data/lesson/agile.json\" \"cd .. && cd frontend && ng serve\"",
+    "front-back": "concurrently \"npm run backend\" \"cd .. && cd frontend && ng serve\""
   },
   "keywords": [],
   "author": "",

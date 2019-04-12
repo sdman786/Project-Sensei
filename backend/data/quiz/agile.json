@@ -1,0 +1,238 @@
+{
+    "agile": [{
+        "id": 1,
+        "name": "Agile",
+        "description": "Asp.Net Quiz (contains webform, mvc, web API, etc.)",
+        "questions": [{
+                "id": 1010,
+                "name": "An Agile approach is best suited for projects that have high levels of uncertainty",
+
+                "options": [{
+                        "id": 1055,
+                        "questionId": 1010,
+                        "name": "True",
+                        "isAnswer": true
+                    },
+                    {
+                        "id": 1056,
+                        "questionId": 1010,
+                        "name": "False",
+                        "isAnswer": false
+                    }
+                ],
+                "questionType": {
+                    "id": 1,
+                    "name": "Multiple Choice",
+                    "isActive": true
+                }
+            },
+            {
+                "id": 1011,
+                "name": "Documentation is never appropriate in an Agile project",
+
+                "options": [{
+                        "id": 1055,
+                        "questionId": 1010,
+                        "name": "True",
+                        "isAnswer": false
+                    },
+                    {
+                        "id": 1057,
+                        "questionId": 1010,
+                        "name": "False",
+                        "isAnswer": true
+                    }
+                ],
+                "questionType": {
+                    "id": 1,
+                    "name": "Multiple Choice",
+                    "isActive": true
+                }
+            },
+            {
+                "id": 1012,
+                "name": "It is impossible to estimate the costs and schedules of an Agile project",
+
+                "options": [{
+                        "id": 1055,
+                        "questionId": 1010,
+                        "name": "False",
+                        "isAnswer": false
+                    },
+                    {
+                        "id": 1057,
+                        "questionId": 1010,
+                        "name": "True",
+                        "isAnswer": true
+                    }
+                ],
+                "questionType": {
+                    "id": 1,
+                    "name": "Multiple Choice",
+                    "isActive": true
+                }
+            },
+            {
+                "id": 1013,
+                "name": "An Agile project is more likely to result in maximizing the business value the customer receives from the project",
+
+                "options": [{
+                        "id": 1055,
+                        "questionId": 1010,
+                        "name": "True",
+                        "isAnswer": true
+                    },
+                    {
+                        "id": 1057,
+                        "questionId": 1010,
+                        "name": "False",
+                        "isAnswer": false
+                    }
+                ],
+                "questionType": {
+                    "id": 1,
+                    "name": "Multiple Choice",
+                    "isActive": true
+                }
+            },
+            {
+                "id": 1014,
+                "name": "Reduced overhead and faster time to market are generally characteristics of an Agile approach",
+
+                "options": [{
+                        "id": 1055,
+                        "questionId": 1010,
+                        "name": "True",
+                        "isAnswer": true
+                    },
+                    {
+                        "id": 1057,
+                        "questionId": 1010,
+                        "name": "False",
+                        "isAnswer": false
+                    }
+                ],
+                "questionType": {
+                    "id": 1,
+                    "name": "Multiple Choice",
+                    "isActive": true
+                }
+            },
+            {
+                "id": 1015,
+                "name": "An Agile approach should generally result in producing higher levels of quality in the finished product because quality is a more integral part of the development effort",
+
+                "options": [{
+                        "id": 1055,
+                        "questionId": 1010,
+                        "name": "True",
+                        "isAnswer": true
+                    },
+                    {
+                        "id": 1057,
+                        "questionId": 1010,
+                        "name": "False",
+                        "isAnswer": false
+                    }
+                ],
+                "questionType": {
+                    "id": 1,
+                    "name": "Multiple Choice",
+                    "isActive": true
+                }
+            },
+            {
+                "id": 1016,
+                "name": "Scope creep in an Agile project is normal and is to be expected",
+
+                "options": [{
+                        "id": 1055,
+                        "questionId": 1010,
+                        "name": "True",
+                        "isAnswer": true
+                    },
+                    {
+                        "id": 1056,
+                        "questionId": 1010,
+                        "name": "False",
+                        "isAnswer": false
+                    }
+                ],
+                "questionType": {
+                    "id": 1,
+                    "name": "Multiple Choice",
+                    "isActive": true
+                }
+            },
+            {
+                "id": 1017,
+                "name": "An Agile approach will ALWAYS result in fastest time to market",
+
+                "options": [{
+                        "id": 1055,
+                        "questionId": 1010,
+                        "name": "True",
+                        "isAnswer": false
+                    },
+                    {
+                        "id": 1056,
+                        "questionId": 1010,
+                        "name": "False",
+                        "isAnswer": true
+                    }
+                ],
+                "questionType": {
+                    "id": 1,
+                    "name": "Multiple Choice",
+                    "isActive": true
+                }
+            },
+            {
+                "id": 1018,
+                "name": "An Agile approach would normally NOT be the most appropriate choice for a project that requires a high level of predictability such as a construction project",
+
+                "options": [{
+                        "id": 1055,
+                        "questionId": 1010,
+                        "name": "True",
+                        "isAnswer": true
+                    },
+                    {
+                        "id": 1057,
+                        "questionId": 1010,
+                        "name": "False",
+                        "isAnswer": false
+                    }
+                ],
+                "questionType": {
+                    "id": 1,
+                    "name": "Multiple Choice",
+                    "isActive": true
+                }
+            },
+            {
+                "id": 1019,
+                "name": "A traditional plan-driven approach (or Waterfall) would be a good approach to use if you were to take on a highly uncertain project such as finding a cure for cancer",
+
+                "options": [{
+                        "id": 1055,
+                        "questionId": 1010,
+                        "name": "True",
+                        "isAnswer": false
+                    },
+                    {
+                        "id": 1056,
+                        "questionId": 1010,
+                        "name": "False",
+                        "isAnswer": true
+                    }
+                ],
+                "questionType": {
+                    "id": 1,
+                    "name": "Multiple Choice",
+                    "isActive": true
+                }
+            }
+        ]
+    }]
+}

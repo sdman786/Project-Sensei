@@ -1,14 +1,11 @@
-import { QuizConfig } from './quiz-config';
-import { Question } from './question';
+import { Question } from '../question/question';
 
-export class Quiz {
+export class Lesson {
     id: number;
     name: string;
     description: string;
-    config: QuizConfig;
+    content: string;
     questions: Question[];
-    completed: boolean;
-    correctAnswers: number;
 
     constructor(data: any) {
         data = data.res[0];
@@ -16,13 +13,11 @@ export class Quiz {
             this.id = data.id;
             this.name = data.name;
             this.description = data.description;
-            this.config = new QuizConfig(data.config);
+            this.content = data.content;
             this.questions = [];
             data.questions.forEach(q => {
                 this.questions.push(new Question(q));
             });
-            this.completed = false;
-            this.correctAnswers = 0;
         }
     }
 }

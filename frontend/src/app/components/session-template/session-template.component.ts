@@ -4,8 +4,8 @@ import { filter } from 'rxjs/operators';
 import { getUrlScheme } from '@angular/compiler';
 import { SessionOneComponent } from './session-one/session-one.component';
 import { MatDialogModule, MatDialog } from '@angular/material';
-import * as typeformEmbed from '@typeform/embed'
-import { QuizService } from 'src/app/services/quiz.service';
+import * as typeformEmbed from '@typeform/embed';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-session-template',
@@ -15,14 +15,14 @@ import { QuizService } from 'src/app/services/quiz.service';
 
 export class SessionTemplateComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private quizService: QuizService) { }
-  SessionOne = new SessionOneComponent(null, this.dialog, this.quizService);
+  constructor(public dialog: MatDialog, private sessionService: SessionService) { }
+  SessionOne = new SessionOneComponent(null, this.dialog, this.sessionService);
 
-  openTask = function openTask(taskType: string, taskName: string) {
-    if (taskType === 'quiz') {
+  openTask = function openTask(taskType: 'quiz' | 'lesson', taskName: string) {
+    if (taskType === 'quiz' && taskName) {
       this.SessionOne.openQuiz(taskName);
     } else
-    if (taskType === 'lesson') {
+    if (taskType === 'lesson' && taskName) {
       this.SessionOne.openLesson(taskName);
     }
   };
