@@ -18,28 +18,12 @@ export class QuizComponent implements OnInit {
    quiz$: Quiz;
    mode = 'quiz';
    quizName: string;
+
    config: QuizConfig = {
-     allowBack: true,
-     allowReview: true,
      autoMove: true,  // if true, it will move to next question automatically when answered.
-     duration: 10,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
-     pageSize: 1,
+     duration: 100,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
      requiredAll: true,  // indicates if you must answer all the questions before submitting.
-     richText: false,
-     shuffleQuestions: false,
-     shuffleOptions: false,
-     showClock: false,
-     showPager: true,
-     theme: 'none'
-   };
-
-   questionsAnswered = 0;
-   correctAnswers = 0;
-
-   pager = {
-     index: 0,
-     size: 1,
-     count: 1
+     shuffleQuestions: true
    };
 
    timer: any = null;
@@ -47,6 +31,16 @@ export class QuizComponent implements OnInit {
    endTime: Date;
    ellapsedTime = '00:00';
    duration = '';
+
+   pager = {
+     index: 0,
+     size: 1,
+     count: 1
+   };
+
+   questionsAnswered = 0;
+   correctAnswers = 0;
+   quizResults = 0;
 
   constructor( public dialogRef: MatDialogRef<QuizComponent>, @Inject(MAT_DIALOG_DATA) public data: Quiz) {
     this.quiz$ = new Quiz(this.data);
@@ -90,10 +84,15 @@ export class QuizComponent implements OnInit {
   }
 
   onSelect(question: Question, option: Option) {
-    if (question.questionTypeId === 1) {
-      question.options.forEach((x) => { if (x.id !== option.id) { x.selected = false; } });
-    }
+    question.options.forEach((x) => {
+      if (x.id !== option.id) { x.selected = false; }
+    });
 
+    this.autoMoveQuestion();
+  }
+
+  // Move to Next Question once an option is selected
+  private autoMoveQuestion() {
     if (this.config.autoMove) {
       setTimeout(() => {
         this.goTo(this.pager.index + 1);
@@ -116,14 +115,6 @@ export class QuizComponent implements OnInit {
     return question.options.every(x => x.selected === x.isAnswer) ? true : false;
   }
 
-  // allQuestionsAnswered() {
-  //   this.quiz$.questions.forEach(x => {
-  //     x.answered ? this.questionsAnswered++ : null;
-  //   });
-
-  //   return this.questionsAnswered === this.quiz$.questions.length ? true : false;
-  // }
-
   onSubmit() {
     const result = [];
     this.quiz$.questions.forEach(x => {
@@ -133,10 +124,15 @@ export class QuizComponent implements OnInit {
                         correctAnswers: this.isCorrect(x) ? this.correctAnswers += 1 : null
                       });
     });
-
+    this.quizResults = this.correctAnswers / 100;
     // Post your data to the server here. answers contains the questionId and the users' answer.
     // console.log(this.quiz$.questions);
     console.log('Quiz Results: ', result);
     this.mode = 'result';
+  }
+
+  exitQuiz() {
+    this.quiz$ = null;
+    this.dialogRef.close();
   }
 }

@@ -8,7 +8,7 @@
               {
                   "id": 1010,
                   "name": "An Agile approach is best suited for projects that have high levels of uncertainty",
-                  "questionTypeId": 1,
+                  
                   "options": [
                       {
                           "id": 1055,
@@ -32,7 +32,7 @@
               {
                   "id": 1011,
                   "name": "Documentation is never appropriate in an Agile project",
-                  "questionTypeId": 1,
+                  
                   "options": [
                       {
                           "id": 1055,
@@ -56,7 +56,7 @@
               {
                   "id": 1012,
                   "name": "It is impossible to estimate the costs and schedules of an Agile project",
-                  "questionTypeId": 1,
+                  
                   "options": [
                       {
                           "id": 1055,
@@ -80,7 +80,7 @@
               {
                   "id": 1013,
                   "name": "An Agile project is more likely to result in maximizing the business value the customer receives from the project",
-                  "questionTypeId": 1,
+                  
                   "options": [
                       {
                           "id": 1055,
@@ -104,7 +104,7 @@
               {
                   "id": 1014,
                   "name": "Reduced overhead and faster time to market are generally characteristics of an Agile approach",
-                  "questionTypeId": 1,
+                  
                   "options": [
                       {
                           "id": 1055,
@@ -128,7 +128,7 @@
               {
                   "id": 1015,
                   "name": "An Agile approach should generally result in producing higher levels of quality in the finished product because quality is a more integral part of the development effort",
-                  "questionTypeId": 1,
+                  
                   "options": [
                       {
                           "id": 1055,
@@ -152,7 +152,7 @@
               {
                   "id": 1016,
                   "name": "Scope creep in an Agile project is normal and is to be expected",
-                  "questionTypeId": 1,
+                  
                   "options": [
                       {
                           "id": 1055,
@@ -176,7 +176,7 @@
               {
                   "id": 1017,
                   "name": "An Agile approach will ALWAYS result in fastest time to market",
-                  "questionTypeId": 1,
+                  
                   "options": [
                       {
                           "id": 1055,
@@ -200,7 +200,7 @@
               {
                   "id": 1018,
                   "name": "An Agile approach would normally NOT be the most appropriate choice for a project that requires a high level of predictability such as a construction project",
-                  "questionTypeId": 1,
+                  
                   "options": [
                       {
                           "id": 1055,
@@ -224,7 +224,7 @@
               {
                   "id": 1019,
                   "name": "A traditional plan-driven approach (or Waterfall) would be a good approach to use if you were to take on a highly uncertain project such as finding a cure for cancer",
-                  "questionTypeId": 1,
+                  
                   "options": [
                       {
                           "id": 1055,
@@ -257,7 +257,7 @@
             {
                 "id": 1010,
                 "name": "Scrum is the most widely used Agile methodology to the extent that when people talk about 'Agile', they are many times talking about the Scrum methodology and not a more general Agile approach",
-                "questionTypeId": 1,
+                
                 "options": [
                     {
                         "id": 1055,
@@ -281,7 +281,7 @@
             {
                 "id": 1011,
                 "name": "The purpose of ALL Sprints is to release a piece of working software",
-                "questionTypeId": 1,
+                
                 "options": [
                     {
                         "id": 1055,
@@ -305,7 +305,7 @@
             {
                 "id": 1012,
                 "name": "Items at the bottom of the Product Backlog are usually larger than those on the top",
-                "questionTypeId": 1,
+                
                 "options": [
                     {
                         "id": 1055,
@@ -329,7 +329,7 @@
             {
                 "id": 1013,
                 "name": "An advantage of a defined process is that it is repeatable and predictable",
-                "questionTypeId": 1,
+                
                 "options": [
                     {
                         "id": 1055,
@@ -353,7 +353,7 @@
             {
                 "id": 1014,
                 "name": "Which of the following is the subject of Sprint Retrospective?",
-                "questionTypeId": 1,
+                
                 "options": [
                     {
                         "id": 1055,
@@ -389,7 +389,7 @@
             {
                 "id": 1015,
                 "name": "Who participates in the Sprint Review?",
-                "questionTypeId": 1,
+                
                 "options": [
                     {
                         "id": 1055,
@@ -425,7 +425,7 @@
             {
                 "id": 1016,
                 "name": "Who is allowed to change the Sprint Backlog during the Sprint?",
-                "questionTypeId": 1,
+                
                 "options": [
                     {
                         "id": 1055,
@@ -461,7 +461,7 @@
             {
                 "id": 1017,
                 "name": "The Product Owner and the Scrum Master Cannot be a part of the Development Team",
-                "questionTypeId": 1,
+                
                 "options": [
                     {
                         "id": 1055,
@@ -485,7 +485,7 @@
             {
                 "id": 1018,
                 "name": "When should the Sprint Retrospective be held?",
-                "questionTypeId": 1,
+                
                 "options": [
                     {
                         "id": 1055,
@@ -521,7 +521,7 @@
             {
                 "id": 1019,
                 "name": "The Sprint Backlog would not change after the Sprint Planning",
-                "questionTypeId": 1,
+                
                 "options": [
                     {
                         "id": 1055,
