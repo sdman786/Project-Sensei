@@ -11,7 +11,8 @@ import { MatToolbarModule,
   MatRadioModule,
   MatDialogRef,
   MAT_DIALOG_DATA,
-  MatTabsModule
+  MatTabsModule,
+  MatChipsModule
   } from '@angular/material';
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MatToolbarModule,
     MatCardModule,
     MatRadioModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatChipsModule
   ],providers: [
     { provide: MatDialogRef, useValue: {} },
     { provide: MAT_DIALOG_DATA, useValue: [] },

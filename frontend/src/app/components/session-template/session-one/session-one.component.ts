@@ -20,9 +20,7 @@ export class SessionOneComponent implements OnInit {
 
   constructor( private router: Router, public dialog: MatDialog, private quizService: QuizService ) { }
 
-  ngOnInit(): void {
-    // this.sessionTemplate.quizType = this.quizType;
-  }
+  ngOnInit(): void { }
 
   openQuiz(quizName: string): void {
     this.quizService.get_MCQ(quizName).subscribe(res => {
@@ -39,22 +37,12 @@ export class SessionOneComponent implements OnInit {
     );
   }
 
-
-
-
-
   openLesson(lessonName: string): void {
-  //   const dialogRef = this.dialog.open(LessonComponent);
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
-  // this.lessonService.get_MCQ(lessonName).subscribe(res => {
     const dialogRef = this.dialog.open( LessonComponent, {
-      disableClose: true
-      ,
-      data: { lessonName }
+      disableClose: true,
+      data: {
+          name: lessonName
+        }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -62,7 +50,6 @@ export class SessionOneComponent implements OnInit {
       // this.quizResult = result;
     });
   }
-  // );
 }
 
 // @Component({

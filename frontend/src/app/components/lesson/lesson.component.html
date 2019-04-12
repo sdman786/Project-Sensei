@@ -1,16 +1,16 @@
 <div mat-dialog-header class="m-3">
-  <h1 class="center text-capitalize">Lesson - {{ lessonName }}</h1>
+  <h1 class="center text-capitalize">{{ lessonName }}</h1>
 </div>
-<div mat-dialog-content class="h-100" >
-  <mat-card>
+<div mat-dialog-content class="h-100 lesson-component" >
+  <mat-card class="lesson-component">
       <!-- <mat-card-header>
         <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>
       </mat-card-header> -->
-      <mat-card-content>
+      <mat-card-content class="lesson-component">
         <h2>LESSON CONTENT...</h2>
       </mat-card-content>
     </mat-card>
 </div>
-<div mat-dialog-actions class="h-100">
+<div mat-dialog-actions>
 <button class="col" mat-button [mat-dialog-close]="data.lessonComplete" cdkFocusInitial>Close Lesson</button>
 </div>

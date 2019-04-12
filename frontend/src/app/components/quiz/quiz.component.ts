@@ -4,6 +4,9 @@ import { QuizService } from 'src/app/services/quiz.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatRadioButton } from '@angular/material/radio';
+import { timeout } from 'rxjs/operators';
+import { Timeouts } from 'selenium-webdriver';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-quiz',
@@ -18,8 +21,8 @@ export class QuizComponent implements OnInit {
    config: QuizConfig = {
      allowBack: true,
      allowReview: true,
-     autoMove: false,  // if true, it will move to next question automatically when answered.
-     duration: 100,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
+     autoMove: true,  // if true, it will move to next question automatically when answered.
+     duration: 10,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
      pageSize: 1,
      requiredAll: true,  // indicates if you must answer all the questions before submitting.
      richText: false,
@@ -30,6 +33,7 @@ export class QuizComponent implements OnInit {
      theme: 'none'
    };
 
+   questionsAnswered = 0;
    correctAnswers = 0;
 
    pager = {
@@ -62,12 +66,14 @@ export class QuizComponent implements OnInit {
   }
 
   tick() {
-    const now = new Date();
-    const diff = (now.getTime() - this.startTime.getTime()) / 1000;
-    if (Math.round(diff) === (this.config.duration)) {
-      this.onSubmit();
-    }
-    this.ellapsedTime = this.parseTime(diff);
+    if(this.mode === 'quiz') {
+      const now = new Date();
+      const diff = (now.getTime() - this.startTime.getTime()) / 1000;
+      if (Math.round(diff) === (this.config.duration)) {
+        this.onSubmit();
+      }
+      this.ellapsedTime = this.parseTime(diff);
+  }
   }
 
   parseTime(totalSeconds: number) {
@@ -89,7 +95,9 @@ export class QuizComponent implements OnInit {
     }
 
     if (this.config.autoMove) {
-      this.goTo(this.pager.index + 1);
+      setTimeout(() => {
+        this.goTo(this.pager.index + 1);
+      }, 500);
     }
   }
 
@@ -107,6 +115,14 @@ export class QuizComponent implements OnInit {
   isCorrect(question: Question) {
     return question.options.every(x => x.selected === x.isAnswer) ? true : false;
   }
+
+  // allQuestionsAnswered() {
+  //   this.quiz$.questions.forEach(x => {
+  //     x.answered ? this.questionsAnswered++ : null;
+  //   });
+
+  //   return this.questionsAnswered === this.quiz$.questions.length ? true : false;
+  // }
 
   onSubmit() {
     const result = [];
