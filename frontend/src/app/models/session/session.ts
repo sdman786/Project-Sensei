@@ -11,12 +11,13 @@ export class Session {
     activity: Activity;
 
     constructor(data: any) {
+
         if (data) {
             this.id = data.id;
             this.name = data.name;
-            if (data.quiz) { this.quiz = new Quiz(data.quiz); }
-            if (data.lesson) { this.lesson = new Lesson(data.lesson); }
-            if (data.activity) { this.activity = new Activity(data.activity); }
+            if (data['quiz'][0]) { this.quiz = new Quiz(data.quiz); }
+            if (data['lesson'][0]) { this.lesson = new Lesson(data.lesson); }
+            if (data['activity'][0]) { this.activity = new Activity(data.activity); }
         }
     }
 }

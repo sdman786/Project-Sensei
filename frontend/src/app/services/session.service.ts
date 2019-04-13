@@ -9,7 +9,7 @@ export class SessionService {
   baseQuizUrl: string = "http://localhost:8080/";
   baseLessonUrl: string = "http://localhost:8081/";
   baseActivityUrl: string = "http://localhost:8082/";
-  baseSessionUrl: string = "http://localhost:8083/session";
+  baseSessionUrl: string = "http://localhost:8083/";
 
   constructor(private http: HttpClient) { }
 

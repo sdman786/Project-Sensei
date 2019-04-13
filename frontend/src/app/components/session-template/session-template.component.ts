@@ -15,8 +15,8 @@ import { SessionService } from 'src/app/services/session.service';
 
 export class SessionTemplateComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private sessionService: SessionService, private sessionOne: SessionOneComponent) {
-    this.sessionOne = new SessionOneComponent(null, this.dialog, this.sessionService);
+  constructor(public dialog: MatDialog, private sessionService: SessionService) {
+    // this.sessionOne = new SessionOneComponent(null, this.dialog, this.sessionService);
    }
 
   openTask = function openTask(taskType: 'quiz' | 'lesson' | 'activity', taskName: string) {

@@ -10,7 +10,7 @@ export class Quiz {
     correctAnswers: number;
 
     constructor(data: any) {
-        data = data.res[0];
+        data = data.quiz;
         if (data) {
             this.id = data.id;
             this.name = data.name;

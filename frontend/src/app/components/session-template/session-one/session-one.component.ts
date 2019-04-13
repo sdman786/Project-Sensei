@@ -29,18 +29,19 @@ export class SessionOneComponent implements OnInit {
     this.sessionService.get_Session('session-one').subscribe(res => {
       this.sessionOne = new Session(res[0]);
     });
-    this.quiz = this.sessionOne.quiz;
-    this.lesson = this.sessionOne.lesson;
-    this.activity = this.sessionOne.activity;
+
+    // this.quiz = this.sessionOne.quiz;
+    // this.lesson = this.sessionOne.lesson;
+    // this.activity = this.sessionOne.activity;
   }
 
   ngOnInit(): void { }
 
   openQuiz(quizName: string): void {
-    let currentQuiz;
+    let quiz = this.sessionOne;
     const dialogRef = this.dialog.open(QuizComponent, {
       disableClose: true,
-      data: { currentQuiz }
+      data: { quiz }
     });
 
     dialogRef.afterClosed().subscribe(result => {
