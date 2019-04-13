@@ -1,7 +1,1213 @@
 {
-    "session": [{
-        "id": 0,
-        "name": "",
+    "session-one": [{
+        "id": 1,
+        "name": "Session One",
+        "lesson": [{
+
+            "agile-intro": [{
+                "id": 2.1,
+                "name": "Introduction to Agile",
+                "description": "In this lesson we will introduce you to the Agile Methodology, teach you about Agile's History and tell you how popular Agile is today",
+                "content": "Agile by itself is nothing more than a set of principles and values created by developers alike with the ambition to standardise the future of project development. Those principals came to be known as the Agile Manifesto.",
+                "questions": []
+            }]
+        }],
+        "activity": [{
+            "sprint-planning": [{
+                "id": 2.2,
+                "name": "Introduction to Agile",
+                "description": "An Introduction into Session 2 and what you will complete by the end of the Session. How the Scrum roles will be utilised throughout the Session",
+                "content": "Agile by itself is nothing more than a set of principles and values created by developers alike with the ambition to standardise the future of project development. Those principals came to be known as the Agile Manifesto.",
+                "questions": [{
+                        "id": 2.11,
+                        "name": "ASP.NET webform separates the HTML output from program logic using a feature named as",
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "Exception",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "Code-behind",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "Code-front",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "None of the above",
+                                "isAnswer": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2.12,
+                        "name": "The feature in ASP.NET 2.0 that is used to fire a normal postback to a different page in the application is called",
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "Theme",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "Code-front",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "Cross Page Posting",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "None of the above",
+                                "isAnswer": false
+                            }
+                        ]
+                    }
+                ]
+            }]
+        }],
+        "quiz": [{
+            "agile": [{
+                "id": 1,
+                "name": "Agile",
+                "description": "Asp.Net Quiz (contains webform, mvc, web API, etc.)",
+                "questions": [{
+                        "id": 1010,
+                        "name": "An Agile approach is best suited for projects that have high levels of uncertainty",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1011,
+                        "name": "Documentation is never appropriate in an Agile project",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1012,
+                        "name": "It is impossible to estimate the costs and schedules of an Agile project",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1013,
+                        "name": "An Agile project is more likely to result in maximizing the business value the customer receives from the project",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1014,
+                        "name": "Reduced overhead and faster time to market are generally characteristics of an Agile approach",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1015,
+                        "name": "An Agile approach should generally result in producing higher levels of quality in the finished product because quality is a more integral part of the development effort",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1016,
+                        "name": "Scope creep in an Agile project is normal and is to be expected",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1017,
+                        "name": "An Agile approach will ALWAYS result in fastest time to market",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1018,
+                        "name": "An Agile approach would normally NOT be the most appropriate choice for a project that requires a high level of predictability such as a construction project",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1019,
+                        "name": "A traditional plan-driven approach (or Waterfall) would be a good approach to use if you were to take on a highly uncertain project such as finding a cure for cancer",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    }
+                ]
+            }],
+            "scrum": [{
+                "id": 1,
+                "name": "Scrum",
+                "description": "Scrum.Net Quiz (contains webform, mvc, web API, etc.)",
+                "questions": [{
+                        "id": 1010,
+                        "name": "Scrum is the most widely used Agile methodology to the extent that when people talk about 'Agile', they are many times talking about the Scrum methodology and not a more general Agile approach",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1011,
+                        "name": "The purpose of ALL Sprints is to release a piece of working software",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1012,
+                        "name": "Items at the bottom of the Product Backlog are usually larger than those on the top",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1013,
+                        "name": "An advantage of a defined process is that it is repeatable and predictable",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1014,
+                        "name": "Which of the following is the subject of Sprint Retrospective?",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "Product Backlog order",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "Scrum process",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "Technical approach",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "Increment",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1015,
+                        "name": "Who participates in the Sprint Review?",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "The Key Stakeholders",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "The Development Team",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "The Product Owner",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "All of the above",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1016,
+                        "name": "Who is allowed to change the Sprint Backlog during the Sprint?",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "The Product Owner",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "The Development Team",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "The Scrum Team",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "The Scrum Master",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1017,
+                        "name": "The Product Owner and the Scrum Master Cannot be a part of the Development Team",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1018,
+                        "name": "When should the Sprint Retrospective be held?",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "When needed",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "When asked by the Product Owner",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "When asked by the Scrum Master",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "Each Sprint",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1019,
+                        "name": "The Sprint Backlog would not change after the Sprint Planning",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    }
+                ]
+            }]
+        }]
+    }],
+    "session-two": [{
+        "id": 2,
+        "name": "Session Two",
+        "lesson": [{
+
+            "agile-intro": [{
+                "id": 2.1,
+                "name": "Introduction to Agile",
+                "description": "In this lesson we will introduce you to the Agile Methodology, teach you about Agile's History and tell you how popular Agile is today",
+                "content": "Agile by itself is nothing more than a set of principles and values created by developers alike with the ambition to standardise the future of project development. Those principals came to be known as the Agile Manifesto.",
+                "questions": []
+            }]
+        }],
+        "activity": [{
+            "sprint-planning": [{
+                "id": 2.2,
+                "name": "Introduction to Agile",
+                "description": "An Introduction into Session 2 and what you will complete by the end of the Session. How the Scrum roles will be utilised throughout the Session",
+                "content": "Agile by itself is nothing more than a set of principles and values created by developers alike with the ambition to standardise the future of project development. Those principals came to be known as the Agile Manifesto.",
+                "questions": [{
+                        "id": 2.11,
+                        "name": "ASP.NET webform separates the HTML output from program logic using a feature named as",
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "Exception",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "Code-behind",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "Code-front",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "None of the above",
+                                "isAnswer": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2.12,
+                        "name": "The feature in ASP.NET 2.0 that is used to fire a normal postback to a different page in the application is called",
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "Theme",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "Code-front",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "Cross Page Posting",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "None of the above",
+                                "isAnswer": false
+                            }
+                        ]
+                    }
+                ]
+            }]
+        }],
+        "quiz": [{
+            "agile": [{
+                "id": 1,
+                "name": "Agile",
+                "description": "Asp.Net Quiz (contains webform, mvc, web API, etc.)",
+                "questions": [{
+                        "id": 1010,
+                        "name": "An Agile approach is best suited for projects that have high levels of uncertainty",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1011,
+                        "name": "Documentation is never appropriate in an Agile project",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1012,
+                        "name": "It is impossible to estimate the costs and schedules of an Agile project",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1013,
+                        "name": "An Agile project is more likely to result in maximizing the business value the customer receives from the project",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1014,
+                        "name": "Reduced overhead and faster time to market are generally characteristics of an Agile approach",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1015,
+                        "name": "An Agile approach should generally result in producing higher levels of quality in the finished product because quality is a more integral part of the development effort",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1016,
+                        "name": "Scope creep in an Agile project is normal and is to be expected",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1017,
+                        "name": "An Agile approach will ALWAYS result in fastest time to market",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1018,
+                        "name": "An Agile approach would normally NOT be the most appropriate choice for a project that requires a high level of predictability such as a construction project",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1019,
+                        "name": "A traditional plan-driven approach (or Waterfall) would be a good approach to use if you were to take on a highly uncertain project such as finding a cure for cancer",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    }
+                ]
+            }],
+            "scrum": [{
+                "id": 1,
+                "name": "Scrum",
+                "description": "Scrum.Net Quiz (contains webform, mvc, web API, etc.)",
+                "questions": [{
+                        "id": 1010,
+                        "name": "Scrum is the most widely used Agile methodology to the extent that when people talk about 'Agile', they are many times talking about the Scrum methodology and not a more general Agile approach",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1011,
+                        "name": "The purpose of ALL Sprints is to release a piece of working software",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1012,
+                        "name": "Items at the bottom of the Product Backlog are usually larger than those on the top",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1013,
+                        "name": "An advantage of a defined process is that it is repeatable and predictable",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1014,
+                        "name": "Which of the following is the subject of Sprint Retrospective?",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "Product Backlog order",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "Scrum process",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "Technical approach",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "Increment",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1015,
+                        "name": "Who participates in the Sprint Review?",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "The Key Stakeholders",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "The Development Team",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "The Product Owner",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "All of the above",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1016,
+                        "name": "Who is allowed to change the Sprint Backlog during the Sprint?",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "The Product Owner",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "The Development Team",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "The Scrum Team",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "The Scrum Master",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1017,
+                        "name": "The Product Owner and the Scrum Master Cannot be a part of the Development Team",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1018,
+                        "name": "When should the Sprint Retrospective be held?",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "When needed",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1057,
+                                "questionId": 1010,
+                                "name": "When asked by the Product Owner",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "When asked by the Scrum Master",
+                                "isAnswer": false
+                            },
+                            {
+                                "id": 1058,
+                                "questionId": 1010,
+                                "name": "Each Sprint",
+                                "isAnswer": true
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    },
+                    {
+                        "id": 1019,
+                        "name": "The Sprint Backlog would not change after the Sprint Planning",
+    
+                        "options": [{
+                                "id": 1055,
+                                "questionId": 1010,
+                                "name": "True",
+                                "isAnswer": true
+                            },
+                            {
+                                "id": 1056,
+                                "questionId": 1010,
+                                "name": "False",
+                                "isAnswer": false
+                            }
+                        ],
+                        "questionType": {
+                            "id": 1,
+                            "name": "Multiple Choice",
+                            "isActive": true
+                        }
+                    }
+                ]
+            }]
+        }]
+    }],
+    "session-three": [{
+        "id": 3,
+        "name": "Session Three",
         "lesson": [{
 
             "agile-intro": [{

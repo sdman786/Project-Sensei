@@ -25,8 +25,8 @@ export class SessionService {
     return this.http.get(this.baseActivityUrl + name);
   }
 
-  get_Session() {
-    return this.http.get(this.baseSessionUrl);
+  get_Session(sessionName: string) {
+    return this.http.get(this.baseSessionUrl + sessionName);
   }
 
 }
