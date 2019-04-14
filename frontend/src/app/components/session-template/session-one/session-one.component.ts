@@ -20,74 +20,98 @@ import { Session } from 'src/app/models/session/session';
 export class SessionOneComponent implements OnInit {
 
   private sessionOne: Session;
-  private quiz: Quiz;
+  private quiz: Quiz[];
+  private lesson: Lesson[];
+  private activity: Activity[];
 
-  private lesson: Lesson;
-  private activity: Activity;
-
-  constructor(private router: Router, public dialog: MatDialog, private sessionService: SessionService) {
-    this.sessionService.get_Session('session-one').subscribe(res => {
-      this.sessionOne = new Session(res[0]);
-    });
-
-    // this.quiz = this.sessionOne.quiz;
-    // this.lesson = this.sessionOne.lesson;
-    // this.activity = this.sessionOne.activity;
+  constructor(public dialog: MatDialog, private sessionService: SessionService) {
+    this.quiz = [];
+    this.lesson = [];
+    this.activity = [];
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  this.getSession().then(sessionOne => {
+    sessionOne['quiz'].forEach(q => {
+    this.quiz.push(q);
+    });
+    sessionOne['lesson'].forEach(l => {
+      this.lesson.push(l);
+    });
+    sessionOne['activity'].forEach(a => {
+      this.activity.push(a);
+    });
+  });
+ 
+  }
+
+  private getSession() {
+    return new Promise((resolve, reject) => {
+      this.sessionService.get_Session().subscribe(res => {
+        res.forEach(session => {
+          if (session.id === 1) {
+            resolve(this.sessionOne = new Session(session));
+          }
+        });
+      });
+    });
+  }
+
 
   openQuiz(quizName: string): void {
-    let quiz = this.sessionOne;
-    const dialogRef = this.dialog.open(QuizComponent, {
-      disableClose: true,
-      data: { quiz }
-    });
+    this.quiz.forEach(selectedQuiz => {
+      if (selectedQuiz.name.toLowerCase() === quizName) {
+        const dialogRef = this.dialog.open(QuizComponent, {
+          disableClose: true,
+          data: { selectedQuiz }
+        });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      // this.quizResult = result;
-    });
-  }
-
-
-  openLesson(lesson: Lesson, lessonName: string): void {
-    if (!lesson && lessonName) {
-      lesson = this.getTaskData().lesson.taskName;
-    }
-    const dialogRef = this.dialog.open(LessonComponent, {
-      disableClose: true,
-      data: { lesson }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      // this.quizResult = result;
-    });
-  }
-
-  openActivity(activity: Activity, activityName: string): void {
-    if (!activity && activityName) {
-      activity = this.getTaskData().activity.taskName;
-    }
-    const dialogRef = this.dialog.open(ActivityComponent, {
-      disableClose: true,
-      data: { activity }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      // this.quizResult = result;
-    });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+        });
       }
+    });
+  }
 
-  getTaskData(): any {
-    this.sessionService.get_Session('session-one').subscribe(res => {
-       const result = res[0];
-       return result;
+
+  openLesson(lessonName: string): void {
+    this.lesson.forEach(selectedLesson => {
+      if (selectedLesson.name.toLowerCase() === lessonName) {
+        const dialogRef = this.dialog.open(LessonComponent, {
+          disableClose: true,
+          data: { selectedLesson }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+        });
+      }
+    });
+  }
+
+  openActivity(activityName: string): void {
+    this.activity.forEach(selectedActivity => {
+      if (selectedActivity.name.toLowerCase() === activityName) {
+        const dialogRef = this.dialog.open(ActivityComponent, {
+          disableClose: true,
+          data: { selectedActivity }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+        });
+      }
     });
   }
 }
+
+//   getTaskData(): any {
+//     this.sessionService.get_Session('session-one').subscribe(res => {
+//        const result = res[0];
+//        return result;
+//     });
+//   }
+// }
 
 // @Component({
 //   selector: 'lesson-component',

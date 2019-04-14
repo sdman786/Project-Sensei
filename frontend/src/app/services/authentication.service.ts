@@ -3,14 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Internal/Observable';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
-export interface UserDetails {
-  _id: string;
-  username: string;
-  name: string;
-  exp: number;
-  iat: number;
-}
+import { User } from '../models/user/user';
 
 interface TokenResponse {
   token: string;
@@ -46,7 +39,7 @@ export class AuthenticationService {
   }
 
   // User Data from Token
-  public getUserDetails(): UserDetails {
+  public getUser(): User {
     const token = this.getToken();
     let payload;
     if (token) {
@@ -60,7 +53,7 @@ export class AuthenticationService {
 
   // Check if User is logged in or not
   public isLoggedIn(): boolean {
-    const user = this.getUserDetails();
+    const user = this.getUser();
     if (user) {
       return user.exp > Date.now() / 1000;
     } else {

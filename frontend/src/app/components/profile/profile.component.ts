@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { AuthenticationService, UserDetails } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { User } from 'src/app/models/user/user';
 
 @Component({
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-  details: UserDetails;
+  details: User;
 
   constructor(private auth: AuthenticationService) {}
 

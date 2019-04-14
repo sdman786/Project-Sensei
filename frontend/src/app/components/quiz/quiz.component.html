@@ -1,62 +1,67 @@
-<div mat-dialog-header class="m-3">
-  <div class="row">
+<div class="p-5">
+  <div mat-dialog-header class="m-3">
+    <div class="row">
       <mat-chip-list>
-          <mat-chip class="mr-2" [ngClass]="{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz'}">Question {{pager.index + 1}} of {{pager.count}}</mat-chip>
+        <mat-chip class="mr-2" [ngClass]="{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz'}">Question
+          {{pager.index + 1}} of {{pager.count}}</mat-chip>
       </mat-chip-list>
-    <h1 class="center text-capitalize">Quiz Time! - {{ quizName }}</h1>
-    <mat-chip-list>
-      <mat-chip *ngIf="config.duration" [ngClass]="{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz' }" class="ml-2">Time: {{ellapsedTime}} / {{duration}}</mat-chip>
-    </mat-chip-list>
+      <h1 class="center text-capitalize">Quiz Time! - {{ quizName }}</h1>
+      <mat-chip-list>
+        <mat-chip *ngIf="config.duration" [ngClass]="{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz' }"
+          class="ml-2">Time: {{ellapsedTime}} / {{duration}}</mat-chip>
+      </mat-chip-list>
+    </div>
   </div>
-  </div>
-<div mat-dialog-content class="h-100" >
+  <div mat-dialog-content class="h-100">
     <mat-card style="width:auto">
-        <!-- <mat-card-header>
+      <!-- <mat-card-header>
           <mat-card-title>Quiz Time! - {{ quizName }}</mat-card-title>
         </mat-card-header> -->
-        <mat-card-content>
-          <div id="quiz">
-            <div *ngIf="mode=='quiz' && quiz$">
-              <div *ngFor="let question of filteredQuestions;">
-                <h3 class="center font-weight-normal mt-5 mb-5">{{pager.index + 1}}.
-                  <span [innerHTML]="question.name"></span>
-                </h3>
-                <div class="col-12 row text-left options">
-                  <div class="center" *ngFor="let option of question.options">
-                    <div class="option ml-5 mr-5">
-                      <label class="font-weight-normal" [attr.for]="option.id">
-                          <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected"
-                          (change)="onSelect(question, option);" required/> {{option.name}}
-                          <!-- <mat-radio-group aria-label="Select an option">
+      <mat-card-content>
+        <div id="quiz">
+          <div *ngIf="mode=='quiz' && quiz$">
+            <div *ngFor="let question of filteredQuestions;">
+              <h3 class="center font-weight-normal mt-5 mb-5">{{pager.index + 1}}.
+                <span [innerHTML]="question.name"></span>
+              </h3>
+              <div class="col-12 row text-left options">
+                <div class="center" *ngFor="let option of question.options">
+                  <div class="option ml-5 mr-5">
+                    <label class="font-weight-normal" [attr.for]="option.id">
+                      <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected"
+                        (change)="onSelect(question, option);" required /> {{option.name}}
+                      <!-- <mat-radio-group aria-label="Select an option">
                         <mat-radio-button id="{{option.id}}" [(ngModel)]="option.selected"
                           (change)="onSelect(question, option);" ngDefaultControl> {{option.name}} </mat-radio-button>
                         </mat-radio-group> -->
-                      </label>
-                    </div>
+                    </label>
                   </div>
                 </div>
               </div>
-              <hr />
-              <div class="text-center">
-                <!-- <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(0);">First</button> -->
-                <button class="btn btn-lg btn-primary mr-4 ml-4 mt-3 mb-3" *ngIf="pager.index != 0" (click)="goTo(pager.index - 1);">Prev</button>
-                <button class="btn btn-lg btn-primary mr-4 ml-4 mt-3 mb-3" *ngIf="pager.index != 9" (click)="goTo(pager.index + 1);">Next</button>
-                <!-- <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button> -->
-              </div>
             </div>
-    
-            <div class="row text-center" *ngIf="mode=='review'">
-              <div class="col-4 cursor-pointer" *ngFor="let question of quiz$.questions; let index = index;">
-                <div (click)="goTo(index)"
-                  class="p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}.
-                  {{ isAnswered(question) }}</div>
-              </div>
+            <hr />
+            <div class="text-center">
+              <!-- <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(0);">First</button> -->
+              <button class="btn btn-lg btn-primary mr-4 ml-4 mt-3 mb-3" *ngIf="pager.index != 0"
+                (click)="goTo(pager.index - 1);">Prev</button>
+              <button class="btn btn-lg btn-primary mr-4 ml-4 mt-3 mb-3" *ngIf="pager.index != 9"
+                (click)="goTo(pager.index + 1);">Next</button>
+              <!-- <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button> -->
             </div>
+          </div>
 
-            <div class="result" [ngClass]="" *ngIf="mode=='result'">
-              <h2 class="center">Results: {{ quizResults }}%</h2>
-              <div *ngFor="let question of quiz$.questions; let index = index">
-                <div class="p-1 m-2 alert {{ isCorrect(question) ? 'alert-success': 'alert-danger'}}">
+          <div class="row text-center" *ngIf="mode=='review'">
+            <div class="col-4 cursor-pointer" *ngFor="let question of quiz$.questions; let index = index;">
+              <div (click)="goTo(index)"
+                class="p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}.
+                {{ isAnswered(question) }}</div>
+            </div>
+          </div>
+
+          <div class="result" [ngClass]="" *ngIf="mode=='result'">
+            <h2 class="center">Results: {{ quizResults }}%</h2>
+            <div *ngFor="let question of quiz$.questions; let index = index">
+              <div class="p-1 m-2 alert {{ isCorrect(question) ? 'alert-success': 'alert-danger'}}">
                 <div class="result-question ">
                   <h5 class="font-weight-normal mb-3 mt-3 center">{{index + 1}}. {{question.name}}</h5>
                   <!-- <div class="text-nowrap ml-3 col d-flex justify-content-start row"> -->
@@ -67,22 +72,23 @@
                     </div>
                   </div>
                   <h5 class="m-3 center"> Your answer is {{isCorrect(question) ? 'Correct': 'Incorrect'}}.</h5>
-                  </div>
                 </div>
               </div>
-              <h4 class="alert alert-info text-center">You may close this window now.</h4>
-            </div>
-            <hr />
-            <div class="d-flex justify-content-center row" *ngIf="mode!='result'">
-              <!-- <button class="btn btn-lg btn-default ml-4 mr-4" (click)="mode = 'quiz'">Quiz</button>
-              <button class="btn btn-lg btn-info ml-4 mr-4" (click)="mode = 'review'">Review</button> -->
-              <button class="btn btn-lg btn-danger ml-4 mt-4 mr-4" (click)="exitQuiz();">Exit Quiz</button>
-              <button class="btn btn-lg btn-success ml-4 mt-4 mr-4" (click)="onSubmit();">Submit Quiz</button>
             </div>
           </div>
-        </mat-card-content>
-      </mat-card>
-</div>
+          <hr />
+          <div class="d-flex justify-content-center row" *ngIf="mode!='result'">
+            <!-- <button class="btn btn-lg btn-default ml-4 mr-4" (click)="mode = 'quiz'">Quiz</button>
+              <button class="btn btn-lg btn-info ml-4 mr-4" (click)="mode = 'review'">Review</button> -->
+            <button class="btn btn-lg btn-danger ml-4 mt-4 mr-4" (click)="exitQuiz();">Exit Quiz</button>
+            <button class="btn btn-lg btn-success ml-4 mt-4 mr-4" (click)="onSubmit();">Submit Quiz</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
   <div mat-dialog-actions [ngClass]="{'hidden' : mode != 'result'}" class="h-100">
-  <button *ngIf="mode == 'result'" class="col" mat-button [mat-dialog-close]="data.completed" cdkFocusInitial>Save and Close</button>
+    <button *ngIf="mode == 'result'" class="col" mat-button [mat-dialog-close]="data.completed" cdkFocusInitial>Save and
+      Close</button>
+  </div>
 </div>

@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthenticationService, UserDetails } from './services/authentication.service';
+import { AuthenticationService } from './services/authentication.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { User } from './models/user/user';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  user: UserDetails;
+  user: User;
   showSidebar: boolean;
   hideSidebar = ['/register', '/login'];
 
@@ -63,10 +64,5 @@ export class AppComponent implements OnInit {
     }, (err) => {
       console.error(err);
     });
-    this.getUsername();
-  }
-
-  getUsername(){
-    // return this.user.name;
   }
 }

@@ -1,9 +1,15 @@
+import { Session } from '../session/session';
+
 export class User {
-    constructor(
-        public firstname?: string,
-        public lastname?: string,
-        public email?: string,
-        public username?: string,
-        public password?: string
-    ) {}
+    id: string;
+    firstname: string;
+    lastname: string;
+    email: string;
+    username: string;
+    password: string;
+    sessionOne: Session;
+    sessionTwo: Session;
+    sessionThree: Session;
+    exp: number;
+    iat: number;
 }

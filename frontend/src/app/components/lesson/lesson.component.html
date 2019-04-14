@@ -1,20 +1,21 @@
 <div mat-dialog-header class="m-3">
-  <h1 class="center text-capitalize">{{ lessonName }}</h1>
+  <h1 class="center text-capitalize">{{ lesson$.title }}</h1>
 </div>
-<div mat-dialog-content class="h-100 lesson-component" >
-  <mat-card class="lesson-component">
-      <!-- <mat-card-header>
+<div mat-dialog-content class="h-100 lesson-component">
+  <mat-card class="session-card-content lesson-component mat-card">
+    <!-- <mat-card-header>
         <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>
       </mat-card-header> -->
-      <mat-card-content class="lesson-component">
-        <h2>LESSON CONTENT...</h2>
-        <div class="row col-5 center">
-          <button mat-button class="btn btn-lg btn-primary mr-5 ml-5" (click)="onSubmit();">Continue</button>
-          <h4 class="align-center  mr-5 ml-5">OR Press Enter to Continue</h4>
-        </div>
-      </mat-card-content>
-    </mat-card>
+    <mat-card-content class="lesson-component">
+      <h2>{{ lesson$.content }}</h2>
+    </mat-card-content>
+  </mat-card>
 </div>
-<div mat-dialog-actions>
-<button class="col" mat-button [mat-dialog-close]="data.lessonComplete" cdkFocusInitial>Close Lesson</button>
+<div class="center d-flex justify-content-center m-3">
+  <button class="btn btn-lg btn-outline-success" (click)="onSubmit();">Continue</button>
+  <h4 class="text-monospace ml-5">OR Press Enter to Continue</h4>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-center m-1">
+  <button class="btn-outline-danger col-11" mat-button [mat-dialog-close]="data.lessonComplete" cdkFocusInitial>Close
+    Lesson</button>
 </div>

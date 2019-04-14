@@ -17,9 +17,10 @@ import { SessionThreeComponent } from './components/session-template/session-thr
 import { CaseStudyComponent } from './components/case-study/case-study.component';
 import { SessionTemplateComponent } from './components/session-template/session-template.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './modules/material.module';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { ActivityComponent } from './components/activity/activity.component';
+import { ListMakerComponent } from './components/activity/list-maker/list-maker.component';
 
 @NgModule({
     entryComponents: [
@@ -41,7 +42,8 @@ import { ActivityComponent } from './components/activity/activity.component';
     SessionTemplateComponent,
     SidebarComponent,
     LessonComponent,
-    ActivityComponent
+    ActivityComponent,
+    ListMakerComponent
   ],
   imports: [
     BrowserModule,

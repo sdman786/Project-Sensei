@@ -11,17 +11,9 @@ import { Lesson } from 'src/app/models/session/lesson/lesson';
 export class LessonComponent implements OnInit {
 
   lesson$: Lesson;
-  lessonId: number;
-  lessonName = '';
-  lessonDescription = '';
-  lessonContent = '';
 
   constructor(public dialogRef: MatDialogRef<LessonComponent>,  @Inject(MAT_DIALOG_DATA) public data: Lesson) {
-    this.lesson$ = new Lesson(this.data);
-    this.lesson$.id = this.lessonId;
-    this.lessonName = this.lesson$.name.replace(/-/, ' ');
-    this.lesson$.description = this.lessonDescription;
-    this.lesson$.content = this.lessonContent;
+    this.lesson$ = new Lesson(this.data.selectedLesson);
   }
 
   ngOnInit() { }

@@ -6,18 +6,33 @@ import { Activity } from './activity/activity';
 export class Session {
     id: number;
     name: string;
-    quiz: Quiz;
-    lesson: Lesson;
-    activity: Activity;
+    quiz: Quiz[];
+    lesson: Lesson[];
+    activity: Activity[];
+    completed: boolean;
 
     constructor(data: any) {
-
         if (data) {
             this.id = data.id;
             this.name = data.name;
-            if (data['quiz'][0]) { this.quiz = new Quiz(data.quiz); }
-            if (data['lesson'][0]) { this.lesson = new Lesson(data.lesson); }
-            if (data['activity'][0]) { this.activity = new Activity(data.activity); }
+            if (data.quiz) {
+                this.quiz = [];
+                data.quiz.forEach(q => {
+                    this.quiz.push(new Quiz(q));
+                });
+            }
+            if (data.lesson) {
+                this.lesson = [];
+                data.lesson.forEach(l => {
+                    this.lesson.push(new Lesson(l));
+                });
+            }
+            if (data.activity) {
+                this.activity = [];
+                data.activity.forEach(a => {
+                    this.activity.push(new Activity(a));
+                });
+            }
         }
     }
 }

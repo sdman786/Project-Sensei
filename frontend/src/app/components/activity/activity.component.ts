@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Activity } from 'src/app/models/session/activity/activity';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-activity',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivityComponent implements OnInit {
 
-  constructor() { }
+  activity$: Activity;
 
-  ngOnInit() {
+  constructor(private router: Router, public dialogRef: MatDialogRef<ActivityComponent>,  @Inject(MAT_DIALOG_DATA) public data: Activity) {
+    this.activity$ = new Activity(this.data.selectedActivity);
   }
 
+  ngOnInit() { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  exitLesson() {
+    this.activity$ = null;
+    this.dialogRef.close();
+  }
 }

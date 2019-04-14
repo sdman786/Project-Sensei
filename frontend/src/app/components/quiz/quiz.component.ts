@@ -42,7 +42,7 @@ export class QuizComponent implements OnInit {
    quizResults = 0;
 
   constructor( public dialogRef: MatDialogRef<QuizComponent>, @Inject(MAT_DIALOG_DATA) public data: Quiz) {
-    this.quiz$ = new Quiz(this.data);
+    this.quiz$ = this.data.selectedQuiz;
     this.quizName = this.quiz$.name;
     this.pager.count = this.quiz$.questions.length;
     this.startTime = new Date();
@@ -115,6 +115,7 @@ export class QuizComponent implements OnInit {
   }
 
   onSubmit() {
+    this.mode = 'result';
     const result = [];
     this.quiz$.questions.forEach(x => {
       result.push({ quizId: this.quiz$.id,
@@ -123,11 +124,12 @@ export class QuizComponent implements OnInit {
                         correctAnswers: this.isCorrect(x) ? this.correctAnswers += 1 : null
                       });
     });
-    this.quizResults = this.correctAnswers / 100;
+    // QUIZ RESULT AS A PERCENTAGE
+    this.quizResults = this.correctAnswers * 10;
     // Post your data to the server here. answers contains the questionId and the users' answer.
     // console.log(this.quiz$.questions);
-    console.log('Quiz Results: ', result);
-    this.mode = 'result';
+    this.quiz$.quizResult = this.quizResults;
+    console.log('Quiz Results: ', this.quiz$.quizResult);
   }
 
   exitQuiz() {
