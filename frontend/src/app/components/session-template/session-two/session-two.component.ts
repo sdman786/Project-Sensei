@@ -33,13 +33,13 @@ export class SessionTwoComponent implements OnInit {
   ngOnInit(): void {
     this.sessionService.getSession(this.sessionID).then(session => {
       this.sessionTwo = new Session(session);
-      this.sessionTwo['quiz'].forEach(q => {
+      this.sessionTwo.quiz.forEach(q => {
       this.quiz.push(q);
       });
-      this.sessionTwo['lesson'].forEach(l => {
+      this.sessionTwo.lesson.forEach(l => {
         this.lesson.push(l);
       });
-      this.sessionTwo['activity'].forEach(a => {
+      this.sessionTwo.activity.forEach(a => {
         this.activity.push(a);
       });
     });

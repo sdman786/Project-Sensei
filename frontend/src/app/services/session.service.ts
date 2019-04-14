@@ -6,10 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class SessionService {
-  baseQuizUrl: string = "http://localhost:8080/";
-  baseLessonUrl: string = "http://localhost:8081/";
-  baseActivityUrl: string = "http://localhost:8082/";
-  baseSessionUrl: string = "http://localhost:8083/session";
+  baseQuizUrl = 'http://localhost:8080/';
+  baseLessonUrl = 'http://localhost:8081/';
+  baseActivityUrl = 'http://localhost:8082/';
+  baseSessionUrl = 'http://localhost:8083/session';
 
   constructor(private http: HttpClient) { }
 

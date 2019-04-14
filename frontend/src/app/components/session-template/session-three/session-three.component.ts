@@ -33,17 +33,17 @@ export class SessionThreeComponent {
   ngOnInit(): void {
   this.sessionService.getSession(this.sessionID).then(session => {
     this.sessionThree = new Session(session);
-    this.sessionThree['quiz'].forEach(q => {
+    this.sessionThree.quiz.forEach(q => {
     this.quiz.push(q);
     });
-    this.sessionThree['lesson'].forEach(l => {
+    this.sessionThree.lesson.forEach(l => {
       this.lesson.push(l);
     });
-    this.sessionThree['activity'].forEach(a => {
+    this.sessionThree.activity.forEach(a => {
       this.activity.push(a);
     });
   });
- 
+
   }
 
 
