@@ -20,6 +20,7 @@ import { Session } from 'src/app/models/session/session';
 export class SessionOneComponent implements OnInit {
 
   private sessionOne: Session;
+  private sessionID = 1;
   private quiz: Quiz[];
   private lesson: Lesson[];
   private activity: Activity[];
@@ -31,32 +32,19 @@ export class SessionOneComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.getSession().then(sessionOne => {
-    sessionOne['quiz'].forEach(q => {
-    this.quiz.push(q);
-    });
-    sessionOne['lesson'].forEach(l => {
-      this.lesson.push(l);
-    });
-    sessionOne['activity'].forEach(a => {
-      this.activity.push(a);
-    });
-  });
- 
-  }
-
-  private getSession() {
-    return new Promise((resolve, reject) => {
-      this.sessionService.get_Session().subscribe(res => {
-        res.forEach(session => {
-          if (session.id === 1) {
-            resolve(this.sessionOne = new Session(session));
-          }
-        });
+    this.sessionService.getSession(this.sessionID).then(session => {
+      this.sessionOne = new Session(session);
+      this.sessionOne['quiz'].forEach(q => {
+      this.quiz.push(q);
+      });
+      this.sessionOne['lesson'].forEach(l => {
+        this.lesson.push(l);
+      });
+      this.sessionOne['activity'].forEach(a => {
+        this.activity.push(a);
       });
     });
   }
-
 
   openQuiz(quizName: string): void {
     this.quiz.forEach(selectedQuiz => {

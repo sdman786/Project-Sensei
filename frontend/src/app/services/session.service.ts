@@ -29,4 +29,16 @@ export class SessionService {
     return this.http.get<any>(this.baseSessionUrl);
   }
 
+  getSession(sessionID: number) {
+    return new Promise((resolve, reject) => {
+      this.http.get<any>(this.baseSessionUrl).subscribe(res => {
+        res.forEach(session => {
+          if (session.id === sessionID) {
+            resolve(session);
+          }
+        });
+      });
+    });
+  }
+
 }

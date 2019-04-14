@@ -15,7 +15,7 @@ import { SessionOneComponent } from './components/session-template/session-one/s
 import { SessionTwoComponent } from './components/session-template/session-two/session-two.component';
 import { SessionThreeComponent } from './components/session-template/session-three/session-three.component';
 import { CaseStudyComponent } from './components/case-study/case-study.component';
-import { SessionTemplateComponent } from './components/session-template/session-template.component';
+// import { SessionTemplateComponent } from './components/session-template/session-template.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MaterialModule } from './modules/material.module';
 import { LessonComponent } from './components/lesson/lesson.component';
@@ -39,7 +39,7 @@ import { ListMakerComponent } from './components/activity/list-maker/list-maker.
     SessionTwoComponent,
     SessionThreeComponent,
     CaseStudyComponent,
-    SessionTemplateComponent,
+    // SessionTemplateComponent,
     SidebarComponent,
     LessonComponent,
     ActivityComponent,
