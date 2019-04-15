@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthenticationService, UserDetails } from './services/authentication.service';
+import { AuthenticationService } from './services/authentication.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { User } from './models/user/user';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  user: UserDetails;
+  user: User;
   showSidebar: boolean;
   hideSidebar = ['/register', '/login'];
 
@@ -24,8 +25,8 @@ export class AppComponent implements OnInit {
   @Input() routerLinkActiveOptions: { exact: boolean; };
 
   ngOnInit(): void {
-    this.getUser();
-    
+    // this.getUser();
+
     this.router.events
       .pipe(
         filter(e => e instanceof NavigationEnd)
@@ -57,16 +58,11 @@ export class AppComponent implements OnInit {
       });
   }
 
-  public getUser() {
-    this.auth.profile().subscribe(user => {
-      this.user = user;
-    }, (err) => {
-      console.error(err);
-    });
-    this.getUsername();
-  }
-
-  getUsername(){
-    // return this.user.name;
-  }
+  // public getUser() {
+  //   this.auth.profile().subscribe(user => {
+  //     this.user = user;
+  //   }, (err) => {
+  //     console.error(err);
+  //   });
+  // }
 }

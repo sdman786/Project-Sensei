@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Quiz, QuizConfig, Question, Option } from 'src/app/models/quiz';
-import { QuizService } from 'src/app/services/quiz.service';
+import { Quiz, QuizConfig, Question, Option } from 'src/app/models/session/quiz';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatRadioButton } from '@angular/material/radio';
-
-import { QuizData } from './quiz-data';
+import { timeout } from 'rxjs/operators';
+import { Timeouts } from 'selenium-webdriver';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-quiz',
@@ -17,28 +17,12 @@ export class QuizComponent implements OnInit {
    quiz$: Quiz;
    mode = 'quiz';
    quizName: string;
+
    config: QuizConfig = {
-     allowBack: true,
-     allowReview: true,
      autoMove: false,  // if true, it will move to next question automatically when answered.
      duration: 100,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
-     pageSize: 1,
      requiredAll: true,  // indicates if you must answer all the questions before submitting.
-     richText: false,
-     shuffleQuestions: false,
-     shuffleOptions: false,
-     showClock: false,
-     showPager: true,
-     theme: 'none'
-   };
-   correctAnswers = 0;
-
-   public mcqName = '';
-
-   pager = {
-     index: 0,
-     size: 1,
-     count: 1
+     shuffleQuestions: true
    };
 
    timer: any = null;
@@ -47,22 +31,27 @@ export class QuizComponent implements OnInit {
    ellapsedTime = '00:00';
    duration = '';
 
-  constructor(private quizService: QuizService,
-              public dialogRef: MatDialogRef<QuizComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: QuizData) { }
+   pager = {
+     index: 0,
+     size: 1,
+     count: 1
+   };
+
+   questionsAnswered = 0;
+   correctAnswers = 0;
+   quizResult = 0;
+
+  constructor( public dialogRef: MatDialogRef<QuizComponent>, @Inject(MAT_DIALOG_DATA) public data: Quiz) {
+    this.quiz$ = this.data.selectedQuiz;
+    this.quizName = this.quiz$.name;
+    this.pager.count = this.quiz$.questions.length;
+    this.startTime = new Date();
+    this.timer = setInterval(() => { this.tick(); }, 1000);
+    this.duration = this.parseTime(this.config.duration);
+    this.mode = 'quiz';
+   }
 
   ngOnInit() {
-
-    this.mcqName = this.data.mcqName;
-
-    this.quizService.get_MCQ(this.mcqName).subscribe(res => {
-      this.quiz$ = new Quiz(res[0]);
-      this.pager.count = this.quiz$.questions.length;
-      this.startTime = new Date();
-      this.timer = setInterval(() => { this.tick(); }, 1000);
-      this.duration = this.parseTime(this.config.duration);
-    });
-    this.mode = 'quiz';
   }
 
   onNoClick(): void {
@@ -70,12 +59,14 @@ export class QuizComponent implements OnInit {
   }
 
   tick() {
-    const now = new Date();
-    const diff = (now.getTime() - this.startTime.getTime()) / 1000;
-    if (Math.round(diff) === (this.config.duration)) {
-      this.onSubmit();
-    }
-    this.ellapsedTime = this.parseTime(diff);
+    if(this.mode === 'quiz') {
+      const now = new Date();
+      const diff = (now.getTime() - this.startTime.getTime()) / 1000;
+      if (Math.round(diff) === (this.config.duration)) {
+        this.onSubmit();
+      }
+      this.ellapsedTime = this.parseTime(diff);
+  }
   }
 
   parseTime(totalSeconds: number) {
@@ -92,12 +83,19 @@ export class QuizComponent implements OnInit {
   }
 
   onSelect(question: Question, option: Option) {
-    if (question.questionTypeId === 1) {
-      question.options.forEach((x) => { if (x.id !== option.id) { x.selected = false; } });
-    }
+    question.options.forEach((x) => {
+      if (x.id !== option.id) { x.selected = false; }
+    });
 
+    this.autoMoveQuestion();
+  }
+
+  // Move to Next Question once an option is selected
+  private autoMoveQuestion() {
     if (this.config.autoMove) {
-      this.goTo(this.pager.index + 1);
+      setTimeout(() => {
+        this.goTo(this.pager.index + 1);
+      }, 500);
     }
   }
 
@@ -109,7 +107,7 @@ export class QuizComponent implements OnInit {
   }
 
   isAnswered(question: Question) {
-    return question.options.find(x => x.selected) ? 'Answered' : 'Not Answered';
+    return question.options.find(x => x.selected) ? true : false;
   }
 
   isCorrect(question: Question) {
@@ -117,20 +115,25 @@ export class QuizComponent implements OnInit {
   }
 
   onSubmit() {
-    const answers = [];
+    this.mode = 'result';
+    const result = [];
     this.quiz$.questions.forEach(x => {
-      if (this.isCorrect(x)) {
-        answers.push({ quizId: this.quiz$.id,
+      result.push({ quizId: this.quiz$.id,
                         questionId: x.id,
-                        answered: x.answered,
-                        correctAnswers: this.correctAnswers += 1
+                        answered: this.isAnswered(x),
+                        correctAnswers: this.isCorrect(x) ? this.correctAnswers += 1 : null
                       });
-      }
     });
-
+    // QUIZ RESULT AS A PERCENTAGE
+    this.quizResult = this.correctAnswers * 10;
     // Post your data to the server here. answers contains the questionId and the users' answer.
     // console.log(this.quiz$.questions);
-    console.log('Correct Answers: ', answers);
-    this.mode = 'result';
+    this.quiz$.quizResult = this.quizResult;
+    console.log('Quiz Results: ', this.quiz$.quizResult);
+  }
+
+  exitQuiz() {
+    this.quiz$ = null;
+    this.dialogRef.close();
   }
 }

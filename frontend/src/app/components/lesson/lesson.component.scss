@@ -1,0 +1,25 @@
+.lesson-content-card {
+    margin: 5% 2.5% 5% 2.5%;
+    min-width: 90%;
+    width: 100%;
+    flex-basis: 45%;
+}
+
+.mat-dialog-content.lesson-component {
+    min-height: 69vh !important;
+    min-width: 80vw;
+    margin-top: 0rem;
+    width: 50vw;
+    margin: 0 -0.5rem;
+    padding: 1.5rem;
+}
+
+.mat-dialog-container {
+    max-width: 80vw !important;
+    margin: 0 auto;
+    margin-top: 5rem;
+    min-width: 80vw !important;
+    max-height: 91vh !important;
+    padding: 5px !important;
+    border-radius: 15px !important;
+}

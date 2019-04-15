@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService, TokenPayload } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { User } from 'src/app/models/user/user';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,9 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  user: TokenPayload = {
+  user: User = {
     username: '',
-    password: '',
+    password: ''
   };
 
   constructor(private auth: AuthenticationService, private router: Router) {}
@@ -21,7 +22,7 @@ export class LoginComponent {
     this.auth.login(this.user).subscribe(() => {
       alert('Login Successful! Welcome ' + this.user.username);
       this.router.navigateByUrl('/home');
-      this.appComponent.getUser();
+      // this.appComponent.getUser();
     }, (err) => {
       console.error(err);
       alert('Login Unsuccessful! Incorrect Username/Password');

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService, TokenPayload } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { User } from 'src/app/models/user/user';
 
 @Component({
   selector: 'app-register',
@@ -9,11 +10,13 @@ import { AuthenticationService, TokenPayload } from 'src/app/services/authentica
 })
 
 export class RegisterComponent {
-  user: TokenPayload = {
+  user: User = {
     username: '',
     name: '',
     email: '',
-    password: ''
+    password: '',
+    session: 'session-one',
+    task: 'agile-intro'
   };
 
   constructor(private auth: AuthenticationService, private router: Router) {}

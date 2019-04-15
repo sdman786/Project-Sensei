@@ -1,6 +1,8 @@
+import { Question } from './question';
+
 export class Option {
     id: number;
-    questionId: number;
+    questionId: Question['id'];
     name: string;
     isAnswer: boolean;
     selected: boolean;

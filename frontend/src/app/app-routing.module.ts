@@ -7,7 +7,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { SessionOneComponent } from './components/session-template/session-one/session-one.component';
-import { SessionTemplateComponent } from './components/session-template/session-template.component';
+// import { SessionTemplateComponent } from './components/session-template/session-template.component';
 import { SessionThreeComponent } from './components/session-template/session-three/session-three.component';
 import { SessionTwoComponent } from './components/session-template/session-two/session-two.component';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -18,12 +18,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'quiz', component: QuizComponent , canActivate: [AuthGuardService] },
-  { path: 'session-one', component: SessionTemplateComponent, canActivate: [AuthGuardService],
-      children: [{path: '', component: SessionOneComponent}] },
-  { path: 'session-two', component: SessionTemplateComponent, canActivate: [AuthGuardService],
-      children: [{path: '', component: SessionTwoComponent}] },
-  { path: 'session-three', component: SessionTemplateComponent, canActivate: [AuthGuardService],
-      children: [{path: '', component: SessionThreeComponent}] },
+  { path: 'session-one', component: SessionOneComponent, canActivate: [AuthGuardService] },
+  { path: 'session-two', component: SessionTwoComponent, canActivate: [AuthGuardService] },
+  { path: 'session-three', component: SessionThreeComponent, canActivate: [AuthGuardService] },
   { path: 'case-study', component: CaseStudyComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
 ];

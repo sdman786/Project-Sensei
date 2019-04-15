@@ -3,25 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Internal/Observable';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
-export interface UserDetails {
-  _id: string;
-  username: string;
-  name: string;
-  exp: number;
-  iat: number;
-}
+import { User } from '../models/user/user';
 
 interface TokenResponse {
   token: string;
 }
 
-export interface TokenPayload {
-  username: string;
-  password: string;
-  name?: string;
-  email?: string;
-}
+// export interface TokenPayload {
+//   username: string;
+//   password: string;
+//   name?: string;
+//   email?: string;
+// }
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +22,7 @@ export interface TokenPayload {
 @Injectable()
 export class AuthenticationService {
   private token: string;
+  private baseAuthUrl = 'http://localhost:3000/authapi/';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -46,7 +40,7 @@ export class AuthenticationService {
   }
 
   // User Data from Token
-  public getUserDetails(): UserDetails {
+  public getUserToken(): User {
     const token = this.getToken();
     let payload;
     if (token) {
@@ -58,9 +52,18 @@ export class AuthenticationService {
     }
   }
 
+  /**
+   * getUserDetails
+   */
+  public getUserDetails(): any {
+    this.profile().subscribe(user => {
+      return user;
+    });
+  }
+
   // Check if User is logged in or not
   public isLoggedIn(): boolean {
-    const user = this.getUserDetails();
+    const user = this.getUserToken();
     if (user) {
       return user.exp > Date.now() / 1000;
     } else {
@@ -76,13 +79,13 @@ export class AuthenticationService {
   }
 
   // Structuring the API Calls
-  private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: TokenPayload): Observable<any> {
+  private request(method: 'post'|'get', type: 'login'|'register'|'profile'|'user/:id', user?: User): Observable<any> {
     let base;
 
     if (method === 'post') {
-      base = this.http.post(`http://localhost:3000/authapi/${type}`, user);
+      base = this.http.post(this.baseAuthUrl + type, user);
     } else {
-      base = this.http.get(`http://localhost:3000/authapi/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base = this.http.get(this.baseAuthUrl + type, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
 
     const request = base.pipe(
@@ -98,17 +101,15 @@ export class AuthenticationService {
   }
 
   // Calling the Register and Login API Endpoints
-  public register(user: TokenPayload): Observable<any> {
+  public register(user: User): Observable<any> {
     return this.request('post', 'register', user);
   }
 
-  public login(user: TokenPayload): Observable<any> {
+  public login(user: User): Observable<any> {
     return this.request('post', 'login', user);
   }
 
-  public profile(): Observable<any> {
+  public profile(): Observable<User> {
     return this.request('get', 'profile');
   }
-
-
 }

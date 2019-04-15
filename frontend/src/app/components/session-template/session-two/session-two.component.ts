@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { Session } from 'src/app/models/session/session';
+import { Quiz } from 'src/app/models/session/quiz';
+import { Lesson } from 'src/app/models/session/lesson/lesson';
+import { Activity } from 'src/app/models/session/activity/activity';
+import { MatDialog } from '@angular/material';
+import { SessionService } from 'src/app/services/session.service';
+import { QuizComponent } from '../../quiz/quiz.component';
+import { LessonComponent } from '../../lesson/lesson.component';
+import { ActivityComponent } from '../../activity/activity.component';
 
 @Component({
   selector: 'app-session-two',
@@ -9,35 +18,76 @@ import { filter } from 'rxjs/operators';
 })
 export class SessionTwoComponent implements OnInit {
 
-  show : boolean = true;
+  private sessionTwo: Session;
+  private sessionID = 2;
+  private quiz: Quiz[];
+  private lesson: Lesson[];
+  private activity: Activity[];
 
-  constructor(private router: Router) { }
+  constructor(public dialog: MatDialog, private sessionService: SessionService) {
+    this.quiz = [];
+    this.lesson = [];
+    this.activity = [];
+  }
 
   ngOnInit(): void {
-    this.loadSession();
+    this.sessionService.getSession(this.sessionID).then(session => {
+      this.sessionTwo = new Session(session);
+      this.sessionTwo.quiz.forEach(q => {
+      this.quiz.push(q);
+      });
+      this.sessionTwo.lesson.forEach(l => {
+        this.lesson.push(l);
+      });
+      this.sessionTwo.activity.forEach(a => {
+        this.activity.push(a);
+      });
+    });
   }
 
-  ngOnChanges(): void {
-    this.loadSession();
+  openQuiz(quizName: string): void {
+    this.quiz.forEach(selectedQuiz => {
+      if (selectedQuiz.name.toLowerCase() === quizName) {
+        const dialogRef = this.dialog.open(QuizComponent, {
+          disableClose: true,
+          data: { selectedQuiz }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+        });
+      }
+    });
   }
 
-  loadSession() {
-    // this.router.events
-    // .pipe(
-    //   filter(e => e instanceof NavigationEnd)
-    //   )
-    // .subscribe((navEnd: NavigationEnd) => {
-    //   console.log(navEnd.urlAfterRedirects);
-    //   if (navEnd.urlAfterRedirects === '/session/two') {
-    //     this.show = true;
-    //   }
-    //   else {
-    //     this.show = false;
-    //   }
-    // });
+
+  openLesson(lessonName: string): void {
+    this.lesson.forEach(selectedLesson => {
+      if (selectedLesson.name.toLowerCase() === lessonName) {
+        const dialogRef = this.dialog.open(LessonComponent, {
+          disableClose: true,
+          data: { selectedLesson }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+        });
+      }
+    });
   }
 
-  openQuiz( quizType: string) {
-    this.router.navigateByUrl('/quiz', { state: { mcqName: quizType } });
+  openActivity(activityName: string): void {
+    this.activity.forEach(selectedActivity => {
+      if (selectedActivity.name.toLowerCase() === activityName) {
+        const dialogRef = this.dialog.open(ActivityComponent, {
+          disableClose: true,
+          data: { selectedActivity }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+        });
+      }
+    });
   }
 }

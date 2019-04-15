@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { SessionOneComponent } from '../session-template/session-one/session-one.component';
 import { SessionTwoComponent } from '../session-template/session-two/session-two.component';
-import { SessionTemplateComponent } from '../session-template/session-template.component';
+// import { SessionTemplateComponent } from '../session-template/session-template.component';
 
 
 @Component({
@@ -11,13 +11,14 @@ import { SessionTemplateComponent } from '../session-template/session-template.c
 })
 export class SidebarComponent {
 
-  quizType: string;
+  taskName: string;
 
-  constructor( private sessionTemplate: SessionTemplateComponent ) { }
+  constructor(
+    //  private sessionTemplate: SessionTemplateComponent
+     ) { }
 
-
-  openTask(quizType) {
-    this.sessionTemplate.quizType(quizType);
+  openTask(taskType, taskName) {
+    // this.sessionTemplate.openTask(taskType, taskName);
    }
 
 }
