@@ -11,6 +11,9 @@ import { Lesson } from 'src/app/models/session/lesson/lesson';
 import { Quiz } from 'src/app/models/session/quiz';
 import { ActivityComponent } from '../../activity/activity.component';
 import { Session } from 'src/app/models/session/session';
+import { User } from 'src/app/models/user/user';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-session-one',
@@ -19,19 +22,24 @@ import { Session } from 'src/app/models/session/session';
 })
 export class SessionOneComponent implements OnInit {
 
+  private user$: User;
   private sessionOne: Session;
   private sessionID = 1;
   private quiz: Quiz[];
   private lesson: Lesson[];
   private activity: Activity[];
 
-  constructor(public dialog: MatDialog, private sessionService: SessionService) {
+  constructor(public dialog: MatDialog,private auth: AuthenticationService,private sessionService: SessionService) {
     this.quiz = [];
     this.lesson = [];
     this.activity = [];
   }
 
   ngOnInit(): void {
+    this.auth.profile().subscribe(user => {
+      this.user$ = user;
+    });
+
     this.sessionService.getSession(this.sessionID).then(session => {
       this.sessionOne = new Session(session);
       this.sessionOne.quiz.forEach(q => {
@@ -48,7 +56,7 @@ export class SessionOneComponent implements OnInit {
 
   openQuiz(quizName: string): void {
     this.quiz.forEach(selectedQuiz => {
-      if (selectedQuiz.name.toLowerCase() === quizName) {
+      if (selectedQuiz.name === quizName) {
         const dialogRef = this.dialog.open(QuizComponent, {
           disableClose: true,
           data: { selectedQuiz }
@@ -64,7 +72,7 @@ export class SessionOneComponent implements OnInit {
 
   openLesson(lessonName: string): void {
     this.lesson.forEach(selectedLesson => {
-      if (selectedLesson.name.toLowerCase() === lessonName) {
+      if (selectedLesson.name === lessonName) {
         const dialogRef = this.dialog.open(LessonComponent, {
           disableClose: true,
           data: { selectedLesson }
@@ -79,7 +87,7 @@ export class SessionOneComponent implements OnInit {
 
   openActivity(activityName: string): void {
     this.activity.forEach(selectedActivity => {
-      if (selectedActivity.name.toLowerCase() === activityName) {
+      if (selectedActivity.name === activityName) {
         const dialogRef = this.dialog.open(ActivityComponent, {
           disableClose: true,
           data: { selectedActivity }

@@ -2,10 +2,10 @@
   <div mat-dialog-header class="m-3">
     <div class="row">
       <mat-chip-list>
-        <mat-chip class="mr-2" [ngClass]="{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz'}">Question
+        <mat-chip class="mr-2 ml-sm-4" [ngClass]="{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz'}">Question
           {{pager.index + 1}} of {{pager.count}}</mat-chip>
       </mat-chip-list>
-      <h1 class="center text-capitalize">Quiz Time! - {{ quizName }}</h1>
+      <h1 class="center text-capitalize mt-sm-3">Quiz Time! - {{ quizName }}</h1>
       <mat-chip-list>
         <mat-chip *ngIf="config.duration" [ngClass]="{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz' }"
           class="ml-2">Time: {{ellapsedTime}} / {{duration}}</mat-chip>

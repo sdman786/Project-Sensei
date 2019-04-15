@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var jwt = require('express-jwt');
+require('dotenv').config();
+
+var secret = process.env.JWT_SECRET;
 
 var auth = jwt({
-  secret: 'ANISA',
+  secret: secret,
   userProperty: 'payload'
 });
 

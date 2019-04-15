@@ -7,13 +7,13 @@ import { User } from 'src/app/models/user/user';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-  details: User;
+  user: User;
 
   constructor(private auth: AuthenticationService) {}
 
   ngOnInit() {
     this.auth.profile().subscribe(user => {
-      this.details = user;
+      this.user = user;
     }, (err) => {
       console.error(err);
     });

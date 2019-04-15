@@ -25,8 +25,8 @@ export class AppComponent implements OnInit {
   @Input() routerLinkActiveOptions: { exact: boolean; };
 
   ngOnInit(): void {
-    this.getUser();
-    
+    // this.getUser();
+
     this.router.events
       .pipe(
         filter(e => e instanceof NavigationEnd)
@@ -58,11 +58,11 @@ export class AppComponent implements OnInit {
       });
   }
 
-  public getUser() {
-    this.auth.profile().subscribe(user => {
-      this.user = user;
-    }, (err) => {
-      console.error(err);
-    });
-  }
+  // public getUser() {
+  //   this.auth.profile().subscribe(user => {
+  //     this.user = user;
+  //   }, (err) => {
+  //     console.error(err);
+  //   });
+  // }
 }

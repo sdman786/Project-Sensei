@@ -79,7 +79,8 @@
             }],
             "quiz": [{
                     "id": 1,
-                    "name": "Agile",
+                    "name": "agile",
+                    "title": "Agile Quiz!",
                     "description": "Asp.Net Quiz (contains webform, mvc, web API, etc.)",
                     "questions": [{
                             "id": 1010,
@@ -315,7 +316,8 @@
                 },
                 {
                     "id": 1,
-                    "name": "Scrum",
+                    "name": "scrum",
+                    "title": "Scrum Quiz!",
                     "description": "Scrum.Net Quiz (contains webform, mvc, web API, etc.)",
                     "questions": [{
                             "id": 1010,

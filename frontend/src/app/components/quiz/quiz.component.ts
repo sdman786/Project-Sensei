@@ -39,7 +39,7 @@ export class QuizComponent implements OnInit {
 
    questionsAnswered = 0;
    correctAnswers = 0;
-   quizResults = 0;
+   quizResult = 0;
 
   constructor( public dialogRef: MatDialogRef<QuizComponent>, @Inject(MAT_DIALOG_DATA) public data: Quiz) {
     this.quiz$ = this.data.selectedQuiz;
@@ -125,10 +125,10 @@ export class QuizComponent implements OnInit {
                       });
     });
     // QUIZ RESULT AS A PERCENTAGE
-    this.quizResults = this.correctAnswers * 10;
+    this.quizResult = this.correctAnswers * 10;
     // Post your data to the server here. answers contains the questionId and the users' answer.
     // console.log(this.quiz$.questions);
-    this.quiz$.quizResult = this.quizResults;
+    this.quiz$.quizResult = this.quizResult;
     console.log('Quiz Results: ', this.quiz$.quizResult);
   }
 
