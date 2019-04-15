@@ -1,37 +1,39 @@
+@import './node_modules/bootstrap/scss/bootstrap';
+
 /* You can add global styles to this file, and also import other style files */
 @import './styles/variables';
-@import '../node_modules/bootstrap/scss/bootstrap';
+
 @import url('https://fonts.googleapis.com/css?family=Righteous');
 
 // App Component
-@import '../src/app/app.component.scss';
+@import './app/app.component.scss';
 
 // Home Component
-@import '../src/app/components/home/home.component.scss';
+@import './app/components/home/home.component.scss';
 
 // Login Component
-@import '../src/app/components/login/login.component.scss';
+@import './app/components/login/login.component.scss';
 
 // Register Component
-@import '../src/app/components/register/register.component.scss';
+@import './app/components/register/register.component.scss';
 
 // Lesson Component
-@import '../src/app/components/lesson/lesson.component.scss';
+@import './app/components/lesson/lesson.component.scss';
 
 // Quiz Component
-@import '../src/app/components/quiz/quiz.component.scss';
+@import './app/components/quiz/quiz.component.scss';
 
 // SessionTemplate Component
-@import '../src/app/components/session-template/session-template.component.scss';
+@import './app/components/session-template/session-template.component.scss';
 
 // SessionOne Component
-@import '../src/app/components/session-template/session-one/session-one.component.scss';
+@import './app/components/session-template/session-one/session-one.component.scss';
 
 // SessionTwo Component
-@import '../src/app/components/session-template/session-two/session-two.component.scss';
+@import './app/components/session-template/session-two/session-two.component.scss';
 
 // SessionThree Component
-@import '../src/app/components/session-template/session-three/session-three.component.scss';
+@import './app/components/session-template/session-three/session-three.component.scss';
 
 
 
