@@ -1,13 +1,13 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { SessionOneComponent } from '../session-template/session-one/session-one.component';
-import { SessionTwoComponent } from '../session-template/session-two/session-two.component';
-// import { SessionTemplateComponent } from '../session-template/session-template.component';
+import { SessionOneComponent } from '../session-one/session-one.component';
+import { SessionTwoComponent } from '../session-two/session-two.component';
+// import { SessionTemplateComponent } from '../session/session.component';
 
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['../session-template/session-template.component.scss'],
+  styleUrls: ['../session.component.scss'],
 })
 export class SidebarComponent {
 

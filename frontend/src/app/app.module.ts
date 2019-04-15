@@ -11,15 +11,16 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { QuizComponent } from './components/quiz/quiz.component';
-import { SessionOneComponent } from './components/session-template/session-one/session-one.component';
-import { SessionTwoComponent } from './components/session-template/session-two/session-two.component';
-import { SessionThreeComponent } from './components/session-template/session-three/session-three.component';
+import { SessionOneComponent } from './components/session/session-one/session-one.component';
+import { SessionTwoComponent } from './components/session/session-two/session-two.component';
+import { SessionThreeComponent } from './components/session/session-three/session-three.component';
 import { CaseStudyComponent } from './components/case-study/case-study.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarComponent } from './components/session/sidebar/sidebar.component';
 import { MaterialModule } from './modules/material.module';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { ActivityComponent } from './components/activity/activity.component';
 import { ListMakerComponent } from './components/activity/list-maker/list-maker.component';
+import { ActiveTaskDirective } from './components/session/active-task.directive';
 
 @NgModule({
     entryComponents: [
@@ -41,7 +42,8 @@ import { ListMakerComponent } from './components/activity/list-maker/list-maker.
     SidebarComponent,
     LessonComponent,
     ActivityComponent,
-    ListMakerComponent
+    ListMakerComponent,
+    ActiveTaskDirective
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,9 @@ import { ListMakerComponent } from './components/activity/list-maker/list-maker.
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    ActiveTaskDirective
+  ]
 })
 export class AppModule { }

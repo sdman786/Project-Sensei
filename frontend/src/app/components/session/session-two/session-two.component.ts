@@ -14,7 +14,7 @@ import { ActivityComponent } from '../../activity/activity.component';
 @Component({
   selector: 'app-session-two',
   templateUrl: './session-two.component.html',
-  styleUrls: ['../session-template.component.scss']
+  styleUrls: ['../session.component.scss']
 })
 export class SessionTwoComponent implements OnInit {
 
@@ -31,18 +31,18 @@ export class SessionTwoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sessionService.getSession(this.sessionID).then(session => {
-      this.sessionTwo = new Session(session);
-      this.sessionTwo.quiz.forEach(q => {
-      this.quiz.push(q);
-      });
-      this.sessionTwo.lesson.forEach(l => {
-        this.lesson.push(l);
-      });
-      this.sessionTwo.activity.forEach(a => {
-        this.activity.push(a);
-      });
-    });
+    // this.sessionService.getSession(this.sessionID).then(session => {
+    //   this.sessionTwo = new Session(session);
+    //   this.sessionTwo.quiz.forEach(q => {
+    //   this.quiz.push(q);
+    //   });
+    //   this.sessionTwo.lesson.forEach(l => {
+    //     this.lesson.push(l);
+    //   });
+    //   this.sessionTwo.activity.forEach(a => {
+    //     this.activity.push(a);
+    //   });
+    // });
   }
 
   openQuiz(quizName: string): void {

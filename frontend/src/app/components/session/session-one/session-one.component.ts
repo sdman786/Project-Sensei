@@ -14,15 +14,16 @@ import { Session } from 'src/app/models/session/session';
 import { User } from 'src/app/models/user/user';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Observable } from 'rxjs';
+import { ActiveTaskDirective } from '../active-task.directive';
 
 @Component({
   selector: 'app-session-one',
   templateUrl: './session-one.component.html',
-  styleUrls: ['../session-template.component.scss']
+  styleUrls: ['../session.component.scss']
 })
 export class SessionOneComponent implements OnInit {
 
-  private user$: User;
+  public user$: User;
   private sessionOne: Session;
   private sessionID = 1;
   private quiz: Quiz[];
@@ -38,19 +39,6 @@ export class SessionOneComponent implements OnInit {
   ngOnInit(): void {
     this.auth.profile().subscribe(user => {
       this.user$ = user;
-    });
-
-    this.sessionService.getSession(this.sessionID).then(session => {
-      this.sessionOne = new Session(session);
-      this.sessionOne.quiz.forEach(q => {
-      this.quiz.push(q);
-      });
-      this.sessionOne.lesson.forEach(l => {
-        this.lesson.push(l);
-      });
-      this.sessionOne.activity.forEach(a => {
-        this.activity.push(a);
-      });
     });
   }
 

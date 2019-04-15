@@ -4,7 +4,7 @@
   <app-sidebar></app-sidebar>
 </div>
 <div class="row mt-2">
-  <div *ngIf="user$" class="col-11 custom-modal mt-sm-3" style="max-width:1000px">
+  <div class="col-11 custom-modal mt-sm-3" style="max-width:1000px">
     <div class="row">
       <div class="center col-11 mb-5 mt-5 text-justify">
         <h2 class="center">Session 1 Lessons</h2>
@@ -33,7 +33,7 @@
             </mat-card-content>
             <div class="center-items">
               <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
+                <button  mat-button type="button" class="btn align-middle btn-primary btn-lg"
                   (click)="openLesson('agile-intro')">Begin Lesson</button>
               </mat-card-actions>
             </div>

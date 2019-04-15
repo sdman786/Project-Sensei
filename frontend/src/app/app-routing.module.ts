@@ -6,10 +6,10 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { QuizComponent } from './components/quiz/quiz.component';
-import { SessionOneComponent } from './components/session-template/session-one/session-one.component';
-// import { SessionTemplateComponent } from './components/session-template/session-template.component';
-import { SessionThreeComponent } from './components/session-template/session-three/session-three.component';
-import { SessionTwoComponent } from './components/session-template/session-two/session-two.component';
+import { SessionOneComponent } from './components/session/session-one/session-one.component';
+// import { SessionTemplateComponent } from './components/session/session.component';
+import { SessionThreeComponent } from './components/session/session-three/session-three.component';
+import { SessionTwoComponent } from './components/session/session-two/session-two.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
