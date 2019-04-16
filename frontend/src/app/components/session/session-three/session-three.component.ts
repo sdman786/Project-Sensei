@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-session-three',
@@ -7,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SessionThreeComponent implements OnInit {
 
+  activeSession?: string;
   constructor() {
   }
 
   ngOnInit(): void {
-
+    // this.activeSession = this.sideBar.activeSession;
   }
 
 }

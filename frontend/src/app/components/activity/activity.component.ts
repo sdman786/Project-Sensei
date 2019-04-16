@@ -10,13 +10,23 @@ import { Router } from '@angular/router';
 })
 export class ActivityComponent implements OnInit {
 
-  activity$: Activity;
+  activity$?: Activity;
 
   constructor(private router: Router, public dialogRef: MatDialogRef<ActivityComponent>,  @Inject(MAT_DIALOG_DATA) public data: Activity) {
     this.activity$ = new Activity(this.data.selectedTask);
   }
 
   ngOnInit() { }
+
+  getActivity() {
+    return this.activity$.type === 'listMaker' ? true : false;
+  }
+
+  continue() {
+  }
+
+  previous() {
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

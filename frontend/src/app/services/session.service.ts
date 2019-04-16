@@ -9,6 +9,7 @@ import { AuthenticationService } from './authentication.service';
 import { LessonComponent } from '../components/lesson/lesson.component';
 import { ActivityComponent } from '../components/activity/activity.component';
 import { User } from '../models/user/user';
+import { SidebarComponent } from '../components/session/sidebar/sidebar.component';
 
 @Injectable({
   providedIn: 'root'
@@ -73,7 +74,8 @@ export class SessionService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      // this.sideBar.closeTask(result);
+      // this.user$.task;
     });
   }
 

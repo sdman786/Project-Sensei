@@ -59,7 +59,7 @@ export class QuizComponent implements OnInit {
   }
 
   tick() {
-    if(this.mode === 'quiz') {
+    if (this.mode === 'quiz') {
       const now = new Date();
       const diff = (now.getTime() - this.startTime.getTime()) / 1000;
       if (Math.round(diff) === (this.config.duration)) {

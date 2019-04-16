@@ -1,3 +1,22 @@
-<p>
+<h1>
   list-maker works!
-</p>
+</h1>
+<section class="listapp">
+    <header class="header">
+      <h1>Product Backlog</h1>
+      <input class="new-list" placeholder="Insert a Requirement" autofocus="" [(ngModel)]="newList.title" (keyup.enter)="addList()">
+    </header>
+    <section class="main" *ngIf="lists.length > 0">
+      <ul class="list">
+        <li *ngFor="let item of lists" [class.completed]="item.complete">
+          <div class="view">
+            <input class="toggle" type="checkbox" [checked]="item.complete">
+            <label>{{list.title}}</label>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <footer class="footer" *ngIf="lists.length > 0">
+      <span class="list-count"><strong>{{lists.length}}</strong> {{lists.length == 1 ? 'item' : 'items'}} left</span>
+    </footer>
+  </section>

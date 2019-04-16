@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/services/session.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-session-two',
@@ -8,15 +9,12 @@ import { SessionService } from 'src/app/services/session.service';
 })
 export class SessionTwoComponent implements OnInit {
 
-  constructor(private sessonService: SessionService) {
+  activeSession?: string;
+  constructor() {
   }
 
   ngOnInit(): void {
-
-  }
-
-  isCurrentSession() {
-    // this.sessonService.
+    // this.activeSession = this.sideBar.activeSession;
   }
 
 }

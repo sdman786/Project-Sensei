@@ -1,15 +1,46 @@
 import { Component, OnInit } from '@angular/core';
+import { ListMakerService } from './list-maker.service';
 
 @Component({
   selector: 'app-list-maker',
   templateUrl: './list-maker.component.html',
-  styleUrls: ['./list-maker.component.scss']
+  styleUrls: ['./list-maker.component.scss'],
+  providers: [ListMakerService]
 })
+
+export class List {
+  id: number;
+  title: string = '';
+  description: string = '';
+  estimate?: number;
+  priority?: 1 | 2 | 3 | 4 | 5;
+  complete: boolean = false;
+
+  constructor(values: Object = {}) {
+    Object.assign(this, values);
+  }
+}
+
 export class ListMakerComponent implements OnInit {
 
-  constructor() { }
+  item: List = new List();
+
+  constructor(private listMaker: ListMakerService) { }
 
   ngOnInit() {
+  }
+
+  addList() {
+    this.listMaker.addList(this.item);
+    this.item = new List();
+  }
+
+  removeList(item) {
+    this.listMaker.deleteListById(item.id);
+  }
+
+  get list() {
+    return this.listMaker.getAllLists();
   }
 
 }

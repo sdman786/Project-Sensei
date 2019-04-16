@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-session-one',
@@ -6,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../session.component.scss']
 })
 export class SessionOneComponent implements OnInit {
-
-
 
   constructor() {
   }
