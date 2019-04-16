@@ -13,7 +13,7 @@ export class ActivityComponent implements OnInit {
   activity$: Activity;
 
   constructor(private router: Router, public dialogRef: MatDialogRef<ActivityComponent>,  @Inject(MAT_DIALOG_DATA) public data: Activity) {
-    this.activity$ = new Activity(this.data.selectedActivity);
+    this.activity$ = new Activity(this.data.selectedTask);
   }
 
   ngOnInit() { }

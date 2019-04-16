@@ -8,7 +8,7 @@ export class Quiz {
     description: string;
     config: QuizConfig;
     questions: Question[];
-    selectedQuiz: Quiz;
+    selectedTask: Quiz;
     quizResult: number;
     completed: boolean;
 

@@ -42,7 +42,7 @@ export class QuizComponent implements OnInit {
    quizResult = 0;
 
   constructor( public dialogRef: MatDialogRef<QuizComponent>, @Inject(MAT_DIALOG_DATA) public data: Quiz) {
-    this.quiz$ = this.data.selectedQuiz;
+    this.quiz$ = this.data.selectedTask;
     this.quizName = this.quiz$.name;
     this.pager.count = this.quiz$.questions.length;
     this.startTime = new Date();

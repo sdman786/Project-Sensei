@@ -7,7 +7,7 @@ export class Lesson {
     description: string;
     content: string;
     questions: Question[];
-    selectedLesson: Lesson;
+    selectedTask: Lesson;
     completed: boolean;
 
     constructor(data: any) {

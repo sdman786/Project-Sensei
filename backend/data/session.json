@@ -1,7 +1,7 @@
 {
     "session": [{
             "id": 1,
-            "name": "Session One",
+            "name": "session-one",
             "lesson": [{
                 "id": 1,
                 "name": "agile-intro",
@@ -603,7 +603,7 @@
         },
         {
             "id": 2,
-            "name": "Session Two",
+            "name": "session-two",
             "lesson": [{
                 "id": 1,
                 "name": "agile-intro",
@@ -1203,7 +1203,7 @@
         },
         {
             "id": 3,
-            "name": "Session Three",
+            "name": "session-three",
             "lesson": [{
                 "id": 1,
                 "name": "agile-intro",

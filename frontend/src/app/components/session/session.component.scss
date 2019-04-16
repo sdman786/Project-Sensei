@@ -1,7 +1,7 @@
 @import './session-one/session-one.component.scss';
 @import './session-two/session-two.component.scss';
 @import './session-three/session-three.component.scss';
-@import '../sidebar/sidebar.component.scss';
+@import './sidebar/sidebar.component.scss';
 @import '../quiz/quiz.component.scss';
 
 
@@ -56,4 +56,13 @@ margin-bottom: 0px !important;
   min-height: 66vh;
   margin-top: 0rem;
   padding: 1.5rem;
+}
+
+.mat-button[disabled] {
+  color: rgba(255, 255, 255, 0.26);
+  background-color: #6c757d;
+  &:hover {
+    box-shadow: none;
+    text-shadow: none;
+  }
 }

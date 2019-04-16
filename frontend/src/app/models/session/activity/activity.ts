@@ -8,7 +8,7 @@ export class Activity {
     type: string;
     content: string;
     questions: Question[];
-    selectedActivity: Activity;
+    selectedTask: Activity;
     completed: boolean;
 
     constructor(data: any) {

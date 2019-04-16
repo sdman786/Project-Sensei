@@ -13,16 +13,17 @@
             <hr class="shadow-sm">
             <!-- TODO Fill Task from User Model Next Lesson ID -->
             <mat-card-content class="ml-3 mt-4 text-left">
-                <p style="font-weight: 500; font-size: 15px;">This Quiz will test your knowledge on the Agile Methodology.</p>
+                <!-- <p style="font-weight: 500; font-size: 15px;">This Quiz will test your knowledge on the Agile Methodology.</p>
                 <p style="font-weight: 500;font-size: 15px;">Complete this Quiz with 80% Score or more in order to continue to the next stage of the course.</p>
-                <p class="center mt-5" style="font-weight: bold;font-size: 15px;">Good Luck!</p>
+                <p class="center mt-5" style="font-weight: bold;font-size: 15px;">Good Luck!</p> -->
+                <p style="font-weight: 500; font-size: 15px;">{{ activeTaskDescription }}</p>
               </mat-card-content>
           </mat-card>
         <!-- TASK ACTION -->
           <mat-card class="content-card shadow mt-5">
             <!-- TODO Fill Task from User Model Next Lesson ID -->
             <mat-card-header>
-              <mat-card-title>Quiz Time! - Agile</mat-card-title>
+              <mat-card-title>{{ activeTask.title }}</mat-card-title>
             </mat-card-header>
             <hr class="shadow-sm">
             <img mat-card-image class="col-auto m-auto"
@@ -32,7 +33,7 @@
               <mat-card-actions>
                 <!-- TODO OPEN NEXT TASK BASED ON USERS NEXT TASK (DB>CURRENT_TASK+1->'next task') -->
                 <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
-                 (click)="openTask('agile')" >Start Quiz</button>
+                 (click)="openTask(activeTaskName)" >Start Task</button>
               </mat-card-actions>
             </div>
           </mat-card>

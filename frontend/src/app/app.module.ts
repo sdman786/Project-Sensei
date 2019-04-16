@@ -20,7 +20,6 @@ import { MaterialModule } from './modules/material.module';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { ActivityComponent } from './components/activity/activity.component';
 import { ListMakerComponent } from './components/activity/list-maker/list-maker.component';
-import { ActiveTaskDirective } from './components/session/active-task.directive';
 
 @NgModule({
     entryComponents: [
@@ -42,8 +41,7 @@ import { ActiveTaskDirective } from './components/session/active-task.directive'
     SidebarComponent,
     LessonComponent,
     ActivityComponent,
-    ListMakerComponent,
-    ActiveTaskDirective
+    ListMakerComponent
   ],
   imports: [
     BrowserModule,
@@ -57,9 +55,6 @@ import { ActiveTaskDirective } from './components/session/active-task.directive'
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule ],
-  bootstrap: [AppComponent],
-  providers: [
-    ActiveTaskDirective
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
