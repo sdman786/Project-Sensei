@@ -4,17 +4,12 @@ import { Observable } from 'rxjs/Internal/Observable';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from '../models/user/user';
+import { SessionService } from './session.service';
+import { UserService } from './user.service';
 
 interface TokenResponse {
   token: string;
 }
-
-// export interface TokenPayload {
-//   username: string;
-//   password: string;
-//   name?: string;
-//   email?: string;
-// }
 
 @Injectable({
   providedIn: 'root'
@@ -110,6 +105,8 @@ export class AuthenticationService {
   }
 
   public profile(): Observable<User> {
+  // (async () => this.request('get', 'profile'))();
+
     return this.request('get', 'profile');
   }
 }

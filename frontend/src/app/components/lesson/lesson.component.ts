@@ -13,7 +13,7 @@ export class LessonComponent implements OnInit {
   lesson$: Lesson;
 
   constructor(public dialogRef: MatDialogRef<LessonComponent>,  @Inject(MAT_DIALOG_DATA) public data: Lesson) {
-    this.lesson$ = new Lesson(this.data.selectedTask);
+    this.lesson$ = this.data.selectedTask;
   }
 
   ngOnInit() { }

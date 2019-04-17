@@ -82,7 +82,6 @@ export class SidebarComponent implements OnInit {
 
   nextSession() {
     console.log('Next Session');
-
   }
 
 }

@@ -1,6 +1,5 @@
 import { QuizConfig } from './quiz-config';
-import { Question } from './question';
-import { User } from '../../user/user';
+import { Question } from '../question/question';
 
 export class Quiz {
     id: number;

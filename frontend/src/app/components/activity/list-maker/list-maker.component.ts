@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListMakerService } from './list-maker.service';
 
-@Component({
-  selector: 'app-list-maker',
-  templateUrl: './list-maker.component.html',
-  styleUrls: ['./list-maker.component.scss'],
-  providers: [ListMakerService]
-})
-
 export class List {
   id: number;
   title: string = '';
@@ -21,6 +14,11 @@ export class List {
   }
 }
 
+@Component({
+  selector: 'app-list-maker',
+  templateUrl: './list-maker.component.html',
+  styleUrls: ['./list-maker.component.scss']
+})
 export class ListMakerComponent implements OnInit {
 
   item: List = new List();

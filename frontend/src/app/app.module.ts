@@ -20,6 +20,7 @@ import { MaterialModule } from './modules/material.module';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { ActivityComponent } from './components/activity/activity.component';
 import { ListMakerComponent } from './components/activity/list-maker/list-maker.component';
+import { User } from './models/user/user';
 
 @NgModule({
     entryComponents: [
@@ -55,6 +56,7 @@ import { ListMakerComponent } from './components/activity/list-maker/list-maker.
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [User]
 })
 export class AppModule { }
