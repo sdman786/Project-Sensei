@@ -10,13 +10,13 @@ import { SidebarComponent } from '../components/session/sidebar/sidebar.componen
 })
 export class UserService {
 
-  constructor(private _user: User, private authService: AuthenticationService) { }
+  constructor(private user: User, private authService: AuthenticationService) { }
 
   createUser() {
     return new Promise((resolve, reject) => {
       this.authService.profile().subscribe(res => {
-        this._user = res as User;
-        resolve(this._user);
+        this.user = res as User;
+        resolve(this.user);
       });
         // return this.sessions;
       });
@@ -40,9 +40,9 @@ export class UserService {
   }
 
   destroyUser() {
-    for (let details in this._user) {
+    for (const details in this.user) {
       if (details) {
-        this._user[details] = null;
+        this.user[details] = null;
       }
     }
     this.authService.logout();
@@ -50,17 +50,17 @@ export class UserService {
 
 
   getUser() {
-    if (!this._user.username) {
+    if (!this.user.username) {
       setTimeout(() => {
-        return this._user;
+        return this.user;
       }, 2000);
     }
-    return this._user;
+    return this.user;
   }
 
 
   public getActiveTask(): string {
-    return this._user.task;
+    return this.user.task;
   }
 
   updateUser(data: boolean | string) {
