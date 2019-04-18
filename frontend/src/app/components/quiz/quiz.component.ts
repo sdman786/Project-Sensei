@@ -42,7 +42,7 @@ export class QuizComponent implements OnInit {
    quizResult = 0;
 
   constructor( public dialogRef: MatDialogRef<QuizComponent>, @Inject(MAT_DIALOG_DATA) public data: Quiz) {
-    this.quiz$ = this.data.selectedTask;
+    this.quiz$ = this.data.selectedTask as Quiz;
     this.quizName = this.quiz$.name;
     this.pager.count = this.quiz$.questions.length;
     this.startTime = new Date();
@@ -124,12 +124,20 @@ export class QuizComponent implements OnInit {
                         correctAnswers: this.isCorrect(x) ? this.correctAnswers += 1 : null
                       });
     });
+
     // QUIZ RESULT AS A PERCENTAGE
-    this.quizResult = this.correctAnswers * 10;
+    this.updateQuizData();
+
     // Post your data to the server here. answers contains the questionId and the users' answer.
     // console.log(this.quiz$.questions);
-    this.quiz$.quizResult = this.quizResult;
-    console.log('Quiz Results: ', this.quiz$.quizResult);
+    // console.log('Quiz Results: ', this.quiz$.quizResult);
+  }
+
+  private updateQuizData() {
+    this.quiz$.quizResult = this.correctAnswers * 10;
+    if (this.quiz$.quizResult >= 80) {
+      this.quiz$.completed = true;
+    }
   }
 
   exitQuiz() {

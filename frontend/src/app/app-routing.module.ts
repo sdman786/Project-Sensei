@@ -7,10 +7,11 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { SessionOneComponent } from './components/session/session-one/session-one.component';
-// import { SessionTemplateComponent } from './components/session/session.component';
 import { SessionThreeComponent } from './components/session/session-three/session-three.component';
 import { SessionTwoComponent } from './components/session/session-two/session-two.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { SessionResolverService } from './services/resolvers/session-resolver.service';
+import { UserResolverService } from './services/resolvers/user-resolver.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,11 +19,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'quiz', component: QuizComponent , canActivate: [AuthGuardService] },
-  { path: 'session-one', component: SessionOneComponent, canActivate: [AuthGuardService] },
-  { path: 'session-two', component: SessionTwoComponent, canActivate: [AuthGuardService] },
-  { path: 'session-three', component: SessionThreeComponent, canActivate: [AuthGuardService] },
+  { path: 'session-one', component: SessionOneComponent, canActivate: [AuthGuardService], resolve: { session: SessionResolverService, user: UserResolverService } },
+  { path: 'session-two', component: SessionTwoComponent, canActivate: [AuthGuardService], resolve: { session: SessionResolverService, user: UserResolverService }  },
+  { path: 'session-three', component: SessionThreeComponent, canActivate: [AuthGuardService], resolve: { session: SessionResolverService, user: UserResolverService }  },
   { path: 'case-study', component: CaseStudyComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService], resolve: { session: SessionResolverService, user: UserResolverService }  }
 ];
 
 @NgModule({

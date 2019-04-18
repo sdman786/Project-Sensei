@@ -21,12 +21,18 @@ import { LessonComponent } from './components/lesson/lesson.component';
 import { ActivityComponent } from './components/activity/activity.component';
 import { ListMakerComponent } from './components/activity/list-maker/list-maker.component';
 import { User } from './models/user/user';
+import { SessionResolverService } from './services/resolvers/session-resolver.service';
+import { SessionService } from './services/session.service';
+import { UserResolverService } from './services/resolvers/user-resolver.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
     entryComponents: [
       HomeComponent,
       LessonComponent,
-      ActivityComponent
+      ActivityComponent,
+      QuizComponent,
+      ListMakerComponent
     ],
   declarations: [
     AppComponent,
@@ -57,6 +63,6 @@ import { User } from './models/user/user';
     FormsModule,
     HttpClientModule ],
   bootstrap: [AppComponent],
-  providers: [User]
+  providers: [User, SessionResolverService, UserResolverService, UserService, SessionService]
 })
 export class AppModule { }

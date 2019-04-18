@@ -4,6 +4,7 @@ import { Router, Event, NavigationEnd  } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { User } from './models/user/user';
 import { UserService } from './services/user.service';
+import { SessionService } from './services/session.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit {
   activeSession = '';
   route = '';
 
-  constructor(public user: UserService, public router: Router, private userService: UserService) {
+  constructor(public router: Router, private userService: UserService) {
     router.events
     .pipe(
       filter(e => e instanceof NavigationEnd)
@@ -58,6 +59,9 @@ export class AppComponent implements OnInit {
   @Input() routerLinkActiveOptions: { exact: boolean; };
 
   ngOnInit(): void {
+    // this.userService.createUser();
+    // this.sessionService.getSessionStructure();
+    // this.sessionService.getAllSessions();
   }
 
   logout() {

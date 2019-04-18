@@ -23,6 +23,7 @@ export class Quiz {
             data.questions.forEach(q => {
                 this.questions.push(new Question(q));
             });
+            this.completed = false;
         }
     }
 }

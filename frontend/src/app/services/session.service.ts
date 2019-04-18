@@ -11,6 +11,8 @@ import { ActivityComponent } from '../components/activity/activity.component';
 import { User } from '../models/user/user';
 import { Session } from '../models/session/session';
 import { UserService } from './user.service';
+import { SessionStructure } from '../models/session/session-structure';
+import { timeout, isEmpty } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -19,48 +21,54 @@ import { UserService } from './user.service';
 export class SessionService {
 
   baseSessionUrl = 'http://localhost:8080/session';
-  public user$: User;
+  baseSessionStructureUrl = 'http://localhost:8081/session-structure';
+
+  // public user$: User;
+
+  public sessionStructure: SessionStructure[];
   public sessions: Session[];
+  private sessionOne: Session;
+  private sessionTwo: Session;
+  private sessionThree: Session;
+  private sessionOneId = 1;
+  private sessionTwoId = 2;
+  private sessionThreeId = 3;
 
-  constructor(private http: HttpClient, public dialog: MatDialog, private userService: UserService) { }
+  constructor(private http: HttpClient, public dialog: MatDialog, private userService: UserService) {
+   this.sessionStructure = [];
+   this.sessions = [];
+  }
 
-  get_Session(sessionID: number) {
+  getSessionStructure() {
+    this.http.get<any>(this.baseSessionStructureUrl).subscribe(structureArray => {
+     structureArray.forEach(session => {
+        this.sessionStructure.push(session);
+      });
+    });
+  }
+
+  getAllSessions() {
+    // this.http.get<any>(this.baseSessionUrl);
     return new Promise((resolve, reject) => {
-      this.http.get<any>(this.baseSessionUrl).subscribe(res => {
-        res.forEach(session => {
-          if (session.id === sessionID) {
-            this.sessions.push(session);
-            resolve(this.sessions);
-          }
+      this.http.get<any>(this.baseSessionUrl).subscribe(sessionArray => {
+        // while (!this.user$ || !this.user$.username) {
+        //   this.user$ = this.userService.getUser() as User;
+        // }
+        sessionArray.forEach(session => {
+          this.sessions.push(session as Session);
+          // if (session.name === this.user$.session) {
+            // resolve(this.sessions);
+          //   session
+          // }
         });
+        resolve(this.sessions);
+        // return this.sessions;
       });
     });
   }
 
   getSession() {
-    return new Promise((resolve, reject) => {
-    this.http.get<any>(this.baseSessionUrl).subscribe(res => {
-      while (!this.user$ || !this.user$.username) {
-        this.user$ = this.userService.getUser() as User;
-      }
-      res.forEach(session => {
-        if (session.name === this.user$.session) {
-          resolve(session);
-        }
-      });
-      });
-    });
-  }
-
-  getUser() {
-    this.user$ = this.userService.getUser() as User;
-  }
-
-  public getActiveTask(): string {
-    if (!this.user$) {
-      return '';
-    }
-    return this.user$.task;
+    return this.sessions;
   }
 
   openTask(selectedTask: Quiz | Activity | Lesson): void {
@@ -80,6 +88,10 @@ export class SessionService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if (result) {
+        this.userService.updateUser(result);
+      }
       // this.sideBar.closeTask(result);
       // this.user$.task;
     });

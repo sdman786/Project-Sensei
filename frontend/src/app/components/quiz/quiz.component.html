@@ -59,7 +59,7 @@
           </div>
 
           <div class="result" [ngClass]="" *ngIf="mode=='result'">
-            <h2 class="center">Results: {{ quizResults }}%</h2>
+            <h2 class="center">Results: {{ quiz$.quizResult }}%</h2>
             <div *ngFor="let question of quiz$.questions; let index = index">
               <div class="p-1 m-2 alert {{ isCorrect(question) ? 'alert-success': 'alert-danger'}}">
                 <div class="result-question ">
@@ -88,7 +88,7 @@
     </mat-card>
   </div>
   <div mat-dialog-actions [ngClass]="{'hidden' : mode != 'result'}" class="h-100">
-    <button *ngIf="mode == 'result'" class="col" mat-button [mat-dialog-close]="data.completed" cdkFocusInitial>Save and
+    <button *ngIf="mode == 'result'" class="col" mat-button [mat-dialog-close]="quiz$.completed" cdkFocusInitial>Save and
       Close</button>
   </div>
 </div>

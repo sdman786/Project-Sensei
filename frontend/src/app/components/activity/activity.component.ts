@@ -19,7 +19,7 @@ export class ActivityComponent implements OnInit {
   ngOnInit() { }
 
   getActivity() {
-    return this.activity$.type === 'listMaker' ? true : false;
+    // return this.activity$.type === 'listMaker' ? true : false;
   }
 
   continue() {
