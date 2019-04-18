@@ -48,6 +48,7 @@ export class SessionService {
   }
 
   getAllSessions() {
+    this.getSessionStructure();
     // this.http.get<any>(this.baseSessionUrl);
     return new Promise((resolve, reject) => {
       this.http.get<any>(this.baseSessionUrl).subscribe(sessionArray => {
@@ -88,12 +89,35 @@ export class SessionService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      console.log('SessionService: ',result);
+      let user = this.userService.getUser();
+      let nextTask = null;
+      let nextSession = null;
       if (result) {
-        this.userService.updateUser(result);
+        this.sessionStructure.forEach((session, index) => {
+          if (session.name === user.session) {
+            console.log(session);
+            session.tasks.forEach((task, index) => {
+              if (task.name === user.task) {
+                session.tasks.splice(index);
+                console.log('spliced:', session);
+                if(session.tasks[index+1]) {
+                  nextTask = session.tasks[index+1].name;
+                  console.log(nextTask);
+                  
+                }
+              }
+            });
+            if (!session.tasks[0] && session[index+1]) {
+              nextSession = session[index+1].name;
+              nextTask = session[index+1].task[0];
+            }
+          }
+        });
+        this.userService.updateUser(nextSession, nextTask);
       }
       // this.sideBar.closeTask(result);
-      // this.user$.task;
+      // this.user$.tasks;
     });
   }
 

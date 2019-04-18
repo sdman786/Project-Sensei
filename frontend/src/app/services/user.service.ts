@@ -63,13 +63,14 @@ export class UserService {
     return this.user.task;
   }
 
-  updateUser(data: boolean | string) {
-    // if (isBoolean(data) && data) {
-    //   this.sideBar.nextTask();
-    // } else
-    // if (isString(data) && data === 'complete') {
-    //   this.sideBar.nextSession();
-    // }
+  updateUser(session: string, task: string) {
+    if (session) {
+    this.user.session = session;
+    }
+    if (task) {
+      this.user.task = task;
+    }
+    // Update user DB
   }
 
 }

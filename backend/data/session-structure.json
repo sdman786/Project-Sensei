@@ -1,8 +1,8 @@
 {
     "session-structure": [{
-            "session-id": 1,
-            "session-name": "session-one",
-            "session-tasks": [{
+            "id": 1,
+            "name": "session-one",
+            "tasks": [{
                     "id": 1.1,
                     "name": "agile-intro",
                     "title": "Introduction to Agile",
@@ -539,9 +539,9 @@
             ]
         },
         {
-            "session-id": 2,
-            "session-name": "session-two",
-            "session-tasks": [{
+            "id": 2,
+            "name": "session-two",
+            "tasks": [{
                     "id": 2.1,
                     "name": "agile-intro",
                     "title": "Introduction to Agile",
@@ -1139,9 +1139,9 @@
             ]
         },
         {
-            "session-id": 3,
-            "session-name": "session-three",
-            "session-tasks": [{
+            "id": 3,
+            "name": "session-three",
+            "tasks": [{
                     "id": 2.1,
                     "name": "agile-intro",
                     "title": "Introduction to Agile",

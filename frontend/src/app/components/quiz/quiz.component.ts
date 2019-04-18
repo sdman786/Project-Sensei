@@ -6,6 +6,7 @@ import { MatRadioButton } from '@angular/material/radio';
 import { timeout } from 'rxjs/operators';
 import { Timeouts } from 'selenium-webdriver';
 import { tick } from '@angular/core/testing';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-quiz',
@@ -41,7 +42,7 @@ export class QuizComponent implements OnInit {
    correctAnswers = 0;
    quizResult = 0;
 
-  constructor( public dialogRef: MatDialogRef<QuizComponent>, @Inject(MAT_DIALOG_DATA) public data: Quiz) {
+  constructor( public dialogRef: MatDialogRef<QuizComponent>, @Inject(MAT_DIALOG_DATA) public data: Quiz, private userService: UserService) {
     this.quiz$ = this.data.selectedTask as Quiz;
     this.quizName = this.quiz$.name;
     this.pager.count = this.quiz$.questions.length;
@@ -127,7 +128,9 @@ export class QuizComponent implements OnInit {
 
     // QUIZ RESULT AS A PERCENTAGE
     this.updateQuizData();
-
+    console.log(this.quiz$.completed);
+    
+    // this.userService.updateUser(this.quiz$.completed);
     // Post your data to the server here. answers contains the questionId and the users' answer.
     // console.log(this.quiz$.questions);
     // console.log('Quiz Results: ', this.quiz$.quizResult);
