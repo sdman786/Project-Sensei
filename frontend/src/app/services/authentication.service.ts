@@ -11,6 +11,11 @@ interface TokenResponse {
   token: string;
 }
 
+ export class TokenPayload {
+    username: string;
+    password: string;
+  }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -74,7 +79,8 @@ export class AuthenticationService {
   }
 
   // Structuring the API Calls
-  private request(method: 'post'|'get', type: 'login'|'register'|'profile'|'user/:id', user?: User): Observable<any> {
+  private request(method: 'post'|'get', type: 'login'|'register'|'profile'|'update', user?: TokenPayload | User): Observable<any> {
+
     let base;
 
     if (method === 'post') {
@@ -91,22 +97,23 @@ export class AuthenticationService {
         return data;
       })
     );
-
     return request;
   }
 
   // Calling the Register and Login API Endpoints
-  public register(user: User): Observable<any> {
+  public register(user: TokenPayload): Observable<any> {
     return this.request('post', 'register', user);
   }
 
-  public login(user: User): Observable<any> {
+  public login(user: TokenPayload): Observable<any> {
     return this.request('post', 'login', user);
   }
 
   public profile(): Observable<User> {
-  // (async () => this.request('get', 'profile'))();
-
     return this.request('get', 'profile');
+  }
+
+  public update(user: User): Observable<any> {
+    return this.request('post', 'update', user);
   }
 }

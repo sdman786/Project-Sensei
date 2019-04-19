@@ -136,6 +136,10 @@ export class QuizComponent implements OnInit {
     // console.log('Quiz Results: ', this.quiz$.quizResult);
   }
 
+  completed(): boolean {
+    return this.quiz$.completed;
+  }
+
   private updateQuizData() {
     this.quiz$.quizResult = this.correctAnswers * 10;
     if (this.quiz$.quizResult >= 80) {

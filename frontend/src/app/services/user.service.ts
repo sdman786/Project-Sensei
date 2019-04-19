@@ -4,13 +4,16 @@ import { AuthenticationService } from './authentication.service';
 import { hasOwnProp, isString } from 'ngx-bootstrap/chronos/utils/type-checks';
 import { isBoolean } from 'util';
 import { SidebarComponent } from '../components/session/sidebar/sidebar.component';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private user: User, private authService: AuthenticationService) { }
+  private baseAuthUrl = 'http://localhost:3000/authapi/';
+
+  constructor(private user: User, private authService: AuthenticationService, private http: HttpClient) { }
 
   createUser() {
     return new Promise((resolve, reject) => {
@@ -18,8 +21,8 @@ export class UserService {
         this.user = res as User;
         resolve(this.user);
       });
-        // return this.sessions;
-      });
+      // return this.sessions;
+    });
     // });
     // this.authService.profile().subscribe(res => {
     //   this._user = res as User;
@@ -63,13 +66,23 @@ export class UserService {
     return this.user.task;
   }
 
-  updateUser(session: string, task: string) {
+  public updateUser(session: string, task: string): boolean {
+    let userUpdate;
+    let result = false;
     if (session) {
-    this.user.session = session;
+      this.user.session = session;
     }
     if (task) {
       this.user.task = task;
     }
+    userUpdate = { session, task };
+    console.log(this.user);
+    this.authService.update(this.user).subscribe(res => {
+      console.log(res.result);
+      result = res;
+    });
+    return result;
+    // this.http.post(`${this.baseAuthUrl}/update`, this.user).subscribe( res => { });
     // Update user DB
   }
 

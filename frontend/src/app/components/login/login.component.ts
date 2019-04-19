@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService, TokenPayload } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { User } from 'src/app/models/user/user';
@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  user: User = {
+  user: TokenPayload = {
     username: '',
     password: ''
   };

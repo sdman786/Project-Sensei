@@ -13,13 +13,23 @@ export class ActivityComponent implements OnInit {
   activity$: Activity;
 
   constructor(public dialogRef: MatDialogRef<ActivityComponent>,  @Inject(MAT_DIALOG_DATA) public data: Activity) {
-    this.activity$ = this.data.selectedTask;
+    this.activity$ = this.data.selectedTask as Activity;
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.activity$.completed = false;
+   }
 
   getActivity() {
     // return this.activity$.type === 'listMaker' ? true : false;
+  }
+
+  onSubmit() {
+    this.activity$.completed = true;
+  }
+
+  completed(): boolean {
+    return this.activity$.completed;
   }
 
   continue() {

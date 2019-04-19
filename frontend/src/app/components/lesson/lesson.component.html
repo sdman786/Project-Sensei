@@ -16,6 +16,6 @@
   <h4 class="text-monospace ml-5">OR Press Enter to Continue</h4>
 </div>
 <div mat-dialog-actions class="d-flex justify-content-center m-1">
-  <button class="btn-outline-danger col-11" mat-button [mat-dialog-close]="data.lessonComplete" cdkFocusInitial>Close
+  <button (click)="onSubmit()" class="btn-outline-danger col-11" mat-button [mat-dialog-close]="lesson$" cdkFocusInitial>Close
     Lesson</button>
 </div>

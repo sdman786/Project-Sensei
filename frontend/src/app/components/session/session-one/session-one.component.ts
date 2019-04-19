@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { UserService } from 'src/app/services/user.service';
+
+const sessionName = 'session-one';
 
 @Component({
   selector: 'app-session-one',
@@ -8,11 +11,21 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 })
 export class SessionOneComponent implements OnInit {
 
-  constructor() {
+  activeSession: boolean;
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.activeSession = this.checkActiveSession();
+  }
 
+  checkActiveSession(): boolean {
+    const activeState = this.userService.getUser().session;
+    if (activeState === sessionName) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

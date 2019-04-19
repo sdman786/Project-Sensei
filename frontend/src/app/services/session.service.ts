@@ -35,13 +35,13 @@ export class SessionService {
   private sessionThreeId = 3;
 
   constructor(private http: HttpClient, public dialog: MatDialog, private userService: UserService) {
-   this.sessionStructure = [];
-   this.sessions = [];
+    this.sessionStructure = [];
+    this.sessions = [];
   }
 
   getSessionStructure() {
     this.http.get<any>(this.baseSessionStructureUrl).subscribe(structureArray => {
-     structureArray.forEach(session => {
+      structureArray.forEach(session => {
         this.sessionStructure.push(session);
       });
     });
@@ -58,7 +58,7 @@ export class SessionService {
         sessionArray.forEach(session => {
           this.sessions.push(session as Session);
           // if (session.name === this.user$.session) {
-            // resolve(this.sessions);
+          // resolve(this.sessions);
           //   session
           // }
         });
@@ -89,32 +89,39 @@ export class SessionService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('SessionService: ',result);
       let user = this.userService.getUser();
       let nextTask = null;
       let nextSession = null;
+
+      console.log('SessionService: ', result);
+
       if (result) {
         this.sessionStructure.forEach((session, index) => {
           if (session.name === user.session) {
             console.log(session);
             session.tasks.forEach((task, index) => {
               if (task.name === user.task) {
-                session.tasks.splice(index);
+                session.tasks.splice(index, 1);
                 console.log('spliced:', session);
-                if(session.tasks[index+1]) {
-                  nextTask = session.tasks[index+1].name;
+                if (session.tasks[index]) {
+                  nextTask = session.tasks[index].name;
                   console.log(nextTask);
-                  
                 }
               }
             });
-            if (!session.tasks[0] && session[index+1]) {
-              nextSession = session[index+1].name;
-              nextTask = session[index+1].task[0];
+            if (!session.tasks[0] && session[index + 1]) {
+              nextSession = session[index + 1].name;
+              nextTask = session[index + 1].task[0];
             }
           }
         });
-        this.userService.updateUser(nextSession, nextTask);
+        if ((nextTask && nextSession) || nextTask) {
+          let userUpdate = this.userService.updateUser(nextSession, nextTask);
+          if (userUpdate) {
+            console.log('Open Next Lesson');
+
+          }
+        }
       }
       // this.sideBar.closeTask(result);
       // this.user$.tasks;

@@ -13,10 +13,21 @@ export class LessonComponent implements OnInit {
   lesson$: Lesson;
 
   constructor(public dialogRef: MatDialogRef<LessonComponent>,  @Inject(MAT_DIALOG_DATA) public data: Lesson) {
-    this.lesson$ = this.data.selectedTask;
+    this.lesson$ = this.data.selectedTask as Lesson;
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.lesson$.completed = false;
+  }
+
+  onSubmit() {
+    this.lesson$.completed = true;
+  }
+
+  completed(): boolean {
+    this.onSubmit();
+    return this.lesson$.completed;
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

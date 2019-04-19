@@ -9,9 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "backend": "node backend/bin/www",
-    "all": "concurrently \"json-server --port 8080 --watch backend/data/session.json\" \"node backend/bin/www\" \"ng serve\"",
-    "jServer": "concurrently \"json-server --port 8080 --watch ./data/session.json\" ",
-    "jServer-app": "concurrently \"json-server --port 8080 --watch ./data/session.json\" \"cd .. && cd frontend && ng serve\"",
+    "all": "concurrently \"json-server --port 8080 --watch backend/data/session.json\" \"json-server --port 8081 --watch backend/data/session-structure.json\" \"node backend/bin/www\" \"ng serve\"",
+    "jServer": "concurrently \"json-server --port 8080 --watch backend/data/session.json\" ",
+    "jServer-app": "concurrently \"json-server --port 8080 --watch backend/data/session.json\" \"json-server --port 8081 --watch backend/data/session-structure.json\" \"ng serve\"",
     "front-back": "concurrently \"npm run backend\" \"cd .. && cd frontend && ng serve\""
   },
   "private": true,
