@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthenticationService } from './services/authentication.service';
+import { AuthenticationService } from './services/authentication/authentication.service';
 import { Router, Event, NavigationEnd  } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { User } from './models/user/user';
-import { UserService } from './services/user.service';
-import { SessionService } from './services/session.service';
+import { UserService } from './services/user/user.service';
+import { SessionService } from './services/session/session.service';
 
 @Component({
   selector: 'app-root',

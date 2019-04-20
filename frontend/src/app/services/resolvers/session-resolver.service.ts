@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-import { SessionService } from '../session.service';
+import { SessionService } from '../session/session.service';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()

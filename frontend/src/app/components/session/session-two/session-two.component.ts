@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from 'src/app/services/session.service';
+import { SessionService } from 'src/app/services/session/session.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 const sessionName = 'session-two';
 

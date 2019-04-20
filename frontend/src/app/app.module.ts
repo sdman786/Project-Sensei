@@ -22,9 +22,9 @@ import { ActivityComponent } from './components/activity/activity.component';
 import { ListMakerComponent } from './components/activity/list-maker/list-maker.component';
 import { User } from './models/user/user';
 import { SessionResolverService } from './services/resolvers/session-resolver.service';
-import { SessionService } from './services/session.service';
+import { SessionService } from './services/session/session.service';
 import { UserResolverService } from './services/resolvers/user-resolver.service';
-import { UserService } from './services/user.service';
+import { UserService } from './services/user/user.service';
 
 @NgModule({
     entryComponents: [

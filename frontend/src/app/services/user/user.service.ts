@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user/user';
-import { AuthenticationService } from './authentication.service';
+import { User } from '../../models/user/user';
+import { AuthenticationService } from '../authentication/authentication.service';
 import { hasOwnProp, isString } from 'ngx-bootstrap/chronos/utils/type-checks';
 import { isBoolean } from 'util';
-import { SidebarComponent } from '../components/session/sidebar/sidebar.component';
+import { SidebarComponent } from '../../components/session/sidebar/sidebar.component';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -21,19 +21,11 @@ export class UserService {
         this.user = res as User;
         resolve(this.user);
       });
-      // return this.sessions;
     });
-    // });
-    // this.authService.profile().subscribe(res => {
-    //   this._user = res as User;
-    // });
   }
 
   // Check if User is logged in or not
   isLoggedIn(): boolean {
-    // if (!this._user.username) {
-    //  this.createUser();
-    // }
     const user = this.authService.getUserToken();
     if (user) {
       return user.exp > Date.now() / 1000;
@@ -66,6 +58,10 @@ export class UserService {
     return this.user.task;
   }
 
+  public getActiveSession(): string {
+    return this.user.session;
+  }
+
   public updateUser(session: string, task: string): boolean {
     let userUpdate;
     let result = false;
@@ -79,7 +75,7 @@ export class UserService {
     console.log(this.user);
     this.authService.update(this.user).subscribe(res => {
       console.log(res.result);
-      result = res;
+      result = true;
     });
     return result;
     // this.http.post(`${this.baseAuthUrl}/update`, this.user).subscribe( res => { });

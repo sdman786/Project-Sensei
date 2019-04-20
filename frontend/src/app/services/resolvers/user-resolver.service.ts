@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from '../user.service';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class UserResolverService implements Resolve<any> {

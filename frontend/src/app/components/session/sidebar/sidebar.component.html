@@ -16,14 +16,14 @@
                 <!-- <p style="font-weight: 500; font-size: 15px;">This Quiz will test your knowledge on the Agile Methodology.</p>
                 <p style="font-weight: 500;font-size: 15px;">Complete this Quiz with 80% Score or more in order to continue to the next stage of the course.</p>
                 <p class="center mt-5" style="font-weight: bold;font-size: 15px;">Good Luck!</p> -->
-                <p style="font-weight: 500; font-size: 15px;">{{ activeTask?.description }}</p>
+                <p style="font-weight: 500; font-size: 15px;">{{ sessionService.activeTaskDescription }}</p>
               </mat-card-content>
           </mat-card>
         <!-- TASK ACTION -->
           <mat-card class="content-card shadow mt-5">
             <!-- TODO Fill Task from User Model Next Lesson ID -->
             <mat-card-header>
-              <mat-card-title class="center">{{ activeTask?.title }}</mat-card-title>
+              <mat-card-title class="center">{{ sessionService.activeTaskName }}</mat-card-title>
             </mat-card-header>
             <hr class="shadow-sm">
             <img mat-card-image class="col-auto m-auto"

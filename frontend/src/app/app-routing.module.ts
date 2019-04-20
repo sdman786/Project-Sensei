@@ -8,7 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { SessionOneComponent } from './components/session/session-one/session-one.component';
 import { SessionThreeComponent } from './components/session/session-three/session-three.component';
 import { SessionTwoComponent } from './components/session/session-two/session-two.component';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './services/authentication/auth-guard.service';
 import { SessionResolverService } from './services/resolvers/session-resolver.service';
 import { UserResolverService } from './services/resolvers/user-resolver.service';
 

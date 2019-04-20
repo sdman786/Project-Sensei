@@ -6,7 +6,7 @@ import { MatRadioButton } from '@angular/material/radio';
 import { timeout } from 'rxjs/operators';
 import { Timeouts } from 'selenium-webdriver';
 import { tick } from '@angular/core/testing';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-quiz',
