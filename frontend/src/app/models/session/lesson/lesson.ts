@@ -5,7 +5,7 @@ export class Lesson {
     name: string;
     title: string;
     description: string;
-    content: string;
+    content: string[];
     questions: Question[];
     selectedTask: Lesson;
     completed: boolean;
@@ -16,7 +16,10 @@ export class Lesson {
             this.name = data.name;
             this.title = data.title;
             this.description = data.description;
-            this.content = data.content;
+            this.content = [];
+            data.content.forEach(c => {
+                this.content.push(c);
+            });
             this.questions = [];
             data.questions.forEach(q => {
                 this.questions.push(new Question(q));

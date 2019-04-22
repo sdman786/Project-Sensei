@@ -1,3 +1,5 @@
+import { Upload } from '../session/upload';
+
 export class User {
     _id: string;
     name?: string;
@@ -7,4 +9,5 @@ export class User {
     exp?: number;
     session?: string;
     task?: string;
+    upload: Upload;
 }

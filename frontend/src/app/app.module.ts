@@ -15,11 +15,11 @@ import { SessionOneComponent } from './components/session/session-one/session-on
 import { SessionTwoComponent } from './components/session/session-two/session-two.component';
 import { SessionThreeComponent } from './components/session/session-three/session-three.component';
 import { CaseStudyComponent } from './components/case-study/case-study.component';
-import { SidebarComponent } from './components/session/sidebar/sidebar.component';
+import { SidebarComponent, StringTransformer } from './components/session/sidebar/sidebar.component';
 import { MaterialModule } from './modules/material.module';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { ActivityComponent } from './components/activity/activity.component';
-import { ListMakerComponent } from './components/activity/list-maker/list-maker.component';
+import { ListMakerComponent, NewItemDialog } from './components/activity/list-maker/list-maker.component';
 import { User } from './models/user/user';
 import { SessionResolverService } from './services/resolvers/session-resolver.service';
 import { SessionService } from './services/session/session.service';
@@ -32,7 +32,8 @@ import { UserService } from './services/user/user.service';
       LessonComponent,
       ActivityComponent,
       QuizComponent,
-      ListMakerComponent
+      ListMakerComponent,
+      NewItemDialog
     ],
   declarations: [
     AppComponent,
@@ -48,7 +49,9 @@ import { UserService } from './services/user/user.service';
     SidebarComponent,
     LessonComponent,
     ActivityComponent,
-    ListMakerComponent
+    ListMakerComponent,
+    NewItemDialog,
+    StringTransformer
   ],
   imports: [
     BrowserModule,

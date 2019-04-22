@@ -15,9 +15,8 @@
 </div>
 <div class="center d-flex justify-content-center m-3">
   <button class="btn btn-lg btn-outline-primary mr-5" (click)="previous();">Prev</button>
-  <button class="btn btn-lg btn-outline-success ml-5" (click)="continue();">Next</button>
+  <button class="btn btn-lg btn-outline-success ml-5" (click)="next();">Next</button>
 </div>
 <div mat-dialog-actions class="d-flex justify-content-center m-1">
-  <button class="btn-outline-danger col-11" mat-button [mat-dialog-close]="activity$" cdkFocusInitial>Close
-    Activity</button>
+  <button (click)="onSubmit();" class="btn-outline-danger col-11" mat-button [mat-dialog-close]="activity$" cdkFocusInitial>Save and Close</button>
 </div>

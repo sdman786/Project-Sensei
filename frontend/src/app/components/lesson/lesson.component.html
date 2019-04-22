@@ -1,3 +1,4 @@
+<div>
 <div mat-dialog-header class="m-3">
   <h1 class="center text-capitalize">{{ lesson$.title }}</h1>
 </div>
@@ -7,15 +8,19 @@
         <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>
       </mat-card-header> -->
     <mat-card-content class="lesson-component">
-      <h2>{{ lesson$.content }}</h2>
+      <h2>{{ lessonContent$ }}</h2>
     </mat-card-content>
   </mat-card>
 </div>
-<div class="center d-flex justify-content-center m-3">
-  <button class="btn btn-lg btn-outline-success" (click)="onSubmit();">Continue</button>
+<div class="center d-flex justify-content-center m-3" *ngIf="mode == 'lesson'"  (keyup)="onKeyup(event);">
+  <button class="btn btn-lg btn-outline-success" (click)="nextSlide();">Continue</button>
   <h4 class="text-monospace ml-5">OR Press Enter to Continue</h4>
 </div>
-<div mat-dialog-actions class="d-flex justify-content-center m-1">
+<div class="center d-flex justify-content-center m-3" *ngIf="mode == 'complete'">
+  <h3 class="text-success">Lesson Complete</h3>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-center m-1"  *ngIf="mode == 'complete'">
   <button (click)="onSubmit()" class="btn-outline-danger col-11" mat-button [mat-dialog-close]="lesson$" cdkFocusInitial>Close
     Lesson</button>
+</div>
 </div>

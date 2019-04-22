@@ -23,7 +23,7 @@
           <mat-card class="content-card shadow mt-5">
             <!-- TODO Fill Task from User Model Next Lesson ID -->
             <mat-card-header>
-              <mat-card-title class="center">{{ sessionService.activeTaskName }}</mat-card-title>
+              <mat-card-title class="center">{{ sessionService.activeTaskName | transform | titlecase }}</mat-card-title>
             </mat-card-header>
             <hr class="shadow-sm">
             <img mat-card-image class="col-auto m-auto"

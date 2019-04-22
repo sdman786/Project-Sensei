@@ -101,7 +101,7 @@ export class AuthenticationService {
   }
 
   // Calling the Register and Login API Endpoints
-  public register(user: TokenPayload): Observable<any> {
+  public register(user: User): Observable<any> {
     return this.request('post', 'register', user);
   }
 

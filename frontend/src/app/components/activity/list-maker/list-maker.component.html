@@ -1,22 +1,68 @@
-<h1>
-  list-maker works!
-</h1>
-<section class="listapp">
-    <header class="header">
+<div class="row">
+<div class="col-6">
+<section class="m-4 ml-5">
+  <div class="row">
+    <header class="header mr-5">
       <h1>Product Backlog</h1>
-      <input class="new-list" placeholder="Insert a Requirement" autofocus="" [(ngModel)]="newList.title" (keyup.enter)="addList()">
     </header>
-    <section class="main" *ngIf="lists.length > 0">
-      <ul class="list">
-        <li *ngFor="let item of lists" [class.completed]="item.complete">
+    <button mat-raised-button (click)="openDialog()">Add Requirement</button>
+  </div>
+    <section class="main">
+        <mat-list *ngIf="list.length > 0">
+            <mat-list-item class="m-3" style="height: 100%;" *ngFor="let item of list" >
+              <span class="row d-flex flex-column mt-3 mb-3">
+                <label class="">Title: </label>
+                <span class="mb-3 mt-3">{{item?.title}}</span>
+                <label class="">Description: </label>
+                <span class="mt-3 mb-3">{{item?.description}}</span>
+              </span>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-list>
+      <!-- <ul class="list" *ngIf="list.length > 0">
+        <li *ngFor="let item of list" [class.completed]="item.complete">
           <div class="view">
-            <input class="toggle" type="checkbox" [checked]="item.complete">
-            <label>{{list.title}}</label>
+            <h3>{{item?.title}}</h3>
           </div>
         </li>
-      </ul>
+      </ul> -->
     </section>
-    <footer class="footer" *ngIf="lists.length > 0">
-      <span class="list-count"><strong>{{lists.length}}</strong> {{lists.length == 1 ? 'item' : 'items'}} left</span>
+    <footer class="footer" *ngIf="list.length > 0">
+      <span class="list-count">Requirements Count: <strong>{{list?.length}}</strong></span>
     </footer>
   </section>
+</div>
+
+<div class=" col-6">
+    <section class="m-4 ml-5">
+      <div class="row">
+        <header class="header mr-5">
+          <h1>Example</h1>
+        </header>
+      </div>
+        <section class="main">
+            <mat-list *ngIf="example_list.length > 0">
+                <mat-list-item class="m-3" style="height: 100%;" *ngFor="let example_item of example_list" >
+                  <span class="row d-flex flex-column mt-3 mb-3">
+                    <label class="">Title: </label>
+                    <span class="mb-3 mt-3">{{example_item?.title}}</span>
+                    <label class="">Description: </label>
+                    <span class="mt-3 mb-3">{{example_item?.description}}</span>
+                  </span>
+                  <mat-divider></mat-divider>
+                </mat-list-item>
+            </mat-list>
+          <!-- <ul class="list" *ngIf="list.length > 0">
+            <li *ngFor="let item of list" [class.completed]="item.complete">
+              <div class="view">
+                <h3>{{item?.title}}</h3>
+              </div>
+            </li>
+          </ul> -->
+        </section>
+        <footer class="footer" *ngIf="example_list.length > 0">
+          <span class="list-count">Requirements Count: <strong>{{example_list?.length}}</strong></span>
+        </footer>
+      </section>
+    </div>
+  </div>

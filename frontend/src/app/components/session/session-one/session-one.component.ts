@@ -12,8 +12,7 @@ const sessionName = 'session-one';
 export class SessionOneComponent implements OnInit {
 
   activeSession: boolean;
-  constructor(private userService: UserService) {
-  }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.activeSession = this.checkActiveSession();

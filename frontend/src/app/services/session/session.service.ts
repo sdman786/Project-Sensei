@@ -11,7 +11,7 @@ import { QuizComponent } from 'src/app/components/quiz/quiz.component';
 import { ActivityComponent } from 'src/app/components/activity/activity.component';
 import { LessonComponent } from 'src/app/components/lesson/lesson.component';
 import { User } from 'src/app/models/user/user';
-import { isUndefined } from 'util';
+import { isNullOrUndefined } from 'util';
 
 const jsonBaseSessionUrl = 'http://localhost:8080/session';
 const jsonBaseSessionStructureUrl = 'http://localhost:8081/session-structure';
@@ -24,25 +24,11 @@ const baseSessionStructureUrl = 'http://localhost:3000/authapi/sessions_structur
 
 export class SessionService {
 
-  // jsonBaseSessionUrl = 'http://localhost:8080/session';
-  // jsonBaseSessionStructureUrl = 'http://localhost:8081/session-structure';
-  // baseSessionUrl = 'http://localhost:3000/authapi/sessions';
-  // baseSessionStructureUrl = 'http://localhost:3000/authapi/sessions_structure';
-
-  // public user$: User;
-
   public sessionStructure: SessionStructure[];
   public sessions: Session[];
   public activeTask?: Lesson | Activity | Quiz;
   public activeTaskName?: string;
   public activeTaskDescription?: string;
-
-  private sessionOne: Session;
-  private sessionTwo: Session;
-  private sessionThree: Session;
-  private sessionOneId = 1;
-  private sessionTwoId = 2;
-  private sessionThreeId = 3;
 
   constructor(private http: HttpClient, public dialog: MatDialog, private userService: UserService) {
     this.sessionStructure = [];
@@ -61,21 +47,12 @@ export class SessionService {
   }
 
   getAllSessions() {
-    // this.http.get<any>(this.baseSessionUrl);
     return new Promise((resolve, reject) => {
       this.http.get<any>(baseSessionUrl).subscribe(sessionArray => {
-        // while (!this.user$ || !this.user$.username) {
-        //   this.user$ = this.userService.getUser() as User;
-        // }
         sessionArray.forEach(session => {
           this.sessions.push(session as Session);
-          // if (session.name === this.user$.session) {
-          // resolve(this.sessions);
-          //   session
-          // }
         });
         resolve(this.sessions);
-        // return this.sessions;
       });
     });
   }
@@ -142,50 +119,45 @@ export class SessionService {
 
     dialogRef.afterClosed().subscribe(result => {
       let user = this.userService.getUser() as User;
-      let nextTask = null;
-      let nextSession = null;
 
       console.log('SessionService: ', result);
       if (result) {
-        this.setNextTask(result, user, nextTask, nextSession);
+        this.setNextTask(user);
       }
-      // this.sideBar.closeTask(result);
-      // this.user$.tasks;
     });
   }
 
 
-  private setNextTask(result: any, user: User, nextTask: any, nextSession: any) {
+  private setNextTask(user: User) {
+    let nextTask = null;
+    let nextSession = null;
     this.getSessionStructure().then(sessionStructure => {
       if (sessionStructure) {
         this.sessionStructure.forEach((session, index) => {
           if (session.name === user.session) {
             console.log(session);
             session.tasks.forEach((task, index) => {
-              if (task.name === user.task) {
-                session.tasks.splice(index, 1);
-                console.log('spliced:', session);
-                if (session.tasks[index]) {
-                  nextTask = session.tasks[index].name;
+              if (task.name === user.task && session.tasks[index + 1]) {
+                // if (session.tasks[index]) {
+                  nextTask = session.tasks[index + 1].name;
                   console.log(nextTask);
-                }
+                // }
               }
             });
-            if (!session.tasks[0] && session[index + 1]) {
-              nextSession = session[index + 1].name;
-              nextTask = session[index + 1].task[0];
+            if (isNullOrUndefined(nextTask) && session.id !== 3) {
+              nextSession = session.id + 1;
             }
+          }
+          if (nextSession && session.id === nextSession) {
+            nextSession = session.name;
+            nextTask = session.tasks[0].name;
           }
         });
         if ((nextTask && nextSession) || nextTask) {
           // Update User With The Next Task
-          let bool: boolean = this.userService.updateUser(nextSession, nextTask);
-          console.log('Update User Return Value', bool);
+          this.userService.updateUser(nextSession, nextTask, null);
+          console.log('Update User Return Value');
           this.populateActiveSession(null);
-          // this.userService.updateUser(nextSession, nextTask) ?
-          //   console.log('Open Success Next Lesson')
-          //   :
-          //   console.log('Open Failed Next Lesson');
         }
       }
     });

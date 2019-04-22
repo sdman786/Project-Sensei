@@ -8,7 +8,7 @@
             <div class="center col-10 col-lg-10 col-md-10 col-sm-10 col-xl-10" style="text-align:start !important">
               <div class="register-input-container">
                 <mat-form-field class="register-input-block">
-                  <input matInput class="register-input-field" type="text" name="name" [(ngModel)]="user.name">
+                  <input matInput class="register-input-field" type="text" name="name" [(ngModel)]="user.name" required>
                   <mat-placeholder for="name" class="register-label">Full name</mat-placeholder>
                   <span class="register-input-icon-clear" *ngIf="user.username" matSuffix mat-icon-button
                     (click)="user.name=''">
@@ -16,15 +16,17 @@
                   </span>
                 </mat-form-field>
                 <mat-form-field class="register-input-block">
-                  <input matInput class="register-input-field" type="text" name="email" [(ngModel)]="user.email">
+                  <input matInput class="register-input-field" type="text" name="email"  [formControl]="email" [(ngModel)]="user.email" required>
                   <mat-placeholder for="email" class="register-label">Email</mat-placeholder>
                   <span class="register-input-icon-clear" *ngIf="user.email" matSuffix mat-icon-button
                     (click)="user.email=''">
                     <mat-icon>close</mat-icon>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                   </span>
                 </mat-form-field>
                 <mat-form-field class="register-input-block">
-                  <input matInput class="register-input-field" type="text" name="username" [(ngModel)]="user.username">
+                  <input matInput class="register-input-field" type="text" name="username" 
+                    [(ngModel)]="user.username" required>
                   <mat-placeholder for="username" class="register-label">Username</mat-placeholder>
                   <span class="register-input-icon-clear" *ngIf="user.username" matSuffix mat-icon-button
                     (click)="user.username=''">
@@ -33,7 +35,7 @@
                 </mat-form-field>
                 <mat-form-field class="register-input-block">
                   <input matInput class="register-input-field" type="password" name="password"
-                    [(ngModel)]="user.password">
+                    [(ngModel)]="user.password" required>
                   <mat-placeholder for="password" class="register-label">Password</mat-placeholder>
                   <span class="register-input-icon-clear" *ngIf="user.password" matSuffix mat-icon-button
                     (click)="user.password=''">

@@ -1,0 +1,42 @@
+.mat-dialog-container {
+    min-width: 25vw !important;
+}
+
+.item-input-block {
+    width: 70%;
+    margin: 5% 15%;
+
+      .item-label {
+        font-family: "Righteous", cursive;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 20px;
+        margin: 0 auto;
+        color: #565656;
+        letter-spacing: 0.1em;
+      }
+
+
+      .item-input-field {
+          width: 100%;
+      }
+      .mat-input-element{
+          font-family: 'Righteous', cursive;
+          font-style: normal;
+          font-weight: normal;
+          line-height: normal;
+          font-size: 15px;
+          margin: 5px 0 0px 0px;
+      }
+      .mat-form-field-suffix {
+          font-size: 15px;
+          color: #565656;
+      }
+      .mat-form-field-underline{
+          background-color: #565656;
+          &::after{
+            background-color: #565656;
+          }
+      }
+  }
