@@ -55,7 +55,6 @@ export class ActivityComponent implements OnInit {
     this.activity$.completed = true;
     if (this.listData && this.listData.length >= 5) {
       this.activity$.upload = new Upload(this.activity$.name, JSON.stringify(this.listData));
-      this.userService.updateUser(this.activity$);
     }
   }
 

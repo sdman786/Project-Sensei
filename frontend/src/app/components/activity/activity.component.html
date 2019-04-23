@@ -22,5 +22,5 @@
 </div>
 <div mat-dialog-actions class="d-flex justify-content-center m-1">
   <button (click)="onExit();" class="btn-outline-danger" mat-button cdkFocusInitial>Exit</button>
-  <button *ngIf="activity$.type == 'listMaker' && listData.length >= 5" (click)="onSubmit();" class="btn-outline-success" mat-button cdkFocusInitial>Save and Close</button>
+  <button *ngIf="activity$.type == 'listMaker' && listData.length >= 5" (click)="onSubmit();" [mat-dialog-close]="activity$" class="btn-outline-success" mat-button cdkFocusInitial>Save and Close</button>
 </div>
