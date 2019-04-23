@@ -33,10 +33,10 @@ module.exports.update = function(req, res, next) {
       else {
         user.session = req.body.session;
         user.task = req.body.task;
-        if (req.body.results > 0) {
+        if (req.body.results[0]) {
           user.results = req.body.results;
         }
-        if (req.body.upload > 0) {
+        if (req.body.upload[0]) {
           user.upload = req.body.upload;
         }
         // db.update(User.findById(req.body._id, (err, user) => {

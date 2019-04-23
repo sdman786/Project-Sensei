@@ -59,7 +59,7 @@
           </div>
 
           <div class="result" [ngClass]="" *ngIf="mode=='result'">
-            <h2 class="center">Results: {{ quiz$.quizResult }}%</h2>
+            <h2 class="center">Results: {{ quiz$.result?.result }}%</h2>
             <div *ngFor="let question of quiz$.questions; let index = index">
               <div class="p-1 m-2 alert {{ isCorrect(question) ? 'alert-success': 'alert-danger'}}">
                 <div class="result-question ">
