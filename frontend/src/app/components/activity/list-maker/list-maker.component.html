@@ -5,16 +5,17 @@
     <header class="header mr-5">
       <h1>Product Backlog</h1>
     </header>
-    <button mat-raised-button (click)="openDialog()">Add Requirement</button>
+    <button mat-button class="btn-primary" (click)="openDialog()">Add Requirement</button>
   </div>
     <section class="main">
         <mat-list *ngIf="list.length > 0">
             <mat-list-item class="m-3" style="height: 100%;" *ngFor="let item of list" >
               <span class="row d-flex flex-column mt-3 mb-3">
                 <label class="">Title: </label>
-                <span class="mb-3 mt-3">{{item?.title}}</span>
+                <span class="mb-3 mt-3 text-break">{{item?.title}}</span>
                 <label class="">Description: </label>
-                <span class="mt-3 mb-3">{{item?.description}}</span>
+                <span class="mt-3 mb-3 text-break">{{item?.description}}</span>
+                <button class="btn btn-outline-danger w-75" (click)="removeItem(item.id)">Remove</button>
               </span>
               <mat-divider></mat-divider>
             </mat-list-item>

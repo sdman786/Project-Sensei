@@ -30,17 +30,12 @@
               <h4 class="control-label font-weight-bold profile-headings">
                 < Current Session >
               </h4>
-              <h4 class="form-control-static defaultLightBlue center">{{ user?.session | titlecase }}</h4>
+              <h4 class="form-control-static defaultLightBlue center">{{ user?.session | titlecase | transform | titlecase }}</h4>
               <hr class="shadow-sm">
               <h4 class="control-label font-weight-bold profile-headings">
                 < Current Task >
               </h4>
-              <h4 class="form-control-static defaultLightBlue center">{{ user?.task | titlecase }}</h4>
-              <hr class="shadow-sm">
-              <h4 class="control-label font-weight-bold profile-headings">
-                < Course Complete (%) >
-              </h4>
-              <h4 class="form-control-static defaultLightBlue center">{{ user?.task | titlecase }}</h4>
+              <h4 class="form-control-static defaultLightBlue center">{{ user?.task | transform | titlecase }}</h4>
             </div>
           </div>
         </div>
@@ -63,16 +58,24 @@
               <h4 class="form-control-static ml-3">Session 3:</h4>
               <h4 class="form-control-static defaultLightBlue ml-3">UPLOAD #3</h4>
             </div>
-            <div class="form-group">
+            <div class="form-group" *ngIf="user?.results?.length > 0">
               <hr class="shadow-sm">
               <h4 class=" control-label font-weight-bold profile-headings">
                 < Quiz Results >
               </h4>
-              <hr class="shadow-sm">
-              <h4 class="form-control-static ml-3">Quiz Name:</h4>
-              <h4 class="form-control-static defaultLightBlue ml-3"></h4>
-              <h4 class="form-control-static ml-3">Result: </h4>
-              <h4 class="form-control-static defaultLightBlue ml-3"></h4>
+              <section class="main">
+                  <mat-list>
+                      <mat-list-item class="m-3" style="height: 100%;" *ngFor="let result of user?.results" >
+                        <span class="row d-flex flex-column mt-3 mb-3">
+                          <label class="">Name: </label>
+                          <span class="mb-3 mt-3">{{result?.name}}</span>
+                          <label class="">Result: </label>
+                          <span class="mt-3 mb-3">{{result?.result}}</span>
+                        </span>
+                        <mat-divider></mat-divider>
+                      </mat-list-item>
+                  </mat-list>
+              </section>
             </div>
           </div>
         </div>

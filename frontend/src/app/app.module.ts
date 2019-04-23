@@ -18,7 +18,7 @@ import { CaseStudyComponent } from './components/case-study/case-study.component
 import { SidebarComponent, StringTransformer } from './components/session/sidebar/sidebar.component';
 import { MaterialModule } from './modules/material.module';
 import { LessonComponent } from './components/lesson/lesson.component';
-import { ActivityComponent } from './components/activity/activity.component';
+import { ActivityComponent, ActivityContent } from './components/activity/activity.component';
 import { ListMakerComponent, NewItemDialog } from './components/activity/list-maker/list-maker.component';
 import { User } from './models/user/user';
 import { SessionResolverService } from './services/resolvers/session-resolver.service';
@@ -33,7 +33,8 @@ import { UserService } from './services/user/user.service';
       ActivityComponent,
       QuizComponent,
       ListMakerComponent,
-      NewItemDialog
+      NewItemDialog,
+      ActivityContent
     ],
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { UserService } from './services/user/user.service';
     LessonComponent,
     ActivityComponent,
     ListMakerComponent,
+    ActivityContent,
     NewItemDialog,
     StringTransformer
   ],

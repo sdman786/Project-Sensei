@@ -33,6 +33,25 @@ module.exports.update = function(req, res, next) {
       else {
         user.session = req.body.session;
         user.task = req.body.task;
+        if (req.body.result) {
+          user.results = req.body.results;
+        }
+        if (req.body.upload) {
+          user.upload = req.body.upload;
+        }
+        // db.update(User.findById(req.body._id, (err, user) => {
+        // {
+        //   $push : {
+        //     results :  {
+        //      req.body.result
+        //    } //inserted data is the object to be inserted 
+        // }
+
+      // }
+      // }));
+        // $push()
+        // user.upload.$push(req.body.upload);
+        // user.results.$push(req.body.result);
 
         user.save().then(() => {
           res.json({result: true, message: 'Update done'});

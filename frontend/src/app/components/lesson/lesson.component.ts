@@ -24,7 +24,6 @@ export class LessonComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.lesson$.completed = false;
   }
 
   @HostListener('window:keyup', ['$event'])
@@ -65,7 +64,7 @@ export class LessonComponent implements OnInit {
   }
 
   exitLesson() {
-    this.lesson$ = null;
+    this.lesson$.completed = false;
     this.dialogRef.close();
   }
 }

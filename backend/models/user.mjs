@@ -31,7 +31,10 @@ let User = new Schema({
     required: true
   },
   upload:  {
-    type: Upload[]
+    type: [Object]
+  },
+  results:  {
+    type: [Object]
   },
   hash: String,
   salt: String
@@ -74,7 +77,8 @@ User.methods.toAuthJSON = function () {
     token: this.generateJWT(),
     session: this.session,
     task: this.task,
-    upload: this.upload
+    upload: this.upload,
+    results: this.results
   };
 };
 

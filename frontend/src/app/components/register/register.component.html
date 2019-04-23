@@ -21,7 +21,6 @@
                   <span class="register-input-icon-clear" *ngIf="user.email" matSuffix mat-icon-button
                     (click)="user.email=''">
                     <mat-icon>close</mat-icon>
-                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                   </span>
                 </mat-form-field>
                 <mat-form-field class="register-input-block">

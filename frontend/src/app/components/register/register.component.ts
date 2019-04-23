@@ -13,14 +13,15 @@ import { FormControl,Validators } from '@angular/forms';
 
 export class RegisterComponent {
   user: User = {
-    _id: '',
     username: '',
     name: '',
     email: '',
     password: '',
     session: 'session-one',
-    task: 'agile-intro'
-  };
+    task: 'agile-intro',
+    upload: [],
+    results: []
+    };
 
   constructor(private auth: AuthenticationService, private snackBar: MatSnackBar, private router: Router) { }
 

@@ -7,9 +7,12 @@
         <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>
       </mat-card-header> -->
     <mat-card-content class="activity-component">
-      <div *ngIf="activity$.type == 'listMaker'" class="content-fluid">
-      <app-list-maker></app-list-maker>
-    </div>
+      <div *ngIf="activityType$ == 'content'" class="content-fluid">
+        <app-content></app-content>
+      </div>
+      <div *ngIf="activityType$ == 'listMaker'" class="content-fluid">
+        <app-list-maker></app-list-maker>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
@@ -18,5 +21,6 @@
   <button class="btn btn-lg btn-outline-success ml-5" (click)="next();">Next</button>
 </div>
 <div mat-dialog-actions class="d-flex justify-content-center m-1">
-  <button (click)="onSubmit();" class="btn-outline-danger col-11" mat-button [mat-dialog-close]="activity$" cdkFocusInitial>Save and Close</button>
+  <button (click)="onExit();" class="btn-outline-danger" mat-button cdkFocusInitial>Exit</button>
+  <button *ngIf="activity$.type == 'listMaker' && listData.length >= 5" (click)="onSubmit();" class="btn-outline-success" mat-button cdkFocusInitial>Save and Close</button>
 </div>

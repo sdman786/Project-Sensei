@@ -1,13 +1,14 @@
-import { Upload } from '../session/upload';
+import { Upload } from '../upload';
+import { Results } from '../results';
 
 export class User {
-    _id: string;
-    name?: string;
-    email?: string;
+    name: string;
+    email: string;
     username: string;
     password: string;
     exp?: number;
     session?: string;
     task?: string;
-    upload: Upload;
+    upload: Upload[];
+    results: Results[];
 }

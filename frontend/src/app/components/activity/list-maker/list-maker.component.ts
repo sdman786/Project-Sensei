@@ -1,7 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { IterableChangeRecord_ } from '@angular/core/src/change_detection/differs/default_iterable_differ';
 import { ActivityComponent } from '../activity.component';
+import { idLocale } from 'ngx-bootstrap';
 
 export class ListItem {
   id: number;
@@ -32,34 +33,56 @@ export class ListMakerComponent implements OnInit {
   constructor(public dialog: MatDialog, private activity: ActivityComponent) {}
 
   ngOnInit() {
-    this.example_list.push(new ListItem({id: 1 , title: 'Create Login & Registration System', description: 'Allows users to register and login'}));
-    this.example_list.push(new ListItem({id: 2 , title: 'Create Login & Registration System', description: 'Allows users to register and login'}));
-    this.example_list.push(new ListItem({id: 3 , title: 'Create Login & Registration System', description: 'Allows users to register and login'}));
-    this.example_list.push(new ListItem({id: 4 , title: 'Create Login & Registration System', description: 'Allows users to register and login'}));
-    this.example_list.push(new ListItem({id: 5 , title: 'Create Login & Registration System', description: 'Allows users to register and login'}));
+    this.example_list.push(new ListItem({
+        id: 1 ,
+        title: 'Create Login & Registration System',
+        description: 'Allows users to register and login'
+      }));
+    this.example_list.push(new ListItem(
+      { id: 2,
+        title: 'Create Login & Registration System',
+        description: 'Allows users to register and login'
+      }));
+    this.example_list.push(new ListItem(
+      { id: 3,
+        title: 'Create Login & Registration System',
+        description: 'Allows users to register and login'
+      }));
+    this.example_list.push(new ListItem({
+      id: 4,
+      title: 'Create Login & Registration System',
+      description: 'Allows users to register and login'
+    }));
+    this.example_list.push(new ListItem({
+      id: 5,
+      title: 'Create Login & Registration System',
+      description: 'Allows users to register and login'
+    }));
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open( NewItemDialog, {
+    const dialogRef = this.dialog.open(NewItemDialog, {
       height: '400px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
       if (result) {
+        result = result as ListItem;
+        result.id = ++this.id;
         this.list.push(result);
         this.activity.listData.push(result);
       }
     });
   }
-  addItem(newItem) {
-    this.item = new ListItem(newItem);
-    this.list.push(this.item);
-  }
 
-  removeItem() {
-    this.list = this.list
-      .filter(List => List.id !== this.item.id);
+  removeItem(itemId: number) {
+    this.list.forEach( (item, index) => {
+      if (item.id === itemId) {
+        this.list.splice(index, 1);
+        this.activity.listData = this.list;
+      }
+    });
   }
 
   getAllLists(): ListItem[] {
@@ -106,8 +129,9 @@ export class ListMakerComponent implements OnInit {
 </div>
 
 <div mat-dialog-actions class="col-12 d-flex justify-content-center mat-dialog-actions">
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="item" *ngIf="item.title && item.description" cdkFocusInitial>Submit</button>
+  <button mat-button  class="btn-outline-danger"  (click)="onNoClick()">Cancel</button>
+  <button id="submit" mat-button class="submit btn-outline-success" [mat-dialog-close]="item"
+      *ngIf="item.title && item.description" cdkFocusInitial>Submit</button>
 </div>
 `
 })
@@ -119,6 +143,17 @@ export class NewItemDialog {
     public dialogRef: MatDialogRef<NewItemDialog>) {
       this.item = new ListItem();
     }
+
+    
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    console.log(event);
+    if (event.keyCode === 13 && this.item.title && this.item.description) {
+      let element = document.getElementsByClassName('submit')[0] as HTMLElement;
+      element.click();
+    }
+  }
+
 
   onNoClick(): void {
     this.dialogRef.close();

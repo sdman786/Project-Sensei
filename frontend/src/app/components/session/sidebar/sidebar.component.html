@@ -4,7 +4,7 @@
       <div class="center col-11 mb-5 mt-5 text-justify">
         <h2 class="center">Next Lesson</h2>
         <hr class="shadow-sm">
-        <div class="d-flex justify-content-center row">
+        <div class="d-flex justify-content-center row" *ngIf="activeSessionCheck()">
         <!-- TASK DESCRIPTION -->
           <mat-card class="content-card shadow mt-5">
             <mat-card-header>
@@ -38,6 +38,13 @@
             </div>
           </mat-card>
         </div>
+        <div class="center mt-5 pt-5" *ngIf="!activeSessionCheck()">
+          <h2> Go to Current Session</h2>
+          <div class="m-5">
+              <button class="btn-lg btn-secondary" (click)="openNextSession()">{{ getActiveSession() | transform | titlecase  }}</button>
+            </div>
+          <!-- <button routerLink="activeSessionUrl">Go to Next Session</button> -->
+          </div>
       </div>
     </div>
   </div>

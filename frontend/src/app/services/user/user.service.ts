@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { User } from '../../models/user/user';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { HttpClient } from '@angular/common/http';
-import { Upload } from 'src/app/models/session/upload';
+import { Upload } from 'src/app/models/upload';
+import { Results } from 'src/app/models/results';
 
 @Injectable({
   providedIn: 'root'
@@ -58,25 +59,44 @@ export class UserService {
     return this.user.session;
   }
 
-  public updateUser(session: string, task: string, upload: Upload) {
-    let userUpdate;
-    let result = false;
-    if (session) {
-      this.user.session = session;
+  // public updateUser(session: string, task: string, upload: Upload, result: Results) {
+  //   let userUpdate;
+  //   if (session) {
+  //     this.user.session = session;
+  //   }
+  //   if (task) {
+  //     this.user.task = task;
+  //   }
+  //   if (upload) {
+  //     this.user.upload.push(upload);
+  //   }
+  //   if (result) {
+  //     this.user.results.push(result);
+  //   }
+  //   userUpdate = { session, task, upload };
+  //   console.log(this.user);
+  //   this.authService.update(this.user).subscribe(res => {
+  //     console.log(res.result);
+  //   });
+  // }
+
+  public updateUser(data: any) {
+    if (data.nextSession) {
+      this.user.session = data.nextSession;
     }
-    if (task) {
-      this.user.task = task;
+    if (data.nextTask) {
+      this.user.task = data.nextTask;
     }
-    if (upload) {
-      this.user.upload = upload;
+    if (data.upload) {
+      this.user.upload.push(data.upload);
     }
-    userUpdate = { session, task, upload };
+    if (data.result) {
+      this.user.results.push(data.result);
+    }
     console.log(this.user);
     this.authService.update(this.user).subscribe(res => {
       console.log(res.result);
-      result = true;
     });
-    return result;
   }
 
 }

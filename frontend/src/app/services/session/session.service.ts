@@ -29,6 +29,7 @@ export class SessionService {
   public activeTask?: Lesson | Activity | Quiz;
   public activeTaskName?: string;
   public activeTaskDescription?: string;
+  public activeSession?: string;
 
   constructor(private http: HttpClient, public dialog: MatDialog, private userService: UserService) {
     this.sessionStructure = [];
@@ -61,13 +62,16 @@ export class SessionService {
     return this.sessions;
   }
 
+  getActiveSession() {
+    return this.activeSession;
+  }
 
   populateActiveSession(session: Session) {
-    const activeSession = this.userService.getActiveSession();
+    this.activeSession = this.getUserActiveSession();
     const activeTask = this.userService.getActiveTask();
 
     this.sessions.forEach(session => {
-      if (session.name === activeSession) {
+      if (session.name === this.activeSession) {
         session.quiz.forEach(quiz => {
           if (quiz.name === activeTask) {
             this.activeTask = new Quiz(quiz);
@@ -100,6 +104,11 @@ export class SessionService {
     console.log(session);
   }
 
+
+  public getUserActiveSession() {
+    return this.userService.getActiveSession();
+  }
+
   openTask(): void {
     let component;
     const selectedTask = this.activeTask;
@@ -121,14 +130,14 @@ export class SessionService {
       let user = this.userService.getUser() as User;
 
       console.log('SessionService: ', result);
-      if (result) {
-        this.setNextTask(user);
+      if (result && result.completed) {
+        this.setNextTask(user, result);
       }
     });
   }
 
 
-  private setNextTask(user: User) {
+  private setNextTask(user: User, result: Quiz | Activity | Lesson) {
     let nextTask = null;
     let nextSession = null;
     this.getSessionStructure().then(sessionStructure => {
@@ -139,8 +148,8 @@ export class SessionService {
             session.tasks.forEach((task, index) => {
               if (task.name === user.task && session.tasks[index + 1]) {
                 // if (session.tasks[index]) {
-                  nextTask = session.tasks[index + 1].name;
-                  console.log(nextTask);
+                nextTask = session.tasks[index + 1].name;
+                console.log(nextTask);
                 // }
               }
             });
@@ -154,13 +163,42 @@ export class SessionService {
           }
         });
         if ((nextTask && nextSession) || nextTask) {
-          // Update User With The Next Task
-          this.userService.updateUser(nextSession, nextTask, null);
-          console.log('Update User Return Value');
-          this.populateActiveSession(null);
+          this.updateUserDetails(result, nextSession, nextTask);
         }
       }
     });
+  }
+
+  public updateUserDetails(result: Activity | Quiz | Lesson, nextSession: any, nextTask: any) {
+    let userUpdateData: any;
+    // Update User With The Next Task
+    if (result instanceof Quiz) {
+      userUpdateData = {
+        nextSession,
+        nextTask,
+        upload: null,
+        result: result.result ? result.result : null
+      };
+    } else
+    if (result instanceof Activity) {
+      userUpdateData = {
+        nextSession,
+        nextTask,
+        upload: result.upload ? result.upload : null,
+        result: null
+      };
+    } else
+    if (result instanceof Lesson) {
+      userUpdateData = {
+        nextSession,
+        nextTask,
+        upload: null,
+        result: null
+      };
+    }
+    this.userService.updateUser(userUpdateData);
+    console.log('Update User Return Value');
+    this.populateActiveSession(null);
   }
 }
 

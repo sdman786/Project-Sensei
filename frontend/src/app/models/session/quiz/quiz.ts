@@ -1,5 +1,6 @@
 import { QuizConfig } from './quiz-config';
 import { Question } from '../question/question';
+import { Results } from '../../results';
 
 export class Quiz {
     id: number;
@@ -9,8 +10,8 @@ export class Quiz {
     config: QuizConfig;
     questions: Question[];
     selectedTask: Quiz;
-    quizResult: number;
     completed: boolean;
+    result: Results;
 
     constructor(data: any) {
         if (data) {
