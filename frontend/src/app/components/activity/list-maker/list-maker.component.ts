@@ -66,12 +66,11 @@ export class ListMakerComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
       if (result) {
         result = result as ListItem;
         result.id = ++this.id;
         this.list.push(result);
-        this.activity.listData.push(result);
+        this.activity.listData = this.list;
       }
     });
   }
@@ -141,13 +140,14 @@ export class NewItemDialog {
 
   constructor(
     public dialogRef: MatDialogRef<NewItemDialog>) {
+      console.log(this.item);
+      
       this.item = new ListItem();
     }
 
     
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    console.log(event);
     if (event.keyCode === 13 && this.item.title && this.item.description) {
       let element = document.getElementsByClassName('submit')[0] as HTMLElement;
       element.click();

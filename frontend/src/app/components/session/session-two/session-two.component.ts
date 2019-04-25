@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/services/session/session.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { UserService } from 'src/app/services/user/user.service';
+import { SessionStructure } from 'src/app/models/session/session-structure';
 
 const sessionName = 'session-two';
 
@@ -11,12 +12,20 @@ const sessionName = 'session-two';
   styleUrls: ['../session.component.scss']
 })
 export class SessionTwoComponent implements OnInit {
+
   activeSession: boolean;
-  constructor(private userService: UserService) {
-  }
+  sessionStructure$: SessionStructure;
+
+
+  constructor(private userService: UserService, private sessionService: SessionService) { }
 
   ngOnInit(): void {
     this.activeSession = this.checkActiveSession();
+    this.sessionStructure$ = this.sessionService.sessionStructure.filter(this.populateSessionCards)[0];
+  }
+
+  populateSessionCards(element, index, array) {
+    return (element.name === sessionName);
   }
 
   checkActiveSession(): boolean {

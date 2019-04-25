@@ -14,8 +14,22 @@
         <hr class="shadow-sm">
         <!-- Task Group 1 -->
         <div class="d-flex justify-content-center row">
+            <mat-card class="center content-card shadow" *ngFor="let task of sessionStructure$.tasks">
+                <mat-card-header>
+                  <mat-card-title>{{ task.name | transform | titlecase}}</mat-card-title>
+                </mat-card-header>
+                <hr class="shadow-sm">
+                <img mat-card-image class="col-auto m-auto"
+                  src="https://images.unsplash.com/photo-1471666875520-c75081f42081?ixlib=rb-1.2.1&auto=format&fit=crop&w=1138&q=80"
+                  alt="Agile Picture">
+                <hr class="shadow-sm">
+                <mat-card-content>
+                  <p>{{ task.description }}</p>
+                </mat-card-content>
+              </mat-card>
+        </div>
           <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Introduction</mat-card-title>
             </mat-card-header>
@@ -34,10 +48,10 @@
                   (click)="openActivity('session-two-intro')">Begin Lesson</button>
               </mat-card-actions>
             </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Scrum Meeting!</mat-card-title>
               <mat-card-subtitle>Sprint Planning</mat-card-subtitle>
@@ -61,10 +75,10 @@
                   (click)="openActivity('sprint-planning')">Begin Lesson</button>
               </mat-card-actions>
             </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- SCRUM EVENT - DAILY SCRUM MEETING -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Scrum Meeting!</mat-card-title>
               <mat-card-subtitle>Daily Scrum</mat-card-subtitle>
@@ -88,15 +102,15 @@
                   (click)="openActivity('daily-scrum')">Begin Lesson</button>
               </mat-card-actions>
             </div>
-          </mat-card>
-        </div>
+          </mat-card> -->
+        <!-- </div> -->
 
         <hr class="shadow-sm">
 
         <!-- Task Group 2 -->
-        <div class="d-flex justify-content-center row">
+        <!-- <div class="d-flex justify-content-center row"> -->
           <!-- PRODUCT DESIGN -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Product Design</mat-card-title>
             </mat-card-header>
@@ -118,10 +132,10 @@
                   (click)="openActivity('product-design')">Begin Lesson</button>
               </mat-card-actions>
             </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- PRODUCT DEVELOPMENT -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Product Development</mat-card-title>
             </mat-card-header>
@@ -143,14 +157,14 @@
               </mat-card-actions>
             </div>
           </mat-card>
-        </div>
+        </div> -->
 
         <hr class="shadow-sm">
 
         <!-- Task Group 3 -->
-        <div class="d-flex justify-content-center row">
+        <!-- <div class="d-flex justify-content-center row"> -->
           <!-- SCRUM EVENT - SPRINT REIVEW & RETROSPECTIVE MEETING -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Scrum Meeting!</mat-card-title>
               <mat-card-subtitle>Sprint Review & Retrospective</mat-card-subtitle>
@@ -175,10 +189,10 @@
                   (click)="openActivity('sprint-review')">Begin Lesson</button>
               </mat-card-actions>
             </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- SCRUM EVENT - DAILY SCRUM MEETING -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Session 2 Quiz!</mat-card-title>
               <mat-card-subtitle>Test What You Have Learned</mat-card-subtitle>
@@ -200,8 +214,8 @@
                   (click)="openQuiz('session-two')">Start Quiz</button>
               </mat-card-actions>
             </div>
-          </mat-card>
-        </div>
+          </mat-card> -->
+        <!-- </div> -->
 
       </div>
     </div>

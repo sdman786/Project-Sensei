@@ -12,10 +12,27 @@
 
         <h2 class="center">Agile</h2>
         <hr class="shadow-sm">
-        <!-- BEGINNING OF AGILE LESSONS -->
+
         <div class="d-flex justify-content-center row">
+            <mat-card class="center content-card shadow" *ngFor="let task of sessionStructure$.tasks">
+                <mat-card-header>
+                  <mat-card-title>{{ task.name | transform | titlecase}}</mat-card-title>
+                </mat-card-header>
+                <hr class="shadow-sm">
+                <img mat-card-image class="col-auto m-auto"
+                  src="https://images.unsplash.com/photo-1471666875520-c75081f42081?ixlib=rb-1.2.1&auto=format&fit=crop&w=1138&q=80"
+                  alt="Agile Picture">
+                <hr class="shadow-sm">
+                <mat-card-content>
+                  <p>{{ task.description }}</p>
+                </mat-card-content>
+              </mat-card>
+        </div>
+        
+        <!-- BEGINNING OF AGILE LESSONS -->
+        <!-- <div class="d-flex justify-content-center row"> -->
           <!-- AGILE INTRODCUTION -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Introduction to Agile</mat-card-title>
             </mat-card-header>
@@ -31,16 +48,10 @@
                 how popular Agile is today
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
-                  (click)="openLesson('agile-intro')">Begin Lesson</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- AGILE MANIFESTO -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>The Agile Manifesto</mat-card-title>
             </mat-card-header>
@@ -55,16 +66,10 @@
                 explain what they mean.
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg "
-                  (click)="openLesson('agile-manifesto')">Begin Lesson</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- AGILE EFFECT -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>The Agile Effect</mat-card-title>
             </mat-card-header>
@@ -78,16 +83,10 @@
                 In this lesson we will discuss the Meaning of The Agile Effect and the difference Agile can make.
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg "
-                  (click)="openLesson('agile-effect')">Begin Lesson</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- AGILE QUIZ -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Quiz Time!</mat-card-title>
             </mat-card-header>
@@ -102,14 +101,8 @@
                 Completing this quiz will allow you to proceed to the next stage
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
-                  (click)="openQuiz('agile')">Start Quiz</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
-        </div>
+          </mat-card> -->
+        <!-- </div> -->
         <!-- END OF AGILE LESSONS -->
 
         <hr class="shadow-sm">
@@ -119,7 +112,7 @@
         <!-- BEGINNING OF SCRUM LESSONS -->
         <div class="d-flex justify-content-center row">
           <!-- SCRUM INTRODUCTION -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Introduction to Agile Frameworks</mat-card-title>
             </mat-card-header>
@@ -135,16 +128,10 @@
                 Introducing Scrum.
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg "
-                  (click)="openLesson('scrum-intro')">Begin Lesson</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- SCRUM HISTORY -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>The History of Scrum</mat-card-title>
             </mat-card-header>
@@ -160,16 +147,10 @@
                 How Scrum is used today.
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg "
-                  (click)="openLesson('scrum-history')">Begin Lesson</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- SCRUM VALUE -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Scrum Guide</mat-card-title>
             </mat-card-header>
@@ -184,16 +165,10 @@
                 What Scrums principles and values are.
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg "
-                  (click)="openLesson('scrum')">Begin Lesson</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- SCRUM VALUE -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Scrum Framework</mat-card-title>
             </mat-card-header>
@@ -211,16 +186,10 @@
                 What other Resources Scrum utilises.
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg "
-                  (click)="openLesson('scrum-framework')">Begin Lesson</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- SCRUM EXAMPLE -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>An Example Scrum</mat-card-title>
             </mat-card-header>
@@ -234,16 +203,10 @@
                 What each role does on a day-to-day basis.
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg "
-                  (click)="openLesson('scrum-example')">Begin Lesson</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- SCRUM QUIZ -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
               <mat-card-title>Quiz Time!</mat-card-title>
             </mat-card-header>
@@ -258,13 +221,7 @@
                 Completing this quiz will allow you to proceed to the next stage
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
-                  (click)="openQuiz('scrum')">Start Quiz</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
         </div>
         <!-- END OF SCRUM LESSONS -->
 
@@ -275,7 +232,7 @@
         <!-- BEGINNING OF CASE STUDY LESSONS -->
         <div class="d-flex justify-content-center row">
           <!-- CASE STUDY LESSON 1 -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
 
               <mat-card-title>Introduction to Case Study</mat-card-title>
@@ -291,16 +248,10 @@
                 What your position is in the Case Study.
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg "
-                  (click)="openLesson('case-study-intro')">Begin Lesson</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- CASE STUDY LESSON 2 -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
 
               <mat-card-title>Product Backlog</mat-card-title>
@@ -317,16 +268,10 @@
                 A Submission of the Product Backlog will allow you to continue to the next stage.
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg  "
-                  (click)="openActivity('case-study-backlog')">Begin Lesson</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
 
           <!-- CASE STUDY QUIZ -->
-          <mat-card class="center content-card shadow">
+          <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
 
               <mat-card-title>Quiz Time!</mat-card-title>
@@ -342,13 +287,7 @@
                 Completing this quiz will allow you to proceed to the next stage
               </p>
             </mat-card-content>
-            <div class="center-items">
-              <!-- <mat-card-actions>
-                <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
-                  (click)="openQuiz('case-study')">Start Quiz</button>
-              </mat-card-actions> -->
-            </div>
-          </mat-card>
+          </mat-card> -->
         </div>
       </div>
     </div>

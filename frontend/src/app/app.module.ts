@@ -25,6 +25,7 @@ import { SessionResolverService } from './services/resolvers/session-resolver.se
 import { SessionService } from './services/session/session.service';
 import { UserResolverService } from './services/resolvers/user-resolver.service';
 import { UserService } from './services/user/user.service';
+import { Session_StructureResolverService } from './services/resolvers/session-structure-resolver.service';
 
 @NgModule({
     entryComponents: [
@@ -68,6 +69,6 @@ import { UserService } from './services/user/user.service';
     FormsModule,
     HttpClientModule ],
   bootstrap: [AppComponent],
-  providers: [User, SessionResolverService, UserResolverService, UserService, SessionService]
+  providers: [User, SessionResolverService, Session_StructureResolverService, UserResolverService, UserService, SessionService]
 })
 export class AppModule { }
