@@ -1,9 +1,8 @@
 @import './node_modules/bootstrap/scss/bootstrap';
-
-/* You can add global styles to this file, and also import other style files */
-@import './styles/variables';
-
 @import url('https://fonts.googleapis.com/css?family=Righteous');
+
+// Variables
+@import './styles/variables';
 
 // App Component
 @import './app/app.component.scss';
@@ -35,17 +34,12 @@
 // SessionThree Component
 @import './app/components/session/session-three/session-three.component.scss';
 
-
-
-
-
 html, body { height: 100%; }
 body { margin: 0; font-family: $defaultFont; background: $defaultBackground; background-repeat: no-repeat;
     background-attachment: fixed; padding-top: 50px; padding-bottom: 50px; }
 
 
-
-    // GLOBAL STYLES
+// GLOBAL STYLES
 
 a {
     color: #ffffff;

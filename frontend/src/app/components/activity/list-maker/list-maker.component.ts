@@ -3,19 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { IterableChangeRecord_ } from '@angular/core/src/change_detection/differs/default_iterable_differ';
 import { ActivityComponent } from '../activity.component';
 import { idLocale } from 'ngx-bootstrap';
-
-export class ListItem {
-  id: number;
-  title = '';
-  description = '';
-  estimate?: number;
-  priority?: 1 | 2 | 3 | 4 | 5;
-  complete = false;
-
-  constructor(values: Object = {}) {
-    Object.assign(this, values);
-  }
-}
+import { ListItem } from 'src/app/models/session/activity/list-item';
 
 @Component({
   selector: 'app-list-maker',
@@ -141,11 +129,9 @@ export class NewItemDialog {
   constructor(
     public dialogRef: MatDialogRef<NewItemDialog>) {
       console.log(this.item);
-      
       this.item = new ListItem();
     }
 
-    
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if (event.keyCode === 13 && this.item.title && this.item.description) {
@@ -153,7 +139,6 @@ export class NewItemDialog {
       element.click();
     }
   }
-
 
   onNoClick(): void {
     this.dialogRef.close();

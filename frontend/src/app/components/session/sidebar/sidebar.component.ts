@@ -21,36 +21,34 @@ export class StringTransformer implements PipeTransform {
 })
 export class SidebarComponent implements OnInit {
 
-
   activeTaskName: string = this.sessionService.activeTaskName;
   activeTaskDescription: string = this.sessionService.activeTaskDescription;
   currentSessionName: string;
   activeSessionName?: string;
   activeSessionUrl?: string;
 
-
   constructor(private route: ActivatedRoute, private router: Router,
-              private sessionService: SessionService, private userService: UserService) {
+    private sessionService: SessionService, private userService: UserService) {
     this.router.events
-    .pipe(
-      filter(e => e instanceof NavigationEnd)
-    )
-    .subscribe((navEnd: NavigationEnd) => {
-      switch (navEnd.urlAfterRedirects) {
-      case '/session-one':
-      this.currentSessionName = 'session-one';
-        break;
-      case '/session-two':
-      this.currentSessionName = 'session-two';
-        break;
-      case '/session-three':
-      this.currentSessionName = 'session-three';
-        break;
-      default:
-        break;
-    }
-  });
-}
+      .pipe(
+        filter(e => e instanceof NavigationEnd)
+      )
+      .subscribe((navEnd: NavigationEnd) => {
+        switch (navEnd.urlAfterRedirects) {
+          case '/session-one':
+            this.currentSessionName = 'session-one';
+            break;
+          case '/session-two':
+            this.currentSessionName = 'session-two';
+            break;
+          case '/session-three':
+            this.currentSessionName = 'session-three';
+            break;
+          default:
+            break;
+        }
+      });
+  }
 
   ngOnInit(): void {
     if (this.route.snapshot.data) {
@@ -65,7 +63,7 @@ export class SidebarComponent implements OnInit {
   }
 
   openTask(): void {
-    this.sessionService.openTask( );
+    this.sessionService.openTask();
   }
 
   activeSessionCheck(): boolean {

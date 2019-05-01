@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Activity } from 'src/app/models/session/activity/activity';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ListItem } from './list-maker/list-maker.component';
 import { UserService } from 'src/app/services/user/user.service';
 import { Upload } from 'src/app/models/upload';
+import { ListItem } from 'src/app/models/session/activity/list-item';
 
 @Component({
   selector: 'app-activity',

@@ -6,7 +6,6 @@ export class User {
     email: string;
     username: string;
     password: string;
-    exp?: number;
     session?: string;
     task?: string;
     upload: Upload[];

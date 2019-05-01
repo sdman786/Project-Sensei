@@ -2,7 +2,7 @@
   <div class="row mt-2">
     <div class="col-11 custom-modal mt-sm-3" style="max-width: 650px;">
       <div class="center col-11 mb-5 mt-5 text-justify">
-        <h2 class="center">Next Lesson</h2>
+        <h2 class="center">Next Task</h2>
         <hr class="shadow-sm">
         <div class="d-flex justify-content-center row" *ngIf="activeSessionCheck()">
         <!-- TASK DESCRIPTION -->
@@ -11,17 +11,12 @@
               <mat-card-title>Task Description</mat-card-title>
             </mat-card-header>
             <hr class="shadow-sm">
-            <!-- TODO Fill Task from User Model Next Lesson ID -->
             <mat-card-content class="ml-3 mt-4 text-left">
-                <!-- <p style="font-weight: 500; font-size: 15px;">This Quiz will test your knowledge on the Agile Methodology.</p>
-                <p style="font-weight: 500;font-size: 15px;">Complete this Quiz with 80% Score or more in order to continue to the next stage of the course.</p>
-                <p class="center mt-5" style="font-weight: bold;font-size: 15px;">Good Luck!</p> -->
                 <p style="font-weight: 500; font-size: 15px;">{{ sessionService.activeTaskDescription }}</p>
               </mat-card-content>
           </mat-card>
         <!-- TASK ACTION -->
           <mat-card class="content-card shadow mt-5">
-            <!-- TODO Fill Task from User Model Next Lesson ID -->
             <mat-card-header>
               <mat-card-title class="center">{{ sessionService.activeTaskName | transform | titlecase }}</mat-card-title>
             </mat-card-header>
@@ -31,19 +26,18 @@
               <hr class="shadow-sm">
             <div class="center-items pt-3">
               <mat-card-actions>
-                <!-- TODO OPEN NEXT TASK BASED ON USERS NEXT TASK (DB>CURRENT_TASK+1->'next task') -->
                 <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
                  (click)="openTask()" >Start Task</button>
               </mat-card-actions>
             </div>
           </mat-card>
         </div>
+        <!-- IF TASK IS NOT FROM CURRENT SESSION -->
         <div class="center mt-5 pt-5" *ngIf="!activeSessionCheck()">
-          <h2> Go to Current Session</h2>
+          <h2> Go to Current Session </h2>
           <div class="m-5">
               <button class="btn-lg btn-secondary" (click)="openNextSession()">{{ getActiveSession() | transform | titlecase  }}</button>
             </div>
-          <!-- <button routerLink="activeSessionUrl">Go to Next Session</button> -->
           </div>
       </div>
     </div>

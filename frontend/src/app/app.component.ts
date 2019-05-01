@@ -11,7 +11,7 @@ import { SessionService } from './services/session/session.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   userLoggedIn?: boolean;
   showSidebar: boolean;
@@ -58,25 +58,7 @@ export class AppComponent implements OnInit {
 
   @Input() routerLinkActiveOptions: { exact: boolean; };
 
-  ngOnInit(): void {
-    // this.userService.createUser();
-    // this.sessionService.getSessionStructure();
-    // this.sessionService.getAllSessions();
-  }
-
   logout() {
     this.userService.destroyUser();
-    // this.userLoggedIn = false;
   }
-
-  login() {
-  }
-
-  // public getUser() {
-  //   this.auth.profile().subscribe(user => {
-  //     this.user = user;
-  //   }, (err) => {
-  //     console.error(err);
-  //   });
-  // }
 }

@@ -46,7 +46,7 @@
         <div class="center col-11 text-justify">
           <div class="form-horizontal">
 
-            <div class="form-group">
+            <div class="form-group" *ngIf="user$?.upload?.length > 0">
               <hr class="shadow-sm">
               <h4 class=" control-label font-weight-bold profile-headings">
                 < Uploaded Documents >

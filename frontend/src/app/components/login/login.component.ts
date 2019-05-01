@@ -14,12 +14,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class LoginComponent {
   user: TokenPayload = {
     username: '',
-    password: ''
+    password: '',
+    exp: null
   };
 
   constructor(private auth: AuthenticationService, private router: Router, private userService: UserService,
               private snackBar: MatSnackBar, ) {}
-  // appComponent = new AppComponent(this.auth, this.router);
 
   login() {
     this.auth.login(this.user).subscribe(() => {

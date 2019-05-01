@@ -1,8 +1,10 @@
 <p class="title-label">Session <span class="defaultLightBlue">One</span></p>
+
 <!-- SIDE BAR COMPONENT -->
 <div class="m-t-1">
   <app-sidebar></app-sidebar>
 </div>
+
 <div class="row mt-2">
   <div class="col-11 custom-modal mt-sm-3" style="max-width:1000px">
     <div class="row">
@@ -14,22 +16,46 @@
         <hr class="shadow-sm">
 
         <div class="d-flex justify-content-center row">
-            <mat-card class="center content-card shadow" *ngFor="let task of sessionStructure$.tasks">
-                <mat-card-header>
-                  <mat-card-title>{{ task.name | transform | titlecase}}</mat-card-title>
-                </mat-card-header>
-                <hr class="shadow-sm">
-                <img mat-card-image class="col-auto m-auto"
-                  src="https://images.unsplash.com/photo-1471666875520-c75081f42081?ixlib=rb-1.2.1&auto=format&fit=crop&w=1138&q=80"
-                  alt="Agile Picture">
-                <hr class="shadow-sm">
-                <mat-card-content>
-                  <p>{{ task.description }}</p>
-                </mat-card-content>
-              </mat-card>
+          <mat-card class="center content-card shadow" *ngFor="let task of sessionStructure$.tasks">
+            <mat-card-header>
+              <mat-card-title>{{ task.name | transform | titlecase}}</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto" src="task.image" alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>{{ task.description }}</p>
+            </mat-card-content>
+          </mat-card>
         </div>
-        
-        <!-- BEGINNING OF AGILE LESSONS -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        <hr class="shadow-sm">
+        <h2 class="center">Scrum</h2>
+        <hr class="shadow-sm">
+
+        <!-- BEGINNING OF SCRUM LESSONS -->
+        <div class="d-flex justify-content-center row">
+
+        </div>
+        <!-- END OF SCRUM LESSONS -->
+
+        <hr class="shadow-sm">
+        <h2 class="center">Case Study</h2>
+        <hr class="shadow-sm">
+
+        <!-- BEGINNING OF CASE STUDY LESSONS -->
+        <div class="d-flex justify-content-center row">
+
+        </div>
+  <!-- BEGINNING OF AGILE LESSONS -->
         <!-- <div class="d-flex justify-content-center row"> -->
           <!-- AGILE INTRODCUTION -->
           <!-- <mat-card class="center content-card shadow">
@@ -104,13 +130,6 @@
           </mat-card> -->
         <!-- </div> -->
         <!-- END OF AGILE LESSONS -->
-
-        <hr class="shadow-sm">
-        <h2 class="center">Scrum</h2>
-        <hr class="shadow-sm">
-
-        <!-- BEGINNING OF SCRUM LESSONS -->
-        <div class="d-flex justify-content-center row">
           <!-- SCRUM INTRODUCTION -->
           <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
@@ -222,15 +241,6 @@
               </p>
             </mat-card-content>
           </mat-card> -->
-        </div>
-        <!-- END OF SCRUM LESSONS -->
-
-        <hr class="shadow-sm">
-        <h2 class="center">Case Study</h2>
-        <hr class="shadow-sm">
-
-        <!-- BEGINNING OF CASE STUDY LESSONS -->
-        <div class="d-flex justify-content-center row">
           <!-- CASE STUDY LESSON 1 -->
           <!-- <mat-card class="center content-card shadow">
             <mat-card-header>
@@ -288,8 +298,3 @@
               </p>
             </mat-card-content>
           </mat-card> -->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

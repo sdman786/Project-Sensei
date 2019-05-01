@@ -15,17 +15,38 @@ import { Session_StructureResolverService } from './services/resolvers/session-s
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'session-one', component: SessionOneComponent, canActivate: [AuthGuardService],
-      resolve: { session: SessionResolverService, user: UserResolverService, sessionStructure: Session_StructureResolverService } },
-  { path: 'session-two', component: SessionTwoComponent, canActivate: [AuthGuardService],
-      resolve: { session: SessionResolverService, user: UserResolverService, sessionStructure: Session_StructureResolverService } },
-  { path: 'session-three', component: SessionThreeComponent, canActivate: [AuthGuardService],
-      resolve: { session: SessionResolverService, user: UserResolverService, sessionStructure: Session_StructureResolverService } },
+  {
+    path: 'session-one', component: SessionOneComponent, canActivate: [AuthGuardService],
+    resolve: {
+      user: UserResolverService,
+      session: SessionResolverService,
+      sessionStructure: Session_StructureResolverService
+    }
+  },
+  {
+    path: 'session-two', component: SessionTwoComponent, canActivate: [AuthGuardService],
+    resolve: {
+      session: SessionResolverService,
+      user: UserResolverService,
+      sessionStructure: Session_StructureResolverService
+    }
+  },
+  {
+    path: 'session-three', component: SessionThreeComponent, canActivate: [AuthGuardService],
+    resolve: {
+      session: SessionResolverService,
+      user: UserResolverService,
+      sessionStructure: Session_StructureResolverService
+    }
+  },
   { path: 'case-study', component: CaseStudyComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService], resolve: { user: UserResolverService } }
+  {
+    path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService],
+    resolve: { user: UserResolverService }
+  }
 ];
 
 @NgModule({

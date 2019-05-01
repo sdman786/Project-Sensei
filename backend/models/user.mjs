@@ -41,10 +41,6 @@ let User = new Schema({
 
 });
 
-// User.plugin(isUnique, {
-//   message: 'is already taken'
-// });
-
 // Creating a password
 User.methods.setPassword = function (password) {
   this.salt = crypto.randomBytes(16).toString('hex');

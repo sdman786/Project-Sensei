@@ -20,13 +20,6 @@
               <mat-divider></mat-divider>
             </mat-list-item>
         </mat-list>
-      <!-- <ul class="list" *ngIf="list.length > 0">
-        <li *ngFor="let item of list" [class.completed]="item.complete">
-          <div class="view">
-            <h3>{{item?.title}}</h3>
-          </div>
-        </li>
-      </ul> -->
     </section>
     <footer class="footer" *ngIf="list.length > 0">
       <span class="list-count">Requirements Count: <strong>{{list?.length}}</strong></span>
@@ -53,13 +46,6 @@
                   <mat-divider></mat-divider>
                 </mat-list-item>
             </mat-list>
-          <!-- <ul class="list" *ngIf="list.length > 0">
-            <li *ngFor="let item of list" [class.completed]="item.complete">
-              <div class="view">
-                <h3>{{item?.title}}</h3>
-              </div>
-            </li>
-          </ul> -->
         </section>
         <footer class="footer" *ngIf="example_list.length > 0">
           <span class="list-count">Requirements Count: <strong>{{example_list?.length}}</strong></span>

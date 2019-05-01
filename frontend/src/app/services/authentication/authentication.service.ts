@@ -14,6 +14,7 @@ interface TokenResponse {
  export class TokenPayload {
     username: string;
     password: string;
+    exp: number;
   }
 
 @Injectable({
@@ -40,7 +41,7 @@ export class AuthenticationService {
   }
 
   // User Data from Token
-  public getUserToken(): User {
+  public getUserToken(): TokenPayload {
     const token = this.getToken();
     let payload;
     if (token) {
@@ -109,6 +110,7 @@ export class AuthenticationService {
     return this.request('post', 'login', user);
   }
 
+  // Calling the Profile API Endpoint to Retrieve or Update the USER
   public profile(): Observable<User> {
     return this.request('get', 'profile');
   }

@@ -89,17 +89,6 @@ export class QuizComponent implements OnInit {
     question.options.forEach((x) => {
       if (x.id !== option.id) { x.selected = false; }
     });
-
-    this.autoMoveQuestion();
-  }
-
-  // Move to Next Question once an option is selected
-  private autoMoveQuestion() {
-    if (this.config.autoMove) {
-      setTimeout(() => {
-        this.goTo(this.pager.index + 1);
-      }, 500);
-    }
   }
 
   goTo(index: number) {
@@ -131,10 +120,6 @@ export class QuizComponent implements OnInit {
     // QUIZ RESULT AS A PERCENTAGE
     this.updateQuizData();
     console.log(this.quiz$.completed);
-    // this.userService.updateUser(this.quiz$.completed);
-    // Post your data to the server here. answers contains the questionId and the users' answer.
-    // console.log(this.quiz$.questions);
-    // console.log('Quiz Results: ', this.quiz$.quizResult);
   }
 
   completed(): boolean {
