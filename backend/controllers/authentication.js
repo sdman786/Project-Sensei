@@ -4,26 +4,44 @@ var User = mongoose.model('User');
 
 
 module.exports.register = function(req, res) {
-    var user = new User();
-  
-    user.name = req.body.name;
-    user.username = req.body.username;
-    user.email = req.body.email;
-    user.session = req.body.session;
-    user.task = req.body.task;
-    user.upload = req.body.upload;
-    user.results = req.body.results;
-  
-    user.setPassword(req.body.password);
-  
-    user.save(function(err) {
-      var token;
-      token = user.generateJwt();
-      res.status(200);
-      res.json({
-        "token" : token
-      });
-    });
+
+	User.find({"username": req.body.username},
+		function(err, result){
+			if(err){
+				console.log("error", err);
+				
+				return false;
+			}
+			console.log("result", result);
+			if(result.length == 0){
+				var user = new User();
+	
+				user.name = req.body.name;
+				user.username = req.body.username;
+				user.email = req.body.email;
+				user.session = req.body.session;
+				user.task = req.body.task;
+				user.upload = req.body.upload;
+				user.results = req.body.results;
+			
+				user.setPassword(req.body.password);
+			
+				user.save(function(err) {
+					var token;
+					token = user.generateJwt();
+					res.status(200);
+					res.json({
+						"token" : token
+					});
+				});
+			}else{
+				res.json({
+					userExists: true
+				});
+			}
+
+		}
+	);
 
   };
 
