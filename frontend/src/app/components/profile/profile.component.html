@@ -1,7 +1,7 @@
 <div class="container-fluid mt-3">
 
   <p class="title-label">My <span class="defaultLightBlue">Profile</span></p>
-  <!-- PERSONAL user -->
+  <!-- PERSONAL user$ -->
   <div class="mt-2 row">
     <div class="col-12 custom-modal mt-sm-3"
       style="min-height: fit-content;max-height: 50vh;width: max-content;padding: 1.5rem;">
@@ -14,11 +14,11 @@
             </div>
             <div class="form-group">
               <h4 class="form-control-static font-weight-bold">Full Name:</h4>
-              <h4 class="form-control-static defaultLightBlue">{{ user?.name | titlecase }}</h4>
+              <h4 class="form-control-static defaultLightBlue">{{ user$?.name | titlecase }}</h4>
               <h4 class="form-control-static font-weight-bold">Username:</h4>
-              <h4 class="form-control-static defaultLightBlue">{{ user?.username }}</h4>
+              <h4 class="form-control-static defaultLightBlue">{{ user$?.username }}</h4>
               <h4 class="form-control-static font-weight-bold">Email:</h4>
-              <h4 class="form-control-static defaultLightBlue">{{ user?.email }}</h4>
+              <h4 class="form-control-static defaultLightBlue">{{ user$?.email }}</h4>
             </div>
           </div>
         </div>
@@ -30,17 +30,13 @@
               <h4 class="control-label font-weight-bold profile-headings">
                 < Current Session >
               </h4>
-              <h4 class="form-control-static defaultLightBlue center">{{ user?.session | titlecase }}</h4>
+              <h4 class="form-control-static defaultLightBlue center">
+                {{ user$?.session | titlecase | transform | titlecase }}</h4>
               <hr class="shadow-sm">
               <h4 class="control-label font-weight-bold profile-headings">
                 < Current Task >
               </h4>
-              <h4 class="form-control-static defaultLightBlue center">{{ user?.task | titlecase }}</h4>
-              <hr class="shadow-sm">
-              <h4 class="control-label font-weight-bold profile-headings">
-                < Course Complete (%) >
-              </h4>
-              <h4 class="form-control-static defaultLightBlue center">{{ user?.task | titlecase }}</h4>
+              <h4 class="form-control-static defaultLightBlue center">{{ user$?.task | transform | titlecase }}</h4>
             </div>
           </div>
         </div>
@@ -50,29 +46,48 @@
         <div class="center col-11 text-justify">
           <div class="form-horizontal">
 
-            <div class="form-group">
+            <div class="form-group" *ngIf="user$?.upload?.length > 0">
               <hr class="shadow-sm">
               <h4 class=" control-label font-weight-bold profile-headings">
                 < Uploaded Documents >
               </h4>
               <hr class="shadow-sm">
-              <h4 class="form-control-static ml-3">Session 1: </h4>
-              <h4 class="form-control-static defaultLightBlue ml-3">UPLOAD #1</h4>
-              <h4 class="form-control-static ml-3">Session 2:</h4>
-              <h4 class="form-control-static defaultLightBlue ml-3">UPLOAD #2</h4>
-              <h4 class="form-control-static ml-3">Session 3:</h4>
-              <h4 class="form-control-static defaultLightBlue ml-3">UPLOAD #3</h4>
+              <section class="main row d-flex flow-fill">
+                <mat-card class="content-card shadow" style="border-radius: 15px;" *ngFor="let uploadData of upload$;">
+                  <mat-card-header>
+                    <mat-card-title style="margin-bottom: 0px;">
+                      {{uploadData?.name | transform | titlecase }}
+                    </mat-card-title>
+                  </mat-card-header>
+                  <hr class="shadow-sm">
+                  <mat-card-content class="">
+                    <span *ngFor="let dataArray of uploadData.data;">
+                      <h5 class="m-4">Title: {{ dataArray?.title }}</h5>
+                      <h5 class="m-4">Description {{ dataArray?.description }}</h5>
+                    </span>
+                  </mat-card-content>
+                </mat-card>
+              </section>
             </div>
-            <div class="form-group">
+            <div class="form-group" *ngIf="user$?.results?.length > 0">
               <hr class="shadow-sm">
               <h4 class=" control-label font-weight-bold profile-headings">
                 < Quiz Results >
               </h4>
               <hr class="shadow-sm">
-              <h4 class="form-control-static ml-3">Quiz Name:</h4>
-              <h4 class="form-control-static defaultLightBlue ml-3"></h4>
-              <h4 class="form-control-static ml-3">Result: </h4>
-              <h4 class="form-control-static defaultLightBlue ml-3"></h4>
+              <section class="main row d-flex flow-fill">
+                  <mat-card class="content-card shadow" style="border-radius: 15px; width: fit-content;" *ngFor="let resultData of results$;">
+                      <mat-card-header>
+                        <mat-card-title style="margin-bottom: 0px;">
+                          {{resultData?.name | transform | titlecase }}
+                        </mat-card-title>
+                      </mat-card-header>
+                      <hr class="shadow-sm">
+                      <mat-card-content class="center">
+                          <h3 class="m-4">Result: {{ resultData?.data }}%</h3>
+                      </mat-card-content>
+                    </mat-card>
+              </section>
             </div>
           </div>
         </div>

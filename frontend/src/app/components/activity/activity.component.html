@@ -3,20 +3,22 @@
 </div>
 <div mat-dialog-content class="h-100 activity-component">
   <mat-card class="activity-card-content">
-    <!-- <mat-card-header>
-        <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>
-      </mat-card-header> -->
     <mat-card-content class="activity-component">
-      <!-- <app-activity *ngIf="activity$.type == 'listMaker'"></app-activity> -->
-
+      <div *ngIf="activityType$ == 'content'" class="content-fluid">
+        <app-content></app-content>
+      </div>
+      <div *ngIf="activityType$ == 'listMaker'" class="content-fluid">
+        <app-list-maker></app-list-maker>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
 <div class="center d-flex justify-content-center m-3">
-  <button class="btn btn-lg btn-outline-success" (click)="onSubmit();">Continue</button>
-  <h4 class="text-monospace ml-5">OR Press Enter to Continue</h4>
+  <button class="btn btn-lg btn-outline-primary mr-5" (click)="previous();">Prev</button>
+  <button class="btn btn-lg btn-outline-success ml-5" (click)="next();">Next</button>
 </div>
 <div mat-dialog-actions class="d-flex justify-content-center m-1">
-  <button class="btn-outline-danger col-11" mat-button [mat-dialog-close]="data.lessonComplete" cdkFocusInitial>Close
-    Activity</button>
+  <button (click)="onExit();" class="btn-outline-danger" mat-button cdkFocusInitial>Exit</button>
+  <button *ngIf="activity$.type == 'listMaker' && listData.length >= 5" (click)="onSubmit();" [mat-dialog-close]="activity$"
+     class="btn-outline-success" mat-button cdkFocusInitial>Save and Close</button>
 </div>

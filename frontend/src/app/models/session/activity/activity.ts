@@ -1,4 +1,5 @@
 import { Question } from '../question/question';
+import { Upload } from '../../upload';
 
 export class Activity {
     id: number;
@@ -8,8 +9,9 @@ export class Activity {
     type: string;
     content: string;
     questions: Question[];
-    selectedActivity: Activity;
+    selectedTask: Activity;
     completed: boolean;
+    upload: Upload;
 
     constructor(data: any) {
         if (data) {

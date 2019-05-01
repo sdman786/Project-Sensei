@@ -1,11 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Quiz, QuizConfig, Question, Option } from 'src/app/models/session/quiz';
+import { Results } from 'src/app/models/results';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MatRadioButton } from '@angular/material/radio';
 import { timeout } from 'rxjs/operators';
 import { Timeouts } from 'selenium-webdriver';
 import { tick } from '@angular/core/testing';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-quiz',
@@ -41,8 +43,9 @@ export class QuizComponent implements OnInit {
    correctAnswers = 0;
    quizResult = 0;
 
-  constructor( public dialogRef: MatDialogRef<QuizComponent>, @Inject(MAT_DIALOG_DATA) public data: Quiz) {
-    this.quiz$ = this.data.selectedQuiz;
+  constructor( public dialogRef: MatDialogRef<QuizComponent>, @Inject(MAT_DIALOG_DATA) public data: Quiz,
+               private userService: UserService) {
+    this.quiz$ = this.data.selectedTask as Quiz;
     this.quizName = this.quiz$.name;
     this.pager.count = this.quiz$.questions.length;
     this.startTime = new Date();
@@ -59,7 +62,7 @@ export class QuizComponent implements OnInit {
   }
 
   tick() {
-    if(this.mode === 'quiz') {
+    if (this.mode === 'quiz') {
       const now = new Date();
       const diff = (now.getTime() - this.startTime.getTime()) / 1000;
       if (Math.round(diff) === (this.config.duration)) {
@@ -86,17 +89,6 @@ export class QuizComponent implements OnInit {
     question.options.forEach((x) => {
       if (x.id !== option.id) { x.selected = false; }
     });
-
-    this.autoMoveQuestion();
-  }
-
-  // Move to Next Question once an option is selected
-  private autoMoveQuestion() {
-    if (this.config.autoMove) {
-      setTimeout(() => {
-        this.goTo(this.pager.index + 1);
-      }, 500);
-    }
   }
 
   goTo(index: number) {
@@ -124,16 +116,25 @@ export class QuizComponent implements OnInit {
                         correctAnswers: this.isCorrect(x) ? this.correctAnswers += 1 : null
                       });
     });
+
     // QUIZ RESULT AS A PERCENTAGE
-    this.quizResult = this.correctAnswers * 10;
-    // Post your data to the server here. answers contains the questionId and the users' answer.
-    // console.log(this.quiz$.questions);
-    this.quiz$.quizResult = this.quizResult;
-    console.log('Quiz Results: ', this.quiz$.quizResult);
+    this.updateQuizData();
+    console.log(this.quiz$.completed);
+  }
+
+  completed(): boolean {
+    return this.quiz$.completed;
+  }
+
+  private updateQuizData() {
+    this.quiz$.result = new Results(this.quiz$.id, this.quiz$.name, this.correctAnswers * 10);
+    if (this.quiz$.result.result >= 80) {
+      this.quiz$.completed = true;
+    }
   }
 
   exitQuiz() {
-    this.quiz$ = null;
+    this.quiz$.completed = false;
     this.dialogRef.close();
   }
 }

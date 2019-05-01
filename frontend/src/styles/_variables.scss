@@ -3,13 +3,7 @@ $defaultDarkGrey:  #565656;
 $defaultBlack: #000000;
 $defaultLightGrey: #E5E5E5;
 
-
-//Images
-// $katana: url(./icons/katana.svg);
-// $lock: url(./icons/icons8-lock-50.png);
-// $kimono: url(./icons/icons8-kimono-50.png);
-
-//Background    linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);  linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+//Background
 $defaultBackground: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
 
 //Logo
@@ -25,37 +19,9 @@ $defaultBorder: 2px $defaultBlack;
     border: $defaultBorder;
 }
 
+//Margin
+$defaultMargin: 0 auto;
+
 .defaultLightBlue {
     color: $defaultLightBlue;
 }
-
-//Margin
-$defaultMargin: 0 auto;
-$defaultMargin10: 10 auto;
-$defaultMargin20: 20 auto;
-$defaultMargin30: 30 auto;
-$defaultMargin40: 40 auto;
-$defaultMargin50: 50 auto;
-
-.defaultMargin {
-    margin: 0 auto;
-}
-.defaultMargin10 {
-    margin: 10 auto;
-}
-.defaultMargin20 {
-    margin: 20 auto;
-}
-.defaultMargin30 {
-    margin: 30 auto;
-}
-.defaultMargin40 {
-    margin: 40 auto;
-}
-.defaultMargin50 {
-    margin: 50 auto;
-}
-
-
-
-

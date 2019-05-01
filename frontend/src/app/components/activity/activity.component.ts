@@ -1,7 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Activity } from 'src/app/models/session/activity/activity';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
+import { Upload } from 'src/app/models/upload';
+import { ListItem } from 'src/app/models/session/activity/list-item';
 
 @Component({
   selector: 'app-activity',
@@ -11,19 +13,79 @@ import { Router } from '@angular/router';
 export class ActivityComponent implements OnInit {
 
   activity$: Activity;
+  activityType$: string;
+  listData: ListItem[];
 
-  constructor(private router: Router, public dialogRef: MatDialogRef<ActivityComponent>,  @Inject(MAT_DIALOG_DATA) public data: Activity) {
-    this.activity$ = new Activity(this.data.selectedActivity);
+  constructor(public dialogRef: MatDialogRef<ActivityComponent>, @Inject(MAT_DIALOG_DATA) public data: Activity,
+              private userService: UserService) {
+    this.activity$ = this.data.selectedTask as Activity;
+    if (this.activity$.content) {
+      this.activityType$ = 'content';
+    }
+    if (this.activity$.type === 'listMaker') {
+      this.listData = [];
+    }
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.activity$.completed = false;
+   }
+
+  getActivity() {
+    // return this.activity$.type === 'listMaker' ? true : false;
+  }
+
+  completed(): boolean {
+    return this.activity$.completed;
+  }
+
+  next() {
+    this.activityType$ = 'listMaker';
+  }
+
+  previous() {
+    this.activityType$ = 'content';
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  exitLesson() {
-    this.activity$ = null;
+  onSubmit() {
+    this.activity$.completed = true;
+    if (this.listData && this.listData.length >= 5) {
+      this.activity$.upload = new Upload(this.activity$.name, JSON.stringify(this.listData));
+    }
+  }
+
+  onExit() {
+    this.activity$.completed = false;
+    this.listData = [];
     this.dialogRef.close();
+  }
+}
+
+
+@Component({
+  selector: 'app-content',
+  styleUrls: ['./activity.component.scss'],
+  template: `
+  <div mat-dialog-content class="h-100" style="margin: 0 auto;padding: 0;">
+    <mat-card class="session-card-content mat-card">
+      <mat-card-content>
+        <h2>{{ activityContent$ }}</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  `
+})
+export class ActivityContent implements OnInit {
+
+  activityContent$?: string;
+
+  constructor( private activity: ActivityComponent) {}
+
+  ngOnInit(): void {
+    this.activityContent$ = this.activity.activity$.content;
   }
 }

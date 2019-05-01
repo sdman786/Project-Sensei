@@ -41,11 +41,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/login/login.component */ "./frontend/src/app/components/login/login.component.ts");
 /* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/profile/profile.component */ "./frontend/src/app/components/profile/profile.component.ts");
 /* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/register/register.component */ "./frontend/src/app/components/register/register.component.ts");
-/* harmony import */ var _components_quiz_quiz_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/quiz/quiz.component */ "./frontend/src/app/components/quiz/quiz.component.ts");
-/* harmony import */ var _components_session_template_session_one_session_one_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/session-template/session-one/session-one.component */ "./frontend/src/app/components/session-template/session-one/session-one.component.ts");
-/* harmony import */ var _components_session_template_session_three_session_three_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/session-template/session-three/session-three.component */ "./frontend/src/app/components/session-template/session-three/session-three.component.ts");
-/* harmony import */ var _components_session_template_session_two_session_two_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/session-template/session-two/session-two.component */ "./frontend/src/app/components/session-template/session-two/session-two.component.ts");
-/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/auth-guard.service */ "./frontend/src/app/services/auth-guard.service.ts");
+/* harmony import */ var _components_session_session_one_session_one_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/session/session-one/session-one.component */ "./frontend/src/app/components/session/session-one/session-one.component.ts");
+/* harmony import */ var _components_session_session_three_session_three_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/session/session-three/session-three.component */ "./frontend/src/app/components/session/session-three/session-three.component.ts");
+/* harmony import */ var _components_session_session_two_session_two_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/session/session-two/session-two.component */ "./frontend/src/app/components/session/session-two/session-two.component.ts");
+/* harmony import */ var _services_authentication_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./services/authentication/auth-guard.service */ "./frontend/src/app/services/authentication/auth-guard.service.ts");
+/* harmony import */ var _services_resolvers_session_resolver_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/resolvers/session-resolver.service */ "./frontend/src/app/services/resolvers/session-resolver.service.ts");
+/* harmony import */ var _services_resolvers_user_resolver_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/resolvers/user-resolver.service */ "./frontend/src/app/services/resolvers/user-resolver.service.ts");
 
 
 
@@ -56,7 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { SessionTemplateComponent } from './components/session-template/session-template.component';
+
 
 
 
@@ -65,12 +66,15 @@ var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
     { path: 'register', component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_7__["RegisterComponent"] },
-    { path: 'quiz', component: _components_quiz_quiz_component__WEBPACK_IMPORTED_MODULE_8__["QuizComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_12__["AuthGuardService"]] },
-    { path: 'session-one', component: _components_session_template_session_one_session_one_component__WEBPACK_IMPORTED_MODULE_9__["SessionOneComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_12__["AuthGuardService"]] },
-    { path: 'session-two', component: _components_session_template_session_two_session_two_component__WEBPACK_IMPORTED_MODULE_11__["SessionTwoComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_12__["AuthGuardService"]] },
-    { path: 'session-three', component: _components_session_template_session_three_session_three_component__WEBPACK_IMPORTED_MODULE_10__["SessionThreeComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_12__["AuthGuardService"]] },
+    { path: 'session-one', component: _components_session_session_one_session_one_component__WEBPACK_IMPORTED_MODULE_8__["SessionOneComponent"], canActivate: [_services_authentication_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__["AuthGuardService"]],
+        resolve: { session: _services_resolvers_session_resolver_service__WEBPACK_IMPORTED_MODULE_12__["SessionResolverService"], user: _services_resolvers_user_resolver_service__WEBPACK_IMPORTED_MODULE_13__["UserResolverService"] } },
+    { path: 'session-two', component: _components_session_session_two_session_two_component__WEBPACK_IMPORTED_MODULE_10__["SessionTwoComponent"], canActivate: [_services_authentication_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__["AuthGuardService"]],
+        resolve: { session: _services_resolvers_session_resolver_service__WEBPACK_IMPORTED_MODULE_12__["SessionResolverService"], user: _services_resolvers_user_resolver_service__WEBPACK_IMPORTED_MODULE_13__["UserResolverService"] } },
+    { path: 'session-three', component: _components_session_session_three_session_three_component__WEBPACK_IMPORTED_MODULE_9__["SessionThreeComponent"], canActivate: [_services_authentication_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__["AuthGuardService"]],
+        resolve: { session: _services_resolvers_session_resolver_service__WEBPACK_IMPORTED_MODULE_12__["SessionResolverService"], user: _services_resolvers_user_resolver_service__WEBPACK_IMPORTED_MODULE_13__["UserResolverService"] } },
     { path: 'case-study', component: _components_case_study_case_study_component__WEBPACK_IMPORTED_MODULE_3__["CaseStudyComponent"] },
-    { path: 'profile', component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__["ProfileComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_12__["AuthGuardService"]] }
+    { path: 'profile', component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__["ProfileComponent"], canActivate: [_services_authentication_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__["AuthGuardService"]],
+        resolve: { session: _services_resolvers_session_resolver_service__WEBPACK_IMPORTED_MODULE_12__["SessionResolverService"], user: _services_resolvers_user_resolver_service__WEBPACK_IMPORTED_MODULE_13__["UserResolverService"] } }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -95,7 +99,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"fixed-top navbar navbar-expand-sm\">\r\n  <div class=\"container-fluid\">\r\n  <button class=\"navbar-toggler\" type=\"button\" (click)=\"isCollapsed = !isCollapsed\" aria-expanded=\"false\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n  <div class=\"collapse navbar-collapse\" [collapse]=\"isCollapsed\">\r\n    <ul class=\"navbar-nav mr-auto pt-2\" >\r\n      <li class=\"nav-item routerLinkActive  active\" >\r\n        <a class=\"nav-link mr-3\" routerLink=\"/home\" routerLinkActive=\"defaultLightBlue\" \r\n            [routerLinkActiveOptions]=\"{exact: true}\">Home <span class=\"sr-only\">(current)</span></a>\r\n      </li>\r\n      <li *ngIf=\"!auth.isLoggedIn()\" class=\"nav-item routerLinkActive active\" >\r\n        <a class=\"nav-link mr-3\" routerLink=\"/login\" routerLinkActive=\"defaultLightBlue\">Login</a>\r\n      </li>\r\n      <li *ngIf=\"!auth.isLoggedIn()\" class=\"nav-item routerLinkActive active\" >\r\n        <a class=\"nav-link mr-3\" routerLink=\"/register\" routerLinkActive=\"defaultLightBlue\">Register</a>\r\n      </li>\r\n      <li *ngIf=\"auth.isLoggedIn()\" class=\"nav-item routerLinkActive active\" >\r\n        <a class=\"nav-link mr-3\" routerLink=\"/profile\" routerLinkActive=\"defaultLightBlue\">Profile</a>\r\n      </li>\r\n      <li *ngIf=\"auth.isLoggedIn()\" class=\"nav-item routerLinkActive active dropdown\" dropdown>\r\n        <a class=\"nav-link mr-3 dropdown-toggle\" [ngClass]=\"{'defaultLightBlue' : dropActive}\" dropdownToggle href=\"javascript:void(0);\" role=\"button\">Session{{ activeSession  }}</a>\r\n        <div class=\"dropdown-menu bg-light active\" *dropdownMenu aria-labelledby=\"navbarDropdown\">\r\n          <a class=\"dropdown-item  h4\" routerLink=\"/session-one\" routerLinkActive=\"defaultLightBlue\">Session One</a>\r\n          <a class=\"dropdown-item  h4\" routerLink=\"/session-two\" routerLinkActive=\"defaultLightBlue\">Session Two</a>\r\n          <a class=\"dropdown-item  h4\" routerLink=\"/session-three\" routerLinkActive=\"defaultLightBlue\">Session Three</a>\r\n          <div class=\"dropdown-divider\"></div>\r\n          <a class=\"dropdown-item  h4\" routerLink=\"/case-study\" routerLinkActive=\"defaultLightBlue\">Case Study</a>\r\n        </div>\r\n      </li>\r\n      <li *ngIf=\"auth.isLoggedIn()\" class=\"nav-item routerLinkActive d-flex align-items-center routerLinkActive\" \r\n           routerLinkActive=\"defaultLightBlue\" >\r\n        <button mat-button color=\"accent\" (click)=\"auth.logout()\" routerLink=\"/login\">Log Out</button>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"navbar-brand\" routerLink=\"/\" (mouseover)=\"hover=true\" (mouseleave)=\"hover=false\">\r\n    <span class=\"logoBlue\">< </span>\r\n    <span class=\"logoWhite\">Project</span>\r\n    <span class=\"logoBlue\">Sensei</span>\r\n    <span class=\"logoWhite\"> ></span>\r\n  </div>\r\n</div>\r\n</nav>\r\n\r\n<div class=\"container-fluid\">\r\n    <div class=\"col-11 center\">\r\n      <div class=\"m-t-1\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n    </div>\r\n  </div>\r\n"
+module.exports = "<nav class=\"fixed-top navbar navbar-expand-sm\">\r\n  <div class=\"container-fluid\">\r\n  <button class=\"navbar-toggler\" type=\"button\" (click)=\"isCollapsed = !isCollapsed\" aria-expanded=\"false\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n  <div class=\"collapse navbar-collapse\" [collapse]=\"isCollapsed\">\r\n    <ul class=\"navbar-nav mr-auto pt-2\" >\r\n      <li class=\"nav-item routerLinkActive  active\" >\r\n        <a class=\"nav-link mr-3\" routerLink=\"/home\" routerLinkActive=\"defaultLightBlue\" \r\n            [routerLinkActiveOptions]=\"{exact: true}\">Home <span class=\"sr-only\">(current)</span></a>\r\n      </li>\r\n      <li *ngIf=\"!userLoggedIn\" class=\"nav-item routerLinkActive active\" >\r\n        <a class=\"nav-link mr-3\" routerLink=\"/login\" routerLinkActive=\"defaultLightBlue\">Login</a>\r\n      </li>\r\n      <li *ngIf=\"!userLoggedIn\" class=\"nav-item routerLinkActive active\" >\r\n        <a class=\"nav-link mr-3\" routerLink=\"/register\" routerLinkActive=\"defaultLightBlue\">Register</a>\r\n      </li>\r\n      <li *ngIf=\"userLoggedIn\" class=\"nav-item routerLinkActive active\" >\r\n        <a class=\"nav-link mr-3\" routerLink=\"/profile\" routerLinkActive=\"defaultLightBlue\">Profile</a>\r\n      </li>\r\n      <li *ngIf=\"userLoggedIn\" class=\"nav-item routerLinkActive active dropdown\" dropdown>\r\n        <a class=\"nav-link mr-3 dropdown-toggle\" [ngClass]=\"{'defaultLightBlue' : dropActive}\" dropdownToggle href=\"javascript:void(0);\" role=\"button\">Session{{ activeSession  }}</a>\r\n        <div class=\"dropdown-menu bg-light active\" *dropdownMenu aria-labelledby=\"navbarDropdown\">\r\n          <a class=\"dropdown-item  h4\" routerLink=\"/session-one\" routerLinkActive=\"defaultLightBlue\">Session One</a>\r\n          <a class=\"dropdown-item  h4\" routerLink=\"/session-two\" routerLinkActive=\"defaultLightBlue\">Session Two</a>\r\n          <a class=\"dropdown-item  h4\" routerLink=\"/session-three\" routerLinkActive=\"defaultLightBlue\">Session Three</a>\r\n          <div class=\"dropdown-divider\"></div>\r\n          <a class=\"dropdown-item  h4\" routerLink=\"/case-study\" routerLinkActive=\"defaultLightBlue\">Case Study</a>\r\n        </div>\r\n      </li>\r\n      <li *ngIf=\"userLoggedIn\" class=\"nav-item routerLinkActive d-flex align-items-center routerLinkActive\" \r\n           routerLinkActive=\"defaultLightBlue\" >\r\n        <button mat-button color=\"accent\" (click)=\"logout()\" routerLink=\"/login\">Log Out</button>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"navbar-brand\" routerLink=\"/\" (mouseover)=\"hover=true\" (mouseleave)=\"hover=false\">\r\n    <span class=\"logoBlue\">< </span>\r\n    <span class=\"logoWhite\">Project</span>\r\n    <span class=\"logoBlue\">Sensei</span>\r\n    <span class=\"logoWhite\"> ></span>\r\n  </div>\r\n</div>\r\n</nav>\r\n\r\n<div class=\"container-fluid\">\r\n    <div class=\"col-11 center\">\r\n      <div class=\"m-t-1\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n    </div>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -122,30 +126,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/authentication.service */ "./frontend/src/app/services/authentication.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services_user_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/user/user.service */ "./frontend/src/app/services/user/user.service.ts");
 
 
 
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(auth, router) {
-        this.auth = auth;
+    function AppComponent(router, userService) {
+        var _this = this;
         this.router = router;
+        this.userService = userService;
         this.hideSidebar = ['/register', '/login'];
         // Dropdown Menu Variables
         this.isCollapsed = true;
         this.dropActive = false;
         this.activeSession = '';
         this.route = '';
-    }
-    AppComponent.prototype.ngOnInit = function () {
-        // this.getUser();
-        var _this = this;
-        this.router.events
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(function (e) { return e instanceof _angular_router__WEBPACK_IMPORTED_MODULE_3__["NavigationEnd"]; }))
+        router.events
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (e) { return e instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]; }))
             .subscribe(function (navEnd) {
             _this.route = navEnd.urlAfterRedirects;
             switch (navEnd.urlAfterRedirects) {
@@ -170,7 +171,19 @@ var AppComponent = /** @class */ (function () {
                     _this.activeSession = '';
                     break;
             }
+            _this.userLoggedIn = _this.userService.isLoggedIn();
         });
+    }
+    AppComponent.prototype.ngOnInit = function () {
+        // this.userService.createUser();
+        // this.sessionService.getSessionStructure();
+        // this.sessionService.getAllSessions();
+    };
+    AppComponent.prototype.logout = function () {
+        this.userService.destroyUser();
+        // this.userLoggedIn = false;
+    };
+    AppComponent.prototype.login = function () {
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -182,7 +195,7 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./frontend/src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.scss */ "./frontend/src/app/app.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -215,15 +228,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/login/login.component */ "./frontend/src/app/components/login/login.component.ts");
 /* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/profile/profile.component */ "./frontend/src/app/components/profile/profile.component.ts");
 /* harmony import */ var _components_quiz_quiz_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/quiz/quiz.component */ "./frontend/src/app/components/quiz/quiz.component.ts");
-/* harmony import */ var _components_session_template_session_one_session_one_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/session-template/session-one/session-one.component */ "./frontend/src/app/components/session-template/session-one/session-one.component.ts");
-/* harmony import */ var _components_session_template_session_two_session_two_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/session-template/session-two/session-two.component */ "./frontend/src/app/components/session-template/session-two/session-two.component.ts");
-/* harmony import */ var _components_session_template_session_three_session_three_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/session-template/session-three/session-three.component */ "./frontend/src/app/components/session-template/session-three/session-three.component.ts");
+/* harmony import */ var _components_session_session_one_session_one_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/session/session-one/session-one.component */ "./frontend/src/app/components/session/session-one/session-one.component.ts");
+/* harmony import */ var _components_session_session_two_session_two_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/session/session-two/session-two.component */ "./frontend/src/app/components/session/session-two/session-two.component.ts");
+/* harmony import */ var _components_session_session_three_session_three_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/session/session-three/session-three.component */ "./frontend/src/app/components/session/session-three/session-three.component.ts");
 /* harmony import */ var _components_case_study_case_study_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/case-study/case-study.component */ "./frontend/src/app/components/case-study/case-study.component.ts");
-/* harmony import */ var _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/sidebar/sidebar.component */ "./frontend/src/app/components/sidebar/sidebar.component.ts");
+/* harmony import */ var _components_session_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/session/sidebar/sidebar.component */ "./frontend/src/app/components/session/sidebar/sidebar.component.ts");
 /* harmony import */ var _modules_material_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./modules/material.module */ "./frontend/src/app/modules/material.module.ts");
 /* harmony import */ var _components_lesson_lesson_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/lesson/lesson.component */ "./frontend/src/app/components/lesson/lesson.component.ts");
 /* harmony import */ var _components_activity_activity_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/activity/activity.component */ "./frontend/src/app/components/activity/activity.component.ts");
 /* harmony import */ var _components_activity_list_maker_list_maker_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/activity/list-maker/list-maker.component */ "./frontend/src/app/components/activity/list-maker/list-maker.component.ts");
+/* harmony import */ var _models_user_user__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./models/user/user */ "./frontend/src/app/models/user/user.ts");
+/* harmony import */ var _services_resolvers_session_resolver_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/resolvers/session-resolver.service */ "./frontend/src/app/services/resolvers/session-resolver.service.ts");
+/* harmony import */ var _services_session_session_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/session/session.service */ "./frontend/src/app/services/session/session.service.ts");
+/* harmony import */ var _services_resolvers_user_resolver_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./services/resolvers/user-resolver.service */ "./frontend/src/app/services/resolvers/user-resolver.service.ts");
+/* harmony import */ var _services_user_user_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./services/user/user.service */ "./frontend/src/app/services/user/user.service.ts");
+
+
+
+
+
 
 
 
@@ -255,7 +278,9 @@ var AppModule = /** @class */ (function () {
             entryComponents: [
                 _components_home_home_component__WEBPACK_IMPORTED_MODULE_9__["HomeComponent"],
                 _components_lesson_lesson_component__WEBPACK_IMPORTED_MODULE_20__["LessonComponent"],
-                _components_activity_activity_component__WEBPACK_IMPORTED_MODULE_21__["ActivityComponent"]
+                _components_activity_activity_component__WEBPACK_IMPORTED_MODULE_21__["ActivityComponent"],
+                _components_quiz_quiz_component__WEBPACK_IMPORTED_MODULE_13__["QuizComponent"],
+                _components_activity_list_maker_list_maker_component__WEBPACK_IMPORTED_MODULE_22__["ListMakerComponent"]
             ],
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
@@ -264,11 +289,11 @@ var AppModule = /** @class */ (function () {
                 _components_login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"],
                 _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__["ProfileComponent"],
                 _components_quiz_quiz_component__WEBPACK_IMPORTED_MODULE_13__["QuizComponent"],
-                _components_session_template_session_one_session_one_component__WEBPACK_IMPORTED_MODULE_14__["SessionOneComponent"],
-                _components_session_template_session_two_session_two_component__WEBPACK_IMPORTED_MODULE_15__["SessionTwoComponent"],
-                _components_session_template_session_three_session_three_component__WEBPACK_IMPORTED_MODULE_16__["SessionThreeComponent"],
+                _components_session_session_one_session_one_component__WEBPACK_IMPORTED_MODULE_14__["SessionOneComponent"],
+                _components_session_session_two_session_two_component__WEBPACK_IMPORTED_MODULE_15__["SessionTwoComponent"],
+                _components_session_session_three_session_three_component__WEBPACK_IMPORTED_MODULE_16__["SessionThreeComponent"],
                 _components_case_study_case_study_component__WEBPACK_IMPORTED_MODULE_17__["CaseStudyComponent"],
-                _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_18__["SidebarComponent"],
+                _components_session_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_18__["SidebarComponent"],
                 _components_lesson_lesson_component__WEBPACK_IMPORTED_MODULE_20__["LessonComponent"],
                 _components_activity_activity_component__WEBPACK_IMPORTED_MODULE_21__["ActivityComponent"],
                 _components_activity_list_maker_list_maker_component__WEBPACK_IMPORTED_MODULE_22__["ListMakerComponent"]
@@ -286,7 +311,8 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
+            providers: [_models_user_user__WEBPACK_IMPORTED_MODULE_23__["User"], _services_resolvers_session_resolver_service__WEBPACK_IMPORTED_MODULE_24__["SessionResolverService"], _services_resolvers_user_resolver_service__WEBPACK_IMPORTED_MODULE_26__["UserResolverService"], _services_user_user_service__WEBPACK_IMPORTED_MODULE_27__["UserService"], _services_session_session_service__WEBPACK_IMPORTED_MODULE_25__["SessionService"]]
         })
     ], AppModule);
     return AppModule;
@@ -303,7 +329,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div mat-dialog-header class=\"m-3\">\r\n  <h1 class=\"center text-capitalize\">{{ activity$.title }}</h1>\r\n</div>\r\n<div mat-dialog-content class=\"h-100 activity-component\">\r\n  <mat-card class=\"activity-card-content\">\r\n    <!-- <mat-card-header>\r\n        <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>\r\n      </mat-card-header> -->\r\n    <mat-card-content class=\"activity-component\">\r\n      <!-- <app-activity *ngIf=\"activity$.type == 'listMaker'\"></app-activity> -->\r\n\r\n    </mat-card-content>\r\n  </mat-card>\r\n</div>\r\n<div class=\"center d-flex justify-content-center m-3\">\r\n  <button class=\"btn btn-lg btn-outline-success\" (click)=\"onSubmit();\">Continue</button>\r\n  <h4 class=\"text-monospace ml-5\">OR Press Enter to Continue</h4>\r\n</div>\r\n<div mat-dialog-actions class=\"d-flex justify-content-center m-1\">\r\n  <button class=\"btn-outline-danger col-11\" mat-button [mat-dialog-close]=\"data.lessonComplete\" cdkFocusInitial>Close\r\n    Activity</button>\r\n</div>\r\n"
+module.exports = "<div mat-dialog-header class=\"m-3\">\r\n  <h1 class=\"center text-capitalize\">{{ activity$.title }}</h1>\r\n</div>\r\n<div mat-dialog-content class=\"h-100 activity-component\">\r\n  <mat-card class=\"activity-card-content\">\r\n    <!-- <mat-card-header>\r\n        <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>\r\n      </mat-card-header> -->\r\n    <mat-card-content class=\"activity-component\">\r\n      <div *ngIf=\"activity$.type == 'listMaker'\" class=\"content-fluid\">\r\n      <app-list-maker></app-list-maker>\r\n    </div>\r\n    </mat-card-content>\r\n  </mat-card>\r\n</div>\r\n<div class=\"center d-flex justify-content-center m-3\">\r\n  <button class=\"btn btn-lg btn-outline-primary mr-5\" (click)=\"previous();\">Prev</button>\r\n  <button class=\"btn btn-lg btn-outline-success ml-5\" (click)=\"continue();\">Next</button>\r\n</div>\r\n<div mat-dialog-actions class=\"d-flex justify-content-center m-1\">\r\n  <button class=\"btn-outline-danger col-11\" mat-button [mat-dialog-close]=\"activity$\" cdkFocusInitial>Close\r\n    Activity</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -332,20 +358,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_models_session_activity_activity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/models/session/activity/activity */ "./frontend/src/app/models/session/activity/activity.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
 
 
 
 
 var ActivityComponent = /** @class */ (function () {
-    function ActivityComponent(router, dialogRef, data) {
-        this.router = router;
+    function ActivityComponent(dialogRef, data) {
         this.dialogRef = dialogRef;
         this.data = data;
-        this.activity$ = new src_app_models_session_activity_activity__WEBPACK_IMPORTED_MODULE_2__["Activity"](this.data.selectedActivity);
+        this.activity$ = this.data.selectedTask;
     }
-    ActivityComponent.prototype.ngOnInit = function () { };
+    ActivityComponent.prototype.ngOnInit = function () {
+        this.activity$.completed = false;
+    };
+    ActivityComponent.prototype.getActivity = function () {
+        // return this.activity$.type === 'listMaker' ? true : false;
+    };
+    ActivityComponent.prototype.onSubmit = function () {
+        this.activity$.completed = true;
+    };
+    ActivityComponent.prototype.completed = function () {
+        return this.activity$.completed;
+    };
+    ActivityComponent.prototype.continue = function () {
+    };
+    ActivityComponent.prototype.previous = function () {
+    };
     ActivityComponent.prototype.onNoClick = function () {
         this.dialogRef.close();
     };
@@ -359,8 +397,8 @@ var ActivityComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./activity.component.html */ "./frontend/src/app/components/activity/activity.component.html"),
             styles: [__webpack_require__(/*! ./activity.component.scss */ "./frontend/src/app/components/activity/activity.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], src_app_models_session_activity_activity__WEBPACK_IMPORTED_MODULE_2__["Activity"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], src_app_models_session_activity_activity__WEBPACK_IMPORTED_MODULE_2__["Activity"]])
     ], ActivityComponent);
     return ActivityComponent;
 }());
@@ -376,7 +414,7 @@ var ActivityComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  list-maker works!\n</p>\n"
+module.exports = "<h1>\n  list-maker works!\n</h1>\n<section class=\"listapp\">\n    <header class=\"header\">\n      <h1>Product Backlog</h1>\n      <input class=\"new-list\" placeholder=\"Insert a Requirement\" autofocus=\"\" [(ngModel)]=\"newList.title\" (keyup.enter)=\"addList()\">\n    </header>\n    <section class=\"main\" *ngIf=\"lists.length > 0\">\n      <ul class=\"list\">\n        <li *ngFor=\"let item of lists\" [class.completed]=\"item.complete\">\n          <div class=\"view\">\n            <input class=\"toggle\" type=\"checkbox\" [checked]=\"item.complete\">\n            <label>{{list.title}}</label>\n          </div>\n        </li>\n      </ul>\n    </section>\n    <footer class=\"footer\" *ngIf=\"lists.length > 0\">\n      <span class=\"list-count\"><strong>{{lists.length}}</strong> {{lists.length == 1 ? 'item' : 'items'}} left</span>\n    </footer>\n  </section>"
 
 /***/ }),
 
@@ -395,30 +433,114 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*!*********************************************************************************!*\
   !*** ./frontend/src/app/components/activity/list-maker/list-maker.component.ts ***!
   \*********************************************************************************/
-/*! exports provided: ListMakerComponent */
+/*! exports provided: List, ListMakerComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "List", function() { return List; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListMakerComponent", function() { return ListMakerComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _list_maker_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./list-maker.service */ "./frontend/src/app/components/activity/list-maker/list-maker.service.ts");
 
+
+
+var List = /** @class */ (function () {
+    function List(values) {
+        if (values === void 0) { values = {}; }
+        this.title = '';
+        this.description = '';
+        this.complete = false;
+        Object.assign(this, values);
+    }
+    return List;
+}());
 
 var ListMakerComponent = /** @class */ (function () {
-    function ListMakerComponent() {
+    function ListMakerComponent(listMaker) {
+        this.listMaker = listMaker;
+        this.item = new List();
     }
     ListMakerComponent.prototype.ngOnInit = function () {
     };
+    ListMakerComponent.prototype.addList = function () {
+        this.listMaker.addList(this.item);
+        this.item = new List();
+    };
+    ListMakerComponent.prototype.removeList = function (item) {
+        this.listMaker.deleteListById(item.id);
+    };
+    Object.defineProperty(ListMakerComponent.prototype, "list", {
+        get: function () {
+            return this.listMaker.getAllLists();
+        },
+        enumerable: true,
+        configurable: true
+    });
     ListMakerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-list-maker',
             template: __webpack_require__(/*! ./list-maker.component.html */ "./frontend/src/app/components/activity/list-maker/list-maker.component.html"),
             styles: [__webpack_require__(/*! ./list-maker.component.scss */ "./frontend/src/app/components/activity/list-maker/list-maker.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_list_maker_service__WEBPACK_IMPORTED_MODULE_2__["ListMakerService"]])
     ], ListMakerComponent);
     return ListMakerComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./frontend/src/app/components/activity/list-maker/list-maker.service.ts":
+/*!*******************************************************************************!*\
+  !*** ./frontend/src/app/components/activity/list-maker/list-maker.service.ts ***!
+  \*******************************************************************************/
+/*! exports provided: ListMakerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListMakerService", function() { return ListMakerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var ListMakerService = /** @class */ (function () {
+    function ListMakerService() {
+        this.id = 0;
+        this.list = [];
+    }
+    // Simulate POST /Lists
+    ListMakerService.prototype.addList = function (list) {
+        if (!list.id) {
+            list.id = ++this.id;
+        }
+        this.list.push(list);
+        return this;
+    };
+    // Simulate DELETE /Lists/:id
+    ListMakerService.prototype.deleteListById = function (id) {
+        this.list = this.list
+            .filter(function (List) { return List.id !== id; });
+        return this;
+    };
+    ListMakerService.prototype.getAllLists = function () {
+        return this.list;
+    };
+    ListMakerService.prototype.getListById = function (id) {
+        return this.list
+            .filter(function (List) { return List.id === id; })
+            .pop();
+    };
+    ListMakerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], ListMakerService);
+    return ListMakerService;
 }());
 
 
@@ -544,7 +666,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div mat-dialog-header class=\"m-3\">\n  <h1 class=\"center text-capitalize\">{{ lesson$.title }}</h1>\n</div>\n<div mat-dialog-content class=\"h-100 lesson-component\">\n  <mat-card class=\"session-card-content lesson-component mat-card\">\n    <!-- <mat-card-header>\n        <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>\n      </mat-card-header> -->\n    <mat-card-content class=\"lesson-component\">\n      <h2>{{ lesson$.content }}</h2>\n    </mat-card-content>\n  </mat-card>\n</div>\n<div class=\"center d-flex justify-content-center m-3\">\n  <button class=\"btn btn-lg btn-outline-success\" (click)=\"onSubmit();\">Continue</button>\n  <h4 class=\"text-monospace ml-5\">OR Press Enter to Continue</h4>\n</div>\n<div mat-dialog-actions class=\"d-flex justify-content-center m-1\">\n  <button class=\"btn-outline-danger col-11\" mat-button [mat-dialog-close]=\"data.lessonComplete\" cdkFocusInitial>Close\n    Lesson</button>\n</div>\n"
+module.exports = "<div mat-dialog-header class=\"m-3\">\n  <h1 class=\"center text-capitalize\">{{ lesson$.title }}</h1>\n</div>\n<div mat-dialog-content class=\"h-100 lesson-component\">\n  <mat-card class=\"session-card-content lesson-component mat-card\">\n    <!-- <mat-card-header>\n        <mat-card-title>Quiz Time! - {{ mcqName }}</mat-card-title>\n      </mat-card-header> -->\n    <mat-card-content class=\"lesson-component\">\n      <h2>{{ lesson$.content }}</h2>\n    </mat-card-content>\n  </mat-card>\n</div>\n<div class=\"center d-flex justify-content-center m-3\">\n  <button class=\"btn btn-lg btn-outline-success\" (click)=\"onSubmit();\">Continue</button>\n  <h4 class=\"text-monospace ml-5\">OR Press Enter to Continue</h4>\n</div>\n<div mat-dialog-actions class=\"d-flex justify-content-center m-1\">\n  <button (click)=\"onSubmit()\" class=\"btn-outline-danger col-11\" mat-button [mat-dialog-close]=\"lesson$\" cdkFocusInitial>Close\n    Lesson</button>\n</div>\n"
 
 /***/ }),
 
@@ -581,9 +703,18 @@ var LessonComponent = /** @class */ (function () {
     function LessonComponent(dialogRef, data) {
         this.dialogRef = dialogRef;
         this.data = data;
-        this.lesson$ = new src_app_models_session_lesson_lesson__WEBPACK_IMPORTED_MODULE_3__["Lesson"](this.data.selectedLesson);
+        this.lesson$ = this.data.selectedTask;
     }
-    LessonComponent.prototype.ngOnInit = function () { };
+    LessonComponent.prototype.ngOnInit = function () {
+        this.lesson$.completed = false;
+    };
+    LessonComponent.prototype.onSubmit = function () {
+        this.lesson$.completed = true;
+    };
+    LessonComponent.prototype.completed = function () {
+        this.onSubmit();
+        return this.lesson$.completed;
+    };
     LessonComponent.prototype.onNoClick = function () {
         this.dialogRef.close();
     };
@@ -641,28 +772,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./frontend/src/app/services/authentication.service.ts");
+/* harmony import */ var src_app_services_authentication_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication/authentication.service */ "./frontend/src/app/services/authentication/authentication.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var src_app_app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/app.component */ "./frontend/src/app/app.component.ts");
+/* harmony import */ var src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/user/user.service */ "./frontend/src/app/services/user/user.service.ts");
 
 
 
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(auth, router) {
+    function LoginComponent(auth, router, userService) {
         this.auth = auth;
         this.router = router;
+        this.userService = userService;
         this.user = {
             username: '',
             password: ''
         };
-        this.appComponent = new src_app_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"](this.auth, this.router);
     }
+    // appComponent = new AppComponent(this.auth, this.router);
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.auth.login(this.user).subscribe(function () {
-            alert('Login Successful! Welcome ' + _this.user.username);
+            _this.userService.createUser();
+            // alert('Login Successful! Welcome ' + this.user.username);
             _this.router.navigateByUrl('/home');
             // this.appComponent.getUser();
         }, function (err) {
@@ -676,7 +809,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./frontend/src/app/components/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.scss */ "./frontend/src/app/components/login/login.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -719,28 +852,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./frontend/src/app/services/authentication.service.ts");
+/* harmony import */ var src_app_services_authentication_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication/authentication.service */ "./frontend/src/app/services/authentication/authentication.service.ts");
+/* harmony import */ var src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/user/user.service */ "./frontend/src/app/services/user/user.service.ts");
+
 
 
 
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent(auth) {
+    function ProfileComponent(auth, userService) {
         this.auth = auth;
+        this.userService = userService;
     }
     ProfileComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.auth.profile().subscribe(function (user) {
-            _this.user = user;
-        }, function (err) {
-            console.error(err);
-        });
+        this.user = this.userService.getUser();
     };
     ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             template: __webpack_require__(/*! ./profile.component.html */ "./frontend/src/app/components/profile/profile.component.html"),
             styles: [__webpack_require__(/*! ./profile.component.scss */ "./frontend/src/app/components/profile/profile.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
     ], ProfileComponent);
     return ProfileComponent;
 }());
@@ -756,7 +887,7 @@ var ProfileComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-5\">\r\n  <div mat-dialog-header class=\"m-3\">\r\n    <div class=\"row\">\r\n      <mat-chip-list>\r\n        <mat-chip class=\"mr-2 ml-sm-4\" [ngClass]=\"{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz'}\">Question\r\n          {{pager.index + 1}} of {{pager.count}}</mat-chip>\r\n      </mat-chip-list>\r\n      <h1 class=\"center text-capitalize mt-sm-3\">Quiz Time! - {{ quizName }}</h1>\r\n      <mat-chip-list>\r\n        <mat-chip *ngIf=\"config.duration\" [ngClass]=\"{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz' }\"\r\n          class=\"ml-2\">Time: {{ellapsedTime}} / {{duration}}</mat-chip>\r\n      </mat-chip-list>\r\n    </div>\r\n  </div>\r\n  <div mat-dialog-content class=\"h-100\">\r\n    <mat-card style=\"width:auto\">\r\n      <!-- <mat-card-header>\r\n          <mat-card-title>Quiz Time! - {{ quizName }}</mat-card-title>\r\n        </mat-card-header> -->\r\n      <mat-card-content>\r\n        <div id=\"quiz\">\r\n          <div *ngIf=\"mode=='quiz' && quiz$\">\r\n            <div *ngFor=\"let question of filteredQuestions;\">\r\n              <h3 class=\"center font-weight-normal mt-5 mb-5\">{{pager.index + 1}}.\r\n                <span [innerHTML]=\"question.name\"></span>\r\n              </h3>\r\n              <div class=\"col-12 row text-left options\">\r\n                <div class=\"center\" *ngFor=\"let option of question.options\">\r\n                  <div class=\"option ml-5 mr-5\">\r\n                    <label class=\"font-weight-normal\" [attr.for]=\"option.id\">\r\n                      <input id=\"{{option.id}}\" type=\"checkbox\" [(ngModel)]=\"option.selected\"\r\n                        (change)=\"onSelect(question, option);\" required /> {{option.name}}\r\n                      <!-- <mat-radio-group aria-label=\"Select an option\">\r\n                        <mat-radio-button id=\"{{option.id}}\" [(ngModel)]=\"option.selected\"\r\n                          (change)=\"onSelect(question, option);\" ngDefaultControl> {{option.name}} </mat-radio-button>\r\n                        </mat-radio-group> -->\r\n                    </label>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <hr />\r\n            <div class=\"text-center\">\r\n              <!-- <button class=\"btn btn-default\" *ngIf=\"config.allowBack\" (click)=\"goTo(0);\">First</button> -->\r\n              <button class=\"btn btn-lg btn-primary mr-4 ml-4 mt-3 mb-3\" *ngIf=\"pager.index != 0\"\r\n                (click)=\"goTo(pager.index - 1);\">Prev</button>\r\n              <button class=\"btn btn-lg btn-primary mr-4 ml-4 mt-3 mb-3\" *ngIf=\"pager.index != 9\"\r\n                (click)=\"goTo(pager.index + 1);\">Next</button>\r\n              <!-- <button class=\"btn btn-default\" *ngIf=\"config.allowBack\" (click)=\"goTo(pager.count - 1);\">Last</button> -->\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"row text-center\" *ngIf=\"mode=='review'\">\r\n            <div class=\"col-4 cursor-pointer\" *ngFor=\"let question of quiz$.questions; let index = index;\">\r\n              <div (click)=\"goTo(index)\"\r\n                class=\"p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}\">{{index + 1}}.\r\n                {{ isAnswered(question) }}</div>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"result\" [ngClass]=\"\" *ngIf=\"mode=='result'\">\r\n            <h2 class=\"center\">Results: {{ quizResults }}%</h2>\r\n            <div *ngFor=\"let question of quiz$.questions; let index = index\">\r\n              <div class=\"p-1 m-2 alert {{ isCorrect(question) ? 'alert-success': 'alert-danger'}}\">\r\n                <div class=\"result-question \">\r\n                  <h5 class=\"font-weight-normal mb-3 mt-3 center\">{{index + 1}}. {{question.name}}</h5>\r\n                  <!-- <div class=\"text-nowrap ml-3 col d-flex justify-content-start row\"> -->\r\n                  <div class=\"text-monospace\">\r\n                    <div class=\"m-3\" style=\"font-size: 12px;font-weight: 500;\" *ngFor=\"let Option of question.options\">\r\n                      <input id=\"{{Option.id}}\" type=\"checkbox\" disabled=\"disabled\" [(ngModel)]=\"Option.selected\" />\r\n                      {{Option.name}}\r\n                    </div>\r\n                  </div>\r\n                  <h5 class=\"m-3 center\"> Your answer is {{isCorrect(question) ? 'Correct': 'Incorrect'}}.</h5>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <hr />\r\n          <div class=\"d-flex justify-content-center row\" *ngIf=\"mode!='result'\">\r\n            <!-- <button class=\"btn btn-lg btn-default ml-4 mr-4\" (click)=\"mode = 'quiz'\">Quiz</button>\r\n              <button class=\"btn btn-lg btn-info ml-4 mr-4\" (click)=\"mode = 'review'\">Review</button> -->\r\n            <button class=\"btn btn-lg btn-danger ml-4 mt-4 mr-4\" (click)=\"exitQuiz();\">Exit Quiz</button>\r\n            <button class=\"btn btn-lg btn-success ml-4 mt-4 mr-4\" (click)=\"onSubmit();\">Submit Quiz</button>\r\n          </div>\r\n        </div>\r\n      </mat-card-content>\r\n    </mat-card>\r\n  </div>\r\n  <div mat-dialog-actions [ngClass]=\"{'hidden' : mode != 'result'}\" class=\"h-100\">\r\n    <button *ngIf=\"mode == 'result'\" class=\"col\" mat-button [mat-dialog-close]=\"data.completed\" cdkFocusInitial>Save and\r\n      Close</button>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"p-5\">\r\n  <div mat-dialog-header class=\"m-3\">\r\n    <div class=\"row\">\r\n      <mat-chip-list>\r\n        <mat-chip class=\"mr-2 ml-sm-4\" [ngClass]=\"{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz'}\">Question\r\n          {{pager.index + 1}} of {{pager.count}}</mat-chip>\r\n      </mat-chip-list>\r\n      <h1 class=\"center text-capitalize mt-sm-3\">Quiz Time! - {{ quizName }}</h1>\r\n      <mat-chip-list>\r\n        <mat-chip *ngIf=\"config.duration\" [ngClass]=\"{'bg-warning': mode == 'result', 'bg-info': mode == 'quiz' }\"\r\n          class=\"ml-2\">Time: {{ellapsedTime}} / {{duration}}</mat-chip>\r\n      </mat-chip-list>\r\n    </div>\r\n  </div>\r\n  <div mat-dialog-content class=\"h-100\">\r\n    <mat-card style=\"width:auto\">\r\n      <!-- <mat-card-header>\r\n          <mat-card-title>Quiz Time! - {{ quizName }}</mat-card-title>\r\n        </mat-card-header> -->\r\n      <mat-card-content>\r\n        <div id=\"quiz\">\r\n          <div *ngIf=\"mode=='quiz' && quiz$\">\r\n            <div *ngFor=\"let question of filteredQuestions;\">\r\n              <h3 class=\"center font-weight-normal mt-5 mb-5\">{{pager.index + 1}}.\r\n                <span [innerHTML]=\"question.name\"></span>\r\n              </h3>\r\n              <div class=\"col-12 row text-left options\">\r\n                <div class=\"center\" *ngFor=\"let option of question.options\">\r\n                  <div class=\"option ml-5 mr-5\">\r\n                    <label class=\"font-weight-normal\" [attr.for]=\"option.id\">\r\n                      <input id=\"{{option.id}}\" type=\"checkbox\" [(ngModel)]=\"option.selected\"\r\n                        (change)=\"onSelect(question, option);\" required /> {{option.name}}\r\n                      <!-- <mat-radio-group aria-label=\"Select an option\">\r\n                        <mat-radio-button id=\"{{option.id}}\" [(ngModel)]=\"option.selected\"\r\n                          (change)=\"onSelect(question, option);\" ngDefaultControl> {{option.name}} </mat-radio-button>\r\n                        </mat-radio-group> -->\r\n                    </label>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <hr />\r\n            <div class=\"text-center\">\r\n              <!-- <button class=\"btn btn-default\" *ngIf=\"config.allowBack\" (click)=\"goTo(0);\">First</button> -->\r\n              <button class=\"btn btn-lg btn-primary mr-4 ml-4 mt-3 mb-3\" *ngIf=\"pager.index != 0\"\r\n                (click)=\"goTo(pager.index - 1);\">Prev</button>\r\n              <button class=\"btn btn-lg btn-primary mr-4 ml-4 mt-3 mb-3\" *ngIf=\"pager.index != 9\"\r\n                (click)=\"goTo(pager.index + 1);\">Next</button>\r\n              <!-- <button class=\"btn btn-default\" *ngIf=\"config.allowBack\" (click)=\"goTo(pager.count - 1);\">Last</button> -->\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"row text-center\" *ngIf=\"mode=='review'\">\r\n            <div class=\"col-4 cursor-pointer\" *ngFor=\"let question of quiz$.questions; let index = index;\">\r\n              <div (click)=\"goTo(index)\"\r\n                class=\"p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}\">{{index + 1}}.\r\n                {{ isAnswered(question) }}</div>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"result\" [ngClass]=\"\" *ngIf=\"mode=='result'\">\r\n            <h2 class=\"center\">Results: {{ quiz$.quizResult }}%</h2>\r\n            <div *ngFor=\"let question of quiz$.questions; let index = index\">\r\n              <div class=\"p-1 m-2 alert {{ isCorrect(question) ? 'alert-success': 'alert-danger'}}\">\r\n                <div class=\"result-question \">\r\n                  <h5 class=\"font-weight-normal mb-3 mt-3 center\">{{index + 1}}. {{question.name}}</h5>\r\n                  <!-- <div class=\"text-nowrap ml-3 col d-flex justify-content-start row\"> -->\r\n                  <div class=\"text-monospace\">\r\n                    <div class=\"m-3\" style=\"font-size: 12px;font-weight: 500;\" *ngFor=\"let Option of question.options\">\r\n                      <input id=\"{{Option.id}}\" type=\"checkbox\" disabled=\"disabled\" [(ngModel)]=\"Option.selected\" />\r\n                      {{Option.name}}\r\n                    </div>\r\n                  </div>\r\n                  <h5 class=\"m-3 center\"> Your answer is {{isCorrect(question) ? 'Correct': 'Incorrect'}}.</h5>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <hr />\r\n          <div class=\"d-flex justify-content-center row\" *ngIf=\"mode!='result'\">\r\n            <!-- <button class=\"btn btn-lg btn-default ml-4 mr-4\" (click)=\"mode = 'quiz'\">Quiz</button>\r\n              <button class=\"btn btn-lg btn-info ml-4 mr-4\" (click)=\"mode = 'review'\">Review</button> -->\r\n            <button class=\"btn btn-lg btn-danger ml-4 mt-4 mr-4\" (click)=\"exitQuiz();\">Exit Quiz</button>\r\n            <button class=\"btn btn-lg btn-success ml-4 mt-4 mr-4\" (click)=\"onSubmit();\">Submit Quiz</button>\r\n          </div>\r\n        </div>\r\n      </mat-card-content>\r\n    </mat-card>\r\n  </div>\r\n  <div mat-dialog-actions [ngClass]=\"{'hidden' : mode != 'result'}\" class=\"h-100\">\r\n    <button *ngIf=\"mode == 'result'\" class=\"col\" mat-button [mat-dialog-close]=\"quiz$\" cdkFocusInitial>Save and\r\n      Close</button>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -785,15 +916,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_models_session_quiz__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/models/session/quiz */ "./frontend/src/app/models/session/quiz/index.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
+/* harmony import */ var src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/user/user.service */ "./frontend/src/app/services/user/user.service.ts");
+
 
 
 
 
 var QuizComponent = /** @class */ (function () {
-    function QuizComponent(dialogRef, data) {
+    function QuizComponent(dialogRef, data, userService) {
         var _this = this;
         this.dialogRef = dialogRef;
         this.data = data;
+        this.userService = userService;
         this.mode = 'quiz';
         this.config = {
             autoMove: false,
@@ -812,7 +946,7 @@ var QuizComponent = /** @class */ (function () {
         this.questionsAnswered = 0;
         this.correctAnswers = 0;
         this.quizResult = 0;
-        this.quiz$ = this.data.selectedQuiz;
+        this.quiz$ = this.data.selectedTask;
         this.quizName = this.quiz$.name;
         this.pager.count = this.quiz$.questions.length;
         this.startTime = new Date();
@@ -891,11 +1025,21 @@ var QuizComponent = /** @class */ (function () {
             });
         });
         // QUIZ RESULT AS A PERCENTAGE
-        this.quizResult = this.correctAnswers * 10;
+        this.updateQuizData();
+        console.log(this.quiz$.completed);
+        // this.userService.updateUser(this.quiz$.completed);
         // Post your data to the server here. answers contains the questionId and the users' answer.
         // console.log(this.quiz$.questions);
-        this.quiz$.quizResult = this.quizResult;
-        console.log('Quiz Results: ', this.quiz$.quizResult);
+        // console.log('Quiz Results: ', this.quiz$.quizResult);
+    };
+    QuizComponent.prototype.completed = function () {
+        return this.quiz$.completed;
+    };
+    QuizComponent.prototype.updateQuizData = function () {
+        this.quiz$.quizResult = this.correctAnswers * 10;
+        if (this.quiz$.quizResult >= 80) {
+            this.quiz$.completed = true;
+        }
     };
     QuizComponent.prototype.exitQuiz = function () {
         this.quiz$ = null;
@@ -908,7 +1052,7 @@ var QuizComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./quiz.component.scss */ "./frontend/src/app/components/quiz/quiz.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], src_app_models_session_quiz__WEBPACK_IMPORTED_MODULE_2__["Quiz"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], src_app_models_session_quiz__WEBPACK_IMPORTED_MODULE_2__["Quiz"], src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
     ], QuizComponent);
     return QuizComponent;
 }());
@@ -952,7 +1096,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/authentication.service */ "./frontend/src/app/services/authentication.service.ts");
+/* harmony import */ var src_app_services_authentication_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/authentication/authentication.service */ "./frontend/src/app/services/authentication/authentication.service.ts");
 
 
 
@@ -962,6 +1106,7 @@ var RegisterComponent = /** @class */ (function () {
         this.auth = auth;
         this.router = router;
         this.user = {
+            _id: '',
             username: '',
             name: '',
             email: '',
@@ -984,7 +1129,7 @@ var RegisterComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./register.component.html */ "./frontend/src/app/components/register/register.component.html"),
             styles: [__webpack_require__(/*! ./register.component.scss */ "./frontend/src/app/components/register/register.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], RegisterComponent);
     return RegisterComponent;
 }());
@@ -993,21 +1138,21 @@ var RegisterComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./frontend/src/app/components/session-template/session-one/session-one.component.html":
-/*!*********************************************************************************************!*\
-  !*** ./frontend/src/app/components/session-template/session-one/session-one.component.html ***!
-  \*********************************************************************************************/
+/***/ "./frontend/src/app/components/session/session-one/session-one.component.html":
+/*!************************************************************************************!*\
+  !*** ./frontend/src/app/components/session/session-one/session-one.component.html ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"title-label\">Session <span class=\"defaultLightBlue\">One</span></p>\r\n<!-- SIDE BAR COMPONENT -->\r\n<div class=\"m-t-1\">\r\n  <app-sidebar></app-sidebar>\r\n</div>\r\n<div class=\"row mt-2\">\r\n  <div *ngIf=\"user$\" class=\"col-11 custom-modal mt-sm-3\" style=\"max-width:1000px\">\r\n    <div class=\"row\">\r\n      <div class=\"center col-11 mb-5 mt-5 text-justify\">\r\n        <h2 class=\"center\">Session 1 Lessons</h2>\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <h2 class=\"center\">Agile</h2>\r\n        <hr class=\"shadow-sm\">\r\n        <!-- BEGINNING OF AGILE LESSONS -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- AGILE INTRODCUTION -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Introduction to Agile</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                In this lesson we will introduce you to the Agile Methodology, teach you about Agile's History and tell\r\n                you\r\n                how popular Agile is today\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openLesson('agile-intro')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- AGILE MANIFESTO -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>The Agile Manifesto</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                In this lesson we will discuss the Agile Manifesto, we will be dicussing the 12 core priciples and\r\n                explain what they mean.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('agile-manifesto')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- AGILE EFFECT -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>The Agile Effect</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1543286386-2e659306cd6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                In this lesson we will discuss the Meaning of The Agile Effect and the difference Agile can make.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('agile-effect')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- AGILE QUIZ -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Quiz Time!</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This quiz will test your knowledge on Agile\r\n                Completing this quiz will allow you to proceed to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openQuiz('agile')\">Start Quiz</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n        <!-- END OF AGILE LESSONS -->\r\n\r\n        <hr class=\"shadow-sm\">\r\n        <h2 class=\"center\">Scrum</h2>\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- BEGINNING OF SCRUM LESSONS -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- SCRUM INTRODUCTION -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Introduction to Agile Frameworks</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                Explaining what Agile Frameworks are.\r\n                The most commonly used Frameworks.\r\n                Introducing Scrum.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('scrum-intro')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM HISTORY -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>The History of Scrum</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1458040937381-49c067dfd49a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                How Scrum came to be.\r\n                How Popular Scrum is.\r\n                How Scrum is used today.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('scrum-history')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM VALUE -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Guide</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1504807959081-3dafd3871909?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                What the Scrum Guide is.\r\n                What Scrums principles and values are.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('scrum')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM VALUE -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Framework</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                What Sprints are and what they consist of.\r\n                How work is measure in Scrum.\r\n                What the Scrum Roles are and what they mean.\r\n                What the Scrum Events are.\r\n                What other Resources Scrum utilises.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('scrum-framework')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EXAMPLE -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>An Example Scrum</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                What each role does on a day-to-day basis.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('scrum-example')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM QUIZ -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Quiz Time!</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This quiz will test your knowledge on Scrum\r\n                Completing this quiz will allow you to proceed to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openQuiz('scrum')\">Start Quiz</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n        <!-- END OF SCRUM LESSONS -->\r\n\r\n        <hr class=\"shadow-sm\">\r\n        <h2 class=\"center\">Case Study</h2>\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- BEGINNING OF CASE STUDY LESSONS -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- CASE STUDY LESSON 1 -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n\r\n              <mat-card-title>Introduction to Case Study</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Case Study Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                We will introduce the Case Study.\r\n                What your position is in the Case Study.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('case-study-intro')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- CASE STUDY LESSON 2 -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n\r\n              <mat-card-title>Product Backlog</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80\"\r\n              alt=\"Case Study Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                Based on the Case Study and Your Position in the Case Study you will be required to create a list of\r\n                requirements which will be known as the Product Backlog.\r\n                A Submission of the Product Backlog will allow you to continue to the next stage.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg  \"\r\n                  (click)=\"openActivity('case-study-backlog')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- CASE STUDY QUIZ -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n\r\n              <mat-card-title>Quiz Time!</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\"\r\n              alt=\"Case Study Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This quiz will test your knowledge on Case Study\r\n                Completing this quiz will allow you to proceed to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openQuiz('case-study')\">Start Quiz</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<p class=\"title-label\">Session <span class=\"defaultLightBlue\">One</span></p>\r\n<!-- SIDE BAR COMPONENT -->\r\n<div *ngIf=\"activeSession\" class=\"m-t-1\">\r\n  <app-sidebar></app-sidebar>\r\n</div>\r\n<div class=\"row mt-2\">\r\n  <div class=\"col-11 custom-modal mt-sm-3\" style=\"max-width:1000px\">\r\n    <div class=\"row\">\r\n      <div class=\"center col-11 mb-5 mt-5 text-justify\">\r\n        <h2 class=\"center\">Session 1 Lessons</h2>\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <h2 class=\"center\">Agile</h2>\r\n        <hr class=\"shadow-sm\">\r\n        <!-- BEGINNING OF AGILE LESSONS -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- AGILE INTRODCUTION -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Introduction to Agile</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                In this lesson we will introduce you to the Agile Methodology, teach you about Agile's History and tell\r\n                you\r\n                how popular Agile is today\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openLesson('agile-intro')\">Begin Lesson</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- AGILE MANIFESTO -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>The Agile Manifesto</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                In this lesson we will discuss the Agile Manifesto, we will be dicussing the 12 core priciples and\r\n                explain what they mean.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('agile-manifesto')\">Begin Lesson</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- AGILE EFFECT -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>The Agile Effect</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1543286386-2e659306cd6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                In this lesson we will discuss the Meaning of The Agile Effect and the difference Agile can make.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('agile-effect')\">Begin Lesson</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- AGILE QUIZ -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Quiz Time!</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This quiz will test your knowledge on Agile\r\n                Completing this quiz will allow you to proceed to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openQuiz('agile')\">Start Quiz</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n        <!-- END OF AGILE LESSONS -->\r\n\r\n        <hr class=\"shadow-sm\">\r\n        <h2 class=\"center\">Scrum</h2>\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- BEGINNING OF SCRUM LESSONS -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- SCRUM INTRODUCTION -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Introduction to Agile Frameworks</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                Explaining what Agile Frameworks are.\r\n                The most commonly used Frameworks.\r\n                Introducing Scrum.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('scrum-intro')\">Begin Lesson</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM HISTORY -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>The History of Scrum</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1458040937381-49c067dfd49a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                How Scrum came to be.\r\n                How Popular Scrum is.\r\n                How Scrum is used today.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('scrum-history')\">Begin Lesson</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM VALUE -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Guide</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1504807959081-3dafd3871909?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                What the Scrum Guide is.\r\n                What Scrums principles and values are.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('scrum')\">Begin Lesson</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM VALUE -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Framework</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                What Sprints are and what they consist of.\r\n                How work is measure in Scrum.\r\n                What the Scrum Roles are and what they mean.\r\n                What the Scrum Events are.\r\n                What other Resources Scrum utilises.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('scrum-framework')\">Begin Lesson</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EXAMPLE -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>An Example Scrum</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                What each role does on a day-to-day basis.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('scrum-example')\">Begin Lesson</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM QUIZ -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Quiz Time!</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\"\r\n              alt=\"Scrum Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This quiz will test your knowledge on Scrum\r\n                Completing this quiz will allow you to proceed to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openQuiz('scrum')\">Start Quiz</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n        <!-- END OF SCRUM LESSONS -->\r\n\r\n        <hr class=\"shadow-sm\">\r\n        <h2 class=\"center\">Case Study</h2>\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- BEGINNING OF CASE STUDY LESSONS -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- CASE STUDY LESSON 1 -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n\r\n              <mat-card-title>Introduction to Case Study</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Case Study Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                We will introduce the Case Study.\r\n                What your position is in the Case Study.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg \"\r\n                  (click)=\"openLesson('case-study-intro')\">Begin Lesson</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- CASE STUDY LESSON 2 -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n\r\n              <mat-card-title>Product Backlog</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80\"\r\n              alt=\"Case Study Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                Based on the Case Study and Your Position in the Case Study you will be required to create a list of\r\n                requirements which will be known as the Product Backlog.\r\n                A Submission of the Product Backlog will allow you to continue to the next stage.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg  \"\r\n                  (click)=\"openActivity('case-study-backlog')\">Begin Lesson</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- CASE STUDY QUIZ -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n\r\n              <mat-card-title>Quiz Time!</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\"\r\n              alt=\"Case Study Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This quiz will test your knowledge on Case Study\r\n                Completing this quiz will allow you to proceed to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <!-- <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openQuiz('case-study')\">Start Quiz</button>\r\n              </mat-card-actions> -->\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
-/***/ "./frontend/src/app/components/session-template/session-one/session-one.component.ts":
-/*!*******************************************************************************************!*\
-  !*** ./frontend/src/app/components/session-template/session-one/session-one.component.ts ***!
-  \*******************************************************************************************/
+/***/ "./frontend/src/app/components/session/session-one/session-one.component.ts":
+/*!**********************************************************************************!*\
+  !*** ./frontend/src/app/components/session/session-one/session-one.component.ts ***!
+  \**********************************************************************************/
 /*! exports provided: SessionOneComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1016,110 +1161,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SessionOneComponent", function() { return SessionOneComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _quiz_quiz_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../quiz/quiz.component */ "./frontend/src/app/components/quiz/quiz.component.ts");
-/* harmony import */ var _lesson_lesson_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lesson/lesson.component */ "./frontend/src/app/components/lesson/lesson.component.ts");
-/* harmony import */ var src_app_services_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/session.service */ "./frontend/src/app/services/session.service.ts");
-/* harmony import */ var _activity_activity_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../activity/activity.component */ "./frontend/src/app/components/activity/activity.component.ts");
-/* harmony import */ var src_app_models_session_session__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/models/session/session */ "./frontend/src/app/models/session/session.ts");
-/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/authentication.service */ "./frontend/src/app/services/authentication.service.ts");
+/* harmony import */ var src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/user/user.service */ "./frontend/src/app/services/user/user.service.ts");
 
 
 
-
-
-
-
-
-
+var sessionName = 'session-one';
 var SessionOneComponent = /** @class */ (function () {
-    function SessionOneComponent(dialog, auth, sessionService) {
-        this.dialog = dialog;
-        this.auth = auth;
-        this.sessionService = sessionService;
-        this.sessionID = 1;
-        this.quiz = [];
-        this.lesson = [];
-        this.activity = [];
+    function SessionOneComponent(userService) {
+        this.userService = userService;
     }
     SessionOneComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.auth.profile().subscribe(function (user) {
-            _this.user$ = user;
-        });
-        this.sessionService.getSession(this.sessionID).then(function (session) {
-            _this.sessionOne = new src_app_models_session_session__WEBPACK_IMPORTED_MODULE_7__["Session"](session);
-            _this.sessionOne.quiz.forEach(function (q) {
-                _this.quiz.push(q);
-            });
-            _this.sessionOne.lesson.forEach(function (l) {
-                _this.lesson.push(l);
-            });
-            _this.sessionOne.activity.forEach(function (a) {
-                _this.activity.push(a);
-            });
-        });
+        this.activeSession = this.checkActiveSession();
     };
-    SessionOneComponent.prototype.openQuiz = function (quizName) {
-        var _this = this;
-        this.quiz.forEach(function (selectedQuiz) {
-            if (selectedQuiz.name === quizName) {
-                var dialogRef = _this.dialog.open(_quiz_quiz_component__WEBPACK_IMPORTED_MODULE_3__["QuizComponent"], {
-                    disableClose: true,
-                    data: { selectedQuiz: selectedQuiz }
-                });
-                dialogRef.afterClosed().subscribe(function (result) {
-                    console.log(result);
-                });
-            }
-        });
-    };
-    SessionOneComponent.prototype.openLesson = function (lessonName) {
-        var _this = this;
-        this.lesson.forEach(function (selectedLesson) {
-            if (selectedLesson.name === lessonName) {
-                var dialogRef = _this.dialog.open(_lesson_lesson_component__WEBPACK_IMPORTED_MODULE_4__["LessonComponent"], {
-                    disableClose: true,
-                    data: { selectedLesson: selectedLesson }
-                });
-                dialogRef.afterClosed().subscribe(function (result) {
-                    console.log(result);
-                });
-            }
-        });
-    };
-    SessionOneComponent.prototype.openActivity = function (activityName) {
-        var _this = this;
-        this.activity.forEach(function (selectedActivity) {
-            if (selectedActivity.name === activityName) {
-                var dialogRef = _this.dialog.open(_activity_activity_component__WEBPACK_IMPORTED_MODULE_6__["ActivityComponent"], {
-                    disableClose: true,
-                    data: { selectedActivity: selectedActivity }
-                });
-                dialogRef.afterClosed().subscribe(function (result) {
-                    console.log(result);
-                });
-            }
-        });
+    SessionOneComponent.prototype.checkActiveSession = function () {
+        var activeState = this.userService.getUser().session;
+        if (activeState === sessionName) {
+            return true;
+        }
+        else {
+            return false;
+        }
     };
     SessionOneComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-session-one',
-            template: __webpack_require__(/*! ./session-one.component.html */ "./frontend/src/app/components/session-template/session-one/session-one.component.html"),
-            styles: [__webpack_require__(/*! ../session-template.component.scss */ "./frontend/src/app/components/session-template/session-template.component.scss")]
+            template: __webpack_require__(/*! ./session-one.component.html */ "./frontend/src/app/components/session/session-one/session-one.component.html"),
+            styles: [__webpack_require__(/*! ../session.component.scss */ "./frontend/src/app/components/session/session.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"], src_app_services_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
     ], SessionOneComponent);
     return SessionOneComponent;
 }());
 
-//   getTaskData(): any {
-//     this.sessionService.get_Session('session-one').subscribe(res => {
-//        const result = res[0];
-//        return result;
-//     });
-//   }
-// }
 // @Component({
 //   selector: 'lesson-component',
 //   template: ''
@@ -1147,32 +1220,21 @@ var SessionOneComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./frontend/src/app/components/session-template/session-template.component.scss":
+/***/ "./frontend/src/app/components/session/session-three/session-three.component.html":
+/*!****************************************************************************************!*\
+  !*** ./frontend/src/app/components/session/session-three/session-three.component.html ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p class=\"title-label\">Session <span class=\"defaultLightBlue\">Three</span></p>\r\n<!-- SIDE BAR COMPONENT -->\r\n<div *ngIf=\"activeSession\"  class=\"m-t-1\">\r\n  <app-sidebar></app-sidebar>\r\n</div>\r\n<div class=\"row mt-2\">\r\n  <div class=\"col-11 custom-modal mt-sm-3\">\r\n    <div class=\"row\">\r\n      <div class=\"center col-11 mb-5 mt-5 text-justify\">\r\n        <h2 class=\"center\">Session 3 Tasks</h2>\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <h2 class=\"center\">Sprint # 2</h2>\r\n        <hr class=\"shadow-sm\">\r\n        <!-- Task Group 1 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Introduction</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1471666875520-c75081f42081?ixlib=rb-1.2.1&auto=format&fit=crop&w=1138&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>An Introduction into Session 3 and what you will complete by the end of the Session.\r\n                How the Scrum roles will be utilised throughout the Session</p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-intro')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Sprint Planning</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1512805668868-1608a189cc2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                Based on the Product Backlog You created in Session 1, you will be asked to analyse, prioritise and\r\n                define a list of requirements to be implemented during the first Sprint.\r\n                You will be following Scrum methods in order to gather these requirements.\r\n                You will then submit these requirements in order to continue.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-SP')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - DAILY SCRUM MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Daily Scrum</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                You will be conducting a daily scrum meeting.\r\n                You will base the content of this meeting on the tasks you have been assigned to complete on this\r\n                sprint.\r\n                You will then submit what you discussed during the meeting.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-DS')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- Task Group 2 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- PRODUCT DESIGN -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Product Design</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1653&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This stage is the official task of your First Sprint.\r\n                You will be designing some Diagram based on the context of the case study.\r\n                You will then be required to submit the diagram(‘s) in order to continue to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-PDesign')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- PRODUCT DEVELOPMENT -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Product Development</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                You will begin the first stage of development for the project based on the requirements you gathered.\r\n                A submission will be required in order to continue to the next stage.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-PDevelopment')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- Task Group 3 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- SCRUM EVENT - SPRINT REIVEW & RETROSPECTIVE MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Sprint Review & Retrospective</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1535209039648-9524289505fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                In this task you will complete an informal review of the progress made during the sprint.\r\n                You will then document an assessment of the quality of the sprint based on the requirements, assessing\r\n                whether the assigned tasks were detailed enough, if there are any new requirements that need to be made\r\n                and any other issues faces during the sprint.\r\n                You will then submit a document in order to conclude the first Sprint.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-SPRR')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - DAILY SCRUM MEETING -->\r\n          \r\n          <mat-card class=\"center content-card shadow\">\r\n            <div>\r\n            <mat-card-header>\r\n              <mat-card-title>Session 3 Quiz!</mat-card-title>\r\n              <mat-card-subtitle>Test What You Have Learned</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\"\r\n              alt=\"Case Study Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This quiz will test everything you learned this session\r\n                Completing this quiz will allow you to proceed to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openQuiz('session-three')\">Start Quiz</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </div>\r\n          </mat-card>\r\n        \r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./frontend/src/app/components/session/session-three/session-three.component.ts":
 /*!**************************************************************************************!*\
-  !*** ./frontend/src/app/components/session-template/session-template.component.scss ***!
+  !*** ./frontend/src/app/components/session/session-three/session-three.component.ts ***!
   \**************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".quiz-content-card {\n  margin: 5% 2.5% 5% 2.5%;\n  min-width: 90%;\n  width: 100%;\n  flex-basis: 45%; }\n\n.mat-dialog-container {\n  padding: 26px !important; }\n\n.mat-card-header-text {\n  margin: 0 auto !important; }\n\n.content-card {\n  margin: 2.5% 2.5%;\n  max-width: 250px;\n  width: auto;\n  flex-basis: 45%;\n  border-radius: 10px; }\n\n.mat-card-image {\n  padding: 10px 10px; }\n\n.center-items {\n  margin: 0 auto;\n  text-align: center; }\n\n.btn-primary:hover {\n  box-shadow: 0px 0px 5px #007f9a;\n  text-shadow: 0px 0px 3px black;\n  background-color: #13a4bb;\n  border-color: #00000026; }\n\n.mat-card-actions {\n  margin-bottom: 0px !important; }\n\n.cdk-overlay-dark-backdrop {\n  background: rgba(0, 0, 0, 0.7); }\n\n.mat-dialog-container {\n  max-width: 80vw !important;\n  margin: 0 auto;\n  margin-top: 5rem;\n  min-width: 50vw !important;\n  max-height: 90vh !important;\n  padding: 5px !important;\n  border-radius: 15px !important; }\n\n.activity-card-content {\n  min-width: 67vw;\n  min-height: 66vh;\n  margin-top: 0rem;\n  padding: 1.5rem; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZyb250ZW5kL3NyYy9hcHAvY29tcG9uZW50cy9zZXNzaW9uLXRlbXBsYXRlL0M6XFxHaXRcXHByb2plY3Qtc2Vuc2VpL2Zyb250ZW5kXFxzcmNcXGFwcFxcY29tcG9uZW50c1xccXVpelxccXVpei5jb21wb25lbnQuc2NzcyIsImZyb250ZW5kL3NyYy9hcHAvY29tcG9uZW50cy9zZXNzaW9uLXRlbXBsYXRlL0M6XFxHaXRcXHByb2plY3Qtc2Vuc2VpL2Zyb250ZW5kXFxzcmNcXGFwcFxcY29tcG9uZW50c1xcc2Vzc2lvbi10ZW1wbGF0ZVxcc2Vzc2lvbi10ZW1wbGF0ZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHVCQUF1QjtFQUN2QixjQUFjO0VBQ2QsV0FBVztFQUNYLGVBQWUsRUFBQTs7QUFHbkI7RUFDSSx3QkFBd0IsRUFBQTs7QUNENUI7RUFDSSx5QkFBeUIsRUFBQTs7QUFFN0I7RUFDSSxpQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCxlQUFlO0VBQ2YsbUJBQW1CLEVBQUE7O0FBR3ZCO0VBQ0ksa0JBQWtCLEVBQUE7O0FBR3BCO0VBQ0ksY0FBYztFQUNkLGtCQUFrQixFQUFBOztBQUd0QjtFQUNFLCtCQUErQjtFQUMvQiw4QkFBOEI7RUFDOUIseUJBQXlCO0VBQ3pCLHVCQUF1QixFQUFBOztBQUczQjtFQUNBLDZCQUE2QixFQUFBOztBQUk3QjtFQUNFLDhCQUE0QixFQUFBOztBQUc5QjtFQUNFLDBCQUEwQjtFQUMxQixjQUFjO0VBQ2QsZ0JBQWdCO0VBQ2hCLDBCQUEwQjtFQUMxQiwyQkFBMkI7RUFDM0IsdUJBQXVCO0VBQ3ZCLDhCQUE4QixFQUFBOztBQUdoQztFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLGVBQWUsRUFBQSIsImZpbGUiOiJmcm9udGVuZC9zcmMvYXBwL2NvbXBvbmVudHMvc2Vzc2lvbi10ZW1wbGF0ZS9zZXNzaW9uLXRlbXBsYXRlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnF1aXotY29udGVudC1jYXJkIHtcclxuICAgIG1hcmdpbjogNSUgMi41JSA1JSAyLjUlO1xyXG4gICAgbWluLXdpZHRoOiA5MCU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGZsZXgtYmFzaXM6IDQ1JTtcclxufVxyXG5cclxuLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmc6IDI2cHggIWltcG9ydGFudDtcclxufSIsIkBpbXBvcnQgJy4vc2Vzc2lvbi1vbmUvc2Vzc2lvbi1vbmUuY29tcG9uZW50LnNjc3MnO1xyXG5AaW1wb3J0ICcuL3Nlc3Npb24tdHdvL3Nlc3Npb24tdHdvLmNvbXBvbmVudC5zY3NzJztcclxuQGltcG9ydCAnLi9zZXNzaW9uLXRocmVlL3Nlc3Npb24tdGhyZWUuY29tcG9uZW50LnNjc3MnO1xyXG5AaW1wb3J0ICcuLi9zaWRlYmFyL3NpZGViYXIuY29tcG9uZW50LnNjc3MnO1xyXG5AaW1wb3J0ICcuLi9xdWl6L3F1aXouY29tcG9uZW50LnNjc3MnO1xyXG5cclxuXHJcbi5tYXQtY2FyZC1oZWFkZXItdGV4dCB7XHJcbiAgICBtYXJnaW46IDAgYXV0byAhaW1wb3J0YW50O1xyXG59XHJcbi5jb250ZW50LWNhcmQge1xyXG4gICAgbWFyZ2luOiAyLjUlMi41JTtcclxuICAgIG1heC13aWR0aDogMjUwcHg7XHJcbiAgICB3aWR0aDogYXV0bztcclxuICAgIGZsZXgtYmFzaXM6IDQ1JTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgfVxyXG5cclxuLm1hdC1jYXJkLWltYWdlIHtcclxuICAgIHBhZGRpbmc6IDEwcHggMTBweDtcclxufVxyXG5cclxuICAuY2VudGVyLWl0ZW1zIHtcclxuICAgICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB9XHJcblxyXG4gIC5idG4tcHJpbWFyeTpob3ZlciB7XHJcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDVweCAjMDA3ZjlhO1xyXG4gICAgdGV4dC1zaGFkb3c6IDBweCAwcHggM3B4IGJsYWNrO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzEzYTRiYjtcclxuICAgIGJvcmRlci1jb2xvcjogIzAwMDAwMDI2O1xyXG59XHJcblxyXG4ubWF0LWNhcmQtYWN0aW9ucyB7XHJcbm1hcmdpbi1ib3R0b206IDBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG5cclxuLmNkay1vdmVybGF5LWRhcmstYmFja2Ryb3Age1xyXG4gIGJhY2tncm91bmQ6IHJnYmEoMCwwLDAsMC43MCk7XHJcbn1cclxuXHJcbi5tYXQtZGlhbG9nLWNvbnRhaW5lciB7XHJcbiAgbWF4LXdpZHRoOiA4MHZ3ICFpbXBvcnRhbnQ7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbiAgbWFyZ2luLXRvcDogNXJlbTtcclxuICBtaW4td2lkdGg6IDUwdncgIWltcG9ydGFudDtcclxuICBtYXgtaGVpZ2h0OiA5MHZoICFpbXBvcnRhbnQ7XHJcbiAgcGFkZGluZzogNXB4ICFpbXBvcnRhbnQ7XHJcbiAgYm9yZGVyLXJhZGl1czogMTVweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uYWN0aXZpdHktY2FyZC1jb250ZW50IHtcclxuICBtaW4td2lkdGg6IDY3dnc7XHJcbiAgbWluLWhlaWdodDogNjZ2aDtcclxuICBtYXJnaW4tdG9wOiAwcmVtO1xyXG4gIHBhZGRpbmc6IDEuNXJlbTtcclxufVxyXG4iXX0= */"
-
-/***/ }),
-
-/***/ "./frontend/src/app/components/session-template/session-three/session-three.component.html":
-/*!*************************************************************************************************!*\
-  !*** ./frontend/src/app/components/session-template/session-three/session-three.component.html ***!
-  \*************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<p class=\"title-label\">Session <span class=\"defaultLightBlue\">Three</span></p>\r\n<!-- SIDE BAR COMPONENT -->\r\n<div class=\"m-t-1\">\r\n  <app-sidebar></app-sidebar>\r\n</div>\r\n<div class=\"row mt-2\">\r\n  <div class=\"col-11 custom-modal mt-sm-3\">\r\n    <div class=\"row\">\r\n      <div class=\"center col-11 mb-5 mt-5 text-justify\">\r\n        <h2 class=\"center\">Session 3 Tasks</h2>\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <h2 class=\"center\">Sprint # 2</h2>\r\n        <hr class=\"shadow-sm\">\r\n        <!-- Task Group 1 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Introduction</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1471666875520-c75081f42081?ixlib=rb-1.2.1&auto=format&fit=crop&w=1138&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>An Introduction into Session 3 and what you will complete by the end of the Session.\r\n                How the Scrum roles will be utilised throughout the Session</p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-intro')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Sprint Planning</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1512805668868-1608a189cc2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                Based on the Product Backlog You created in Session 1, you will be asked to analyse, prioritise and\r\n                define a list of requirements to be implemented during the first Sprint.\r\n                You will be following Scrum methods in order to gather these requirements.\r\n                You will then submit these requirements in order to continue.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-SP')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - DAILY SCRUM MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Daily Scrum</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                You will be conducting a daily scrum meeting.\r\n                You will base the content of this meeting on the tasks you have been assigned to complete on this\r\n                sprint.\r\n                You will then submit what you discussed during the meeting.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-DS')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- Task Group 2 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- PRODUCT DESIGN -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Product Design</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1653&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This stage is the official task of your First Sprint.\r\n                You will be designing some Diagram based on the context of the case study.\r\n                You will then be required to submit the diagram(‘s) in order to continue to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-PDesign')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- PRODUCT DEVELOPMENT -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Product Development</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                You will begin the first stage of development for the project based on the requirements you gathered.\r\n                A submission will be required in order to continue to the next stage.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-PDevelopment')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- Task Group 3 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- SCRUM EVENT - SPRINT REIVEW & RETROSPECTIVE MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Sprint Review & Retrospective</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1535209039648-9524289505fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                In this task you will complete an informal review of the progress made during the sprint.\r\n                You will then document an assessment of the quality of the sprint based on the requirements, assessing\r\n                whether the assigned tasks were detailed enough, if there are any new requirements that need to be made\r\n                and any other issues faces during the sprint.\r\n                You will then submit a document in order to conclude the first Sprint.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openLesson('session-three-SPRR')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - DAILY SCRUM MEETING -->\r\n          \r\n          <mat-card class=\"center content-card shadow\">\r\n            <div>\r\n            <mat-card-header>\r\n              <mat-card-title>Session 3 Quiz!</mat-card-title>\r\n              <mat-card-subtitle>Test What You Have Learned</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\"\r\n              alt=\"Case Study Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This quiz will test everything you learned this session\r\n                Completing this quiz will allow you to proceed to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openQuiz('session-three')\">Start Quiz</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </div>\r\n          </mat-card>\r\n        \r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./frontend/src/app/components/session-template/session-three/session-three.component.ts":
-/*!***********************************************************************************************!*\
-  !*** ./frontend/src/app/components/session-template/session-three/session-three.component.ts ***!
-  \***********************************************************************************************/
 /*! exports provided: SessionThreeComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1181,116 +1243,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SessionThreeComponent", function() { return SessionThreeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
-/* harmony import */ var _quiz_quiz_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../quiz/quiz.component */ "./frontend/src/app/components/quiz/quiz.component.ts");
-/* harmony import */ var src_app_services_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/session.service */ "./frontend/src/app/services/session.service.ts");
-/* harmony import */ var _lesson_lesson_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lesson/lesson.component */ "./frontend/src/app/components/lesson/lesson.component.ts");
-/* harmony import */ var _activity_activity_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../activity/activity.component */ "./frontend/src/app/components/activity/activity.component.ts");
-/* harmony import */ var src_app_models_session_session__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/models/session/session */ "./frontend/src/app/models/session/session.ts");
+/* harmony import */ var src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/user/user.service */ "./frontend/src/app/services/user/user.service.ts");
 
 
 
-
-
-
-
-
+var sessionName = 'session-three';
 var SessionThreeComponent = /** @class */ (function () {
-    function SessionThreeComponent(dialog, sessionService) {
-        this.dialog = dialog;
-        this.sessionService = sessionService;
-        this.sessionID = 3;
-        this.quiz = [];
-        this.lesson = [];
-        this.activity = [];
+    function SessionThreeComponent(userService) {
+        this.userService = userService;
     }
     SessionThreeComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.sessionService.getSession(this.sessionID).then(function (session) {
-            _this.sessionThree = new src_app_models_session_session__WEBPACK_IMPORTED_MODULE_7__["Session"](session);
-            _this.sessionThree.quiz.forEach(function (q) {
-                _this.quiz.push(q);
-            });
-            _this.sessionThree.lesson.forEach(function (l) {
-                _this.lesson.push(l);
-            });
-            _this.sessionThree.activity.forEach(function (a) {
-                _this.activity.push(a);
-            });
-        });
+        this.activeSession = this.checkActiveSession();
     };
-    SessionThreeComponent.prototype.openQuiz = function (quizName) {
-        var _this = this;
-        this.quiz.forEach(function (selectedQuiz) {
-            if (selectedQuiz.name.toLowerCase() === quizName) {
-                var dialogRef = _this.dialog.open(_quiz_quiz_component__WEBPACK_IMPORTED_MODULE_3__["QuizComponent"], {
-                    disableClose: true,
-                    data: { selectedQuiz: selectedQuiz }
-                });
-                dialogRef.afterClosed().subscribe(function (result) {
-                    console.log(result);
-                });
-            }
-        });
-    };
-    SessionThreeComponent.prototype.openLesson = function (lessonName) {
-        var _this = this;
-        this.lesson.forEach(function (selectedLesson) {
-            if (selectedLesson.name.toLowerCase() === lessonName) {
-                var dialogRef = _this.dialog.open(_lesson_lesson_component__WEBPACK_IMPORTED_MODULE_5__["LessonComponent"], {
-                    disableClose: true,
-                    data: { selectedLesson: selectedLesson }
-                });
-                dialogRef.afterClosed().subscribe(function (result) {
-                    console.log(result);
-                });
-            }
-        });
-    };
-    SessionThreeComponent.prototype.openActivity = function (activityName) {
-        var _this = this;
-        this.activity.forEach(function (selectedActivity) {
-            if (selectedActivity.name.toLowerCase() === activityName) {
-                var dialogRef = _this.dialog.open(_activity_activity_component__WEBPACK_IMPORTED_MODULE_6__["ActivityComponent"], {
-                    disableClose: true,
-                    data: { selectedActivity: selectedActivity }
-                });
-                dialogRef.afterClosed().subscribe(function (result) {
-                    console.log(result);
-                });
-            }
-        });
+    SessionThreeComponent.prototype.checkActiveSession = function () {
+        var activeState = this.userService.getUser().session;
+        if (activeState === sessionName) {
+            return true;
+        }
+        else {
+            return false;
+        }
     };
     SessionThreeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-session-three',
-            template: __webpack_require__(/*! ./session-three.component.html */ "./frontend/src/app/components/session-template/session-three/session-three.component.html"),
-            styles: [__webpack_require__(/*! ../session-template.component.scss */ "./frontend/src/app/components/session-template/session-template.component.scss")]
+            template: __webpack_require__(/*! ./session-three.component.html */ "./frontend/src/app/components/session/session-three/session-three.component.html"),
+            styles: [__webpack_require__(/*! ../session.component.scss */ "./frontend/src/app/components/session/session.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_services_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
     ], SessionThreeComponent);
     return SessionThreeComponent;
 }());
 
+// openQuiz(quizName: string): void {
+//   this.sessionService.openQuiz(this.quiz, quizName);
+// }
+// openLesson(lessonName: string): void {
+//   this.sessionService.openLesson(this.lesson, lessonName);
+// }
+// openActivity(activityName: string): void {
+//   this.sessionService.openActivity(this.activity, activityName);
+// }
+// }
 
 
 /***/ }),
 
-/***/ "./frontend/src/app/components/session-template/session-two/session-two.component.html":
-/*!*********************************************************************************************!*\
-  !*** ./frontend/src/app/components/session-template/session-two/session-two.component.html ***!
-  \*********************************************************************************************/
+/***/ "./frontend/src/app/components/session/session-two/session-two.component.html":
+/*!************************************************************************************!*\
+  !*** ./frontend/src/app/components/session/session-two/session-two.component.html ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"title-label\">Session <span class=\"defaultLightBlue\">Two</span></p>\r\n<!-- SIDE BAR COMPONENT -->\r\n<div class=\"m-t-1\">\r\n  <app-sidebar></app-sidebar>\r\n</div>\r\n<div class=\"row mt-2\">\r\n  <div class=\"col-11 custom-modal mt-sm-3\">\r\n    <div class=\"row\">\r\n      <div class=\"center col-11 mb-5 mt-5 text-justify\">\r\n        <h2 class=\"center\">Session 2 Tasks</h2>\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <h2 class=\"center\">Sprint # 1</h2>\r\n        <hr class=\"shadow-sm\">\r\n        <!-- Task Group 1 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Introduction</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1471666875520-c75081f42081?ixlib=rb-1.2.1&auto=format&fit=crop&w=1138&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>An Introduction into Session 2 and what you will complete by the end of the Session.\r\n                How the Scrum roles will be utilised throughout the Session</p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('session-two-intro')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Sprint Planning</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1512805668868-1608a189cc2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                Based on the Product Backlog You created in Session 1, you will be asked to analyse, prioritise and\r\n                define a list of requirements to be implemented during the first Sprint.\r\n                You will be following Scrum methods in order to gather these requirements.\r\n                You will then submit these requirements in order to continue.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('sprint-planning')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - DAILY SCRUM MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Daily Scrum</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                You will be conducting a daily scrum meeting.\r\n                You will base the content of this meeting on the tasks you have been assigned to complete on this\r\n                sprint.\r\n                You will then submit what you discussed during the meeting.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('daily-scrum')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- Task Group 2 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- PRODUCT DESIGN -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Product Design</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1653&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This stage is the official task of your First Sprint.\r\n                You will be designing some Diagram based on the context of the case study.\r\n                You will then be required to submit the diagram(‘s) in order to continue to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('product-design')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- PRODUCT DEVELOPMENT -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Product Development</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                You will begin the first stage of development for the project based on the requirements you gathered.\r\n                A submission will be required in order to continue to the next stage.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('product-development')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- Task Group 3 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- SCRUM EVENT - SPRINT REIVEW & RETROSPECTIVE MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Sprint Review & Retrospective</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1535209039648-9524289505fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                In this task you will complete an informal review of the progress made during the sprint.\r\n                You will then document an assessment of the quality of the sprint based on the requirements, assessing\r\n                whether the assigned tasks were detailed enough, if there are any new requirements that need to be made\r\n                and any other issues faces during the sprint.\r\n                You will then submit a document in order to conclude the first Sprint.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('sprint-review')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - DAILY SCRUM MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Session 2 Quiz!</mat-card-title>\r\n              <mat-card-subtitle>Test What You Have Learned</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\"\r\n              alt=\"Case Study Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This quiz will test everything you learned this session\r\n                Completing this quiz will allow you to proceed to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openQuiz('session-two')\">Start Quiz</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<p class=\"title-label\">Session <span class=\"defaultLightBlue\">Two</span></p>\r\n<!-- SIDE BAR COMPONENT -->\r\n<div *ngIf=\"activeSession\" class=\"m-t-1\">\r\n  <app-sidebar></app-sidebar>\r\n</div>\r\n<div class=\"row mt-2\">\r\n  <div class=\"col-11 custom-modal mt-sm-3\">\r\n    <div class=\"row\">\r\n      <div class=\"center col-11 mb-5 mt-5 text-justify\">\r\n        <h2 class=\"center\">Session 2 Tasks</h2>\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <h2 class=\"center\">Sprint # 1</h2>\r\n        <hr class=\"shadow-sm\">\r\n        <!-- Task Group 1 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Introduction</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1471666875520-c75081f42081?ixlib=rb-1.2.1&auto=format&fit=crop&w=1138&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>An Introduction into Session 2 and what you will complete by the end of the Session.\r\n                How the Scrum roles will be utilised throughout the Session</p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('session-two-intro')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - SPRINT PLANNING MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Sprint Planning</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1512805668868-1608a189cc2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                Based on the Product Backlog You created in Session 1, you will be asked to analyse, prioritise and\r\n                define a list of requirements to be implemented during the first Sprint.\r\n                You will be following Scrum methods in order to gather these requirements.\r\n                You will then submit these requirements in order to continue.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('sprint-planning')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - DAILY SCRUM MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Daily Scrum</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                You will be conducting a daily scrum meeting.\r\n                You will base the content of this meeting on the tasks you have been assigned to complete on this\r\n                sprint.\r\n                You will then submit what you discussed during the meeting.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('daily-scrum')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- Task Group 2 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- PRODUCT DESIGN -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Product Design</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1653&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This stage is the official task of your First Sprint.\r\n                You will be designing some Diagram based on the context of the case study.\r\n                You will then be required to submit the diagram(‘s) in order to continue to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('product-design')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- PRODUCT DEVELOPMENT -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Product Development</mat-card-title>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                You will begin the first stage of development for the project based on the requirements you gathered.\r\n                A submission will be required in order to continue to the next stage.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('product-development')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n\r\n        <hr class=\"shadow-sm\">\r\n\r\n        <!-- Task Group 3 -->\r\n        <div class=\"d-flex justify-content-center row\">\r\n          <!-- SCRUM EVENT - SPRINT REIVEW & RETROSPECTIVE MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Scrum Meeting!</mat-card-title>\r\n              <mat-card-subtitle>Sprint Review & Retrospective</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1535209039648-9524289505fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80\"\r\n              alt=\"Agile Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                In this task you will complete an informal review of the progress made during the sprint.\r\n                You will then document an assessment of the quality of the sprint based on the requirements, assessing\r\n                whether the assigned tasks were detailed enough, if there are any new requirements that need to be made\r\n                and any other issues faces during the sprint.\r\n                You will then submit a document in order to conclude the first Sprint.\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg disabled\"\r\n                  (click)=\"openActivity('sprint-review')\">Begin Lesson</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n\r\n          <!-- SCRUM EVENT - DAILY SCRUM MEETING -->\r\n          <mat-card class=\"center content-card shadow\">\r\n            <mat-card-header>\r\n              <mat-card-title>Session 2 Quiz!</mat-card-title>\r\n              <mat-card-subtitle>Test What You Have Learned</mat-card-subtitle>\r\n            </mat-card-header>\r\n            <hr class=\"shadow-sm\">\r\n            <img mat-card-image class=\"col-auto m-auto\"\r\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\"\r\n              alt=\"Case Study Picture\">\r\n            <hr class=\"shadow-sm\">\r\n            <mat-card-content>\r\n              <p>\r\n                This quiz will test everything you learned this session\r\n                Completing this quiz will allow you to proceed to the next stage\r\n              </p>\r\n            </mat-card-content>\r\n            <div class=\"center-items\">\r\n              <mat-card-actions>\r\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\r\n                  (click)=\"openQuiz('session-two')\">Start Quiz</button>\r\n              </mat-card-actions>\r\n            </div>\r\n          </mat-card>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "./frontend/src/app/components/session-template/session-two/session-two.component.ts":
-/*!*******************************************************************************************!*\
-  !*** ./frontend/src/app/components/session-template/session-two/session-two.component.ts ***!
-  \*******************************************************************************************/
+/***/ "./frontend/src/app/components/session/session-two/session-two.component.ts":
+/*!**********************************************************************************!*\
+  !*** ./frontend/src/app/components/session/session-two/session-two.component.ts ***!
+  \**********************************************************************************/
 /*! exports provided: SessionTwoComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1299,116 +1312,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SessionTwoComponent", function() { return SessionTwoComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_models_session_session__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/models/session/session */ "./frontend/src/app/models/session/session.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var src_app_services_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/session.service */ "./frontend/src/app/services/session.service.ts");
-/* harmony import */ var _quiz_quiz_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../quiz/quiz.component */ "./frontend/src/app/components/quiz/quiz.component.ts");
-/* harmony import */ var _lesson_lesson_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lesson/lesson.component */ "./frontend/src/app/components/lesson/lesson.component.ts");
-/* harmony import */ var _activity_activity_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../activity/activity.component */ "./frontend/src/app/components/activity/activity.component.ts");
+/* harmony import */ var src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/user/user.service */ "./frontend/src/app/services/user/user.service.ts");
 
 
 
-
-
-
-
-
+var sessionName = 'session-two';
 var SessionTwoComponent = /** @class */ (function () {
-    function SessionTwoComponent(dialog, sessionService) {
-        this.dialog = dialog;
-        this.sessionService = sessionService;
-        this.sessionID = 2;
-        this.quiz = [];
-        this.lesson = [];
-        this.activity = [];
+    function SessionTwoComponent(userService) {
+        this.userService = userService;
     }
     SessionTwoComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.sessionService.getSession(this.sessionID).then(function (session) {
-            _this.sessionTwo = new src_app_models_session_session__WEBPACK_IMPORTED_MODULE_2__["Session"](session);
-            _this.sessionTwo.quiz.forEach(function (q) {
-                _this.quiz.push(q);
-            });
-            _this.sessionTwo.lesson.forEach(function (l) {
-                _this.lesson.push(l);
-            });
-            _this.sessionTwo.activity.forEach(function (a) {
-                _this.activity.push(a);
-            });
-        });
+        this.activeSession = this.checkActiveSession();
     };
-    SessionTwoComponent.prototype.openQuiz = function (quizName) {
-        var _this = this;
-        this.quiz.forEach(function (selectedQuiz) {
-            if (selectedQuiz.name.toLowerCase() === quizName) {
-                var dialogRef = _this.dialog.open(_quiz_quiz_component__WEBPACK_IMPORTED_MODULE_5__["QuizComponent"], {
-                    disableClose: true,
-                    data: { selectedQuiz: selectedQuiz }
-                });
-                dialogRef.afterClosed().subscribe(function (result) {
-                    console.log(result);
-                });
-            }
-        });
-    };
-    SessionTwoComponent.prototype.openLesson = function (lessonName) {
-        var _this = this;
-        this.lesson.forEach(function (selectedLesson) {
-            if (selectedLesson.name.toLowerCase() === lessonName) {
-                var dialogRef = _this.dialog.open(_lesson_lesson_component__WEBPACK_IMPORTED_MODULE_6__["LessonComponent"], {
-                    disableClose: true,
-                    data: { selectedLesson: selectedLesson }
-                });
-                dialogRef.afterClosed().subscribe(function (result) {
-                    console.log(result);
-                });
-            }
-        });
-    };
-    SessionTwoComponent.prototype.openActivity = function (activityName) {
-        var _this = this;
-        this.activity.forEach(function (selectedActivity) {
-            if (selectedActivity.name.toLowerCase() === activityName) {
-                var dialogRef = _this.dialog.open(_activity_activity_component__WEBPACK_IMPORTED_MODULE_7__["ActivityComponent"], {
-                    disableClose: true,
-                    data: { selectedActivity: selectedActivity }
-                });
-                dialogRef.afterClosed().subscribe(function (result) {
-                    console.log(result);
-                });
-            }
-        });
+    SessionTwoComponent.prototype.checkActiveSession = function () {
+        var activeState = this.userService.getUser().session;
+        if (activeState === sessionName) {
+            return true;
+        }
+        else {
+            return false;
+        }
     };
     SessionTwoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-session-two',
-            template: __webpack_require__(/*! ./session-two.component.html */ "./frontend/src/app/components/session-template/session-two/session-two.component.html"),
-            styles: [__webpack_require__(/*! ../session-template.component.scss */ "./frontend/src/app/components/session-template/session-template.component.scss")]
+            template: __webpack_require__(/*! ./session-two.component.html */ "./frontend/src/app/components/session/session-two/session-two.component.html"),
+            styles: [__webpack_require__(/*! ../session.component.scss */ "./frontend/src/app/components/session/session.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_services_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
     ], SessionTwoComponent);
     return SessionTwoComponent;
 }());
 
+// openQuiz(quizName: string): void {
+//   this.sessionService.openQuiz(this.quiz, quizName);
+// }
+// openLesson(lessonName: string): void {
+//   this.sessionService.openLesson(this.lesson, lessonName);
+// }
+// openActivity(activityName: string): void {
+//   this.sessionService.openActivity(this.activity, activityName);
+// }
+// }
 
 
 /***/ }),
 
-/***/ "./frontend/src/app/components/sidebar/sidebar.component.html":
+/***/ "./frontend/src/app/components/session/session.component.scss":
 /*!********************************************************************!*\
-  !*** ./frontend/src/app/components/sidebar/sidebar.component.html ***!
+  !*** ./frontend/src/app/components/session/session.component.scss ***!
   \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid pr-5\">\n  <div class=\"row mt-2\">\n    <div class=\"col-11 custom-modal mt-sm-3\" style=\"max-width: 650px;\">\n      <div class=\"center col-11 mb-5 mt-5 text-justify\">\n        <h2 class=\"center\">Next Lesson</h2>\n        <hr class=\"shadow-sm\">\n        <div class=\"d-flex justify-content-center row\">\n        <!-- TASK DESCRIPTION -->\n          <mat-card class=\"content-card shadow mt-5\">\n            <mat-card-header>\n              <mat-card-title>Task Description</mat-card-title>\n            </mat-card-header>\n            <hr class=\"shadow-sm\">\n            <!-- TODO Fill Task from User Model Next Lesson ID -->\n            <mat-card-content class=\"ml-3 mt-4 text-left\">\n                <p style=\"font-weight: 500; font-size: 15px;\">This Quiz will test your knowledge on the Agile Methodology.</p>\n                <p style=\"font-weight: 500;font-size: 15px;\">Complete this Quiz with 80% Score or more in order to continue to the next stage of the course.</p>\n                <p class=\"center mt-5\" style=\"font-weight: bold;font-size: 15px;\">Good Luck!</p>\n              </mat-card-content>\n          </mat-card>\n        <!-- TASK ACTION -->\n          <mat-card class=\"content-card shadow mt-5\">\n            <!-- TODO Fill Task from User Model Next Lesson ID -->\n            <mat-card-header>\n              <mat-card-title>Quiz Time! - Agile</mat-card-title>\n            </mat-card-header>\n            <hr class=\"shadow-sm\">\n            <img mat-card-image class=\"col-auto m-auto\"\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\" alt=\"Agile Picture\">\n              <hr class=\"shadow-sm\">\n            <div class=\"center-items pt-3\">\n              <mat-card-actions>\n                <!-- TODO OPEN NEXT TASK BASED ON USERS NEXT TASK (DB>CURRENT_TASK+1->'next task') -->\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\n                 (click)=\"openTask('agile')\" >Start Quiz</button>\n              </mat-card-actions>\n            </div>\n          </mat-card>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = ".custom-modal .content-card {\n  min-width: 140px; }\n\n.quiz-content-card {\n  margin: 5% 2.5% 5% 2.5%;\n  min-width: 90%;\n  width: 100%;\n  flex-basis: 45%; }\n\n.mat-dialog-container {\n  padding: 26px !important; }\n\n.mat-card-header-text {\n  margin: 0 auto !important; }\n\n.content-card {\n  margin: 2.5% 2.5%;\n  max-width: 250px;\n  width: auto;\n  flex-basis: 45%;\n  border-radius: 10px; }\n\n.mat-card-image {\n  padding: 10px 10px; }\n\n.center-items {\n  margin: 0 auto;\n  text-align: center; }\n\n.btn-primary:hover {\n  box-shadow: 0px 0px 5px #007f9a;\n  text-shadow: 0px 0px 3px black;\n  background-color: #13a4bb;\n  border-color: #00000026; }\n\n.mat-card-actions {\n  margin-bottom: 0px !important; }\n\n.cdk-overlay-dark-backdrop {\n  background: rgba(0, 0, 0, 0.7); }\n\n.mat-dialog-container {\n  max-width: 80vw !important;\n  margin: 0 auto;\n  margin-top: 5rem;\n  min-width: 50vw !important;\n  max-height: 90vh !important;\n  padding: 5px !important;\n  border-radius: 15px !important; }\n\n.activity-card-content {\n  min-width: 67vw;\n  min-height: 66vh;\n  margin-top: 0rem;\n  padding: 1.5rem; }\n\n.mat-button[disabled] {\n  color: rgba(255, 255, 255, 0.26);\n  background-color: #6c757d; }\n\n.mat-button[disabled]:hover {\n    box-shadow: none;\n    text-shadow: none; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZyb250ZW5kL3NyYy9hcHAvY29tcG9uZW50cy9zZXNzaW9uL0M6XFxHaXRcXHByb2plY3Qtc2Vuc2VpL2Zyb250ZW5kXFxzcmNcXGFwcFxcY29tcG9uZW50c1xcc2Vzc2lvblxcc2lkZWJhclxcc2lkZWJhci5jb21wb25lbnQuc2NzcyIsImZyb250ZW5kL3NyYy9hcHAvY29tcG9uZW50cy9zZXNzaW9uL0M6XFxHaXRcXHByb2plY3Qtc2Vuc2VpL2Zyb250ZW5kXFxzcmNcXGFwcFxcY29tcG9uZW50c1xccXVpelxccXVpei5jb21wb25lbnQuc2NzcyIsImZyb250ZW5kL3NyYy9hcHAvY29tcG9uZW50cy9zZXNzaW9uL0M6XFxHaXRcXHByb2plY3Qtc2Vuc2VpL2Zyb250ZW5kXFxzcmNcXGFwcFxcY29tcG9uZW50c1xcc2Vzc2lvblxcc2Vzc2lvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGdCQUFnQixFQUFBOztBQ0RwQjtFQUNJLHVCQUF1QjtFQUN2QixjQUFjO0VBQ2QsV0FBVztFQUNYLGVBQWUsRUFBQTs7QUFHbkI7RUFDSSx3QkFBd0IsRUFBQTs7QUNENUI7RUFDSSx5QkFBeUIsRUFBQTs7QUFFN0I7RUFDSSxpQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCxlQUFlO0VBQ2YsbUJBQW1CLEVBQUE7O0FBR3ZCO0VBQ0ksa0JBQWtCLEVBQUE7O0FBR3BCO0VBQ0ksY0FBYztFQUNkLGtCQUFrQixFQUFBOztBQUd0QjtFQUNFLCtCQUErQjtFQUMvQiw4QkFBOEI7RUFDOUIseUJBQXlCO0VBQ3pCLHVCQUF1QixFQUFBOztBQUczQjtFQUNBLDZCQUE2QixFQUFBOztBQUk3QjtFQUNFLDhCQUE0QixFQUFBOztBQUc5QjtFQUNFLDBCQUEwQjtFQUMxQixjQUFjO0VBQ2QsZ0JBQWdCO0VBQ2hCLDBCQUEwQjtFQUMxQiwyQkFBMkI7RUFDM0IsdUJBQXVCO0VBQ3ZCLDhCQUE4QixFQUFBOztBQUdoQztFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLGVBQWUsRUFBQTs7QUFHakI7RUFDRSxnQ0FBZ0M7RUFDaEMseUJBQXlCLEVBQUE7O0FBRjNCO0lBSUksZ0JBQWdCO0lBQ2hCLGlCQUFpQixFQUFBIiwiZmlsZSI6ImZyb250ZW5kL3NyYy9hcHAvY29tcG9uZW50cy9zZXNzaW9uL3Nlc3Npb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY3VzdG9tLW1vZGFsIC5jb250ZW50LWNhcmQge1xyXG4gICAgbWluLXdpZHRoOiAxNDBweDtcclxufSIsIi5xdWl6LWNvbnRlbnQtY2FyZCB7XHJcbiAgICBtYXJnaW46IDUlIDIuNSUgNSUgMi41JTtcclxuICAgIG1pbi13aWR0aDogOTAlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBmbGV4LWJhc2lzOiA0NSU7XHJcbn1cclxuXHJcbi5tYXQtZGlhbG9nLWNvbnRhaW5lciB7XHJcbiAgICBwYWRkaW5nOiAyNnB4ICFpbXBvcnRhbnQ7XHJcbn0iLCJAaW1wb3J0ICcuL3Nlc3Npb24tb25lL3Nlc3Npb24tb25lLmNvbXBvbmVudC5zY3NzJztcclxuQGltcG9ydCAnLi9zZXNzaW9uLXR3by9zZXNzaW9uLXR3by5jb21wb25lbnQuc2Nzcyc7XHJcbkBpbXBvcnQgJy4vc2Vzc2lvbi10aHJlZS9zZXNzaW9uLXRocmVlLmNvbXBvbmVudC5zY3NzJztcclxuQGltcG9ydCAnLi9zaWRlYmFyL3NpZGViYXIuY29tcG9uZW50LnNjc3MnO1xyXG5AaW1wb3J0ICcuLi9xdWl6L3F1aXouY29tcG9uZW50LnNjc3MnO1xyXG5cclxuXHJcbi5tYXQtY2FyZC1oZWFkZXItdGV4dCB7XHJcbiAgICBtYXJnaW46IDAgYXV0byAhaW1wb3J0YW50O1xyXG59XHJcbi5jb250ZW50LWNhcmQge1xyXG4gICAgbWFyZ2luOiAyLjUlMi41JTtcclxuICAgIG1heC13aWR0aDogMjUwcHg7XHJcbiAgICB3aWR0aDogYXV0bztcclxuICAgIGZsZXgtYmFzaXM6IDQ1JTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgfVxyXG5cclxuLm1hdC1jYXJkLWltYWdlIHtcclxuICAgIHBhZGRpbmc6IDEwcHggMTBweDtcclxufVxyXG5cclxuICAuY2VudGVyLWl0ZW1zIHtcclxuICAgICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB9XHJcblxyXG4gIC5idG4tcHJpbWFyeTpob3ZlciB7XHJcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDVweCAjMDA3ZjlhO1xyXG4gICAgdGV4dC1zaGFkb3c6IDBweCAwcHggM3B4IGJsYWNrO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzEzYTRiYjtcclxuICAgIGJvcmRlci1jb2xvcjogIzAwMDAwMDI2O1xyXG59XHJcblxyXG4ubWF0LWNhcmQtYWN0aW9ucyB7XHJcbm1hcmdpbi1ib3R0b206IDBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG5cclxuLmNkay1vdmVybGF5LWRhcmstYmFja2Ryb3Age1xyXG4gIGJhY2tncm91bmQ6IHJnYmEoMCwwLDAsMC43MCk7XHJcbn1cclxuXHJcbi5tYXQtZGlhbG9nLWNvbnRhaW5lciB7XHJcbiAgbWF4LXdpZHRoOiA4MHZ3ICFpbXBvcnRhbnQ7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbiAgbWFyZ2luLXRvcDogNXJlbTtcclxuICBtaW4td2lkdGg6IDUwdncgIWltcG9ydGFudDtcclxuICBtYXgtaGVpZ2h0OiA5MHZoICFpbXBvcnRhbnQ7XHJcbiAgcGFkZGluZzogNXB4ICFpbXBvcnRhbnQ7XHJcbiAgYm9yZGVyLXJhZGl1czogMTVweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uYWN0aXZpdHktY2FyZC1jb250ZW50IHtcclxuICBtaW4td2lkdGg6IDY3dnc7XHJcbiAgbWluLWhlaWdodDogNjZ2aDtcclxuICBtYXJnaW4tdG9wOiAwcmVtO1xyXG4gIHBhZGRpbmc6IDEuNXJlbTtcclxufVxyXG5cclxuLm1hdC1idXR0b25bZGlzYWJsZWRdIHtcclxuICBjb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjI2KTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNmM3NTdkO1xyXG4gICY6aG92ZXIge1xyXG4gICAgYm94LXNoYWRvdzogbm9uZTtcclxuICAgIHRleHQtc2hhZG93OiBub25lO1xyXG4gIH1cclxufSJdfQ== */"
 
 /***/ }),
 
-/***/ "./frontend/src/app/components/sidebar/sidebar.component.ts":
-/*!******************************************************************!*\
-  !*** ./frontend/src/app/components/sidebar/sidebar.component.ts ***!
-  \******************************************************************/
+/***/ "./frontend/src/app/components/session/sidebar/sidebar.component.html":
+/*!****************************************************************************!*\
+  !*** ./frontend/src/app/components/session/sidebar/sidebar.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid pr-5\">\n  <div class=\"row mt-2\">\n    <div class=\"col-11 custom-modal mt-sm-3\" style=\"max-width: 650px;\">\n      <div class=\"center col-11 mb-5 mt-5 text-justify\">\n        <h2 class=\"center\">Next Lesson</h2>\n        <hr class=\"shadow-sm\">\n        <div class=\"d-flex justify-content-center row\">\n        <!-- TASK DESCRIPTION -->\n          <mat-card class=\"content-card shadow mt-5\">\n            <mat-card-header>\n              <mat-card-title>Task Description</mat-card-title>\n            </mat-card-header>\n            <hr class=\"shadow-sm\">\n            <!-- TODO Fill Task from User Model Next Lesson ID -->\n            <mat-card-content class=\"ml-3 mt-4 text-left\">\n                <!-- <p style=\"font-weight: 500; font-size: 15px;\">This Quiz will test your knowledge on the Agile Methodology.</p>\n                <p style=\"font-weight: 500;font-size: 15px;\">Complete this Quiz with 80% Score or more in order to continue to the next stage of the course.</p>\n                <p class=\"center mt-5\" style=\"font-weight: bold;font-size: 15px;\">Good Luck!</p> -->\n                <p style=\"font-weight: 500; font-size: 15px;\">{{ activeTask?.description }}</p>\n              </mat-card-content>\n          </mat-card>\n        <!-- TASK ACTION -->\n          <mat-card class=\"content-card shadow mt-5\">\n            <!-- TODO Fill Task from User Model Next Lesson ID -->\n            <mat-card-header>\n              <mat-card-title class=\"center\">{{ activeTask?.title }}</mat-card-title>\n            </mat-card-header>\n            <hr class=\"shadow-sm\">\n            <img mat-card-image class=\"col-auto m-auto\"\n              src=\"https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80\" alt=\"Agile Picture\">\n              <hr class=\"shadow-sm\">\n            <div class=\"center-items pt-3\">\n              <mat-card-actions>\n                <!-- TODO OPEN NEXT TASK BASED ON USERS NEXT TASK (DB>CURRENT_TASK+1->'next task') -->\n                <button mat-button type=\"button\" class=\"btn align-middle btn-primary btn-lg\"\n                 (click)=\"openTask()\" >Start Task</button>\n              </mat-card-actions>\n            </div>\n          </mat-card>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./frontend/src/app/components/session/sidebar/sidebar.component.ts":
+/*!**************************************************************************!*\
+  !*** ./frontend/src/app/components/session/sidebar/sidebar.component.ts ***!
+  \**************************************************************************/
 /*! exports provided: SidebarComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1417,24 +1392,112 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/session/session.service */ "./frontend/src/app/services/session/session.service.ts");
+/* harmony import */ var src_app_models_session_quiz__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/models/session/quiz */ "./frontend/src/app/models/session/quiz/index.ts");
+/* harmony import */ var src_app_models_session_lesson_lesson__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/models/session/lesson/lesson */ "./frontend/src/app/models/session/lesson/lesson.ts");
+/* harmony import */ var src_app_models_session_activity_activity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/models/session/activity/activity */ "./frontend/src/app/models/session/activity/activity.ts");
+/* harmony import */ var src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/user/user.service */ "./frontend/src/app/services/user/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
-// import { SessionTemplateComponent } from '../session-template/session-template.component';
+
+
+
+
+
+
 var SidebarComponent = /** @class */ (function () {
-    function SidebarComponent(
-    //  private sessionTemplate: SessionTemplateComponent
-    ) {
+    function SidebarComponent(route, sessionService, userService) {
+        // this.route.data
+        this.route = route;
+        this.sessionService = sessionService;
+        this.userService = userService;
     }
-    SidebarComponent.prototype.openTask = function (taskType, taskName) {
-        // this.sessionTemplate.openTask(taskType, taskName);
+    SidebarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        if (this.route.snapshot.data) {
+            // this.route.snapshot.data.resData.forEach(session => {
+            //   this.populateActiveSession(session);
+            // });
+            this.route.snapshot.data.session.forEach(function (session) {
+                _this.populateActiveSession(session);
+            });
+        }
+        // this.route.data.subscribe((res) => {
+        //   console.log(res);
+        // });
+        // this.sessionService.getSessionStructure();
+        // this.getSessions();
+    };
+    SidebarComponent.prototype.getSessions = function () {
+        //   this.sessionService.getSession().then(session => {
+        //     switch (session['id']) {
+        //       case this.sessionOneId:
+        //         this.sessionOne = new Session(session);
+        //         this.activeSession = session['name'];
+        //         this.populateActiveSession(this.sessionOne);
+        //         break;
+        //       case this.sessionTwoId:
+        //         this.sessionTwo = new Session(session);
+        //         this.activeSession = session['name'];
+        //         this.populateActiveSession(this.sessionTwo);
+        //         break;
+        //       case this.sessionThreeId:
+        //         this.sessionThree = new Session(session);
+        //         this.activeSession = session['name'];
+        //         this.populateActiveSession(this.sessionThree);
+        //         break;
+        //       default:
+        //         break;
+        //     }
+        //   });
+        // }
+    };
+    SidebarComponent.prototype.populateActiveSession = function (session) {
+        var _this = this;
+        var activeTask = this.userService.getActiveTask();
+        session.quiz.forEach(function (quiz) {
+            if (quiz.name === activeTask) {
+                _this.activeTask = new src_app_models_session_quiz__WEBPACK_IMPORTED_MODULE_3__["Quiz"](quiz);
+                console.log(_this.activeTask instanceof src_app_models_session_quiz__WEBPACK_IMPORTED_MODULE_3__["Quiz"]);
+                console.log(quiz instanceof src_app_models_session_quiz__WEBPACK_IMPORTED_MODULE_3__["Quiz"]);
+            }
+        });
+        session.lesson.forEach(function (lesson) {
+            if (lesson.name === activeTask) {
+                _this.activeTask = new src_app_models_session_lesson_lesson__WEBPACK_IMPORTED_MODULE_4__["Lesson"](lesson);
+                console.log(_this.activeTask instanceof src_app_models_session_lesson_lesson__WEBPACK_IMPORTED_MODULE_4__["Lesson"]);
+                console.log(lesson instanceof src_app_models_session_lesson_lesson__WEBPACK_IMPORTED_MODULE_4__["Lesson"]);
+            }
+        });
+        session.activity.forEach(function (activity) {
+            if (activity.name === activeTask) {
+                _this.activeTask = new src_app_models_session_activity_activity__WEBPACK_IMPORTED_MODULE_5__["Activity"](activity);
+                console.log(_this.activeTask instanceof src_app_models_session_activity_activity__WEBPACK_IMPORTED_MODULE_5__["Activity"]);
+                console.log(_this.activeTask);
+            }
+        });
+        console.log(session);
+    };
+    SidebarComponent.prototype.getActiveSession = function () {
+        return this.activeSession;
+    };
+    SidebarComponent.prototype.openTask = function () {
+        this.sessionService.openTask(this.activeTask);
+    };
+    SidebarComponent.prototype.nextSession = function () {
+        console.log('Next Session');
+    };
+    SidebarComponent.prototype.nextTask = function () {
+        // this.sessionOne.
     };
     SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-sidebar',
-            template: __webpack_require__(/*! ./sidebar.component.html */ "./frontend/src/app/components/sidebar/sidebar.component.html"),
-            styles: [__webpack_require__(/*! ../session-template/session-template.component.scss */ "./frontend/src/app/components/session-template/session-template.component.scss")]
+            template: __webpack_require__(/*! ./sidebar.component.html */ "./frontend/src/app/components/session/sidebar/sidebar.component.html"),
+            styles: [__webpack_require__(/*! ../session.component.scss */ "./frontend/src/app/components/session/session.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"], src_app_services_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_6__["UserService"]])
     ], SidebarComponent);
     return SidebarComponent;
 }());
@@ -1512,69 +1575,10 @@ var Lesson = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./frontend/src/app/models/session/question/question.ts":
-/*!**************************************************************!*\
-  !*** ./frontend/src/app/models/session/question/question.ts ***!
-  \**************************************************************/
-/*! exports provided: Question */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Question", function() { return Question; });
-/* harmony import */ var _quiz_option__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../quiz/option */ "./frontend/src/app/models/session/quiz/option.ts");
-
-var Question = /** @class */ (function () {
-    function Question(data) {
-        var _this = this;
-        data = data || {};
-        this.id = data.id;
-        this.name = data.name;
-        this.options = [];
-        data.options.forEach(function (o) {
-            _this.options.push(new _quiz_option__WEBPACK_IMPORTED_MODULE_0__["Option"](o));
-        });
-    }
-    return Question;
-}());
-
-
-
-/***/ }),
-
-/***/ "./frontend/src/app/models/session/quiz/index.ts":
-/*!*******************************************************!*\
-  !*** ./frontend/src/app/models/session/quiz/index.ts ***!
-  \*******************************************************/
-/*! exports provided: Option, Question, Quiz, QuizConfig */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _option__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./option */ "./frontend/src/app/models/session/quiz/option.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Option", function() { return _option__WEBPACK_IMPORTED_MODULE_0__["Option"]; });
-
-/* harmony import */ var _question__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./question */ "./frontend/src/app/models/session/quiz/question.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Question", function() { return _question__WEBPACK_IMPORTED_MODULE_1__["Question"]; });
-
-/* harmony import */ var _quiz__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./quiz */ "./frontend/src/app/models/session/quiz/quiz.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Quiz", function() { return _quiz__WEBPACK_IMPORTED_MODULE_2__["Quiz"]; });
-
-/* harmony import */ var _quiz_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./quiz-config */ "./frontend/src/app/models/session/quiz/quiz-config.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "QuizConfig", function() { return _quiz_config__WEBPACK_IMPORTED_MODULE_3__["QuizConfig"]; });
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./frontend/src/app/models/session/quiz/option.ts":
-/*!********************************************************!*\
-  !*** ./frontend/src/app/models/session/quiz/option.ts ***!
-  \********************************************************/
+/***/ "./frontend/src/app/models/session/question/option.ts":
+/*!************************************************************!*\
+  !*** ./frontend/src/app/models/session/question/option.ts ***!
+  \************************************************************/
 /*! exports provided: Option */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1596,17 +1600,17 @@ var Option = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./frontend/src/app/models/session/quiz/question.ts":
-/*!**********************************************************!*\
-  !*** ./frontend/src/app/models/session/quiz/question.ts ***!
-  \**********************************************************/
+/***/ "./frontend/src/app/models/session/question/question.ts":
+/*!**************************************************************!*\
+  !*** ./frontend/src/app/models/session/question/question.ts ***!
+  \**************************************************************/
 /*! exports provided: Question */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Question", function() { return Question; });
-/* harmony import */ var _option__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./option */ "./frontend/src/app/models/session/quiz/option.ts");
+/* harmony import */ var _option__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./option */ "./frontend/src/app/models/session/question/option.ts");
 
 var Question = /** @class */ (function () {
     function Question(data) {
@@ -1621,6 +1625,35 @@ var Question = /** @class */ (function () {
     }
     return Question;
 }());
+
+
+
+/***/ }),
+
+/***/ "./frontend/src/app/models/session/quiz/index.ts":
+/*!*******************************************************!*\
+  !*** ./frontend/src/app/models/session/quiz/index.ts ***!
+  \*******************************************************/
+/*! exports provided: Question, Option, Quiz, QuizConfig */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _question_option__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../question/option */ "./frontend/src/app/models/session/question/option.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Option", function() { return _question_option__WEBPACK_IMPORTED_MODULE_0__["Option"]; });
+
+/* harmony import */ var _question_question__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../question/question */ "./frontend/src/app/models/session/question/question.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Question", function() { return _question_question__WEBPACK_IMPORTED_MODULE_1__["Question"]; });
+
+/* harmony import */ var _quiz__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./quiz */ "./frontend/src/app/models/session/quiz/quiz.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Quiz", function() { return _quiz__WEBPACK_IMPORTED_MODULE_2__["Quiz"]; });
+
+/* harmony import */ var _quiz_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./quiz-config */ "./frontend/src/app/models/session/quiz/quiz-config.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "QuizConfig", function() { return _quiz_config__WEBPACK_IMPORTED_MODULE_3__["QuizConfig"]; });
+
+
+
+
 
 
 
@@ -1662,7 +1695,7 @@ var QuizConfig = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Quiz", function() { return Quiz; });
 /* harmony import */ var _quiz_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./quiz-config */ "./frontend/src/app/models/session/quiz/quiz-config.ts");
-/* harmony import */ var _question__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./question */ "./frontend/src/app/models/session/quiz/question.ts");
+/* harmony import */ var _question_question__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../question/question */ "./frontend/src/app/models/session/question/question.ts");
 
 
 var Quiz = /** @class */ (function () {
@@ -1671,12 +1704,14 @@ var Quiz = /** @class */ (function () {
         if (data) {
             this.id = data.id;
             this.name = data.name;
+            this.title = data.title;
             this.description = data.description;
             this.config = new _quiz_config__WEBPACK_IMPORTED_MODULE_0__["QuizConfig"](data.config);
             this.questions = [];
             data.questions.forEach(function (q) {
-                _this.questions.push(new _question__WEBPACK_IMPORTED_MODULE_1__["Question"](q));
+                _this.questions.push(new _question_question__WEBPACK_IMPORTED_MODULE_1__["Question"](q));
             });
+            this.completed = false;
         }
     }
     return Quiz;
@@ -1686,49 +1721,20 @@ var Quiz = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./frontend/src/app/models/session/session.ts":
-/*!****************************************************!*\
-  !*** ./frontend/src/app/models/session/session.ts ***!
-  \****************************************************/
-/*! exports provided: Session */
+/***/ "./frontend/src/app/models/user/user.ts":
+/*!**********************************************!*\
+  !*** ./frontend/src/app/models/user/user.ts ***!
+  \**********************************************/
+/*! exports provided: User */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Session", function() { return Session; });
-/* harmony import */ var _quiz_quiz__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./quiz/quiz */ "./frontend/src/app/models/session/quiz/quiz.ts");
-/* harmony import */ var _lesson_lesson__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lesson/lesson */ "./frontend/src/app/models/session/lesson/lesson.ts");
-/* harmony import */ var _activity_activity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./activity/activity */ "./frontend/src/app/models/session/activity/activity.ts");
-
-
-
-var Session = /** @class */ (function () {
-    function Session(data) {
-        var _this = this;
-        if (data) {
-            this.id = data.id;
-            this.name = data.name;
-            if (data.quiz) {
-                this.quiz = [];
-                data.quiz.forEach(function (q) {
-                    _this.quiz.push(new _quiz_quiz__WEBPACK_IMPORTED_MODULE_0__["Quiz"](q));
-                });
-            }
-            if (data.lesson) {
-                this.lesson = [];
-                data.lesson.forEach(function (l) {
-                    _this.lesson.push(new _lesson_lesson__WEBPACK_IMPORTED_MODULE_1__["Lesson"](l));
-                });
-            }
-            if (data.activity) {
-                this.activity = [];
-                data.activity.forEach(function (a) {
-                    _this.activity.push(new _activity_activity__WEBPACK_IMPORTED_MODULE_2__["Activity"](a));
-                });
-            }
-        }
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+var User = /** @class */ (function () {
+    function User() {
     }
-    return Session;
+    return User;
 }());
 
 
@@ -1787,10 +1793,10 @@ var MaterialModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./frontend/src/app/services/auth-guard.service.ts":
-/*!*********************************************************!*\
-  !*** ./frontend/src/app/services/auth-guard.service.ts ***!
-  \*********************************************************/
+/***/ "./frontend/src/app/services/authentication/auth-guard.service.ts":
+/*!************************************************************************!*\
+  !*** ./frontend/src/app/services/authentication/auth-guard.service.ts ***!
+  \************************************************************************/
 /*! exports provided: AuthGuardService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1800,7 +1806,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./authentication.service */ "./frontend/src/app/services/authentication.service.ts");
+/* harmony import */ var _authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./authentication.service */ "./frontend/src/app/services/authentication/authentication.service.ts");
 
 
 
@@ -1831,15 +1837,16 @@ var AuthGuardService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./frontend/src/app/services/authentication.service.ts":
-/*!*************************************************************!*\
-  !*** ./frontend/src/app/services/authentication.service.ts ***!
-  \*************************************************************/
-/*! exports provided: AuthenticationService */
+/***/ "./frontend/src/app/services/authentication/authentication.service.ts":
+/*!****************************************************************************!*\
+  !*** ./frontend/src/app/services/authentication/authentication.service.ts ***!
+  \****************************************************************************/
+/*! exports provided: TokenPayload, AuthenticationService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TokenPayload", function() { return TokenPayload; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationService", function() { return AuthenticationService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
@@ -1851,12 +1858,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// export interface TokenPayload {
-//   username: string;
-//   password: string;
-//   name?: string;
-//   email?: string;
-// }
+var TokenPayload = /** @class */ (function () {
+    function TokenPayload() {
+    }
+    return TokenPayload;
+}());
+
 var AuthenticationService = /** @class */ (function () {
     function AuthenticationService(http, router) {
         this.http = http;
@@ -1939,6 +1946,9 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.prototype.profile = function () {
         return this.request('get', 'profile');
     };
+    AuthenticationService.prototype.update = function (user) {
+        return this.request('post', 'update', user);
+    };
     AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
@@ -1953,10 +1963,84 @@ var AuthenticationService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./frontend/src/app/services/session.service.ts":
-/*!******************************************************!*\
-  !*** ./frontend/src/app/services/session.service.ts ***!
-  \******************************************************/
+/***/ "./frontend/src/app/services/resolvers/session-resolver.service.ts":
+/*!*************************************************************************!*\
+  !*** ./frontend/src/app/services/resolvers/session-resolver.service.ts ***!
+  \*************************************************************************/
+/*! exports provided: SessionResolverService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SessionResolverService", function() { return SessionResolverService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../session/session.service */ "./frontend/src/app/services/session/session.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+
+var SessionResolverService = /** @class */ (function () {
+    function SessionResolverService(http, sessionService) {
+        this.http = http;
+        this.sessionService = sessionService;
+    }
+    SessionResolverService.prototype.resolve = function (route, routerstate) {
+        return this.sessionService.getAllSessions();
+    };
+    SessionResolverService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])
+    ], SessionResolverService);
+    return SessionResolverService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./frontend/src/app/services/resolvers/user-resolver.service.ts":
+/*!**********************************************************************!*\
+  !*** ./frontend/src/app/services/resolvers/user-resolver.service.ts ***!
+  \**********************************************************************/
+/*! exports provided: UserResolverService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserResolverService", function() { return UserResolverService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _user_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user/user.service */ "./frontend/src/app/services/user/user.service.ts");
+
+
+
+
+var UserResolverService = /** @class */ (function () {
+    function UserResolverService(http, userService) {
+        this.http = http;
+        this.userService = userService;
+    }
+    UserResolverService.prototype.resolve = function (route, routerstate) {
+        return this.userService.createUser();
+    };
+    UserResolverService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+    ], UserResolverService);
+    return UserResolverService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./frontend/src/app/services/session/session.service.ts":
+/*!**************************************************************!*\
+  !*** ./frontend/src/app/services/session/session.service.ts ***!
+  \**************************************************************/
 /*! exports provided: SessionService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1966,33 +2050,237 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
+/* harmony import */ var _user_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../user/user.service */ "./frontend/src/app/services/user/user.service.ts");
+/* harmony import */ var src_app_models_session_quiz__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/models/session/quiz */ "./frontend/src/app/models/session/quiz/index.ts");
+/* harmony import */ var src_app_models_session_activity_activity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/models/session/activity/activity */ "./frontend/src/app/models/session/activity/activity.ts");
+/* harmony import */ var src_app_models_session_lesson_lesson__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/models/session/lesson/lesson */ "./frontend/src/app/models/session/lesson/lesson.ts");
+/* harmony import */ var src_app_components_quiz_quiz_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/components/quiz/quiz.component */ "./frontend/src/app/components/quiz/quiz.component.ts");
+/* harmony import */ var src_app_components_activity_activity_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/components/activity/activity.component */ "./frontend/src/app/components/activity/activity.component.ts");
+/* harmony import */ var src_app_components_lesson_lesson_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/components/lesson/lesson.component */ "./frontend/src/app/components/lesson/lesson.component.ts");
+
+
+
+
+
+
+
+
 
 
 
 var SessionService = /** @class */ (function () {
-    function SessionService(http) {
+    function SessionService(http, dialog, userService) {
         this.http = http;
-        this.baseSessionUrl = 'http://localhost:8080/session';
+        this.dialog = dialog;
+        this.userService = userService;
+        this.jsonBaseSessionUrl = 'http://localhost:8080/session';
+        this.jsonBaseSessionStructureUrl = 'http://localhost:8081/session-structure';
+        this.baseSessionUrl = 'http://localhost:3000/authapi/sessions';
+        this.baseSessionStructureUrl = 'http://localhost:3000/authapi/sessions_structure';
+        this.sessionOneId = 1;
+        this.sessionTwoId = 2;
+        this.sessionThreeId = 3;
+        this.sessionStructure = [];
+        this.sessions = [];
     }
-    SessionService.prototype.getSession = function (sessionID) {
+    SessionService.prototype.getSessionStructure = function () {
         var _this = this;
+        this.http.get(this.baseSessionStructureUrl).subscribe(function (structureArray) {
+            structureArray.forEach(function (session) {
+                _this.sessionStructure.push(session);
+            });
+        });
+    };
+    SessionService.prototype.getAllSessions = function () {
+        var _this = this;
+        this.getSessionStructure();
+        // this.http.get<any>(this.baseSessionUrl);
         return new Promise(function (resolve, reject) {
-            _this.http.get(_this.baseSessionUrl).subscribe(function (res) {
-                res.forEach(function (session) {
-                    if (session.id === sessionID) {
-                        resolve(session);
+            _this.http.get(_this.baseSessionUrl).subscribe(function (sessionArray) {
+                // while (!this.user$ || !this.user$.username) {
+                //   this.user$ = this.userService.getUser() as User;
+                // }
+                sessionArray.forEach(function (session) {
+                    _this.sessions.push(session);
+                    // if (session.name === this.user$.session) {
+                    // resolve(this.sessions);
+                    //   session
+                    // }
+                });
+                resolve(_this.sessions);
+                // return this.sessions;
+            });
+        });
+    };
+    SessionService.prototype.getSession = function () {
+        return this.sessions;
+    };
+    SessionService.prototype.openTask = function (selectedTask) {
+        var _this = this;
+        var component;
+        if (selectedTask instanceof src_app_models_session_quiz__WEBPACK_IMPORTED_MODULE_5__["Quiz"]) {
+            component = src_app_components_quiz_quiz_component__WEBPACK_IMPORTED_MODULE_8__["QuizComponent"];
+        }
+        if (selectedTask instanceof src_app_models_session_activity_activity__WEBPACK_IMPORTED_MODULE_6__["Activity"]) {
+            component = src_app_components_activity_activity_component__WEBPACK_IMPORTED_MODULE_9__["ActivityComponent"];
+        }
+        if (selectedTask instanceof src_app_models_session_lesson_lesson__WEBPACK_IMPORTED_MODULE_7__["Lesson"]) {
+            component = src_app_components_lesson_lesson_component__WEBPACK_IMPORTED_MODULE_10__["LessonComponent"];
+        }
+        var dialogRef = this.dialog.open(component, {
+            disableClose: true,
+            data: { selectedTask: selectedTask }
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            var user = _this.userService.getUser();
+            var nextTask = null;
+            var nextSession = null;
+            console.log('SessionService: ', result);
+            if (result) {
+                _this.sessionStructure.forEach(function (session, index) {
+                    if (session.name === user.session) {
+                        console.log(session);
+                        session.tasks.forEach(function (task, index) {
+                            if (task.name === user.task) {
+                                session.tasks.splice(index, 1);
+                                console.log('spliced:', session);
+                                if (session.tasks[index]) {
+                                    nextTask = session.tasks[index].name;
+                                    console.log(nextTask);
+                                }
+                            }
+                        });
+                        if (!session.tasks[0] && session[index + 1]) {
+                            nextSession = session[index + 1].name;
+                            nextTask = session[index + 1].task[0];
+                        }
                     }
                 });
-            });
+                if ((nextTask && nextSession) || nextTask) {
+                    var userUpdate = _this.userService.updateUser(nextSession, nextTask);
+                    if (userUpdate) {
+                        console.log('Open Next Lesson');
+                    }
+                }
+            }
+            // this.sideBar.closeTask(result);
+            // this.user$.tasks;
         });
     };
     SessionService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
+            providedIn: 'root',
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
     ], SessionService);
     return SessionService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./frontend/src/app/services/user/user.service.ts":
+/*!********************************************************!*\
+  !*** ./frontend/src/app/services/user/user.service.ts ***!
+  \********************************************************/
+/*! exports provided: UserService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_user_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/user/user */ "./frontend/src/app/models/user/user.ts");
+/* harmony import */ var _authentication_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../authentication/authentication.service */ "./frontend/src/app/services/authentication/authentication.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+
+
+var UserService = /** @class */ (function () {
+    function UserService(user, authService, http) {
+        this.user = user;
+        this.authService = authService;
+        this.http = http;
+        this.baseAuthUrl = 'http://localhost:3000/authapi/';
+    }
+    UserService.prototype.createUser = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.authService.profile().subscribe(function (res) {
+                _this.user = res;
+                resolve(_this.user);
+            });
+            // return this.sessions;
+        });
+        // });
+        // this.authService.profile().subscribe(res => {
+        //   this._user = res as User;
+        // });
+    };
+    // Check if User is logged in or not
+    UserService.prototype.isLoggedIn = function () {
+        // if (!this._user.username) {
+        //  this.createUser();
+        // }
+        var user = this.authService.getUserToken();
+        if (user) {
+            return user.exp > Date.now() / 1000;
+        }
+        else {
+            return false;
+        }
+    };
+    UserService.prototype.destroyUser = function () {
+        for (var details in this.user) {
+            if (details) {
+                this.user[details] = null;
+            }
+        }
+        this.authService.logout();
+    };
+    UserService.prototype.getUser = function () {
+        var _this = this;
+        if (!this.user.username) {
+            setTimeout(function () {
+                return _this.user;
+            }, 2000);
+        }
+        return this.user;
+    };
+    UserService.prototype.getActiveTask = function () {
+        return this.user.task;
+    };
+    UserService.prototype.updateUser = function (session, task) {
+        var userUpdate;
+        var result = false;
+        if (session) {
+            this.user.session = session;
+        }
+        if (task) {
+            this.user.task = task;
+        }
+        userUpdate = { session: session, task: task };
+        console.log(this.user);
+        this.authService.update(this.user).subscribe(function (res) {
+            console.log(res.result);
+            result = res;
+        });
+        return result;
+        // this.http.post(`${this.baseAuthUrl}/update`, this.user).subscribe( res => { });
+        // Update user DB
+    };
+    UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_models_user_user__WEBPACK_IMPORTED_MODULE_2__["User"], _authentication_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]])
+    ], UserService);
+    return UserService;
 }());
 
 

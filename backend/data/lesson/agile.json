@@ -5,7 +5,11 @@
             "id": 2.1,
             "name": "Introduction to Agile",
             "description": "In this lesson we will introduce you to the Agile Methodology, teach you about Agile's History and tell you how popular Agile is today",
-            "content": "Agile by itself is nothing more than a set of principles and values created by developers alike with the ambition to standardise the future of project development. Those principals came to be known as the Agile Manifesto.",
+            "content": [ "Agile by itself is nothing more than a set of principles and values created by developers alike with the ambition to standardise the future of project development. Those principals came to be known as the Agile Manifesto.",
+                        "Scrum by itself is nothing more than a set of principles and values created by developers alike with the ambition to standardise the future of project development. Those principals came to be known as the Agile Manifesto.",
+                        "Spint by itself is nothing more than a set of principles and values created by developers alike with the ambition to standardise the future of project development. Those principals came to be known as the Agile Manifesto.",
+                        "Waterfall by itself is nothing more than a set of principles and values created by developers alike with the ambition to standardise the future of project development. Those principals came to be known as the Agile Manifesto."        
+                    ],
             "questions": [{
                     "id": 2.11,
                     "name": "ASP.NET webform separates the HTML output from program logic using a feature named as",
