@@ -1,4 +1,4 @@
-import { Option } from '../quiz/option';
+import { Option } from './option';
 
 export class Question {
     id: number;

@@ -1,0 +1,45 @@
+<div class="container-fluid pr-5">
+  <div class="row mt-2">
+    <div class="col-11 custom-modal mt-sm-3" style="max-width: 650px;">
+      <div class="center col-11 mb-5 mt-5 text-justify">
+        <h2 class="center">Next Task</h2>
+        <hr class="shadow-sm">
+        <div class="d-flex justify-content-center row" *ngIf="activeSessionCheck()">
+        <!-- TASK DESCRIPTION -->
+          <mat-card class="content-card shadow mt-5">
+            <mat-card-header>
+              <mat-card-title>Task Description</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <mat-card-content class="ml-3 mt-4 text-left">
+                <p style="font-weight: 500; font-size: 15px;">{{ sessionService.activeTaskDescription }}</p>
+              </mat-card-content>
+          </mat-card>
+        <!-- TASK ACTION -->
+          <mat-card class="content-card shadow mt-5">
+            <mat-card-header>
+              <mat-card-title class="center">{{ sessionService.activeTaskName | transform | titlecase }}</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80" alt="Agile Picture">
+              <hr class="shadow-sm">
+            <div class="center-items pt-3">
+              <mat-card-actions>
+                <button mat-button type="button" class="btn align-middle btn-primary btn-lg"
+                 (click)="openTask()" >Start Task</button>
+              </mat-card-actions>
+            </div>
+          </mat-card>
+        </div>
+        <!-- IF TASK IS NOT FROM CURRENT SESSION -->
+        <div class="center mt-5 pt-5" *ngIf="!activeSessionCheck()">
+          <h2> Go to Current Session </h2>
+          <div class="m-5">
+              <button class="btn-lg btn-secondary" (click)="openNextSession()">{{ getActiveSession() | transform | titlecase  }}</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

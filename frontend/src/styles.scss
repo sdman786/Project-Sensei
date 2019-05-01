@@ -1,49 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
-@import './styles/variables';
-@import '../node_modules/bootstrap/scss/bootstrap';
+@import './node_modules/bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Righteous');
 
+// Variables
+@import './styles/variables';
+
 // App Component
-@import '../src/app/app.component.scss';
+@import './app/app.component.scss';
 
 // Home Component
-@import '../src/app/components/home/home.component.scss';
+@import './app/components/home/home.component.scss';
 
 // Login Component
-@import '../src/app/components/login/login.component.scss';
+@import './app/components/login/login.component.scss';
 
 // Register Component
-@import '../src/app/components/register/register.component.scss';
+@import './app/components/register/register.component.scss';
 
 // Lesson Component
-@import '../src/app/components/lesson/lesson.component.scss';
+@import './app/components/lesson/lesson.component.scss';
 
 // Quiz Component
-@import '../src/app/components/quiz/quiz.component.scss';
+@import './app/components/quiz/quiz.component.scss';
 
-// SessionTemplate Component
-@import '../src/app/components/session-template/session-template.component.scss';
+// Session Component
+@import './app/components/session/session.component.scss';
 
 // SessionOne Component
-@import '../src/app/components/session-template/session-one/session-one.component.scss';
+@import './app/components/session/session-one/session-one.component.scss';
 
 // SessionTwo Component
-@import '../src/app/components/session-template/session-two/session-two.component.scss';
+@import './app/components/session/session-two/session-two.component.scss';
 
 // SessionThree Component
-@import '../src/app/components/session-template/session-three/session-three.component.scss';
-
-
-
-
+@import './app/components/session/session-three/session-three.component.scss';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: $defaultFont; background: $defaultBackground; background-repeat: no-repeat;
     background-attachment: fixed; padding-top: 50px; padding-bottom: 50px; }
 
 
-
-    // GLOBAL STYLES
+// GLOBAL STYLES
 
 a {
     color: #ffffff;
@@ -82,7 +78,7 @@ a:hover {
     border-radius: 15px;
     margin-bottom: 20px;
     .content-card {
-        min-width: 200px;
+        min-width: 185px;
     }
 }
 

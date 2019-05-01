@@ -1,0 +1,300 @@
+<p class="title-label">Session <span class="defaultLightBlue">One</span></p>
+
+<!-- SIDE BAR COMPONENT -->
+<div class="m-t-1">
+  <app-sidebar></app-sidebar>
+</div>
+
+<div class="row mt-2">
+  <div class="col-11 custom-modal mt-sm-3" style="max-width:1000px">
+    <div class="row">
+      <div class="center col-11 mb-5 mt-5 text-justify">
+        <h2 class="center">Session 1 Lessons</h2>
+        <hr class="shadow-sm">
+
+        <h2 class="center">Agile</h2>
+        <hr class="shadow-sm">
+
+        <div class="d-flex justify-content-center row">
+          <mat-card class="center content-card shadow" *ngFor="let task of sessionStructure$.tasks">
+            <mat-card-header>
+              <mat-card-title>{{ task.name | transform | titlecase}}</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto" src="task.image" alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>{{ task.description }}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        <hr class="shadow-sm">
+        <h2 class="center">Scrum</h2>
+        <hr class="shadow-sm">
+
+        <!-- BEGINNING OF SCRUM LESSONS -->
+        <div class="d-flex justify-content-center row">
+
+        </div>
+        <!-- END OF SCRUM LESSONS -->
+
+        <hr class="shadow-sm">
+        <h2 class="center">Case Study</h2>
+        <hr class="shadow-sm">
+
+        <!-- BEGINNING OF CASE STUDY LESSONS -->
+        <div class="d-flex justify-content-center row">
+
+        </div>
+  <!-- BEGINNING OF AGILE LESSONS -->
+        <!-- <div class="d-flex justify-content-center row"> -->
+          <!-- AGILE INTRODCUTION -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Introduction to Agile</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                In this lesson we will introduce you to the Agile Methodology, teach you about Agile's History and tell
+                you
+                how popular Agile is today
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+
+          <!-- AGILE MANIFESTO -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>The Agile Manifesto</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+              alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                In this lesson we will discuss the Agile Manifesto, we will be dicussing the 12 core priciples and
+                explain what they mean.
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+
+          <!-- AGILE EFFECT -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>The Agile Effect</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                In this lesson we will discuss the Meaning of The Agile Effect and the difference Agile can make.
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+
+          <!-- AGILE QUIZ -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Quiz Time!</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80"
+              alt="Agile Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                This quiz will test your knowledge on Agile
+                Completing this quiz will allow you to proceed to the next stage
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+        <!-- </div> -->
+        <!-- END OF AGILE LESSONS -->
+          <!-- SCRUM INTRODUCTION -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Introduction to Agile Frameworks</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              alt="Scrum Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                Explaining what Agile Frameworks are.
+                The most commonly used Frameworks.
+                Introducing Scrum.
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+
+          <!-- SCRUM HISTORY -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>The History of Scrum</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1458040937381-49c067dfd49a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              alt="Scrum Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                How Scrum came to be.
+                How Popular Scrum is.
+                How Scrum is used today.
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+
+          <!-- SCRUM VALUE -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Scrum Guide</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1504807959081-3dafd3871909?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80"
+              alt="Scrum Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                What the Scrum Guide is.
+                What Scrums principles and values are.
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+
+          <!-- SCRUM VALUE -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Scrum Framework</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              alt="Scrum Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                What Sprints are and what they consist of.
+                How work is measure in Scrum.
+                What the Scrum Roles are and what they mean.
+                What the Scrum Events are.
+                What other Resources Scrum utilises.
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+
+          <!-- SCRUM EXAMPLE -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>An Example Scrum</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              alt="Scrum Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                What each role does on a day-to-day basis.
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+
+          <!-- SCRUM QUIZ -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+              <mat-card-title>Quiz Time!</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80"
+              alt="Scrum Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                This quiz will test your knowledge on Scrum
+                Completing this quiz will allow you to proceed to the next stage
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+          <!-- CASE STUDY LESSON 1 -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+
+              <mat-card-title>Introduction to Case Study</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              alt="Case Study Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                We will introduce the Case Study.
+                What your position is in the Case Study.
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+
+          <!-- CASE STUDY LESSON 2 -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+
+              <mat-card-title>Product Backlog</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80"
+              alt="Case Study Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                Based on the Case Study and Your Position in the Case Study you will be required to create a list of
+                requirements which will be known as the Product Backlog.
+                A Submission of the Product Backlog will allow you to continue to the next stage.
+              </p>
+            </mat-card-content>
+          </mat-card> -->
+
+          <!-- CASE STUDY QUIZ -->
+          <!-- <mat-card class="center content-card shadow">
+            <mat-card-header>
+
+              <mat-card-title>Quiz Time!</mat-card-title>
+            </mat-card-header>
+            <hr class="shadow-sm">
+            <img mat-card-image class="col-auto m-auto"
+              src="https://images.unsplash.com/photo-1536875489903-655d152ed785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80"
+              alt="Case Study Picture">
+            <hr class="shadow-sm">
+            <mat-card-content>
+              <p>
+                This quiz will test your knowledge on Case Study
+                Completing this quiz will allow you to proceed to the next stage
+              </p>
+            </mat-card-content>
+          </mat-card> -->

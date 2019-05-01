@@ -30,14 +30,16 @@ let User = new Schema({
     type: String,
     required: true
   },
+  upload:  {
+    type: [Object]
+  },
+  results:  {
+    type: [Object]
+  },
   hash: String,
   salt: String
 
 });
-
-// User.plugin(isUnique, {
-//   message: 'is already taken'
-// });
 
 // Creating a password
 User.methods.setPassword = function (password) {
@@ -70,7 +72,9 @@ User.methods.toAuthJSON = function () {
     email: this.email,
     token: this.generateJWT(),
     session: this.session,
-    task: this.task
+    task: this.task,
+    upload: this.upload,
+    results: this.results
   };
 };
 

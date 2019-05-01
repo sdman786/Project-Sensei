@@ -11,21 +11,31 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { QuizComponent } from './components/quiz/quiz.component';
-import { SessionOneComponent } from './components/session-template/session-one/session-one.component';
-import { SessionTwoComponent } from './components/session-template/session-two/session-two.component';
-import { SessionThreeComponent } from './components/session-template/session-three/session-three.component';
+import { SessionOneComponent } from './components/session/session-one/session-one.component';
+import { SessionTwoComponent } from './components/session/session-two/session-two.component';
+import { SessionThreeComponent } from './components/session/session-three/session-three.component';
 import { CaseStudyComponent } from './components/case-study/case-study.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarComponent, StringTransformer } from './components/session/sidebar/sidebar.component';
 import { MaterialModule } from './modules/material.module';
 import { LessonComponent } from './components/lesson/lesson.component';
-import { ActivityComponent } from './components/activity/activity.component';
-import { ListMakerComponent } from './components/activity/list-maker/list-maker.component';
+import { ActivityComponent, ActivityContent } from './components/activity/activity.component';
+import { ListMakerComponent, NewItemDialog } from './components/activity/list-maker/list-maker.component';
+import { User } from './models/user/user';
+import { SessionResolverService } from './services/resolvers/session-resolver.service';
+import { SessionService } from './services/session/session.service';
+import { UserResolverService } from './services/resolvers/user-resolver.service';
+import { UserService } from './services/user/user.service';
+import { Session_StructureResolverService } from './services/resolvers/session-structure-resolver.service';
 
 @NgModule({
     entryComponents: [
       HomeComponent,
       LessonComponent,
-      ActivityComponent
+      ActivityComponent,
+      QuizComponent,
+      ListMakerComponent,
+      NewItemDialog,
+      ActivityContent
     ],
   declarations: [
     AppComponent,
@@ -41,7 +51,10 @@ import { ListMakerComponent } from './components/activity/list-maker/list-maker.
     SidebarComponent,
     LessonComponent,
     ActivityComponent,
-    ListMakerComponent
+    ListMakerComponent,
+    ActivityContent,
+    NewItemDialog,
+    StringTransformer
   ],
   imports: [
     BrowserModule,
@@ -55,6 +68,7 @@ import { ListMakerComponent } from './components/activity/list-maker/list-maker.
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [User, SessionResolverService, Session_StructureResolverService, UserResolverService, UserService, SessionService]
 })
 export class AppModule { }
