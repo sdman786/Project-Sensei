@@ -34,11 +34,19 @@ export class RegisterComponent {
   }
 
   register() {
-    this.auth.register(this.user).subscribe(() => {
-      this.snackBar.open('Registration Successful! Welcome to Project Sensei', 'OK', {
-        duration: 3000,
-      });
-      this.router.navigateByUrl('/home');
+    this.auth.register(this.user).subscribe((data:any) => {
+		console.log("data", data);
+		if(!data.userExists){
+			this.snackBar.open('Registration Successful! Welcome to Project Sensei', 'OK', {
+			  duration: 3000,
+			});
+			this.router.navigateByUrl('/home');
+		}else{
+			this.snackBar.open('That username already exists!', 'OK', {
+			  duration: 3000,
+			});
+		}
+		
     }, (err) => {
       if (!this.user.username || !this.user.password || !this.user.name || !this.user.email) {
         this.snackBar.open('All fields must be filled', '', {
