@@ -18,7 +18,7 @@ export class RegisterComponent {
     email: '',
     password: '',
     session: 'session-one',
-    task: 'agile-intro',
+    task: 'introduction',
     upload: [],
     results: []
     };
